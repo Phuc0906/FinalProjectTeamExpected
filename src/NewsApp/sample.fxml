@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NewsApp.Controller">
    <top>
       <StackPane prefHeight="298.0" prefWidth="1500.0" BorderPane.alignment="TOP_CENTER">
          <children>
@@ -33,7 +33,7 @@
                            </opaqueInsets>
                         </Label>
                         <Button fx:id="btnCovid" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toCovidScene" prefHeight="56.0" prefWidth="117.0" styleClass="titleLabel" stylesheets="@TitleCss.css" text="Covid" />
-                        <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="112.0" styleClass="titleLabel" text="News" />
+                        <Button fx:id="btnNews" mnemonicParsing="false" onAction="#toNewsScene" prefHeight="56.0" prefWidth="112.0" styleClass="titleLabel" text="News" />
                         <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" styleClass="titleLabel" text="Politics" />
                         <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="136.0" styleClass="titleLabel" text="Business" />
                         <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="172.0" styleClass="titleLabel" text="Technology" />
