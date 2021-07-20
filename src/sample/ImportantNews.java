@@ -18,6 +18,7 @@ import java.util.concurrent.Flow;
 public class ImportantNews extends VBox {
     public ImportantNews(Pane mainPane) {
         setAlignment(Pos.TOP_CENTER);
+        setFillWidth(true);
         // create main news
 
         // Create HBox to contain some related news with main news
@@ -25,6 +26,7 @@ public class ImportantNews extends VBox {
         hBox.setHgap(6);
         hBox.setAlignment(Pos.TOP_CENTER);
         hBox.setPadding(new Insets(25, 20, 25, 50));
+        hBox.autosize();
 
         FlowPane mainNews = new FlowPane(Orientation.VERTICAL);
         // add photo to main news
