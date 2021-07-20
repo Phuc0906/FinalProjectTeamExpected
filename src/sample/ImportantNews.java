@@ -11,8 +11,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-import java.util.concurrent.Flow;
-
 // main news photo link: https://cdn.tuoitre.vn/zoom/504_315/2021/7/18/qltt-bhx-16265948769284065416-crop-16265965687281989892182.jpg
 
 public class ImportantNews extends VBox {
@@ -46,7 +44,7 @@ public class ImportantNews extends VBox {
         FlowPane relatedNews = new FlowPane(Orientation.VERTICAL);
         relatedNews.vgapProperty().bind(mainNews.heightProperty().divide(20));
         for (int i = 0; i < 5; i++) {
-            relatedNews.getChildren().add(new CustomeRelatedNews(hBox, mainNews, "Related news " + i));
+            relatedNews.getChildren().add(new CustomeRelatedNews("Related news " + i));
         }
 
         // create bonus news

@@ -11,7 +11,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class CustomeRelatedNews extends VBox {
-    public CustomeRelatedNews(Pane mainPane, Pane mainNews, String content) {
+    public CustomeRelatedNews(String content) {
         // setting the pane style
         setStyle("-fx-background-color: greenyellow");
         setPadding(new Insets(10));
