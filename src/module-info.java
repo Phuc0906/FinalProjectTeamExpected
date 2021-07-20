@@ -5,5 +5,5 @@ module FinalProjectTeamExpected {
     requires java.compiler;
     requires org.jsoup;
 
-    opens sample;
+    opens NewsApp;
 }

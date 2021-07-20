@@ -11,7 +11,7 @@
 }
 
 .topImage {
-    -fx-graphic: url("rmitPhoto2.jpg");
+    -fx-graphic: url("images/rmitPhoto2.jpg");
 }
 
 .importantNewsContent {
