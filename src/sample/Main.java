@@ -10,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         BorderPane borderPane = new BorderPane();
-        borderPane.setStyle("-fx-background-color: white");
+        borderPane.setStyle("-fx-background-color: white;");
 
         // set the template title for the main page
         // use the custom class for adding to all other scene

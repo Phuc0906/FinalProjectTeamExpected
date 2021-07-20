@@ -16,6 +16,7 @@ import javafx.scene.text.FontWeight;
 public class TopPane extends StackPane {
     public TopPane(BorderPane mainPane) {
         VBox vBox = new VBox();
+        vBox.setSpacing(5);
 
         // create rmit logos
         StackPane rmitPhoto = new StackPane();
@@ -34,7 +35,16 @@ public class TopPane extends StackPane {
         FlowPane hBox = new FlowPane(Orientation.HORIZONTAL);
         hBox.setAlignment(Pos.CENTER);
         hBox.setHgap(5);
-        String[] categories = { "Covid", "News", "Politics", "Business", "Technology", "Health", "Sports", "Entertainment", "World", "Others"};
+        hBox.setStyle("" +
+                "-fx-border-color: black;" +
+                "-fx-border-width: 3;" +
+                "-fx-background-color: lightgrey;");
+
+
+        Label rmitNews = new Label("Rmit Newspaper");
+        rmitNews.setFont(Font.font("Arial", FontWeight.NORMAL, 25));
+        rmitNews.setPadding(new Insets(5, 30, 5, 5));
+        hBox.getChildren().add(rmitNews);
 
         // add covid button
         CustomeButton covidButton = new CustomeButton("Covid");
@@ -113,7 +123,6 @@ public class TopPane extends StackPane {
         rmitPhoto.getChildren().add(imageView);
 
         vBox.getChildren().add(rmitPhoto);
-        vBox.getChildren().add(title);
         vBox.getChildren().add(hBox);
 
         getChildren().addAll(vBox);

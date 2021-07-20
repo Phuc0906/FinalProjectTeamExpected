@@ -8,6 +8,8 @@ public class CustomeButton extends Button {
     public CustomeButton(String buttonContent) {
         setText(buttonContent);
         setFont(Font.font("Arial", FontWeight.BOLD, 16));
-        setStyle("-fx-background-color: lightgrey");
+        setStyle("" +
+                "-fx-background-color: lightgrey;" +
+                "-fx-border-color: black;");
     }
 }
