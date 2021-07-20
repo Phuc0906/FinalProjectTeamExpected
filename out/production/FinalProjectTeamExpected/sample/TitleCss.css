@@ -1,0 +1,51 @@
+.titleLabel {
+    -fx-background-color: lightgrey;
+    -fx-font-size: 17;
+    -fx-alignment: center;
+}
+
+.buttonGroup {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-padding: 10;
+}
+
+.topImage {
+    -fx-graphic: url("rmitPhoto2.jpg");
+}
+
+.importantNewsContent {
+    -fx-font-size: 20;
+}
+
+.importantNewsTitile {
+    -fx-font-size: 30;
+}
+
+.relatedNewsTitle {
+    -fx-font-size: 20;
+}
+
+.importantNewsPane {
+    -fx-padding: 10;
+}
+
+.developerTitle {
+    -fx-font-size: 30;
+    -fx-text-fill: red;
+    -fx-alignment: center;
+}
+
+.developerList {
+    -fx-font-size: 15;
+    -fx-text-fill: black;
+    -fx-alignment: center;
+    -fx-padding: 5;
+}
+
+.developerPane {
+    -fx-padding: 10;
+    -fx-border-color: black;
+    -fx-border-width: 3;
+    -fx-background-color: lightgrey;
+}
