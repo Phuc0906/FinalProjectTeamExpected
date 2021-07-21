@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="484.0" prefWidth="638.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PageController">
+    <Button fx:id="logo" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" onAction="#toHomePage" prefHeight="98.0" prefWidth="188.0" style="-fx-background-color: white;" text="Vietcetera." AnchorPane.leftAnchor="10.0">
+        <font>
+            <Font name="Javanese Text" size="30.0" />
+        </font>
+    </Button>
+    <HBox layoutX="4.0" layoutY="106.0" prefHeight="37.0" prefWidth="630.0" style="-fx-background-color: white; -fx-border-color: green;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <Button fx:id="New" mnemonicParsing="false" onAction="#toNewPage" style="-fx-background-color: white;" text="New">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="covid" mnemonicParsing="false" style="-fx-background-color: white;" text="Covid">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="politics" mnemonicParsing="false" style="-fx-background-color: white;" text="Politics">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="business" mnemonicParsing="false" style="-fx-background-color: white;" text="Business">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="tech" mnemonicParsing="false" style="-fx-background-color: white;" text="Tech">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="health" mnemonicParsing="false" style="-fx-background-color: white;" text="Health">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="sports" mnemonicParsing="false" style="-fx-background-color: white;" text="Sports">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="entertainment" mnemonicParsing="false" style="-fx-background-color: white;" text="Entertainment">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="world" mnemonicParsing="false" style="-fx-background-color: white;" text="World">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="others" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: white;" text="Others">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+    </HBox>
+</AnchorPane>
