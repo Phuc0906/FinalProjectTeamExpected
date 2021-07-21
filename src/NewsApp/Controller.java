@@ -4,6 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -24,5 +26,13 @@ public class Controller {
         Stage stage = (Stage) btnNews.getScene().getWindow();
         Scene scene = new Scene(root, 1500, 1000);
         stage.setScene(scene);
+    }
+
+    @FXML
+    ImageView rmitImage;
+    private Image rmitPhoto = new Image("https://www.rmit.edu.vn/content/dam/rmit/vn/en/assets-for-production/images/news/New_headers_RMIT.jpg");
+
+    public void setRmitPhoto() {
+        rmitImage.setImage(rmitPhoto);
     }
 }

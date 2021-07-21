@@ -2,12 +2,35 @@
     -fx-background-color: lightgrey;
     -fx-font-size: 17;
     -fx-alignment: center;
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
 }
 
 .buttonGroup {
     -fx-border-color: black;
     -fx-border-width: 2;
+    -fx-background-radius: 30;
     -fx-padding: 10;
+}
+
+.button {
+    -fx-background-color: violet;
+    -fx-border-color: violet;
+    -fx-border-width: 2;
+    -fx-font-size: 17;
+    -fx-alignment: center;
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+}
+
+.button:hover {
+    -fx-background-color: white;
+    -fx-border-color: violet;
+    -fx-border-width: 2;
+    -fx-font-size: 17;
+    -fx-alignment: center;
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
 }
 
 .topImage {
@@ -48,4 +71,16 @@
     -fx-border-color: black;
     -fx-border-width: 3;
     -fx-background-color: lightgrey;
+}
+
+.titleImage {
+    -fx-alignment: center;
+}
+
+.titlePane {
+    -fx-background-color: red;
+}
+
+.custom_title {
+    -fx-font-size: 60;
 }
