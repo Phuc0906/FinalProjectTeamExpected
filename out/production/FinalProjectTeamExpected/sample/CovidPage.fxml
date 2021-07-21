@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="484.0" prefWidth="638.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PageController">
+<AnchorPane prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PageController">
     <Button fx:id="logo" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" onAction="#toHomePage" prefHeight="98.0" prefWidth="188.0" style="-fx-background-color: white;" text="Vietcetera." AnchorPane.leftAnchor="10.0">
         <font>
             <Font name="Javanese Text" size="30.0" />
@@ -62,4 +62,9 @@
             </font>
         </Button>
     </HBox>
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="346.0" layoutY="158.0" prefHeight="105.0" prefWidth="154.0" style="-fx-background-color: white;" text="Covid" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="500.0">
+        <font>
+            <Font name="Georgia Bold Italic" size="50.0" />
+        </font>
+    </Label>
 </AnchorPane>
