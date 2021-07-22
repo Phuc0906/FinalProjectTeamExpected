@@ -121,17 +121,17 @@
                                         <Image url="@../images/inmportantNewsImage.jpeg" />
                                     </image>
                                 </ImageView>
-                                <Label prefHeight="37.0" prefWidth="320.0" styleClass="importantNewsTitile" stylesheets="@../TitleCss.css" text="Important news titile" />
-                                <Label prefHeight="26.0" prefWidth="327.0" styleClass="importantNewsContent" stylesheets="@../TitleCss.css" text="Content" />
+                                <Label fx:id="importantTitle" onDragDetected="#setImportantTitle" prefHeight="37.0" prefWidth="480.0" styleClass="importantNewsTitile" stylesheets="@../TitleCss.css" text="Code" />
+                                <Label fx:id="importantContent" onDragDetected="#setImportantContent" prefHeight="26.0" prefWidth="424.0" styleClass="importantNewsContent" stylesheets="@../TitleCss.css" text="Code" />
                             </children>
                         </VBox>
                         <VBox prefHeight="448.0" prefWidth="209.0" spacing="10.0">
                             <children>
-                                <Label prefHeight="41.0" prefWidth="215.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Related news 1" />
-                                <Label prefHeight="44.0" prefWidth="189.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Related News 2" />
-                                <Label prefHeight="40.0" prefWidth="203.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="related news 3" />
-                                <Label prefHeight="28.0" prefWidth="192.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Related news 4" />
-                                <Label lineSpacing="10.0" prefHeight="37.0" prefWidth="171.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Related news 5" />
+                                <Label fx:id="relatedNews1" onDragDetected="#setRelatedNews1" prefHeight="41.0" prefWidth="215.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Code" />
+                                <Label fx:id="relatedNews2" onDragDetected="#setRelatedNews2" prefHeight="44.0" prefWidth="189.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Code" />
+                                <Label fx:id="relatedNews3" onDragDetected="#setRelatedNews3" prefHeight="40.0" prefWidth="203.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Code" />
+                                <Label fx:id="relatedNews4" onDragDetected="#setRelatedNews4" prefHeight="28.0" prefWidth="192.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Code" />
+                                <Label fx:id="relatedNews5" lineSpacing="10.0" onDragDetected="#setRelatedNews5" prefHeight="37.0" prefWidth="171.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Code" />
                             </children>
                         </VBox>
                     </children>
