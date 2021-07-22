@@ -23,7 +23,7 @@
             <children>
                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                     <children>
-                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" styleClass="titleImage" stylesheets="@TitleCss.css">
+                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" styleClass="titleImage" stylesheets="@../TitleCss.css">
                             <children>
                         <StackPane prefHeight="276.0" prefWidth="619.0">
                            <children>
@@ -45,7 +45,7 @@
                                     </LinearGradient>
                                  </fill>
                               </Rectangle>
-                                      <Label alignment="CENTER" prefHeight="276.0" prefWidth="635.0" styleClass="custom_title" stylesheets="@TitleCss.css" text="Rmit Newspaper" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                                      <Label alignment="CENTER" prefHeight="276.0" prefWidth="635.0" styleClass="custom_title" stylesheets="@../TitleCss.css" text="Rmit Newspaper" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                                  <effect>
                                     <InnerShadow blurType="ONE_PASS_BOX">
                                        <color>
@@ -74,17 +74,17 @@
                               </Label>
                            </children>
                         </StackPane>
-                                <ImageView fx:id="rmitImage" fitHeight="273.0" fitWidth="887.0" onDragDetected="#setRmitPhoto" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="273.0" fitWidth="887.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/RmitPhoto.jpeg" />
+                              <Image url="@../images/RmitPhoto.jpeg" />
                            </image></ImageView>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="88.0" prefWidth="1500.0" spacing="5.0" styleClass="buttonGroup" stylesheets="@TitleCss.css">
+                        <HBox alignment="CENTER" prefHeight="88.0" prefWidth="1500.0" spacing="5.0" styleClass="buttonGroup" stylesheets="@../TitleCss.css">
                             <children>
-                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="95.0" stylesheets="@TitleCss.css" text="Home" />
-                                <Button fx:id="btnCovid" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toCovidScene" prefHeight="56.0" prefWidth="117.0" stylesheets="@TitleCss.css" text="Covid" />
-                                <Button fx:id="btnNews" mnemonicParsing="false" onAction="#toNewsScene" prefHeight="56.0" prefWidth="112.0" text="News" />
+                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="95.0" stylesheets="@../TitleCss.css" text="Home" />
+                                <Button fx:id="btnCovid" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toCovidPage" prefHeight="56.0" prefWidth="117.0" stylesheets="@../TitleCss.css" text="Covid" />
+                                <Button fx:id="btnNews" mnemonicParsing="false" onAction="#toNewsPage" prefHeight="56.0" prefWidth="112.0" text="News" />
                                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" text="Politics" />
                                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="136.0" text="Business" />
                                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="172.0" text="Technology" />
@@ -112,26 +112,26 @@
                 <Insets top="50.0" />
             </opaqueInsets>
             <children>
-                <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="importantNewsPane" stylesheets="@TitleCss.css">
+                <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="importantNewsPane" stylesheets="@../TitleCss.css">
                     <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                             <children>
                                 <ImageView fitHeight="297.0" fitWidth="504.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@images/inmportantNewsImage.jpeg" />
+                                        <Image url="@../images/inmportantNewsImage.jpeg" />
                                     </image>
                                 </ImageView>
-                                <Label prefHeight="37.0" prefWidth="320.0" styleClass="importantNewsTitile" stylesheets="@TitleCss.css" text="Important news titile" />
-                                <Label prefHeight="26.0" prefWidth="327.0" styleClass="importantNewsContent" stylesheets="@TitleCss.css" text="Content" />
+                                <Label prefHeight="37.0" prefWidth="320.0" styleClass="importantNewsTitile" stylesheets="@../TitleCss.css" text="Important news titile" />
+                                <Label prefHeight="26.0" prefWidth="327.0" styleClass="importantNewsContent" stylesheets="@../TitleCss.css" text="Content" />
                             </children>
                         </VBox>
                         <VBox prefHeight="448.0" prefWidth="209.0" spacing="10.0">
                             <children>
-                                <Label prefHeight="41.0" prefWidth="215.0" styleClass="relatedNewsTitle" stylesheets="@TitleCss.css" text="Related news 1" />
-                                <Label prefHeight="44.0" prefWidth="189.0" styleClass="relatedNewsTitle" stylesheets="@TitleCss.css" text="Related News 2" />
-                                <Label prefHeight="40.0" prefWidth="203.0" styleClass="relatedNewsTitle" stylesheets="@TitleCss.css" text="related news 3" />
-                                <Label prefHeight="28.0" prefWidth="192.0" styleClass="relatedNewsTitle" stylesheets="@TitleCss.css" text="Related news 4" />
-                                <Label lineSpacing="10.0" prefHeight="37.0" prefWidth="171.0" styleClass="relatedNewsTitle" stylesheets="@TitleCss.css" text="Related news 5" />
+                                <Label prefHeight="41.0" prefWidth="215.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Related news 1" />
+                                <Label prefHeight="44.0" prefWidth="189.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Related News 2" />
+                                <Label prefHeight="40.0" prefWidth="203.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="related news 3" />
+                                <Label prefHeight="28.0" prefWidth="192.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Related news 4" />
+                                <Label lineSpacing="10.0" prefHeight="37.0" prefWidth="171.0" styleClass="relatedNewsTitle" stylesheets="@../TitleCss.css" text="Related news 5" />
                             </children>
                         </VBox>
                     </children>
@@ -140,13 +140,13 @@
         </VBox>
     </center>
     <right>
-        <VBox alignment="TOP_CENTER" prefHeight="468.0" prefWidth="246.0" styleClass="developerPane" stylesheets="@TitleCss.css" BorderPane.alignment="CENTER">
+        <VBox alignment="TOP_CENTER" prefHeight="468.0" prefWidth="246.0" styleClass="developerPane" stylesheets="@../TitleCss.css" BorderPane.alignment="CENTER">
             <children>
-                <Label prefHeight="37.0" prefWidth="266.0" styleClass="developerTitle" stylesheets="@TitleCss.css" text="Developers:" />
-                <Label prefHeight="19.0" prefWidth="127.0" styleClass="developerList" stylesheets="@TitleCss.css" text="Dev1" />
-                <Label styleClass="developerList" stylesheets="@TitleCss.css" text="Dev2" />
-                <Label styleClass="developerList" stylesheets="@TitleCss.css" text="Dev3" />
-                <Label styleClass="developerList" stylesheets="@TitleCss.css" text="Dev4" />
+                <Label prefHeight="37.0" prefWidth="266.0" styleClass="developerTitle" stylesheets="@../TitleCss.css" text="Developers:" />
+                <Label prefHeight="19.0" prefWidth="127.0" styleClass="developerList" stylesheets="@../TitleCss.css" text="Dev1" />
+                <Label styleClass="developerList" stylesheets="@../TitleCss.css" text="Dev2" />
+                <Label styleClass="developerList" stylesheets="@../TitleCss.css" text="Dev3" />
+                <Label styleClass="developerList" stylesheets="@../TitleCss.css" text="Dev4" />
             </children>
         </VBox>
     </right>
