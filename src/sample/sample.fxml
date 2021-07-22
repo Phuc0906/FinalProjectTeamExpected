@@ -1,8 +1,149 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="108.0" prefWidth="1280.0">
+               <children>
+                  <StackPane prefHeight="108.0" prefWidth="1282.0">
+                     <children>
+                        <Label id="label1" prefHeight="57.0" prefWidth="1286.0" stylesheets="@application.css" text="RMIT BREAKING NEWS">
+                           <font>
+                              <Font name="Jokerman" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="37.0" prefWidth="1280.0" style="-fx-background-color: white;">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #CC99CC;" stylesheets="@application.css" text="News">
+                     <font>
+                        <Font name="Jokerman" size="16.0" />
+                     </font></Button>
+                  <Button alignment="CENTER" layoutX="623.0" layoutY="43.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #6699CC;" stylesheets="@application.css" text="Covids">
+                     <font>
+                        <Font name="Jokerman" size="16.0" />
+                     </font></Button>
+                  <Button alignment="CENTER" layoutX="650.0" layoutY="43.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #669999;" stylesheets="@application.css" text="Polititcs">
+                     <font>
+                        <Font name="Jokerman" size="16.0" />
+                     </font></Button>
+                  <Button alignment="CENTER" layoutX="564.0" layoutY="43.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #666699;" stylesheets="@application.css" text="Business">
+                     <font>
+                        <Font name="Jokerman" size="16.0" />
+                     </font></Button>
+                  <Button alignment="CENTER" layoutX="618.0" layoutY="43.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #6699CC;" stylesheets="@application.css" text="Technology">
+                     <font>
+                        <Font name="Jokerman" size="16.0" />
+                     </font></Button>
+                  <Button alignment="CENTER" layoutX="673.0" layoutY="43.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #CC99CC;" stylesheets="@application.css" text="Health">
+                     <font>
+                        <Font name="Jokerman" size="16.0" />
+                     </font></Button>
+                  <Button alignment="CENTER" layoutX="702.0" layoutY="43.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #666699;" stylesheets="@application.css" text="Sport">
+                     <font>
+                        <Font name="Jokerman" size="16.0" />
+                     </font></Button>
+                  <Button alignment="CENTER" layoutX="785.0" layoutY="43.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #669999;" stylesheets="@application.css" text="Entertainment">
+                     <font>
+                        <Font name="Jokerman" size="16.0" />
+                     </font></Button>
+                  <Button alignment="CENTER" layoutX="626.0" layoutY="43.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #6699CC;" stylesheets="@application.css" text="World">
+                     <font>
+                        <Font name="Jokerman" size="16.0" />
+                     </font></Button>
+                  <Button alignment="CENTER" layoutX="888.0" layoutY="43.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #336666;" stylesheets="@application.css" text="Others">
+                     <font>
+                        <Font name="Jokerman" size="16.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox prefHeight="462.0" prefWidth="1280.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" spacing="10.0">
+               <opaqueInsets>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+               <children>
+                  <AnchorPane prefHeight="246.0" prefWidth="1278.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="846.0" layoutY="18.0" prefHeight="178.0" prefWidth="310.0" style="-fx-background-color: grey;" text="Text" AnchorPane.bottomAnchor="19.0" AnchorPane.topAnchor="18.0" />
+                        <VBox alignment="TOP_CENTER" layoutX="-1.0" layoutY="-2.0" prefHeight="248.0" prefWidth="286.0" spacing="12.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="983.0">
+                           <children>
+                              <Label alignment="CENTER" text="Hot News" />
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="#1" />
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="#2" />
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="#3" />
+                           </children>
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="411.0" layoutY="11.0" prefHeight="222.0" prefWidth="311.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="204.0" prefWidth="219.0" style="-fx-background-color: grey;" text="Picture" />
+                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="134.0" text="Tttle" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="215.0" prefWidth="1280.0">
+               <children>
+                  <AnchorPane prefHeight="240.0" prefWidth="1280.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="408.0" layoutY="14.0" prefHeight="178.0" prefWidth="310.0" style="-fx-background-color: grey;" text="Text" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="408.0" AnchorPane.rightAnchor="562.0" AnchorPane.topAnchor="14.0" />
+                        <VBox alignment="TOP_CENTER" layoutX="2.0" layoutY="-1.0" prefHeight="206.0" prefWidth="285.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="993.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" text="Covid-19" />
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="#1" />
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="#2" />
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="#3" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="884.0" layoutY="14.0" prefHeight="220.0" prefWidth="253.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="884.0" AnchorPane.rightAnchor="143.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="180.0" prefWidth="219.0" style="-fx-background-color: grey;" text="Picture" />
+                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="134.0" text="Tttle" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1280.0" style="-fx-background-color: #333333;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" text="Expected" textFill="#fff8f8">
+               <font>
+                  <Font name="Algerian" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

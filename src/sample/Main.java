@@ -10,9 +10,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        primaryStage.setTitle("Testing branch");
-        // thia thuan
-        primaryStage.show();
+          Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+          Scene scene = new Scene(root);
+          scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+          primaryStage.setScene(scene);
+          primaryStage.setTitle("CSS showed");
+          primaryStage.show();
     }
 
 

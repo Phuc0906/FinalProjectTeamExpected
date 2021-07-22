@@ -1,0 +1,14 @@
+.button{
+    -fx-font-size: 14;
+    -fx-text-fill: black;
+    -fx-font-family: Gadugi;
+}
+
+.button:hover{
+    color: pink;
+}
+
+#label1{
+    -fx-alignment: center;
+}
+
