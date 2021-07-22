@@ -109,7 +109,7 @@
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="myText" alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="659.0" prefWidth="288.0" text="Label" />
+            <Label fx:id="myText" alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" onDragDetected="#setMyText" prefHeight="659.0" prefWidth="288.0" text="Label" />
          </children></HBox>
    </center>
 </BorderPane>

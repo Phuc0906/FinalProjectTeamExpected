@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NewsApp.CovidController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NewsApp.NewsController">
     <top>
         <StackPane prefHeight="298.0" prefWidth="1500.0" BorderPane.alignment="TOP_CENTER">
             <children>
@@ -83,8 +83,8 @@
                         <HBox alignment="CENTER" prefHeight="88.0" prefWidth="1500.0" spacing="5.0" styleClass="buttonGroup" stylesheets="@../TitleCss.css">
                             <children>
                                 <Button fx:id="btnHome" mnemonicParsing="false" onAction="#toHomePage" prefHeight="51.0" prefWidth="95.0" stylesheets="@../TitleCss.css" text="Home" />
-                                <Button fx:id="btnCovid" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toCovidScene" prefHeight="56.0" prefWidth="117.0" stylesheets="@../TitleCss.css" text="Covid" />
-                                <Button fx:id="btnNews" mnemonicParsing="false" onAction="#toNewsScene" prefHeight="56.0" prefWidth="112.0" text="News" />
+                                <Button fx:id="btnCovid" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toCovidPage" prefHeight="56.0" prefWidth="117.0" stylesheets="@../TitleCss.css" text="Covid" />
+                                <Button fx:id="btnNews" mnemonicParsing="false" onAction="#toNewsPage" prefHeight="56.0" prefWidth="112.0" text="News" />
                                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" text="Politics" />
                                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="136.0" text="Business" />
                                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="172.0" text="Technology" />
@@ -106,10 +106,7 @@
             </children>
         </StackPane>
     </top>
-   <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="myText" alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" onDragDetected="#setMyText" prefHeight="659.0" prefWidth="288.0" text="Label" />
-         </children></HBox>
-   </center>
+    <center>
+        <Label prefHeight="130.0" prefWidth="341.0" styleClass="importantNewsTitile" stylesheets="@../TitleCss.css" text="Important News" BorderPane.alignment="CENTER" />
+    </center>
 </BorderPane>

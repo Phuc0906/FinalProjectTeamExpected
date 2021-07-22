@@ -27,7 +27,7 @@
                             <children>
                         <StackPane prefHeight="276.0" prefWidth="619.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="276.0" stroke="BLACK" strokeType="INSIDE" width="613.0">
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="272.0" stroke="BLACK" strokeType="INSIDE" width="632.0">
                                  <fill>
                                     <LinearGradient endX="0.841726618705036" endY="0.47242206235011985" startX="0.04316546762589928" startY="1.0">
                                        <stops>
@@ -45,7 +45,7 @@
                                     </LinearGradient>
                                  </fill>
                               </Rectangle>
-                                      <Label alignment="CENTER" prefHeight="276.0" prefWidth="635.0" styleClass="custom_title" stylesheets="@../TitleCss.css" text="Rmit Newspaper" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                                      <Label alignment="CENTER" styleClass="custom_title" stylesheets="@../TitleCss.css" text="Rmit Newspaper" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                                  <effect>
                                     <InnerShadow blurType="ONE_PASS_BOX">
                                        <color>
@@ -114,9 +114,9 @@
             <children>
                 <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="importantNewsPane" stylesheets="@../TitleCss.css">
                     <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                        <VBox fx:id="impNews" onMouseClicked="#clickImportantNews" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                             <children>
-                                <ImageView fitHeight="297.0" fitWidth="504.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fx:id="mouseButton" fitHeight="297.0" fitWidth="504.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../images/inmportantNewsImage.jpeg" />
                                     </image>
