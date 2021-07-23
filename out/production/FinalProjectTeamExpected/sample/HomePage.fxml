@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="mainPane" prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PageController">
+   <Button fx:id="logo" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="188.0" style="-fx-background-color: white;" text="Vietcetera." AnchorPane.leftAnchor="10.0">
+      <font>
+         <Font name="Javanese Text" size="30.0" />
+      </font>
+   </Button>
+   <HBox layoutX="4.0" layoutY="106.0" prefHeight="37.0" prefWidth="630.0" style="-fx-background-color: white; -fx-border-color: green;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <Button fx:id="New" mnemonicParsing="false" onAction="#toNewPage" style="-fx-background-color: white;" text="New">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="covid" mnemonicParsing="false" onAction="#toCovidPage" style="-fx-background-color: white;" text="Covid">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="politics" mnemonicParsing="false" style="-fx-background-color: white;" text="Politics">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="business" mnemonicParsing="false" style="-fx-background-color: white;" text="Business">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="tech" mnemonicParsing="false" style="-fx-background-color: white;" text="Tech">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="health" mnemonicParsing="false" style="-fx-background-color: white;" text="Health">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="sports" mnemonicParsing="false" style="-fx-background-color: white;" text="Sports">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="entertainment" mnemonicParsing="false" style="-fx-background-color: white;" text="Entertainment">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="world" mnemonicParsing="false" style="-fx-background-color: white;" text="World">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="others" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: white;" text="Others">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </HBox>
+   <ImageView fx:id="ads" fitHeight="106.0" fitWidth="408.0" layoutX="296.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0">
+      <Image url="file:/C:/Users/84919/Downloads/970x250-retina.jpg" />
+   </ImageView>
+   <ScrollPane hbarPolicy="NEVER" layoutX="319.0" layoutY="243.0" pannable="true" prefHeight="548.0" prefWidth="1000.0" style="-fx-background-color: white;" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <content>
+         <VBox prefHeight="547.0" prefWidth="985.0">
+            <children>
+               <SplitPane prefHeight="200.0" prefWidth="200.0">
+                  <items>
+                     <ImageView fitHeight="197.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="file:/C:/Users/84919/Downloads/feature-5.jpg" />
+                        </image>
+                     </ImageView>
+                  </items>
+               </SplitPane>
+            </children>
+         </VBox>
+      </content>
+   </ScrollPane>
+   <Button fx:id="searchBtn" layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#search" text="SEARCH" />
+   <TextField fx:id="searchField" layoutX="73.0" layoutY="143.0" />
+</AnchorPane>
