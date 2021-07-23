@@ -23,6 +23,7 @@ public class CovidController {
     public void toCovidScene() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLFile/CovidPage.fxml"));
         Stage stage = (Stage) btnCovid.getScene().getWindow();
+        setMyText();
         Scene scene = new Scene(root, 1500, 1000);
         stage.setScene(scene);
     }
