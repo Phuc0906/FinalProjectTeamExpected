@@ -14,7 +14,7 @@ public class Main extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception{
-        Parent homePage = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        Parent homePage = FXMLLoader.load(getClass().getResource("pageFXML/HomePage.fxml"));
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage,1000, 720));
         primaryStage.show();

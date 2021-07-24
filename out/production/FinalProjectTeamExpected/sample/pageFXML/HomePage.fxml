@@ -67,8 +67,6 @@
    <ImageView fx:id="ads" fitHeight="106.0" fitWidth="408.0" layoutX="296.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0">
       <Image url="file:/C:/Users/84919/Downloads/970x250-retina.jpg" />
    </ImageView>
-   <Button fx:id="searchBtn" layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#search" text="SEARCH" />
-   <TextField fx:id="searchField" layoutX="73.0" layoutY="143.0" />
    <HBox layoutX="10.0" layoutY="196.0" prefHeight="524.0" prefWidth="932.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
       <children>
          <VBox prefHeight="524.0" prefWidth="365.0">

@@ -21,97 +21,94 @@ public class PageController {
     private Scene scene;
     private Parent root;
 
-    @FXML
-    Button New, covid, politics, business, health, entertainment, sports, world, others, tech;
+
     public void toNewPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("NewPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pageFXML/NewPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
+
     public void toHomePage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pageFXML/HomePage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    @FXML
+
     public void toCovidPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("CovidPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pageFXML/CovidPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
+
     public void toPoliticsPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("PoliticsPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pageFXML/PoliticsPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
+
     public void toBusinessPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("BusinessPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pageFXML/BusinessPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
+
     public void toTechPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("TechPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pageFXML/TechPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
+
     public void toHealthPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("HealthPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pageFXML/HealthPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
+
     public void toSportsPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("SportsPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pageFXML/SportsPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
+
     public void toEntertainmentPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("EntertainmentPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pageFXML/EntertainmentPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
+
     public void toWorldPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("WorldPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pageFXML/WorldPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
+
     public void toOthersPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("OthersPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pageFXML/OthersPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
-
 
 }
