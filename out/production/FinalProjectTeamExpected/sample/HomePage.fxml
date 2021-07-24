@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -22,42 +23,42 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="politics" mnemonicParsing="false" style="-fx-background-color: white;" text="Politics">
+      <Button fx:id="politics" mnemonicParsing="false" onAction="#toPoliticsPage" style="-fx-background-color: white;" text="Politics">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="business" mnemonicParsing="false" style="-fx-background-color: white;" text="Business">
+      <Button fx:id="business" mnemonicParsing="false" onAction="#toBusinessPage" style="-fx-background-color: white;" text="Business">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="tech" mnemonicParsing="false" style="-fx-background-color: white;" text="Tech">
+      <Button fx:id="tech" mnemonicParsing="false" onAction="#toTechPage" style="-fx-background-color: white;" text="Tech">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="health" mnemonicParsing="false" style="-fx-background-color: white;" text="Health">
+      <Button fx:id="health" mnemonicParsing="false" onAction="#toHealthPage" style="-fx-background-color: white;" text="Health">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="sports" mnemonicParsing="false" style="-fx-background-color: white;" text="Sports">
+      <Button fx:id="sports" mnemonicParsing="false" onAction="#toSportsPage" style="-fx-background-color: white;" text="Sports">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="entertainment" mnemonicParsing="false" style="-fx-background-color: white;" text="Entertainment">
+      <Button fx:id="entertainment" mnemonicParsing="false" onAction="#toEntertainmentPage" style="-fx-background-color: white;" text="Entertainment">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="world" mnemonicParsing="false" style="-fx-background-color: white;" text="World">
+      <Button fx:id="world" mnemonicParsing="false" onAction="#toWorldPage" style="-fx-background-color: white;" text="World">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="others" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: white;" text="Others">
+      <Button fx:id="others" mnemonicParsing="false" onAction="#toOthersPage" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: white;" text="Others">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -66,23 +67,77 @@
    <ImageView fx:id="ads" fitHeight="106.0" fitWidth="408.0" layoutX="296.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0">
       <Image url="file:/C:/Users/84919/Downloads/970x250-retina.jpg" />
    </ImageView>
-   <ScrollPane hbarPolicy="NEVER" layoutX="319.0" layoutY="243.0" pannable="true" prefHeight="548.0" prefWidth="1000.0" style="-fx-background-color: white;" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-      <content>
-         <VBox prefHeight="547.0" prefWidth="985.0">
-            <children>
-               <SplitPane prefHeight="200.0" prefWidth="200.0">
-                  <items>
-                     <ImageView fitHeight="197.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="file:/C:/Users/84919/Downloads/feature-5.jpg" />
-                        </image>
-                     </ImageView>
-                  </items>
-               </SplitPane>
-            </children>
-         </VBox>
-      </content>
-   </ScrollPane>
    <Button fx:id="searchBtn" layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#search" text="SEARCH" />
    <TextField fx:id="searchField" layoutX="73.0" layoutY="143.0" />
+   <HBox layoutX="10.0" layoutY="196.0" prefHeight="524.0" prefWidth="932.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+      <children>
+         <VBox prefHeight="524.0" prefWidth="365.0">
+            <children>
+               <ImageView fitHeight="307.0" fitWidth="368.0" pickOnBounds="true" preserveRatio="true">
+                  <VBox.margin>
+                     <Insets left="10.0" />
+                  </VBox.margin>
+                  <image>
+                     <Image url="file:/C:/Users/84919/Downloads/0ktMni.jpg" />
+                  </image>
+               </ImageView>
+               <Label prefHeight="175.0" prefWidth="379.0" text="wadasdqwdasdasda">
+                  <VBox.margin>
+                     <Insets left="10.0" />
+                  </VBox.margin>
+               </Label>
+            </children>
+         </VBox>
+         <VBox prefHeight="524.0" prefWidth="615.0" spacing="10.0">
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <padding>
+               <Insets left="10.0" />
+            </padding>
+            <children>
+               <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <children>
+                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="file:/C:/Users/84919/Downloads/0ktMni.jpg" />
+                        </image>
+                     </ImageView>
+                     <Label text="shadohoquhxljkxashcukwhuodhjlashcljah" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <children>
+                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="file:/C:/Users/84919/Downloads/0ktMni.jpg" />
+                        </image>
+                     </ImageView>
+                     <Label text="Label" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <children>
+                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="file:/C:/Users/84919/Downloads/0ktMni.jpg" />
+                        </image>
+                     </ImageView>
+                     <Label text="Label" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <children>
+                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="file:/C:/Users/84919/Downloads/0ktMni.jpg" />
+                        </image>
+                     </ImageView>
+                     <Label text="Label" />
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+      </children>
+   </HBox>
 </AnchorPane>
