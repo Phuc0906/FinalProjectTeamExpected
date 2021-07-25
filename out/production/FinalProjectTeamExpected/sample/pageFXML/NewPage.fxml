@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="720.0" maxWidth="1000.0" prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PageController">
+<AnchorPane maxHeight="720.0" maxWidth="1000.0" prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PageController">
    <Button fx:id="logo" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" onAction="#toHomePage" prefHeight="98.0" prefWidth="188.0" style="-fx-background-color: white;" text="Vietcetera." AnchorPane.leftAnchor="10.0">
       <font>
          <Font name="Javanese Text" size="30.0" />
@@ -77,7 +81,7 @@
             <children>
                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="file:/C:/Users/84919/Downloads/ZjWm65.jpg" />
+                     <Image url="@../Image/ZjWm65.jpg" />
                   </image>
                </ImageView>
                <Label text="Label" />
@@ -87,7 +91,7 @@
             <children>
                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="file:/C:/Users/84919/Downloads/ZjWm65.jpg" />
+                     <Image url="@../Image/ZjWm65.jpg" />
                   </image>
                </ImageView>
                <Label text="Label" />
@@ -97,7 +101,7 @@
             <children>
                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="file:/C:/Users/84919/Downloads/ZjWm65.jpg" />
+                     <Image url="@../Image/ZjWm65.jpg" />
                   </image>
                </ImageView>
                <Label text="Label" />
@@ -107,7 +111,7 @@
             <children>
                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="file:/C:/Users/84919/Downloads/ZjWm65.jpg" />
+                     <Image url="@../Image/ZjWm65.jpg" />
                   </image>
                </ImageView>
                <Label text="Label" />

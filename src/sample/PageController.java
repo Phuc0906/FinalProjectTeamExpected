@@ -1,19 +1,11 @@
 package sample;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import javax.swing.event.AncestorEvent;
 import java.io.IOException;
 
 public class PageController {
@@ -40,7 +32,11 @@ public class PageController {
 
 
     public void toCovidPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/CovidPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
+//        root = FXMLLoader.load(getClass().getResource("pageFXML/CovidPage.fxml"));
+        root = loader.load();
+        CovidController covidController = loader.getController();
+        covidController.setCovidImage();
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -110,5 +106,4 @@ public class PageController {
         stage.setScene(scene);
         stage.show();
     }
-
 }
