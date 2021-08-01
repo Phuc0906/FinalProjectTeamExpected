@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import sample.NewsClass.VnExpressCateURL;
+import sample.NewsClass.WorldNews;
 
 
 public class Main extends Application {
@@ -18,6 +20,9 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(homePage,1000, 720));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
+        VnExpressCateURL vnExpressCateURL = new VnExpressCateURL();
+        WorldNews worldNews = new WorldNews();
+        worldNews.extractNewsFromWeb(vnExpressCateURL.getWorldURL());
     }
 
     public void closeApp(Stage stage) {
