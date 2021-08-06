@@ -20,9 +20,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(homePage,1000, 720));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
-        VnExpressCateURL vnExpressCateURL = new VnExpressCateURL();
-        WorldNews worldNews = new WorldNews();
-        worldNews.extractNewsFromWeb(vnExpressCateURL.getWorldURL());
+
     }
 
     public void closeApp(Stage stage) {

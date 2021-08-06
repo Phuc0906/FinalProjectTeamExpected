@@ -6,6 +6,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.NewsClass.VnExpressCateURL;
+import sample.NewsClass.WorldNews;
+
 import java.io.IOException;
 
 public class PageController {
@@ -32,11 +35,15 @@ public class PageController {
 
 
     public void toCovidPage(ActionEvent actionEvent) throws IOException {
+
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
 //        root = FXMLLoader.load(getClass().getResource("pageFXML/CovidPage.fxml"));
         root = loader.load();
         CovidController covidController = loader.getController();
         covidController.setCovidImage();
+        covidController.setTitle1();
+        covidController.setDescription1();
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

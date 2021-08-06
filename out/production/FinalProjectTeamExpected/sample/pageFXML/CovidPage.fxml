@@ -84,7 +84,12 @@
                             <Image url="@../Image/0ktMni.jpg" />
                         </image>
                     </ImageView>
-                    <Label text="Label" />
+               <VBox prefHeight="113.0" prefWidth="780.0">
+                  <children>
+                          <Label fx:id="myText" onDragDetected="#setTitle1" prefHeight="43.0" prefWidth="780.0" text="Label" />
+                     <Label fx:id="description1" onDragDetected="#setDescription1" prefHeight="71.0" prefWidth="803.0" text="Label" />
+                  </children>
+               </VBox>
                 </children>
             </HBox>
             <HBox prefHeight="71.0" prefWidth="990.0" spacing="10.0">
