@@ -7,6 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 
 
 public class Main extends Application {
@@ -18,6 +21,12 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(homePage,1000, 720));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
+
+        Document doc = Jsoup.connect("https://vnexpress.net/the-gioi").get();
+        Elements file = doc.select("div.wrapper-topstory-folder");
+        System.out.println(file.select("article.article-topstory" +
+                " div.thumb-art" +
+                " a").attr("href"));
 
     }
 
