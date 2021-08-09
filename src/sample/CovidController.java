@@ -30,6 +30,7 @@ public class CovidController {
         this.worldNews = new NewsManagement();
         this.worldNews.loadVnExpress("https://vnexpress.net/the-gioi");
         this.worldNews.loadTuoiTre("https://tuoitre.vn/giai-tri.htm");
+        this.worldNews.loadThanhNien("https://thanhnien.vn/the-thao/");
     }
 
 

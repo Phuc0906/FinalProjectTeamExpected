@@ -11,6 +11,12 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+<<<<<<< HEAD
+=======
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import sample.NewsObject.News;
+>>>>>>> master
 
 
 
@@ -23,6 +29,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(homePage,1000, 720));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
+<<<<<<< HEAD
 
 
         Document doc = Jsoup.connect("https://vnexpress.net/the-gioi").get();
@@ -31,6 +38,9 @@ public class Main extends Application {
                 " div.thumb-art" +
                 " a").attr("href"));
 
+=======
+        
+>>>>>>> master
     }
 
     public void closeApp(Stage stage) {
