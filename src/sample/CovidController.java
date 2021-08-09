@@ -13,10 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import sample.NewsClass.BriefNews;
 import sample.NewsClass.SupportedMethod;
-import sample.NewsClass.VnExpressCateURL;
-import sample.NewsClass.WorldNews;
+import sample.NewsObject.NewsManagement;
 
 import java.io.IOException;
 
@@ -25,12 +23,11 @@ public class CovidController {
     private Scene scene;
     private Parent root;
 
-    private WorldNews worldNews;
+    private NewsManagement worldNews;
 
     public CovidController() throws IOException {
-        VnExpressCateURL vnExpressCateURL = new VnExpressCateURL();
-        this.worldNews = new WorldNews();
-        worldNews.extractNewsFromWeb(vnExpressCateURL.getWorldURL());
+        this.worldNews = new NewsManagement();
+        this.worldNews.loadVnExpress("https://vnexpress.net/the-gioi");
     }
 
 
@@ -124,26 +121,53 @@ public class CovidController {
     }
 
     @FXML
-    ImageView covidImage;
+    ImageView covidImage, covidImage2, covidImage3, covidImage4;
     public void setCovidImage() throws IOException {
-        Image image = new Image(worldNews.getImageURL());
-        covidImage.setImage(image);
+        covidImage.setImage(new Image(worldNews.getNews(0).getImageURL()));
+        covidImage2.setImage(new Image(worldNews.getNews(1).getImageURL()));
+        covidImage3.setImage(new Image(worldNews.getNews(2).getImageURL()));
+        covidImage4.setImage(new Image(worldNews.getNews(3).getImageURL()));
     }
 
     @FXML
-    Label myText;
-    public void setTitle1() {
-        myText.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
-        myText.setAlignment(Pos.TOP_LEFT);
-        myText.setText(worldNews.getTitle());
+    Label title1, title2, title3, title4;
+    public void setTitle() {
+        title1.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
+        title1.setAlignment(Pos.TOP_LEFT);
+        title1.setText(worldNews.getNews(0).getTitle());
+
+        title2.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
+        title2.setAlignment(Pos.TOP_LEFT);
+        title2.setText(worldNews.getNews(1).getTitle());
+
+        title3.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
+        title3.setAlignment(Pos.TOP_LEFT);
+        title3.setText(worldNews.getNews(2).getTitle());
+
+        title4.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
+        title4.setAlignment(Pos.TOP_LEFT);
+        title4.setText(worldNews.getNews(3).getTitle());
 
     }
 
     @FXML
-    Label description1;
-    public void setDescription1() {
+    Label description1, description2, description3, description4;
+    public void setDescription() {
         description1.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
         description1.setAlignment(Pos.TOP_LEFT);
-        description1.setText(new SupportedMethod().breakingString(worldNews.getDescription(), 50));
+        description1.setText(new SupportedMethod().breakingString(worldNews.getNews(0).getDescription(), 15));
+
+        description2.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
+        description2.setAlignment(Pos.TOP_LEFT);
+        description2.setText(new SupportedMethod().breakingString(worldNews.getNews(1).getDescription(), 15));
+
+        description3.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
+        description3.setAlignment(Pos.TOP_LEFT);
+        description3.setText(new SupportedMethod().breakingString(worldNews.getNews(2).getDescription(), 15));
+
+        description4.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
+        description4.setAlignment(Pos.TOP_LEFT);
+        description4.setText(new SupportedMethod().breakingString(worldNews.getNews(3).getDescription(), 15));
     }
+
 }

@@ -7,8 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-import sample.NewsClass.VnExpressCateURL;
-import sample.NewsClass.WorldNews;
 
 
 public class Main extends Application {

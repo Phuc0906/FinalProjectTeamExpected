@@ -6,8 +6,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.NewsClass.VnExpressCateURL;
-import sample.NewsClass.WorldNews;
 
 import java.io.IOException;
 
@@ -42,8 +40,9 @@ public class PageController {
         root = loader.load();
         CovidController covidController = loader.getController();
         covidController.setCovidImage();
-        covidController.setTitle1();
-        covidController.setDescription1();
+        covidController.setTitle();
+        covidController.setDescription();
+
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -86,40 +86,55 @@
                     </ImageView>
                <VBox prefHeight="113.0" prefWidth="780.0">
                   <children>
-                          <Label fx:id="myText" onDragDetected="#setTitle1" prefHeight="43.0" prefWidth="780.0" text="Label" />
-                     <Label fx:id="description1" onDragDetected="#setDescription1" prefHeight="71.0" prefWidth="803.0" text="Label" />
+                          <Label fx:id="title1" onDragDetected="#setTitle" prefHeight="43.0" prefWidth="780.0" text="Label" />
+                     <Label fx:id="description1" onDragDetected="#setDescription" prefHeight="71.0" prefWidth="803.0" text="Label" />
                   </children>
                </VBox>
                 </children>
             </HBox>
             <HBox prefHeight="71.0" prefWidth="990.0" spacing="10.0">
                 <children>
-                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <ImageView fx:id="covidImage2" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setCovidImage" pickOnBounds="true" preserveRatio="true">
                         <image>
                             <Image url="@../Image/0ktMni.jpg" />
                         </image>
                     </ImageView>
-                    <Label text="Label" />
+               <VBox prefHeight="113.0" prefWidth="783.0">
+                  <children>
+                          <Label fx:id="title2" onDragDetected="#setTitle" prefHeight="69.0" prefWidth="780.0" text="Label" />
+                     <Label fx:id="description2" onDragDetected="#setDescription" prefHeight="75.0" prefWidth="783.0" text="Label" />
+                  </children>
+               </VBox>
                 </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                 <children>
-                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <ImageView fx:id="covidImage3" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setCovidImage" pickOnBounds="true" preserveRatio="true">
                         <image>
                             <Image url="@../Image/0ktMni.jpg" />
                         </image>
                     </ImageView>
-                    <Label text="Label" />
+               <VBox prefHeight="113.0" prefWidth="782.0">
+                  <children>
+                     <Label fx:id="title3" onDragDetected="#setTitle" prefHeight="51.0" prefWidth="793.0" text="Label" />
+                          <Label fx:id="description3" onDragDetected="#setDescription" prefHeight="65.0" prefWidth="782.0" text="Label" />
+                  </children>
+               </VBox>
                 </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                 <children>
-                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <ImageView fx:id="covidImage4" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setCovidImage" pickOnBounds="true" preserveRatio="true">
                         <image>
                             <Image url="@../Image/0ktMni.jpg" />
                         </image>
                     </ImageView>
-                    <Label text="Label" />
+               <VBox prefHeight="113.0" prefWidth="785.0">
+                  <children>
+                     <Label fx:id="title4" onDragDetected="#setTitle" prefHeight="52.0" prefWidth="806.0" text="Label" />
+                          <Label fx:id="description4" onDragDetected="#setDescription" prefHeight="66.0" prefWidth="792.0" text="Label" />
+                  </children>
+               </VBox>
                 </children>
             </HBox>
         </children>
