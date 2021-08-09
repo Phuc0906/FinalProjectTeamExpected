@@ -9,13 +9,9 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-<<<<<<< Updated upstream
 import org.jsoup.select.Elements;
-=======
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import sample.NewsObject.News;
->>>>>>> Stashed changes
+
+
 
 
 public class Main extends Application {
@@ -27,7 +23,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(homePage,1000, 720));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
-<<<<<<< Updated upstream
+
 
         Document doc = Jsoup.connect("https://vnexpress.net/the-gioi").get();
         Elements file = doc.select("div.wrapper-topstory-folder");
@@ -35,8 +31,6 @@ public class Main extends Application {
                 " div.thumb-art" +
                 " a").attr("href"));
 
-=======
->>>>>>> Stashed changes
     }
 
     public void closeApp(Stage stage) {
