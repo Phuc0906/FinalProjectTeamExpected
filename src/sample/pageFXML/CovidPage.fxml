@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import java.util.ArrayList?>
 <AnchorPane maxHeight="720.0" maxWidth="1000.0" prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CovidController">
     <Button fx:id="logo" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" onAction="#toHomePage" prefHeight="98.0" prefWidth="188.0" style="-fx-background-color: white;" text="Vietcetera." AnchorPane.leftAnchor="10.0">
         <font>
@@ -137,6 +138,14 @@
                </VBox>
                 </children>
             </HBox>
+            <fx:define>
+                <ArrayList fx:id="descriptionList" >
+                    <fx:reference source="description1"/>
+                    <fx:reference source="description2"/>
+                    <fx:reference source="description3"/>
+                    <fx:reference source="description4"/>
+                </ArrayList>
+            </fx:define>
         </children>
     </VBox>
     <HBox layoutX="14.0" layoutY="216.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0">

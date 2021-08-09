@@ -17,6 +17,7 @@ import sample.NewsClass.SupportedMethod;
 import sample.NewsObject.NewsManagement;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CovidController {
     private Stage stage;
@@ -28,6 +29,7 @@ public class CovidController {
     public CovidController() throws IOException {
         this.worldNews = new NewsManagement();
         this.worldNews.loadVnExpress("https://vnexpress.net/the-gioi");
+        this.worldNews.loadTuoiTre("https://tuoitre.vn/giai-tri.htm");
     }
 
 
@@ -151,23 +153,28 @@ public class CovidController {
     }
 
     @FXML
-    Label description1, description2, description3, description4;
+    ArrayList<Label> descriptionList;
     public void setDescription() {
-        description1.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
-        description1.setAlignment(Pos.TOP_LEFT);
-        description1.setText(new SupportedMethod().breakingString(worldNews.getNews(0).getDescription(), 15));
-
-        description2.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
-        description2.setAlignment(Pos.TOP_LEFT);
-        description2.setText(new SupportedMethod().breakingString(worldNews.getNews(1).getDescription(), 15));
-
-        description3.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
-        description3.setAlignment(Pos.TOP_LEFT);
-        description3.setText(new SupportedMethod().breakingString(worldNews.getNews(2).getDescription(), 15));
-
-        description4.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
-        description4.setAlignment(Pos.TOP_LEFT);
-        description4.setText(new SupportedMethod().breakingString(worldNews.getNews(3).getDescription(), 15));
+        for (int i = 0; i < descriptionList.size(); i++) {
+            descriptionList.get(i).setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
+            descriptionList.get(i).setAlignment(Pos.TOP_LEFT);
+            descriptionList.get(i).setText(new SupportedMethod().breakingString(worldNews.getNews(i).getDescription(), 15));
+        }
+//        description1.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
+//        description1.setAlignment(Pos.TOP_LEFT);
+//        description1.setText(new SupportedMethod().breakingString(worldNews.getNews(0).getDescription(), 15));
+//
+//        description2.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
+//        description2.setAlignment(Pos.TOP_LEFT);
+//        description2.setText(new SupportedMethod().breakingString(worldNews.getNews(1).getDescription(), 15));
+//
+//        description3.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
+//        description3.setAlignment(Pos.TOP_LEFT);
+//        description3.setText(new SupportedMethod().breakingString(worldNews.getNews(2).getDescription(), 15));
+//
+//        description4.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
+//        description4.setAlignment(Pos.TOP_LEFT);
+//        description4.setText(new SupportedMethod().breakingString(worldNews.getNews(3).getDescription(), 15));
     }
 
 }

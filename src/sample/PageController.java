@@ -1,13 +1,16 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class PageController {
     private Stage stage;
@@ -31,10 +34,8 @@ public class PageController {
         stage.show();
     }
 
-
     public void toCovidPage(ActionEvent actionEvent) throws IOException {
-
-
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
 //        root = FXMLLoader.load(getClass().getResource("pageFXML/CovidPage.fxml"));
         root = loader.load();

@@ -12,7 +12,38 @@ public class NewsManagement {
     ArrayList<News> newsList = new ArrayList<>();
 
     public NewsManagement() {
+    }
 
+    public void loadZingNews(String url) throws  IOException {
+        String newsURL;
+        String title;
+        String description;
+        String imageURL;
+        Document doc = Jsoup.connect(url).get();
+        Elements el = doc.select("div.infinite-load");
+        for (Element element : el.select("article")) {
+            newsURL = element.select("p.article-thumbnail a").attr("href");
+            title = element.select("header p.article-title a").text();
+            imageURL = element.select("p.article-thumbnail a img").attr("src");
+            description = element.select("header p.article-summary").text();
+            this.newsList.add(new News(newsURL, title, description, imageURL));
+        }
+    }
+
+    public void loadTuoiTre(String url) throws  IOException {
+        String newsURL;
+        String title;
+        String description;
+        String imageURL;
+        Document doc = Jsoup.connect(url).get();
+        Elements el = doc.select("ul.list-news-content");
+        for (Element element : el.select("li")) {
+            newsURL = "https://tuoitre.vn" + element.select("a").attr("href");
+            title = element.select("a").attr("title");
+            imageURL = element.select("a img").attr("src");
+            description = element.select("div.name-news p.sapo").text();
+            this.newsList.add(new News(newsURL, title, description, imageURL));
+        }
     }
 
     public void loadVnExpress(String webURL) throws IOException {
