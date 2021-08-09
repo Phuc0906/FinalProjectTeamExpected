@@ -14,6 +14,22 @@ public class NewsManagement {
     public NewsManagement() {
     }
 
+    public void loadThanhNien(String url) throws  IOException {
+        String newsURL;
+        String title;
+        String description;
+        String imageURL;
+        Document doc = Jsoup.connect(url).get();
+        Elements el = doc.select("div.col390");
+        for (Element element : el.select("article")) {
+            newsURL = element.select("article.story--primary a").attr("href");
+            title = element.select("article.story--primary a").attr("title");
+            imageURL = element.select("article.story--primary a img").attr("src");
+            description = "";
+            this.newsList.add(new News(newsURL, title, description, imageURL));
+        }
+    }
+
     public void loadZingNews(String url) throws  IOException {
         String newsURL;
         String title;
