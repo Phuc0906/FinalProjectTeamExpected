@@ -145,6 +145,18 @@
                     <fx:reference source="description3"/>
                     <fx:reference source="description4"/>
                 </ArrayList>
+                <ArrayList fx:id="titleList" >
+                    <fx:reference source="title1"/>
+                    <fx:reference source="title2"/>
+                    <fx:reference source="title3"/>
+                    <fx:reference source="title4"/>
+                </ArrayList>
+                <ArrayList fx:id="imgList" >
+                    <fx:reference source="covidImage"/>
+                    <fx:reference source="covidImage2"/>
+                    <fx:reference source="covidImage3"/>
+                    <fx:reference source="covidImage4"/>
+                </ArrayList>
             </fx:define>
         </children>
     </VBox>
