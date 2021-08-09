@@ -31,6 +31,7 @@ public class CovidController {
         this.worldNews.loadVnExpress("https://vnexpress.net/the-gioi");
         this.worldNews.loadTuoiTre("https://tuoitre.vn/giai-tri.htm");
         this.worldNews.loadThanhNien("https://thanhnien.vn/the-thao/");
+        this.worldNews.loadNhanDan("https://nhandan.vn/thegioi");
     }
 
 
