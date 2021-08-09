@@ -28,8 +28,9 @@ public class CovidController {
 
     public CovidController() throws IOException {
         this.worldNews = new NewsManagement();
-        this.worldNews.loadVnExpress("https://vnexpress.net/the-gioi");
-        this.worldNews.loadTuoiTre("https://tuoitre.vn/giai-tri.htm");
+//        this.worldNews.loadVnExpress("https://vnexpress.net/the-gioi");
+//        this.worldNews.loadTuoiTre("https://tuoitre.vn/giai-tri.htm");
+        this.worldNews.loadNhanDan("https://nhandan.vn/thethao");
     }
 
 

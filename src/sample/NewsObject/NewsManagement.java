@@ -91,6 +91,23 @@ public class NewsManagement {
 
     }
 
+    public void loadNhanDan(String url) throws  IOException {
+        String newsURL;
+        String title;
+        String description;
+        String imageURL;
+        Document doc = Jsoup.connect(url).get();
+        Elements ele = doc.select("div.box-widget-loaded");
+        Elements element = ele.select("article");
+        for (Element element1 : element) {
+            title = element1.select("div.box-title a").attr("title");
+            newsURL = "https://nhandan.vn/" + element1.select("div.box-title a").attr("href");
+            imageURL = element1.select("div.box-img a img").attr("data-src");
+            description = element1.select("div.box-des").text();
+            newsList.add(new News(newsURL, title, description, imageURL));
+        }
+    }
+
     public News searchTitle(String title) {
         for (News news : this.newsList) {
             if (news.getTitle().equals(title)) {

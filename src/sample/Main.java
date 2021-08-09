@@ -9,13 +9,14 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-<<<<<<< Updated upstream
+
 import org.jsoup.select.Elements;
-=======
+
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import sample.NewsObject.News;
->>>>>>> Stashed changes
+
+import javax.print.Doc;
 
 
 public class Main extends Application {
@@ -27,16 +28,19 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(homePage,1000, 720));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
-<<<<<<< Updated upstream
 
-        Document doc = Jsoup.connect("https://vnexpress.net/the-gioi").get();
-        Elements file = doc.select("div.wrapper-topstory-folder");
-        System.out.println(file.select("article.article-topstory" +
-                " div.thumb-art" +
-                " a").attr("href"));
 
-=======
->>>>>>> Stashed changes
+//        Document doc = Jsoup.connect("https://nhandan.vn/thegioi").get();
+//        Elements ele = doc.select("div.box-widget-loaded");
+//        Elements element = ele.select("article");
+//        for (Element element1 : element) {
+//            System.out.println(element1.select("div.box-title a").attr("title"));
+//            System.out.println("https://nhandan.vn/" + element1.select("div.box-title a").attr("href"));
+//            System.out.println(element1.select("div.box-img a img").attr("data-src"));
+//            System.out.println(element1.select("div.box-des").text());
+//        }
+//        System.out.println(element.size());
+
     }
 
     public void closeApp(Stage stage) {
