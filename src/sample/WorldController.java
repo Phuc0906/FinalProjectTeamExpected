@@ -205,7 +205,6 @@ public class WorldController {
     }
 
 //    Set description methods block
-
     @FXML
     ArrayList<Label> descriptionList;
     public void setDescription() {
