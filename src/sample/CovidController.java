@@ -93,7 +93,15 @@ public class CovidController {
     }
 
     public void toSportsPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/SportsPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentFXML/SportsPage.fxml"));
+        root = loader.load();
+
+        SportController sportController = loader.getController();
+        sportController.loadExistWeb();
+        sportController.setDescription();
+        sportController.setTitle();
+        sportController.setImgList();
+
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

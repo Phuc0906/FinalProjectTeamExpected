@@ -5,15 +5,15 @@ import java.util.LinkedList;
 public class SupportedMethod {
     public String breakingString(String inputString, int numberOfWordPerLine) {
         // split string into individual words
-        String[] splittedString = inputString.split("\\s");
+        String[] splitString = inputString.split("\\s");
         LinkedList<String> paragraphStructure = new LinkedList<>();
         int count = 0;
-        for (int i = 0; i < splittedString.length; i++) {
+        for (int i = 0; i < splitString.length; i++) {
             if (count == numberOfWordPerLine) {
                 paragraphStructure.add("\n");
                 count = 0;
             }
-            paragraphStructure.add(splittedString[i] + " ");
+            paragraphStructure.add(splitString[i] + " ");
             count++;
         }
 
