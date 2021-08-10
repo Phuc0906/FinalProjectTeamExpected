@@ -89,13 +89,12 @@ public class ChangingCategory {
     }
 
     public void toEntertainmentPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentFXML/EntertainmentPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentPage.fxml"));
         root = loader.load();
 
         EntertainmentController entertainmentController = loader.getController();
-        entertainmentController.loadExistWeb();
-        entertainmentController.setDescription();
         entertainmentController.setTitle();
+        entertainmentController.setDescription();
         entertainmentController.setImgList();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();

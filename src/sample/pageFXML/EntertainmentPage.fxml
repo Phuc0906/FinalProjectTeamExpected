@@ -84,7 +84,7 @@
                       <children>
                           <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
                               <image>
-                                  <Image url="@../../Image/0ktMni.jpg" />
+                                  <Image url="@../Image/0ktMni.jpg" />
                               </image>
                           </ImageView>
                      <VBox>
@@ -99,7 +99,7 @@
                       <children>
                           <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
                               <image>
-                                  <Image url="@../../Image/0ktMni.jpg" />
+                                  <Image url="@../Image/0ktMni.jpg" />
                               </image>
                           </ImageView>
                           <VBox>
@@ -114,7 +114,7 @@
                       <children>
                           <ImageView fx:id="img3" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
                               <image>
-                                  <Image url="@../../Image/0ktMni.jpg" />
+                                  <Image url="@../Image/0ktMni.jpg" />
                               </image>
                           </ImageView>
                           <VBox>
@@ -129,7 +129,7 @@
                       <children>
                           <ImageView fx:id="img4" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
                               <image>
-                                  <Image url="@../../Image/0ktMni.jpg" />
+                                  <Image url="@../Image/0ktMni.jpg" />
                               </image>
                           </ImageView>
                           <VBox>
@@ -144,7 +144,7 @@
                       <children>
                           <ImageView fx:id="img5" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
                               <image>
-                                  <Image url="@../../Image/0ktMni.jpg" />
+                                  <Image url="@../Image/0ktMni.jpg" />
                               </image>
                           </ImageView>
                           <VBox>
@@ -159,7 +159,7 @@
                       <children>
                           <ImageView fx:id="img6" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
                               <image>
-                                  <Image url="@../../Image/0ktMni.jpg" />
+                                  <Image url="@../Image/0ktMni.jpg" />
                               </image>
                           </ImageView>
                           <VBox>
@@ -174,7 +174,7 @@
                       <children>
                           <ImageView fx:id="img7" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
                               <image>
-                                  <Image url="@../../Image/0ktMni.jpg" />
+                                  <Image url="@../Image/0ktMni.jpg" />
                               </image>
                           </ImageView>
                           <VBox>
@@ -189,7 +189,7 @@
                       <children>
                           <ImageView fx:id="img8" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
                               <image>
-                                  <Image url="@../../Image/0ktMni.jpg" />
+                                  <Image url="@../Image/0ktMni.jpg" />
                               </image>
                           </ImageView>
                           <VBox>
@@ -204,7 +204,7 @@
                       <children>
                           <ImageView fx:id="img9" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
                               <image>
-                                  <Image url="@../../Image/0ktMni.jpg" />
+                                  <Image url="@../Image/0ktMni.jpg" />
                               </image>
                           </ImageView>
                           <VBox>
@@ -219,7 +219,7 @@
                       <children>
                           <ImageView fx:id="img10" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
                               <image>
-                                  <Image url="@../../Image/0ktMni.jpg" />
+                                  <Image url="@../Image/0ktMni.jpg" />
                               </image>
                           </ImageView>
                           <VBox>
@@ -272,7 +272,7 @@
           </VBox>
           <HBox layoutX="14.0" layoutY="216.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0">
               <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: white;" text="1" />
+                  <Button mnemonicParsing="false" onAction="#moveToPage1" style="-fx-background-color: white;" text="1" />
                   <Button mnemonicParsing="false" onAction="#moveToPage2" style="-fx-background-color: white;" text="2" />
                   <Button mnemonicParsing="false" onAction="#moveToPage3" style="-fx-background-color: white;" text="3" />
                   <Button mnemonicParsing="false" onAction="#moveToPage4" style="-fx-background-color: white;" text="4" />

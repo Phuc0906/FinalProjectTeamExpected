@@ -41,7 +41,6 @@ public class SupportedMethod {
             title.setText(newsList.getNews(count).getTitle());
             count++;
         }
-        System.out.println("DONE TITLE");
     }
 
     public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList) {
@@ -52,16 +51,13 @@ public class SupportedMethod {
             description.setText(breakingString(newsList.getNews(count).getDescription(), 15));
             count++;
         }
-        System.out.println("DONE DESCRIPTION");
     }
 
     public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList) {
         int count = begin;
         for (ImageView img: imgList) {
-            System.out.println("\tAdding imgage " + count);
             img.setImage(new Image(newsList.getNews(count).getImageURL()));
             count++;
         }
-        System.out.println("DONE IMGLIST");
     }
 }
