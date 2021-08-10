@@ -75,120 +75,110 @@
               <children>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                       <children>
-                          <ImageView fx:id="image1" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImage"
-                                     pickOnBounds="true" preserveRatio="true"/>
+                          <ImageView fx:id="image1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                           <VBox prefHeight="113.0" prefWidth="780.0">
                               <children>
-                                  <Label fx:id="title1" onDragDetected="#setTitle" prefHeight="43.0" prefWidth="780.0" text="Label" />
-                                  <Label fx:id="description1" onDragDetected="#setDescription" prefHeight="71.0" prefWidth="803.0" text="Label" />
+                                  <Label fx:id="title1" prefHeight="43.0" prefWidth="780.0" text="Label" />
+                                  <Label fx:id="description1" prefHeight="71.0" prefWidth="803.0" text="Label" />
                               </children>
                           </VBox>
                       </children>
                   </HBox>
                   <HBox prefHeight="71.0" prefWidth="990.0" spacing="10.0">
                       <children>
-                          <ImageView fx:id="image2" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImage"
-                                     pickOnBounds="true" preserveRatio="true"/>
+                          <ImageView fx:id="image2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                           <VBox prefHeight="113.0" prefWidth="783.0">
                               <children>
-                                  <Label fx:id="title2" onDragDetected="#setTitle" prefHeight="69.0" prefWidth="780.0" text="Label" />
-                                  <Label fx:id="description2" onDragDetected="#setDescription" prefHeight="75.0" prefWidth="783.0" text="Label" />
+                                  <Label fx:id="title2" prefHeight="69.0" prefWidth="780.0" text="Label" />
+                                  <Label fx:id="description2" prefHeight="75.0" prefWidth="783.0" text="Label" />
                               </children>
                           </VBox>
                       </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                       <children>
-                          <ImageView fx:id="image3" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImage"
-                                     pickOnBounds="true" preserveRatio="true"/>
+                          <ImageView fx:id="image3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                           <VBox prefHeight="113.0" prefWidth="782.0">
                               <children>
-                                  <Label fx:id="title3" onDragDetected="#setTitle" prefHeight="51.0" prefWidth="793.0" text="Label" />
-                                  <Label fx:id="description3" onDragDetected="#setDescription" prefHeight="65.0" prefWidth="782.0" text="Label" />
+                                  <Label fx:id="title3" prefHeight="51.0" prefWidth="793.0" text="Label" />
+                                  <Label fx:id="description3" prefHeight="65.0" prefWidth="782.0" text="Label" />
                               </children>
                           </VBox>
                       </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                       <children>
-                          <ImageView fx:id="image4" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImage"
-                                     pickOnBounds="true" preserveRatio="true"/>
+                          <ImageView fx:id="image4" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                           <VBox prefHeight="113.0" prefWidth="785.0">
                               <children>
-                                  <Label fx:id="title4" onDragDetected="#setTitle" prefHeight="52.0" prefWidth="806.0" text="Label" />
-                                  <Label fx:id="description4" onDragDetected="#setDescription" prefHeight="66.0" prefWidth="792.0" text="Label" />
+                                  <Label fx:id="title4" prefHeight="52.0" prefWidth="806.0" text="Label" />
+                                  <Label fx:id="description4" prefHeight="66.0" prefWidth="792.0" text="Label" />
                               </children>
                           </VBox>
                       </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                       <children>
-                          <ImageView fx:id="image5" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImage"
-                                     pickOnBounds="true" preserveRatio="true"/>
+                          <ImageView fx:id="image5" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                           <VBox prefHeight="113.0" prefWidth="785.0">
                               <children>
-                                  <Label fx:id="title5" onDragDetected="#setTitle" prefHeight="52.0" prefWidth="806.0" text="Label" />
-                                  <Label fx:id="description5" onDragDetected="#setDescription" prefHeight="66.0" prefWidth="792.0" text="Label" />
+                                  <Label fx:id="title5" prefHeight="52.0" prefWidth="806.0" text="Label" />
+                                  <Label fx:id="description5" prefHeight="66.0" prefWidth="792.0" text="Label" />
                               </children>
                           </VBox>
                       </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                       <children>
-                          <ImageView fx:id="image6" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImage"
-                                     pickOnBounds="true" preserveRatio="true"/>
+                          <ImageView fx:id="image6" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                           <VBox prefHeight="113.0" prefWidth="785.0">
                               <children>
-                                  <Label fx:id="title6" onDragDetected="#setTitle" prefHeight="52.0" prefWidth="806.0" text="Label" />
-                                  <Label fx:id="description6" onDragDetected="#setDescription" prefHeight="66.0" prefWidth="792.0" text="Label" />
+                                  <Label fx:id="title6" prefHeight="52.0" prefWidth="806.0" text="Label" />
+                                  <Label fx:id="description6" prefHeight="66.0" prefWidth="792.0" text="Label" />
                               </children>
                           </VBox>
                       </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                       <children>
-                          <ImageView fx:id="image7" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImage"
-                                     pickOnBounds="true" preserveRatio="true"/>
+                          <ImageView fx:id="image7" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                           <VBox prefHeight="113.0" prefWidth="785.0">
                               <children>
-                                  <Label fx:id="title7" onDragDetected="#setTitle" prefHeight="52.0" prefWidth="806.0" text="Label" />
-                                  <Label fx:id="description7" onDragDetected="#setDescription" prefHeight="66.0" prefWidth="792.0" text="Label" />
+                                  <Label fx:id="title7" prefHeight="52.0" prefWidth="806.0" text="Label" />
+                                  <Label fx:id="description7" prefHeight="66.0" prefWidth="792.0" text="Label" />
                               </children>
                           </VBox>
                       </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                       <children>
-                          <ImageView fx:id="image8" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImage"
-                                     pickOnBounds="true" preserveRatio="true"/>
+                          <ImageView fx:id="image8" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                           <VBox prefHeight="113.0" prefWidth="785.0">
                               <children>
-                                  <Label fx:id="title8" onDragDetected="#setTitle" prefHeight="52.0" prefWidth="806.0" text="Label" />
-                                  <Label fx:id="description8" onDragDetected="#setDescription" prefHeight="66.0" prefWidth="792.0" text="Label" />
+                                  <Label fx:id="title8" prefHeight="52.0" prefWidth="806.0" text="Label" />
+                                  <Label fx:id="description8" prefHeight="66.0" prefWidth="792.0" text="Label" />
                               </children>
                           </VBox>
                       </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                       <children>
-                          <ImageView fx:id="image9" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImage"
-                                     pickOnBounds="true" preserveRatio="true"/>
+                          <ImageView fx:id="image9" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                           <VBox prefHeight="113.0" prefWidth="785.0">
                               <children>
-                                  <Label fx:id="title9" onDragDetected="#setTitle" prefHeight="52.0" prefWidth="806.0" text="Label" />
-                                  <Label fx:id="description9" onDragDetected="#setDescription" prefHeight="66.0" prefWidth="792.0" text="Label" />
+                                  <Label fx:id="title9" prefHeight="52.0" prefWidth="806.0" text="Label" />
+                                  <Label fx:id="description9" prefHeight="66.0" prefWidth="792.0" text="Label" />
                               </children>
                           </VBox>
                       </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                       <children>
-                          <ImageView fx:id="image10" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImage"
-                                     pickOnBounds="true" preserveRatio="true"/>
+                          <ImageView fx:id="image10" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                           <VBox prefHeight="113.0" prefWidth="785.0">
                               <children>
-                                  <Label fx:id="title10" onDragDetected="#setTitle" prefHeight="52.0" prefWidth="806.0" text="Label" />
-                                  <Label fx:id="description10" onDragDetected="#setDescription" prefHeight="66.0" prefWidth="792.0" text="Label" />
+                                  <Label fx:id="title10" prefHeight="52.0" prefWidth="806.0" text="Label" />
+                                  <Label fx:id="description10" prefHeight="66.0" prefWidth="792.0" text="Label" />
                               </children>
                           </VBox>
                       </children>
@@ -237,11 +227,11 @@
    </ScrollPane>
     <HBox layoutX="14.0" layoutY="216.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0">
         <children>
-            <Button mnemonicParsing="false" style="-fx-background-color: white;" text="1" />
-            <Button mnemonicParsing="false" style="-fx-background-color: white;" text="2" />
-            <Button mnemonicParsing="false" style="-fx-background-color: white;" text="3" />
-            <Button mnemonicParsing="false" style="-fx-background-color: white;" text="4" />
-            <Button mnemonicParsing="false" style="-fx-background-color: white;" text="5" />
+            <Button fx:id="worldBtn1" mnemonicParsing="false" onAction="#toWorldPage" style="-fx-background-color: white;" text="1" />
+            <Button fx:id="worldBtn2" mnemonicParsing="false" onAction="#toWorldPage2" style="-fx-background-color: white;" text="2" />
+            <Button fx:id="worldBtn3" mnemonicParsing="false" onAction="#toWorldPage3" style="-fx-background-color: white;" text="3" />
+            <Button fx:id="worldBtn4" mnemonicParsing="false" onAction="#toWorldPage4" style="-fx-background-color: white;" text="4" />
+            <Button fx:id="worldBtn5" mnemonicParsing="false" onAction="#toWorldPage5" style="-fx-background-color: white;" text="5" />
         </children>
     </HBox>
 </AnchorPane>
