@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import sample.BaseController.ChangingCategory;
@@ -86,34 +87,40 @@ public class EntertainmentController extends ChangingCategory {
         supportedMethod.setDescriptionList(descriptionList, 40, this.newsList);
     }
 
-
+    @FXML
+    ScrollPane entertainmentScrPane;
     public void moveToPage2(ActionEvent event) throws IOException {
         setTitle2();
         setImgList2();
         setDescription2();
+        entertainmentScrPane.setVvalue(0);
     }
 
     public void moveToPage3(ActionEvent event) throws IOException {
         setTitle3();
         setImgList3();
         setDescription3();
+        entertainmentScrPane.setVvalue(0);
     }
 
     public void moveToPage4(ActionEvent event) throws IOException {
         setTitle4();
         setImgList4();
         setDescription4();
+        entertainmentScrPane.setVvalue(0);
     }
 
     public void moveToPage1(ActionEvent event) throws IOException {
         setTitle();
         setImgList();
         setDescription();
+        entertainmentScrPane.setVvalue(0);
     }
 
     public void moveToPage5(ActionEvent event) throws IOException {
         setTitle5();
         setImgList5();
         setDescription5();
+        entertainmentScrPane.setVvalue(0);
     }
 }
