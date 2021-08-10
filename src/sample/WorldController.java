@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
@@ -248,27 +249,33 @@ public class WorldController {
     }
 
 //   ToPage methods block
+    @FXML
+    ScrollPane worldScrPane;
     public void toWorldPage2(ActionEvent actionEvent) throws IOException {
         setImage2();
         setTitle2();
         setDescription2();
+        worldScrPane.setVvalue(0);
     }
 
     public void toWorldPage3(ActionEvent actionEvent) throws IOException {
         setImage3();
         setTitle3();
         setDescription3();
+        worldScrPane.setVvalue(0);
     }
 
     public void toWorldPage4(ActionEvent actionEvent) throws IOException {
         setImage4();
         setTitle4();
         setDescription4();
+        worldScrPane.setVvalue(0);
     }
 
     public void toWorldPage5(ActionEvent actionEvent) throws IOException {
         setImage5();
         setTitle5();
         setDescription5();
+        worldScrPane.setVvalue(0);
     }
 }

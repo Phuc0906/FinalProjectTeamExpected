@@ -69,7 +69,7 @@
             <Font name="Georgia Bold Italic" size="50.0" />
         </font>
     </Label>
-   <ScrollPane layoutX="10.0" layoutY="250.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="250.0">
+   <ScrollPane fx:id="worldScrPane" layoutX="10.0" layoutY="250.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="250.0">
       <content>
           <VBox prefHeight="474.0" prefWidth="990.0" spacing="10.0">
               <children>
