@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.CovidController;
 import sample.EntertainmentController;
+import sample.WorldController;
 
 import java.io.IOException;
 
@@ -104,7 +105,13 @@ public class ChangingCategory {
     }
 
     public void toWorldPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/WorldPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage.fxml"));
+        root = loader.load();
+        WorldController worldController = loader.getController();
+        worldController.setImage();
+        worldController.setTitle();
+        worldController.setDescription();
+
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

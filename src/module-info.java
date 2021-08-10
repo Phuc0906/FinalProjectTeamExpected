@@ -5,4 +5,5 @@ module FinalProjectTeamExpected {
     requires org.jsoup;
 
     opens sample;
+    opens sample.BaseController;
 }

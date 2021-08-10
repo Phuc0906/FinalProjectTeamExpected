@@ -13,7 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import sample.NewsClass.SupportedMethod;
+import sample.SupportClass.SupportedMethod;
 import sample.NewsObject.NewsManagement;
 
 import java.io.IOException;

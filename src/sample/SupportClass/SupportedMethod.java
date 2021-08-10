@@ -1,4 +1,4 @@
-package sample.NewsClass;
+package sample.SupportClass;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
