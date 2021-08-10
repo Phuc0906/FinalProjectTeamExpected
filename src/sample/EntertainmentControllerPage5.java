@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -15,8 +14,7 @@ import sample.NewsObject.NewsManagement;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class EntertainmentControllerPage2 extends EntertainmentBaseController {
-
+public class EntertainmentControllerPage5 extends EntertainmentBaseController {
     private NewsManagement newsList;
 
     public void loadExistWeb() throws IOException {
@@ -31,7 +29,7 @@ public class EntertainmentControllerPage2 extends EntertainmentBaseController {
     ArrayList<ImageView> imgList;
     public void setImgList() {
         for (int i = 0; i < imgList.size(); i++)
-            imgList.get(i).setImage(new Image(newsList.getNews(i + 10).getImageURL()));
+            imgList.get(i).setImage(new Image(newsList.getNews(i + 30).getImageURL()));
     }
 
     @FXML
@@ -40,7 +38,7 @@ public class EntertainmentControllerPage2 extends EntertainmentBaseController {
         for (int i = 0; i < titleList.size(); i++) {
             titleList.get(i).setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
             titleList.get(i).setAlignment(Pos.TOP_LEFT);
-            titleList.get(i).setText(newsList.getNews(i + 10).getTitle());
+            titleList.get(i).setText(newsList.getNews(i + 30).getTitle());
         }
     }
 
@@ -50,7 +48,7 @@ public class EntertainmentControllerPage2 extends EntertainmentBaseController {
         for (int i = 0; i < descriptionList.size(); i++) {
             descriptionList.get(i).setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
             descriptionList.get(i).setAlignment(Pos.TOP_LEFT);
-            descriptionList.get(i).setText(new SupportedMethod().breakingString(newsList.getNews(i + 10).getDescription(), 15));
+            descriptionList.get(i).setText(new SupportedMethod().breakingString(newsList.getNews(i + 30).getDescription(), 15));
         }
     }
 

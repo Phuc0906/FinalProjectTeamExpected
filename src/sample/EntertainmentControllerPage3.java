@@ -52,5 +52,4 @@ public class EntertainmentControllerPage3 extends EntertainmentBaseController {
         }
     }
 
-    public NewsManagement getNewsList() { return this.newsList; }
 }

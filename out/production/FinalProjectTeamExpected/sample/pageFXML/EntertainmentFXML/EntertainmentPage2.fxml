@@ -277,7 +277,7 @@
                     <Button mnemonicParsing="false" style="-fx-background-color: white;" text="2" />
                     <Button mnemonicParsing="false" onAction="#moveToPage3" style="-fx-background-color: white;" text="3" />
                     <Button mnemonicParsing="false" onAction="#moveToPage4" style="-fx-background-color: white;" text="4" />
-                    <Button mnemonicParsing="false" style="-fx-background-color: white;" text="5" />
+                    <Button mnemonicParsing="false" onAction="#moveToPage5" style="-fx-background-color: white;" text="5" />
                 </children>
             </HBox>
         </AnchorPane>

@@ -26,6 +26,7 @@ public class EntertainmentController extends EntertainmentBaseController {
 
     public void loadExistWeb() throws IOException {
         this.newsList = super.loadWeb("https://tuoitre.vn/giai-tri.htm", "https://nhandan.vn/thegioi", "https://thanhnien.vn/giai-tri/", "https://vnexpress.net/giai-tri");
+        System.out.println("PASS");
     }
 
     public void loadExistWeb(NewsManagement newsList) {
@@ -59,5 +60,4 @@ public class EntertainmentController extends EntertainmentBaseController {
         }
     }
 
-    public NewsManagement getNewsList() { return this.newsList; }
 }

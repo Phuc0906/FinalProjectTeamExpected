@@ -51,6 +51,4 @@ public class EntertainmentControllerPage4 extends EntertainmentBaseController {
             descriptionList.get(i).setText(new SupportedMethod().breakingString(newsList.getNews(i + 30).getDescription(), 15));
         }
     }
-
-    public NewsManagement getNewsList() { return this.newsList; }
 }

@@ -119,7 +119,11 @@ public class NewsManagement {
     public int getSize() { return this.newsList.size(); }
     public void printOut() {
         for (News news: newsList) {
+            System.out.println("---------------------");
             System.out.println("article: " + news.getNewsURL());
+            System.out.println("article: " + news.getTitle());
+            System.out.println("article: " + news.getDescription());
+            System.out.println("article: " + news.getImageURL());
         }
     }
 

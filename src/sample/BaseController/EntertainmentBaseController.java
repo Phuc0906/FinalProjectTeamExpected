@@ -20,10 +20,11 @@ public class EntertainmentBaseController {
 
     public NewsManagement loadWeb(String tuoiTreURL, String nhanDanURL, String thanhNienURL, String vnExpressURL) throws IOException {
         newsList = new NewsManagement();
-        newsList.loadVnExpress("https://vnexpress.net/giai-tri");
-        newsList.loadTuoiTre("https://tuoitre.vn/giai-tri.htm");
-        newsList.loadThanhNien("https://thanhnien.vn/giai-tri/");
-        newsList.loadNhanDan( "https://nhandan.vn/thegioi");
+        newsList.loadVnExpress(vnExpressURL);
+        newsList.loadTuoiTre(tuoiTreURL);
+        newsList.loadThanhNien(thanhNienURL);
+        newsList.loadNhanDan( nhanDanURL);
+        System.out.println(newsList.getSize());
 
         return newsList;
     }
@@ -53,7 +54,6 @@ public class EntertainmentBaseController {
     public void toCovidPage(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
-//        root = FXMLLoader.load(getClass().getResource("pageFXML/CovidPage.fxml"));
         root = loader.load();
         CovidController covidController = loader.getController();
         covidController.setCovidImage();
@@ -142,12 +142,12 @@ public class EntertainmentBaseController {
     public void moveToPage3(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentFXML/EntertainmentPage3.fxml"));
         root = loader.load();
-
         EntertainmentControllerPage3 entertainmentController = loader.getController();
-        entertainmentController.loadWeb(this.newsList);
+        entertainmentController.loadExistWeb(this.newsList);
         entertainmentController.setDescription();
         entertainmentController.setTitle();
         entertainmentController.setImgList();
+        System.out.println("PASS");
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -160,7 +160,7 @@ public class EntertainmentBaseController {
         root = loader.load();
 
         EntertainmentControllerPage4 entertainmentController = loader.getController();
-        entertainmentController.loadWeb(this.newsList);
+        entertainmentController.loadExistWeb(this.newsList);
         entertainmentController.setDescription();
         entertainmentController.setTitle();
         entertainmentController.setImgList();
@@ -176,7 +176,23 @@ public class EntertainmentBaseController {
         root = loader.load();
 
         EntertainmentController entertainmentController = loader.getController();
-        entertainmentController.loadWeb(this.newsList);
+        entertainmentController.loadExistWeb(this.newsList);
+        entertainmentController.setDescription();
+        entertainmentController.setTitle();
+        entertainmentController.setImgList();
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void moveToPage5(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentFXML/EntertainmentPage5.fxml"));
+        root = loader.load();
+
+        EntertainmentControllerPage5 entertainmentController = loader.getController();
+        entertainmentController.loadExistWeb(this.newsList);
         entertainmentController.setDescription();
         entertainmentController.setTitle();
         entertainmentController.setImgList();
