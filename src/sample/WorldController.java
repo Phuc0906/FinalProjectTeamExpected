@@ -249,58 +249,26 @@ public class WorldController {
 
 //   ToPage methods block
     public void toWorldPage2(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage.fxml"));
-        root = loader.load();
-        WorldController worldController = loader.getController();
-        worldController.setImage2();
-        worldController.setTitle2();
-        worldController.setDescription2();
-
-        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        setImage2();
+        setTitle2();
+        setDescription2();
     }
 
     public void toWorldPage3(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage.fxml"));
-        root = loader.load();
-        WorldController worldController = loader.getController();
-        worldController.setImage3();
-        worldController.setTitle3();
-        worldController.setDescription3();
-
-        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        setImage3();
+        setTitle3();
+        setDescription3();
     }
 
     public void toWorldPage4(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage.fxml"));
-        root = loader.load();
-        WorldController worldController = loader.getController();
-        worldController.setImage4();
-        worldController.setTitle4();
-        worldController.setDescription4();
-
-        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        setImage4();
+        setTitle4();
+        setDescription4();
     }
 
     public void toWorldPage5(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage.fxml"));
-        root = loader.load();
-        WorldController worldController = loader.getController();
-        worldController.setImage5();
-        worldController.setTitle5();
-        worldController.setDescription5();
-
-        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        setImage5();
+        setTitle5();
+        setDescription5();
     }
 }
