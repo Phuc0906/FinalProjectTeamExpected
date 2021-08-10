@@ -63,48 +63,31 @@ public class NewsManagement {
     }
 
     public void loadVnExpress(String webURL) throws IOException {
+
+        Document doc = Jsoup.connect(webURL).get();
+        extractingArticleForVnExpress(doc, "div.list-news-subfolder", this.newsList );
+        extractingArticleForVnExpress(doc, "div#automation_5News", this.newsList );
+
+    }
+
+    private void extractingArticleForVnExpress(Document doc, String path, ArrayList<News> newsList) {
         String newsURL;
         String title;
         String description;
-        String imageURL;
+        String imageURLScraping;
+        String imageURL[];
 
-        // add first news
-        Document webDoc = Jsoup.connect(webURL).get();
-        Elements webBody = webDoc.select("body" +
-                " section.section_topstory" +
-                " div.flexbox" +
-                " div.col-left-top" +
-                " div.wrapper-topstory-folder");
-
-        // get the important news
-        Elements importantNews = webBody.select("article.item-news" +
-                " div.thumb-art" +
-                " a");
-
-        newsURL = importantNews.attr("href");
-        title = importantNews.attr("title");
-        description = webBody.select("article.item-news" +
-                " p.description " +
-                " a").text();
-
-        // get image url
-        imageURL = importantNews.select("picture" +
-                " img").attr("src");
-
-        this.newsList.add(new News(newsURL, title, description, imageURL));
-
-        // add second new
-//        /html/body/section[6]/div/div[1]
-        Elements news1 = webDoc.select("div#automation_5News");
-//        System.out.println(news1.select("article").size());
-        for (Element singleArticle: news1.select("article")) {
-            title = singleArticle.select("h3 a").attr("title");
-            newsURL = singleArticle.select("h3 a").attr("href");
-            description = singleArticle.select("p a").text();
-            imageURL = singleArticle.select("div.thumb-art a picture img").attr("src");
-            newsList.add(new News(newsURL, title, description, imageURL));
+        Elements articleList = doc.select(path);
+        for (Element article: articleList.select("article")) {
+            title = article.select("h3.title-news a").attr("title");
+            newsURL = article.select("h3 a").attr("href");
+            imageURLScraping = article.select("div.thumb-art a picture source").attr("data-srcset");
+            imageURL = imageURLScraping.split("\\s");
+            description = article.select("p.description a").text();
+            if (imageURL[0].contains("http")) {
+                newsList.add(new News(newsURL, title, description, imageURL[0]));
+            }
         }
-
     }
 
     public void loadNhanDan(String url) throws  IOException {
@@ -131,6 +114,13 @@ public class NewsManagement {
             }
         }
         return this.newsList.get(0);
+    }
+
+    public int getSize() { return this.newsList.size(); }
+    public void printOut() {
+        for (News news: newsList) {
+            System.out.println("article: " + news.getNewsURL());
+        }
     }
 
     public News getNews(int whichNews) {

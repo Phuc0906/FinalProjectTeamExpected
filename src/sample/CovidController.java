@@ -101,7 +101,7 @@ public class CovidController {
     }
 
     public void toEntertainmentPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/EntertainmentPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pageFXML/EntertainmentFXML/EntertainmentPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

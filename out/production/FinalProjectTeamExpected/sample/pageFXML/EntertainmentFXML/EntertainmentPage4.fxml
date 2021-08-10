@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import java.util.ArrayList?>
+<ScrollPane vmax="5.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EntertainmentControllerPage4">
+    <content>
+        <AnchorPane maxHeight="720.0" maxWidth="1000.0" prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: white;">
+            <Button fx:id="logo" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" onAction="#toHomePage" prefHeight="98.0" prefWidth="188.0" style="-fx-background-color: white;" text="Vietcetera." AnchorPane.leftAnchor="10.0">
+                <font>
+                    <Font name="Javanese Text" size="30.0" />
+                </font>
+            </Button>
+            <HBox layoutX="4.0" layoutY="106.0" prefHeight="37.0" prefWidth="630.0" style="-fx-background-color: white; -fx-border-color: green;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                <Button fx:id="New" mnemonicParsing="false" onAction="#toNewPage" style="-fx-background-color: white;" text="New">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="covid" mnemonicParsing="false" onAction="#toCovidPage" style="-fx-background-color: white;" text="Covid">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="politics" mnemonicParsing="false" onAction="#toPoliticsPage" style="-fx-background-color: white;" text="Politics">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="business" mnemonicParsing="false" onAction="#toBusinessPage" style="-fx-background-color: white;" text="Business">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="tech" mnemonicParsing="false" onAction="#toTechPage" style="-fx-background-color: white;" text="Tech">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="health" mnemonicParsing="false" onAction="#toHealthPage" style="-fx-background-color: white;" text="Health">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="sports" mnemonicParsing="false" onAction="#toSportsPage" style="-fx-background-color: white;" text="Sports">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" style="-fx-background-color: white;" text="Entertainment">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="world" mnemonicParsing="false" onAction="#toWorldPage" style="-fx-background-color: white;" text="World">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="others" mnemonicParsing="false" onAction="#toOthersPage" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: white;" text="Others">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+            </HBox>
+            <ImageView fx:id="ads" fitHeight="106.0" fitWidth="408.0" layoutX="296.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0">
+                <Image url="file:/C:/Users/84919/Downloads/970x250-retina.jpg" />
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="346.0" layoutY="158.0" prefHeight="25.0" prefWidth="1000.0" style="-fx-background-color: white;" text="Entertainment" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <font>
+                    <Font name="Georgia Bold Italic" size="50.0" />
+                </font>
+            </Label>
+            <VBox layoutX="140.0" layoutY="260.0" prefHeight="474.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="250.0">
+                <children>
+                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                        <children>
+                            <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../Image/0ktMni.jpg" />
+                                </image>
+                            </ImageView>
+                            <VBox>
+                                <children>
+                                    <Label fx:id="title1" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description1" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                        <children>
+                            <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../Image/0ktMni.jpg" />
+                                </image>
+                            </ImageView>
+                            <VBox>
+                                <children>
+                                    <Label fx:id="title2" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description2" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                        <children>
+                            <ImageView fx:id="img3" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../Image/0ktMni.jpg" />
+                                </image>
+                            </ImageView>
+                            <VBox>
+                                <children>
+                                    <Label fx:id="title3" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description3" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                        <children>
+                            <ImageView fx:id="img4" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../Image/0ktMni.jpg" />
+                                </image>
+                            </ImageView>
+                            <VBox>
+                                <children>
+                                    <Label fx:id="title4" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description4" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                        <children>
+                            <ImageView fx:id="img5" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../Image/0ktMni.jpg" />
+                                </image>
+                            </ImageView>
+                            <VBox>
+                                <children>
+                                    <Label fx:id="title5" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description5" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                        <children>
+                            <ImageView fx:id="img6" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../Image/0ktMni.jpg" />
+                                </image>
+                            </ImageView>
+                            <VBox>
+                                <children>
+                                    <Label fx:id="title6" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description6" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                        <children>
+                            <ImageView fx:id="img7" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../Image/0ktMni.jpg" />
+                                </image>
+                            </ImageView>
+                            <VBox>
+                                <children>
+                                    <Label fx:id="title7" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description7" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                        <children>
+                            <ImageView fx:id="img8" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../Image/0ktMni.jpg" />
+                                </image>
+                            </ImageView>
+                            <VBox>
+                                <children>
+                                    <Label fx:id="title8" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description8" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                        <children>
+                            <ImageView fx:id="img9" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../Image/0ktMni.jpg" />
+                                </image>
+                            </ImageView>
+                            <VBox>
+                                <children>
+                                    <Label fx:id="title9" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description9" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                        <children>
+                            <ImageView fx:id="img10" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../Image/0ktMni.jpg" />
+                                </image>
+                            </ImageView>
+                            <VBox>
+                                <children>
+                                    <Label fx:id="title10" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description10" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+                    <fx:define>
+                        <ArrayList fx:id="descriptionList">
+                            <fx:reference source="description1" />
+                            <fx:reference source="description2" />
+                            <fx:reference source="description3" />
+                            <fx:reference source="description4" />
+                            <fx:reference source="description5" />
+                            <fx:reference source="description6" />
+                            <fx:reference source="description7" />
+                            <fx:reference source="description8" />
+                            <fx:reference source="description9" />
+                            <fx:reference source="description10" />
+                        </ArrayList>
+                        <ArrayList fx:id="titleList">
+                            <fx:reference source="title1" />
+                            <fx:reference source="title2" />
+                            <fx:reference source="title3" />
+                            <fx:reference source="title4" />
+                            <fx:reference source="title5" />
+                            <fx:reference source="title6" />
+                            <fx:reference source="title7" />
+                            <fx:reference source="title8" />
+                            <fx:reference source="title9" />
+                            <fx:reference source="title10" />
+                        </ArrayList>
+                        <ArrayList fx:id="imgList">
+                            <fx:reference source="img1" />
+                            <fx:reference source="img2" />
+                            <fx:reference source="img3" />
+                            <fx:reference source="img4" />
+                            <fx:reference source="img5" />
+                            <fx:reference source="img6" />
+                            <fx:reference source="img7" />
+                            <fx:reference source="img8" />
+                            <fx:reference source="img9" />
+                            <fx:reference source="img10" />
+                        </ArrayList>
+                    </fx:define>
+                </children>
+            </VBox>
+            <HBox layoutX="14.0" layoutY="216.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0">
+                <children>
+                    <Button mnemonicParsing="false" onAction="#moveToPage1" style="-fx-background-color: white;" text="1" />
+                    <Button mnemonicParsing="false" onAction="#moveToPage2" style="-fx-background-color: white;" text="2" />
+                    <Button mnemonicParsing="false" onAction="#moveToPage3" style="-fx-background-color: white;" text="3" />
+                    <Button mnemonicParsing="false" style="-fx-background-color: white;" text="4" />
+                    <Button mnemonicParsing="false" style="-fx-background-color: white;" text="5" />
+                </children>
+            </HBox>
+        </AnchorPane>
+    </content>
+</ScrollPane>

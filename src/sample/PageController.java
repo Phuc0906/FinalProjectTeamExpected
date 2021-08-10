@@ -1,16 +1,13 @@
 package sample;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class PageController {
     private Stage stage;
@@ -91,7 +88,15 @@ public class PageController {
     }
 
     public void toEntertainmentPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/EntertainmentPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentFXML/EntertainmentPage.fxml"));
+        root = loader.load();
+
+        EntertainmentController entertainmentController = loader.getController();
+        entertainmentController.loadExistWeb();
+        entertainmentController.setDescription();
+        entertainmentController.setTitle();
+        entertainmentController.setImgList();
+
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
