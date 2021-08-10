@@ -5,16 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
 import javafx.stage.Stage;
+import sample.BaseController.ChangingCategory;
 
 import java.io.IOException;
 
-
-public class PageController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+public class PageController extends ChangingCategory {
 
 
     public void toNewPage(ActionEvent actionEvent) throws IOException {
@@ -36,6 +32,7 @@ public class PageController {
     public void toCovidPage(ActionEvent actionEvent) throws IOException {
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
+//        root = FXMLLoader.load(getClass().getResource("pageFXML/CovidPage.fxml"));
         root = loader.load();
         CovidController covidController = loader.getController();
         covidController.setCovidImage();
@@ -97,13 +94,7 @@ public class PageController {
     }
 
     public void toWorldPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage.fxml"));
-        root = loader.load();
-        WorldController worldController = loader.getController();
-        worldController.setImage();
-        worldController.setTitle();
-        worldController.setDescription();
-
+        root = FXMLLoader.load(getClass().getResource("pageFXML/WorldPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
