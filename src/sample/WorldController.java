@@ -1,20 +1,38 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import sample.NewsClass.SupportedMethod;
+import sample.NewsObject.NewsManagement;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-
-public class PageController {
+public class WorldController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    private NewsManagement worldNews;
+
+    public WorldController() throws IOException {
+        this.worldNews = new NewsManagement();
+//        this.worldNews.loadVnExpress("https://vnexpress.net/the-gioi");
+        this.worldNews.loadTuoiTre("https://tuoitre.vn/the-gioi.htm");
+        this.worldNews.loadThanhNien("https://thanhnien.vn/the-gioi/");
+        this.worldNews.loadNhanDan("https://nhandan.vn/thegioi");
+    }
 
 
     public void toNewPage(ActionEvent actionEvent) throws IOException {
@@ -33,15 +51,9 @@ public class PageController {
         stage.show();
     }
 
-    public void toCovidPage(ActionEvent actionEvent) throws IOException {
-        
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
-        root = loader.load();
-        CovidController covidController = loader.getController();
-        covidController.setCovidImage();
-        covidController.setTitle();
-        covidController.setDescription();
 
+    public void toCovidPage(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("pageFXML/CovidPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -116,5 +128,33 @@ public class PageController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    ArrayList<ImageView> imgList;
+    public void setImage() {
+        for (int i = 0; i < imgList.size(); i++)
+            imgList.get(i).setImage(new Image(worldNews.getNews(i).getImageURL()));
+    }
+
+    @FXML
+    ArrayList<Label> titleList;
+    public void setTitle() {
+        
+        for (int i = 0; i < titleList.size(); i++) {
+            titleList.get(i).setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
+            titleList.get(i).setAlignment(Pos.TOP_LEFT);
+            titleList.get(i).setText(worldNews.getNews(i).getTitle());
+        }
+    }
+
+    @FXML
+    ArrayList<Label> descriptionList;
+    public void setDescription() {
+        for (int i = 0; i < descriptionList.size(); i++) {
+            descriptionList.get(i).setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
+            descriptionList.get(i).setAlignment(Pos.TOP_LEFT);
+            descriptionList.get(i).setText(new SupportedMethod().breakingString(worldNews.getNews(i).getDescription(), 15));
+        }
     }
 }
