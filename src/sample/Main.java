@@ -27,14 +27,6 @@ public class Main extends Application {
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
 
-
-        Document doc = Jsoup.connect("https://vnexpress.net/the-gioi").get();
-        Elements file = doc.select("div.wrapper-topstory-folder");
-        System.out.println(file.select("article.article-topstory" +
-                " div.thumb-art" +
-                " a").attr("href"));
-
-
     }
 
     public void closeApp(Stage stage) {
