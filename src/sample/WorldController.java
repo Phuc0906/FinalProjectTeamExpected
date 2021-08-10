@@ -37,7 +37,7 @@ public class WorldController {
         this.worldNews.loadNhanDan("https://nhandan.vn/thethao");
     }
 
-
+//  To Category methods block
     public void toNewPage(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("pageFXML/NewPage.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();

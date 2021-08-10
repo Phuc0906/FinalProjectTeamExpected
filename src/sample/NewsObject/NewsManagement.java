@@ -130,7 +130,7 @@ public class NewsManagement {
                 return news;
             }
         }
-        return this.newsList.get(0);
+        return null;
     }
 
     public News getNews(int whichNews) {
