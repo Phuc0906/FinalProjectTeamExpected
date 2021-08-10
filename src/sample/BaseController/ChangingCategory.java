@@ -108,7 +108,7 @@ public class ChangingCategory {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage.fxml"));
         root = loader.load();
         WorldController worldController = loader.getController();
-        worldController.setImage();
+        worldController.setImgList();
         worldController.setTitle();
         worldController.setDescription();
 

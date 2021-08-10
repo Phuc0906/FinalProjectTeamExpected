@@ -69,7 +69,7 @@
             <Font name="Georgia Bold Italic" size="50.0" />
         </font>
     </Label>
-   <ScrollPane fx:id="worldScrPane" layoutX="10.0" layoutY="250.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="250.0">
+   <ScrollPane fx:id="scrPane" layoutX="10.0" layoutY="250.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="250.0">
       <content>
           <VBox prefHeight="474.0" prefWidth="990.0" spacing="10.0">
               <children>
@@ -227,11 +227,11 @@
    </ScrollPane>
     <HBox layoutX="14.0" layoutY="216.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0">
         <children>
-            <Button fx:id="worldBtn1" mnemonicParsing="false" onAction="#toWorldPage" style="-fx-background-color: white;" text="1" />
-            <Button fx:id="worldBtn2" mnemonicParsing="false" onAction="#toWorldPage2" style="-fx-background-color: white;" text="2" />
-            <Button fx:id="worldBtn3" mnemonicParsing="false" onAction="#toWorldPage3" style="-fx-background-color: white;" text="3" />
-            <Button fx:id="worldBtn4" mnemonicParsing="false" onAction="#toWorldPage4" style="-fx-background-color: white;" text="4" />
-            <Button fx:id="worldBtn5" mnemonicParsing="false" onAction="#toWorldPage5" style="-fx-background-color: white;" text="5" />
+            <Button fx:id="worldBtn1" mnemonicParsing="false" onAction="#moveToPage1" style="-fx-background-color: white;" text="1" />
+            <Button fx:id="worldBtn2" mnemonicParsing="false" onAction="#moveToPage2" style="-fx-background-color: white;" text="2" />
+            <Button fx:id="worldBtn3" mnemonicParsing="false" onAction="#moveToPage3" style="-fx-background-color: white;" text="3" />
+            <Button fx:id="worldBtn4" mnemonicParsing="false" onAction="#moveToPage4" style="-fx-background-color: white;" text="4" />
+            <Button fx:id="worldBtn5" mnemonicParsing="false" onAction="#moveToPage5" style="-fx-background-color: white;" text="5" />
         </children>
     </HBox>
 </AnchorPane>

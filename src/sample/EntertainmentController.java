@@ -9,118 +9,15 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import sample.BaseController.ChangingCategory;
+import sample.BaseController.ChangingPage;
 import sample.SupportClass.SupportedMethod;
 import sample.NewsObject.NewsManagement;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class EntertainmentController extends ChangingCategory {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
-    private SupportedMethod supportedMethod = new SupportedMethod();
-
-    private NewsManagement newsList;
+public class EntertainmentController extends ChangingPage {
     public EntertainmentController() throws IOException {
-        newsList = new NewsManagement();
-        newsList.loadVnExpress("https://vnexpress.net/giai-tri");
-        newsList.loadTuoiTre("https://tuoitre.vn/giai-tri.htm");
-        newsList.loadThanhNien("https://thanhnien.vn/giai-tri/");
-        newsList.loadNhanDan( "https://nhandan.vn/thegioi");
-    }
-
-    @FXML
-    ArrayList<ImageView> imgList;
-    public void setImgList() {
-        new SupportedMethod().setImgList(imgList, 0, this.newsList);
-    }
-
-    @FXML
-    ArrayList<Label> titleList;
-    public void setTitle() {
-        new SupportedMethod().setTitleList(titleList, 0, this.newsList);
-    }
-
-    @FXML
-    ArrayList<Label> descriptionList;
-    public void setDescription() {
-        supportedMethod.setDescriptionList(descriptionList, 0, this.newsList);
-    }
-
-    public void setImgList2() { supportedMethod.setImgList(imgList, 10, this.newsList); }
-
-    public void setTitle2() {
-        supportedMethod.setTitleList(titleList, 10, this.newsList);
-    }
-
-    public void setDescription2() {
-        supportedMethod.setDescriptionList(descriptionList, 10, this.newsList);
-    }
-
-    public void setImgList3() { supportedMethod.setImgList(imgList, 20, this.newsList); }
-
-    public void setTitle3() { supportedMethod.setTitleList(titleList, 20, this.newsList); }
-
-    public void setDescription3() {
-        supportedMethod.setDescriptionList(descriptionList, 20, this.newsList);
-    }
-
-    public void setImgList4() { supportedMethod.setImgList(imgList, 30, this.newsList); }
-
-    public void setTitle4() {
-        supportedMethod.setTitleList(titleList, 30, this.newsList);
-    }
-
-    public void setDescription4() {
-        supportedMethod.setDescriptionList(descriptionList, 30, this.newsList);
-    }
-
-    public void setImgList5() { supportedMethod.setImgList(imgList, 40, this.newsList); }
-
-    public void setTitle5() {
-        supportedMethod.setTitleList(titleList, 40, this.newsList);
-    }
-
-    public void setDescription5() {
-        supportedMethod.setDescriptionList(descriptionList, 40, this.newsList);
-    }
-
-    @FXML
-    ScrollPane entertainmentScrPane;
-    public void moveToPage2(ActionEvent event) throws IOException {
-        setTitle2();
-        setImgList2();
-        setDescription2();
-        entertainmentScrPane.setVvalue(0);
-    }
-
-    public void moveToPage3(ActionEvent event) throws IOException {
-        setTitle3();
-        setImgList3();
-        setDescription3();
-        entertainmentScrPane.setVvalue(0);
-    }
-
-    public void moveToPage4(ActionEvent event) throws IOException {
-        setTitle4();
-        setImgList4();
-        setDescription4();
-        entertainmentScrPane.setVvalue(0);
-    }
-
-    public void moveToPage1(ActionEvent event) throws IOException {
-        setTitle();
-        setImgList();
-        setDescription();
-        entertainmentScrPane.setVvalue(0);
-    }
-
-    public void moveToPage5(ActionEvent event) throws IOException {
-        setTitle5();
-        setImgList5();
-        setDescription5();
-        entertainmentScrPane.setVvalue(0);
+        super("https://vnexpress.net/giai-tri", "https://nhandan.vn/thegioi", "https://tuoitre.vn/giai-tri.htm", "https://thanhnien.vn/giai-tri/");
     }
 }
