@@ -30,28 +30,19 @@ public class EntertainmentControllerPage2 extends EntertainmentBaseController {
     @FXML
     ArrayList<ImageView> imgList;
     public void setImgList() {
-        for (int i = 0; i < imgList.size(); i++)
-            imgList.get(i).setImage(new Image(newsList.getNews(i + 10).getImageURL()));
+        new SupportedMethod().setImgList(imgList, 10, this.newsList);
+
     }
 
     @FXML
     ArrayList<Label> titleList;
     public void setTitle() {
-        for (int i = 0; i < titleList.size(); i++) {
-            titleList.get(i).setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
-            titleList.get(i).setAlignment(Pos.TOP_LEFT);
-            titleList.get(i).setText(newsList.getNews(i + 10).getTitle());
-        }
+        new SupportedMethod().setTitleList(titleList, 10, this.newsList);
     }
 
     @FXML
     ArrayList<Label> descriptionList;
     public void setDescription() {
-        for (int i = 0; i < descriptionList.size(); i++) {
-            descriptionList.get(i).setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
-            descriptionList.get(i).setAlignment(Pos.TOP_LEFT);
-            descriptionList.get(i).setText(new SupportedMethod().breakingString(newsList.getNews(i + 10).getDescription(), 15));
-        }
+        new SupportedMethod().setDescriptionList(descriptionList, 10, this.newsList);
     }
-
 }

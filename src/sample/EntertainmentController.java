@@ -26,7 +26,7 @@ public class EntertainmentController extends EntertainmentBaseController {
 
     public void loadExistWeb() throws IOException {
         this.newsList = super.loadWeb("https://tuoitre.vn/giai-tri.htm", "https://nhandan.vn/thegioi", "https://thanhnien.vn/giai-tri/", "https://vnexpress.net/giai-tri");
-        System.out.println("PASS");
+
     }
 
     public void loadExistWeb(NewsManagement newsList) {
@@ -36,28 +36,20 @@ public class EntertainmentController extends EntertainmentBaseController {
     @FXML
     ArrayList<ImageView> imgList;
     public void setImgList() {
-        for (int i = 0; i < imgList.size(); i++)
-            imgList.get(i).setImage(new Image(newsList.getNews(i).getImageURL()));
+        new SupportedMethod().setImgList(imgList, 0, this.newsList);
+
     }
 
     @FXML
     ArrayList<Label> titleList;
     public void setTitle() {
-        for (int i = 0; i < titleList.size(); i++) {
-            titleList.get(i).setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
-            titleList.get(i).setAlignment(Pos.TOP_LEFT);
-            titleList.get(i).setText(newsList.getNews(i).getTitle());
-        }
+        new SupportedMethod().setTitleList(titleList, 0, this.newsList);
     }
 
     @FXML
     ArrayList<Label> descriptionList;
     public void setDescription() {
-        for (int i = 0; i < descriptionList.size(); i++) {
-            descriptionList.get(i).setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
-            descriptionList.get(i).setAlignment(Pos.TOP_LEFT);
-            descriptionList.get(i).setText(new SupportedMethod().breakingString(newsList.getNews(i).getDescription(), 15));
-        }
+        new SupportedMethod().setDescriptionList(descriptionList, 0, this.newsList);
     }
 
 }

@@ -1,5 +1,14 @@
 package sample.NewsClass;
 
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import sample.NewsObject.NewsManagement;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class SupportedMethod {
@@ -22,5 +31,37 @@ public class SupportedMethod {
             completedParagraph += paragraphStructure.get(i);
         }
         return completedParagraph;
+    }
+
+    public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList) {
+        int count = begin;
+        for (Label title: labelList) {
+            title.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
+            title.setAlignment(Pos.TOP_LEFT);
+            title.setText(newsList.getNews(count).getTitle());
+            count++;
+        }
+        System.out.println("DONE TITLE");
+    }
+
+    public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList) {
+        int count = begin;
+        for (Label description: labelList) {
+            description.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
+            description.setAlignment(Pos.TOP_LEFT);
+            description.setText(breakingString(newsList.getNews(count).getDescription(), 15));
+            count++;
+        }
+        System.out.println("DONE DESCRIPTION");
+    }
+
+    public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList) {
+        int count = begin;
+        for (ImageView img: imgList) {
+            System.out.println("\tAdding imgage " + count);
+            img.setImage(new Image(newsList.getNews(count).getImageURL()));
+            count++;
+        }
+        System.out.println("DONE IMGLIST");
     }
 }
