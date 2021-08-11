@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.CovidController;
 import sample.EntertainmentController;
+import sample.SportController;
 import sample.WorldController;
 
 import java.io.IOException;
@@ -82,7 +83,13 @@ public class ChangingCategory {
     }
 
     public void toSportsPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/SportsPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/SportsPage.fxml"));
+        root = loader.load();
+        SportController sportController = loader.getController();
+        sportController.setImgList();
+        sportController.setTitle();
+        sportController.setDescription();
+
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
