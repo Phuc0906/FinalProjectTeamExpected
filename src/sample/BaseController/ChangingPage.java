@@ -31,10 +31,11 @@ public class ChangingPage extends ChangingCategory{
         newsList.loadNhanDan(nhanDanUrl);
     }
 
-    public ChangingPage(String vnExpressURL, String nhanDanUrl) throws IOException {
+    public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL) throws IOException {
         newsList = new NewsManagement();
         newsList.loadVnExpress(vnExpressURL);
         newsList.loadNhanDan(nhanDanUrl);
+        newsList.loadTuoiTre(tuoiTreURL);
     }
 
     public void setCovidThanhNien(String thanhNienURL) {
