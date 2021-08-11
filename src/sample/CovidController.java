@@ -23,6 +23,6 @@ import java.util.ArrayList;
 public class CovidController extends ChangingPage {
     public CovidController() throws IOException {
         super("https://timkiem.vnexpress.net/?q=covid", "https://nhandan.vn/Search/%22covid%22", "https://tuoitre.vn/tim-kiem.htm?keywords=covid");
-        super.setCovidThanhNien("");
+        super.setCovidThanhNien("https://thanhnien.vn/covid-19/");
     }
 }

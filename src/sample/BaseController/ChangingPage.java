@@ -38,7 +38,7 @@ public class ChangingPage extends ChangingCategory{
         newsList.loadTuoiTre(tuoiTreURL);
     }
 
-    public void setCovidThanhNien(String thanhNienURL) {
+    public void setCovidThanhNien(String thanhNienURL) throws  IOException{
         newsList.covidThanhNien(thanhNienURL);
     }
 
