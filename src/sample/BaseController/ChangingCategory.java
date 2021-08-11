@@ -56,7 +56,13 @@ public class ChangingCategory {
     }
 
     public void toBusinessPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/BusinessPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/BusinessPage.fxml"));
+        root = loader.load();
+        BusinessController businessController = loader.getController();
+        businessController.setImgList();
+        businessController.setTitle();
+        businessController.setDescription();
+
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
