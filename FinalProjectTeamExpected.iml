@@ -24,6 +24,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="org.jsoup:jsoup:1.14.1" level="project" />
-    <orderEntry type="library" name="lib1" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

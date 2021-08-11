@@ -33,7 +33,7 @@ public class SupportedMethod {
         return completedParagraph;
     }
 
-    public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList) {
+    public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList){
         int count = begin;
         for (Label title: labelList) {
             title.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
@@ -43,7 +43,7 @@ public class SupportedMethod {
         }
     }
 
-    public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList) {
+    public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList){
         int count = begin;
         for (Label description: labelList) {
             description.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
@@ -53,7 +53,7 @@ public class SupportedMethod {
         }
     }
 
-    public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList) {
+    public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList){
         int count = begin;
         for (ImageView img: imgList) {
             img.setImage(new Image(newsList.getNews(count).getImageURL()));

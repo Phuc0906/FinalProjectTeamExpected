@@ -6,10 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.CovidController;
-import sample.EntertainmentController;
-import sample.SportController;
-import sample.WorldController;
+import sample.*;
 
 import java.io.IOException;
 
@@ -75,7 +72,13 @@ public class ChangingCategory {
     }
 
     public void toHealthPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/HealthPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/HealthPage.fxml"));
+        root = loader.load();
+        HealthController healthController = loader.getController();
+        healthController.setImgList();
+        healthController.setTitle();
+        healthController.setDescription();
+
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
