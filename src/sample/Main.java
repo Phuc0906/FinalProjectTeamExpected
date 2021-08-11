@@ -20,13 +20,12 @@ import sample.NewsObject.News;
 public class Main extends Application {
 
     @Override
-    public void start (Stage primaryStage) throws Exception{
+    public void start (Stage primaryStage) throws Exception {
         Parent homePage = FXMLLoader.load(getClass().getResource("pageFXML/HomePage.fxml"));
         primaryStage.setTitle("Projekt Red");
-        primaryStage.setScene(new Scene(homePage,1000, 720));
+        primaryStage.setScene(new Scene(homePage, 1000, 720));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
-
     }
 
     public void closeApp(Stage stage) {

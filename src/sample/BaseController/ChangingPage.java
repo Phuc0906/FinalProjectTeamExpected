@@ -24,7 +24,7 @@ public class ChangingPage extends ChangingCategory{
         newsList.loadVnExpress(vnExpressURL);
         newsList.loadTuoiTre(tuoiTreURL);
         newsList.loadThanhNien(thanhNienURL);
-        newsList.loadNhanDan( nhanDanUrl);
+        newsList.loadNhanDan(nhanDanUrl);
     }
 
     @FXML
