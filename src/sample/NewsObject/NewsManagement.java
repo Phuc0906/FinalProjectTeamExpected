@@ -88,11 +88,6 @@ public class NewsManagement {
             description = article.select("p.description a").text();
             if (imageURL[0].contains("http")) {
                 newsList.add(new News(newsURL, title, description, imageURL[0]));
-                System.out.println("-----------------------");
-                System.out.println("Title: " + title);
-                System.out.println("url: " + newsURL);
-                System.out.println("imageURL: " + imageURL[0]);
-                System.out.println("Description: " + description);
             }
 
         }
