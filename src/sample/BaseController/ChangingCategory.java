@@ -6,10 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.CovidController;
-import sample.EntertainmentController;
-import sample.SportController;
-import sample.WorldController;
+import sample.*;
 
 import java.io.IOException;
 
@@ -35,7 +32,6 @@ public class ChangingCategory {
     }
 
     public void toCovidPage(ActionEvent actionEvent) throws IOException {
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
         root = loader.load();
 
@@ -51,7 +47,14 @@ public class ChangingCategory {
     }
 
     public void toPoliticsPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/PoliticsPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/PoliticsPage.fxml"));
+        root = loader.load();
+
+        PoliticsController entertainmentController = loader.getController();
+        entertainmentController.setTitle();
+        entertainmentController.setDescription();
+        entertainmentController.setImgList();
+
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
