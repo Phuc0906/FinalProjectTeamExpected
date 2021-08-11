@@ -21,6 +21,7 @@ public class NewsManagement {
         String imageURL;
         Document doc = Jsoup.connect(url).get();
         Elements el = doc.select("div.col390");
+        if (el.isEmpty()) el = doc.select("div.feature");
         for (Element element : el.select("article")) {
             newsURL = element.select("article.story--primary a").attr("href");
             title = element.select("article.story--primary a").attr("title");
