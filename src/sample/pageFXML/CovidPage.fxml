@@ -72,7 +72,7 @@
     <ImageView fx:id="ads" fitHeight="106.0" fitWidth="408.0" layoutX="296.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0">
         <Image url="file:/C:/Users/84919/Downloads/970x250-retina.jpg" />
     </ImageView>
-    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="346.0" layoutY="158.0" prefHeight="25.0" prefWidth="1000.0" style="-fx-background-color: white;" text="Entertainment" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="346.0" layoutY="158.0" prefHeight="25.0" prefWidth="1000.0" style="-fx-background-color: white;" text="Covid" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <font>
             <Font name="Georgia Bold Italic" size="50.0" />
         </font>

@@ -31,8 +31,24 @@ public class NewsManagement {
         }
     }
 
-    public void covidThanhNien(String url) {
-
+    public void covidThanhNien(String url) throws  IOException{
+        String newsURL;
+        String title;
+        String description;
+        String imageURL;
+        Document doc = Jsoup.connect(url).get();
+        Elements el = doc.select("div.relative");
+        for (Element element : el.select("article")) {
+            newsURL = element.select("a").attr("href");
+            ///in special cases
+            if (!newsURL.contains("https")) newsURL = "https://thanhnien.vn" + element.select("a").attr("href");
+            title = element.select("a").attr("title");
+            imageURL = element.select("a img").attr("data-src");
+            description = element.select("div.summary").text();
+            //in special cases
+            if (description==null) description = element.select("div.summary div").text();
+            this.newsList.add(new News(newsURL, title, description, imageURL));
+        }
     }
 
     public void loadZingNews(String url) throws  IOException {
