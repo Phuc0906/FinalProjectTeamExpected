@@ -7,15 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import sample.NewsObject.News;
-
-
+import sample.SupportClass.SupportedMethod;
 
 public class Main extends Application {
 
@@ -26,6 +18,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(homePage,1000, 720));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
+        new SupportedMethod().scrapeArticle("https://timkiem.vnexpress.net/?q=covid");
 
     }
 

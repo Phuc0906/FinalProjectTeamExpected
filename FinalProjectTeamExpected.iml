@@ -7,7 +7,7 @@
     </content>
     <orderEntry type="jdk" jdkName="openjdk-16" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library name="javafx-fxml">
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/16/javafx-fxml-16.jar!/" />
@@ -23,7 +23,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="org.jsoup:jsoup:1.14.1" level="project" />
-    <orderEntry type="library" name="lib1" level="project" />
+    <orderEntry type="library" exported="" name="org.jsoup:jsoup:1.14.1" level="project" />
+    <orderEntry type="library" exported="" name="lib1" level="project" />
   </component>
 </module>

@@ -30,6 +30,10 @@ public class NewsManagement {
         }
     }
 
+    public void covidThanhNien(String url) {
+
+    }
+
     public void loadZingNews(String url) throws  IOException {
         String newsURL;
         String title;
@@ -63,11 +67,8 @@ public class NewsManagement {
     }
 
     public void loadVnExpress(String webURL) throws IOException {
-
         Document doc = Jsoup.connect(webURL).get();
         extractingArticleForVnExpress(doc, "div.list-news-subfolder", this.newsList );
-        extractingArticleForVnExpress(doc, "div#automation_5News", this.newsList );
-
     }
 
     private void extractingArticleForVnExpress(Document doc, String path, ArrayList<News> newsList) {
@@ -86,7 +87,13 @@ public class NewsManagement {
             description = article.select("p.description a").text();
             if (imageURL[0].contains("http")) {
                 newsList.add(new News(newsURL, title, description, imageURL[0]));
+                System.out.println("-----------------------");
+                System.out.println("Title: " + title);
+                System.out.println("url: " + newsURL);
+                System.out.println("imageURL: " + imageURL[0]);
+                System.out.println("Description: " + description);
             }
+
         }
     }
 

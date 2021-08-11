@@ -37,12 +37,12 @@ public class ChangingCategory {
     public void toCovidPage(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
-//        root = FXMLLoader.load(getClass().getResource("pageFXML/CovidPage.fxml"));
         root = loader.load();
-        CovidController covidController = loader.getController();
-        covidController.setCovidImage();
-        covidController.setTitle();
-        covidController.setDescription();
+
+        CovidController entertainmentController = loader.getController();
+        entertainmentController.setTitle();
+        entertainmentController.setDescription();
+        entertainmentController.setImgList();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);

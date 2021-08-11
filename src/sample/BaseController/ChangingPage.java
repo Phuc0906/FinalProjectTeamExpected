@@ -19,12 +19,26 @@ public class ChangingPage extends ChangingCategory{
     private SupportedMethod supportedMethod = new SupportedMethod();
     private NewsManagement newsList;
 
+    public ChangingPage() {
+
+    }
+
     public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL, String thanhNienURL) throws IOException {
         newsList = new NewsManagement();
         newsList.loadVnExpress(vnExpressURL);
         newsList.loadTuoiTre(tuoiTreURL);
         newsList.loadThanhNien(thanhNienURL);
-        newsList.loadNhanDan( nhanDanUrl);
+        newsList.loadNhanDan(nhanDanUrl);
+    }
+
+    public ChangingPage(String vnExpressURL, String nhanDanUrl) throws IOException {
+        newsList = new NewsManagement();
+        newsList.loadVnExpress(vnExpressURL);
+        newsList.loadNhanDan(nhanDanUrl);
+    }
+
+    public void setCovidThanhNien(String thanhNienURL) {
+        newsList.covidThanhNien(thanhNienURL);
     }
 
     @FXML
