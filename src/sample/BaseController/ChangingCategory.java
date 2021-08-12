@@ -76,7 +76,13 @@ public class ChangingCategory {
     }
 
     public void toTechPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/TechPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/TechPage.fxml"));
+        root = loader.load();
+        TechController techController = loader.getController();
+        techController.setImgList();
+        techController.setTitle();
+        techController.setDescription();
+
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
