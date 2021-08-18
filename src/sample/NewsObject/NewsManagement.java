@@ -57,14 +57,6 @@ public class NewsManagement {
         String title;
         String description;
         String imageURL;
-//        Document docScript = Jsoup.parse(script[0] + ">");
-//        System.out.println(docScript.select("img").attr("src"));
-//        System.out.println(docScript.select("img").attr("alt"));
-//        System.out.println(articles.select("a").attr("href"));
-//        for (Element des: doc.select("p.article-summary")) {
-//            System.out.println(des.text());
-//
-//        }
 
         Document doc = Jsoup.connect(url).get();
         Elements articles = doc.select("p.article-thumbnail");
@@ -81,10 +73,6 @@ public class NewsManagement {
             if (!imageURL.contains("http")) {
                 imageURL = docScript.select("img").attr("data-src");
             }
-            System.out.println("IMG: " + imageURL);
-            System.out.println("NEW LINK: " + newsURL);
-            System.out.println("DESCRIPTION: " + description);
-            System.out.println("TITLE: " + title.split("hinh")[0]);
             this.newsList.add(new News(newsURL, title.split("hinh")[0], description, imageURL));
             count++;
         }

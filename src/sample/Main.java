@@ -17,13 +17,11 @@ public class Main extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception {
-        Parent homePage = FXMLLoader.load(getClass().getResource("pageFXML/HomePage.fxml"));
+        Parent homePage = FXMLLoader.load(getClass().getResource("pageFXML/NewPage.fxml"));
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
-
-        new NewsManagement().loadZingNews("https://zingnews.vn/cong-nghe.html");
     }
 
     public void closeApp(Stage stage) {
