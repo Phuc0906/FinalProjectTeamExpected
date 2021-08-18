@@ -11,7 +11,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import sample.SupportClass.SupportedMethod;
+import sample.NewsObject.NewsManagement;
 
 public class Main extends Application {
 
@@ -22,6 +22,8 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(homePage, 1000, 720));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
+
+        new NewsManagement().loadZingNews("https://zingnews.vn/cong-nghe.html");
     }
 
     public void closeApp(Stage stage) {

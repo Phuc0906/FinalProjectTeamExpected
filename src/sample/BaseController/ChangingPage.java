@@ -23,12 +23,13 @@ public class ChangingPage extends ChangingCategory{
 
     }
 
-    public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL, String thanhNienURL) throws IOException {
+    public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL, String thanhNienURL, String zingURL) throws IOException {
         newsList = new NewsManagement();
         newsList.loadVnExpress(vnExpressURL);
         newsList.loadTuoiTre(tuoiTreURL);
         newsList.loadThanhNien(thanhNienURL);
         newsList.loadNhanDan(nhanDanUrl);
+        newsList.loadZingNews(zingURL);
     }
 
     public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL) throws IOException {

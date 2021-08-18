@@ -52,18 +52,41 @@ public class NewsManagement {
     }
 
     public void loadZingNews(String url) throws  IOException {
+        String originalLink = "https://zingnews.vn/";
         String newsURL;
         String title;
         String description;
         String imageURL;
+//        Document docScript = Jsoup.parse(script[0] + ">");
+//        System.out.println(docScript.select("img").attr("src"));
+//        System.out.println(docScript.select("img").attr("alt"));
+//        System.out.println(articles.select("a").attr("href"));
+//        for (Element des: doc.select("p.article-summary")) {
+//            System.out.println(des.text());
+//
+//        }
+
         Document doc = Jsoup.connect(url).get();
-        Elements el = doc.select("div.infinite-load");
-        for (Element element : el.select("article")) {
-            newsURL = element.select("p.article-thumbnail a").attr("href");
-            title = element.select("header p.article-title a").text();
-            imageURL = element.select("p.article-thumbnail a img").attr("src");
-            description = element.select("header p.article-summary").text();
-            this.newsList.add(new News(newsURL, title, description, imageURL));
+        Elements articles = doc.select("p.article-thumbnail");
+        String[] script = articles.select("img").toString().split("\n");
+        Elements descriptions = doc.select("p.article-summary");
+        Document docScript;
+        int count = 0;
+        for (String img: script) {
+            docScript = Jsoup.parse(img);
+            imageURL = docScript.select("img").attr("src");
+            newsURL = originalLink + articles.get(count).select("a").attr("href");
+            description = descriptions.get(count).text();
+            title = docScript.select("img").attr("alt");
+            if (!imageURL.contains("http")) {
+                imageURL = docScript.select("img").attr("data-src");
+            }
+            System.out.println("IMG: " + imageURL);
+            System.out.println("NEW LINK: " + newsURL);
+            System.out.println("DESCRIPTION: " + description);
+            System.out.println("TITLE: " + title.split("hinh")[0]);
+            this.newsList.add(new News(newsURL, title.split("hinh")[0], description, imageURL));
+            count++;
         }
     }
 

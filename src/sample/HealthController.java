@@ -8,6 +8,6 @@ import java.io.IOException;
 public class HealthController extends ChangingPage {
 
     public HealthController() throws IOException {
-        super("https://vnexpress.net/suc-khoe", "https://nhandan.vn/y-te", "https://tuoitre.vn/suc-khoe.htm", "https://thanhnien.vn/suc-khoe/");
+        super("https://vnexpress.net/suc-khoe", "https://nhandan.vn/y-te", "https://tuoitre.vn/suc-khoe.htm", "https://thanhnien.vn/suc-khoe/", "https://zingnews.vn/suc-khoe.html");
     }
 }
