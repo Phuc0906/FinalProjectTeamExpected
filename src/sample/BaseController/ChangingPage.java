@@ -19,8 +19,34 @@ public class ChangingPage extends ChangingCategory{
     private SupportedMethod supportedMethod = new SupportedMethod();
     private NewsManagement newsList;
 
-    public ChangingPage() {
+    public ChangingPage(String vnExpressURL1, String vnExpressURL2, String vnExpressURL3,
+                        String nhanDanUrl1, String nhanDanUrl2, String nhanDanUrl3, String nhanDanUrl4, String nhanDanUrl5,
+                        String tuoiTreURL1, String tuoiTreURL2, String tuoiTreURL3, String tuoiTreURL4,
+                        String thanhNienURL1, String thanhNienURL2,
+                        String zingURL1, String zingURL2, String zingURL3) throws IOException {
+        newsList = new NewsManagement();
 
+        newsList.loadVnExpress(vnExpressURL1);
+        newsList.loadVnExpress(vnExpressURL2);
+        newsList.loadVnExpress(vnExpressURL3);
+
+        newsList.loadNhanDan(nhanDanUrl1);
+        newsList.loadNhanDan(nhanDanUrl2);
+        newsList.loadNhanDan(nhanDanUrl3);
+        newsList.loadNhanDan(nhanDanUrl4);
+        newsList.loadNhanDan(nhanDanUrl5);
+
+        newsList.loadTuoiTre(tuoiTreURL1);
+        newsList.loadTuoiTre(tuoiTreURL2);
+        newsList.loadTuoiTre(tuoiTreURL3);
+        newsList.loadTuoiTre(tuoiTreURL4);
+
+        newsList.loadThanhNien(thanhNienURL1);
+        newsList.loadThanhNien(thanhNienURL2);
+
+        newsList.loadZingNews(zingURL1);
+        newsList.loadZingNews(zingURL2);
+        newsList.loadZingNews(zingURL3);
     }
 
     public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL, String thanhNienURL, String zingURL) throws IOException {

@@ -23,13 +23,6 @@ public class ChangingCategory {
         stage.show();
     }
 
-    public void toHomePage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/HomePage.fxml"));
-        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public void toCovidPage(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
@@ -147,7 +140,13 @@ public class ChangingCategory {
     }
 
     public void toOthersPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/OthersPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/OthersPage.fxml"));
+        root = loader.load();
+        OthersController othersController = loader.getController();
+        othersController.setImgList();
+        othersController.setTitle();
+        othersController.setDescription();
+
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

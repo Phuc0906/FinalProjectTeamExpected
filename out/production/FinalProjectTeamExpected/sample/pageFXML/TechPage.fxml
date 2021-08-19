@@ -11,7 +11,7 @@
 
 <?import java.util.ArrayList?>
 <AnchorPane maxHeight="720.0" maxWidth="1000.0" prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TechController">
-    <Button fx:id="logo" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" onAction="#toHomePage" prefHeight="98.0" prefWidth="188.0" style="-fx-background-color: white;" text="Vietcetera." AnchorPane.leftAnchor="10.0">
+    <Button fx:id="logo" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="188.0" style="-fx-background-color: white;" text="Vietcetera." AnchorPane.leftAnchor="10.0">
         <font>
             <Font name="Javanese Text" size="30.0" />
         </font>
