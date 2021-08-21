@@ -61,6 +61,7 @@ public class ChangingCategory {
         businessController.setImgList();
         businessController.setTitle();
         businessController.setDescription();
+        businessController.bindingPane();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);

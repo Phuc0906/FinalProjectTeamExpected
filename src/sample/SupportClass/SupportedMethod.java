@@ -42,22 +42,28 @@ public class SupportedMethod {
         return completedParagraph;
     }
 
-    public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList){
+    public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, AnchorPane coverPane){
         int count = begin;
         for (Label title: labelList) {
             title.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
             title.setAlignment(Pos.TOP_LEFT);
+            title.prefHeightProperty().bind(imgLayouts.get(0).fitHeightProperty().divide(2));
+            title.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgLayouts.get(0).fitWidthProperty()));
+            title.setWrapText(true);
             title.setText(newsList.getNews(count).getTitle());
             count++;
         }
     }
 
-    public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList){
+    public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, AnchorPane coverPane){
         int count = begin;
         for (Label description: labelList) {
-            description.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
+            description.setFont(Font.font("Time New Roman", FontWeight.BOLD, 20));
             description.setAlignment(Pos.TOP_LEFT);
-            description.setText(breakingString(newsList.getNews(count).getDescription(), 15));
+            description.setWrapText(true);
+            description.setText(newsList.getNews(count).getDescription());
+            description.prefHeightProperty().bind(imgLayouts.get(0).fitHeightProperty().divide(2));
+            description.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgLayouts.get(0).fitWidthProperty()).multiply(3.5).divide(5));
             count++;
         }
     }
