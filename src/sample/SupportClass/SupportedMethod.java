@@ -78,4 +78,19 @@ public class SupportedMethod {
         }
     }
 
+    public void scrapeVnExpress(String url) throws IOException {
+        Document doc = Jsoup.connect(url).get();
+        Elements imgList = doc.select("div.thumb-art");
+        String[] imgStrings = imgList.toString().split("</div>");
+        Elements descriptionList = doc.select("p.description");
+        String[] descriptions = descriptionList.toString().split("</p>");
+        int count = 0;
+        for (String img: imgStrings) {
+            System.out.println("--------------------------------");
+            System.out.println("Link + imgLink: " + img.replaceAll("\n", "") + "</div>");
+            System.out.println("Description: " + descriptions[count].replaceAll("\n", "").replaceAll(">\\s+<", "><") + "</p>");
+            count++;
+        }
+    }
+
 }

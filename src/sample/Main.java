@@ -12,6 +12,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import sample.NewsObject.NewsManagement;
+import sample.SupportClass.SupportedMethod;
 
 public class Main extends Application {
 
@@ -22,6 +23,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(homePage, 1000, 720));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
+        new SupportedMethod().scrapeVnExpress("https://timkiem.vnexpress.net/?q=covid");
     }
 
     public void closeApp(Stage stage) {
