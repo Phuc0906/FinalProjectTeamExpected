@@ -16,7 +16,14 @@ public class ChangingCategory {
     private Parent root;
 
     public void toNewPage(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("pageFXML/NewPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
+        root = loader.load();
+
+        NewController newController = loader.getController();
+        newController.setTitle();
+        newController.setDescription();
+        newController.setImgList();
+
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
