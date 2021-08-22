@@ -78,4 +78,34 @@ public class SupportedMethod {
         }
     }
 
+    public void loadNhandan() throws IOException {
+        String originalLink = "https://nhandan.vn/";
+        String newsURL;
+        String title;
+        String description;
+        String imageURL;
+
+        Document document = Jsoup.connect("https://nhandan.vn/thegioi").get();
+        Elements elements = document.select("div.box-img a");
+        Elements elements1 = document.select("div.box-des p");
+        String[] obj = elements.toString().split("\\n");
+//        String[] obj1 = elements1.toString().split("\\n");
+        Document docScript;
+        int count = 0;
+
+        for(String Obj : obj) {
+            docScript = Jsoup.parse(Obj);
+            imageURL = docScript.select("img").attr("data-src");
+            title = docScript.select("a").attr("title");
+            newsURL = originalLink + elements.get(count).select("a").attr("href");
+            description = elements1.get(count).select("p").text();
+            System.out.println("--------------");
+            System.out.println(title);
+            System.out.println(newsURL);
+            System.out.println(imageURL);
+            System.out.println(description);
+            count++;
+        }
+    }
+
 }

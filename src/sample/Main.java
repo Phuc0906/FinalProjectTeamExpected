@@ -12,6 +12,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import sample.NewsObject.NewsManagement;
+import sample.SupportClass.SupportedMethod;
 
 public class Main extends Application {
 
@@ -20,18 +21,7 @@ public class Main extends Application {
         Parent homePage = FXMLLoader.load(getClass().getResource("pageFXML/NewPage.fxml"));
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
+        new SupportedMethod().loadNhandan();
         primaryStage.show();
-        primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
-    }
-
-    public void closeApp(Stage stage) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Close App");
-        alert.setContentText("Do you want to close the app?");
-        alert.setHeaderText("You are trying to close the app");
-
-        if(alert.showAndWait().get() == ButtonType.OK) {
-            stage.close();
-        }
     }
 }

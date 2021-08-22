@@ -60,7 +60,7 @@ public class NewsManagement {
 
         Document doc = Jsoup.connect(url).get();
         Elements articles = doc.select("p.article-thumbnail");
-        String[] script = articles.select("img").toString().split("\n");
+        String[] script = articles.select("img").toString().split("\\n");
         Elements descriptions = doc.select("p.article-summary");
         Document docScript;
         int count = 0;
