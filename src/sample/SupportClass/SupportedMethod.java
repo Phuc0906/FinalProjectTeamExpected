@@ -15,6 +15,7 @@ import org.jsoup.select.Elements;
 import sample.NewsObject.News;
 import sample.NewsObject.NewsManagement;
 
+import javax.print.Doc;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -82,13 +83,32 @@ public class SupportedMethod {
         Document doc = Jsoup.connect(url).get();
         Elements imgList = doc.select("div.thumb-art");
         String[] imgStrings = imgList.toString().split("</div>");
+        System.out.println(imgList);
         Elements descriptionList = doc.select("p.description");
         String[] descriptions = descriptionList.toString().split("</p>");
+        String newsURL;
+        String title;
+        String description;
+        String imageURL[];
         int count = 0;
         for (String img: imgStrings) {
             System.out.println("--------------------------------");
             System.out.println("Link + imgLink: " + img.replaceAll("\n", "") + "</div>");
-            System.out.println("Description: " + descriptions[count].replaceAll("\n", "").replaceAll(">\\s+<", "><") + "</p>");
+//            System.out.println("Description: " + descriptions[count].replaceAll("\n", "").replaceAll(">\\s+<", "><") + "</p>");
+            Document linkImg = Jsoup.parse(img.replaceAll("\n", "") + "</div>");
+
+            newsURL= linkImg.select("a").attr("href");
+            System.out.println("News Link: " + newsURL);
+
+            imageURL = linkImg.select("source").attr("data-srcset").split("\\s");
+            System.out.println("imgURL: " + imageURL[0]);
+
+            title = linkImg.select("a").attr("title");
+            System.out.println("Title: " + title);
+
+            Document descriptionHTML = Jsoup.parse(descriptions[count].replaceAll("\n", "").replaceAll(">\\s+<", "><") + "</p>");
+            description = descriptionHTML.select("p").text();
+            System.out.println("Description: " + description);
             count++;
         }
     }
