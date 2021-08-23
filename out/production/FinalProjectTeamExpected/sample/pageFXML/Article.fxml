@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<ScrollPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BusinessController">
+<ScrollPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ArticleController">
    <content>
       <AnchorPane fx:id="coverPane" maxHeight="720.0" maxWidth="1000.0" prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: white;">
           <Button fx:id="logo" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="188.0" style="-fx-background-color: white;" text="Vietcetera." AnchorPane.leftAnchor="10.0">
@@ -68,7 +68,7 @@
                   </font>
               </Button>
           </HBox>
-         <VBox layoutX="450.0" layoutY="203.0" prefHeight="268.0" prefWidth="144.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0" />
+         <VBox fx:id="articleBox" layoutX="450.0" layoutY="203.0" prefHeight="268.0" prefWidth="144.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0" />
       </AnchorPane>
    </content>
 </ScrollPane>

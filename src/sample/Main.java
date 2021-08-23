@@ -7,6 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import sample.SupportClass.SupportedMethod;
 
 public class Main extends Application {
@@ -19,6 +22,18 @@ public class Main extends Application {
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
 
+        Document doc = Jsoup.connect("https://tuoitre.vn/tui-qua-an-sinh-duoc-trao-tan-tay-nguoi-dan-tp-hcm-ngay-gian-cach-20210823130245963.htm").get();
+        Elements paragraph = doc.select("div.main-content-body p");
+//        System.out.println(paragraph);
+        String[] paragraphString = paragraph.toString().split("\n");
+        for (String para: paragraphString) {
+            Document docScript = Jsoup.parse(para);
+            if(!docScript.text().contains("Ảnh") && !docScript.text().contains("TTO")) {
+                System.out.println(docScript.text());
+            }
+        }
+        Elements author = doc.select("div.main-content-body div.author");
+        System.out.println(author.text());
 //        new SupportedMethod().setArticle("https://vnexpress.net/the-kho-trong-dai-dich-cua-nganh-ban-le-4344766.html");
     }
 

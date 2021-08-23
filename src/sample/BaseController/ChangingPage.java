@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import sample.ArticleController;
 import sample.NewsObject.NewsManagement;
 import sample.SupportClass.SupportedMethod;
 
@@ -185,7 +186,7 @@ public class ChangingPage extends ChangingCategory{
     }
 
     public void toArticle1(MouseEvent event) {
-        
+//        setArticleBox(this.newsList.searchTitle(titleList.get(0).getText()));
     }
 
 }
