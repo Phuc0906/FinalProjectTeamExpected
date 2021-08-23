@@ -130,24 +130,13 @@ public class NewsManagement {
         String imageURL;
 
         Document document = Jsoup.connect(url).get();
-        Elements elements = document.select("div.box-img a");
-        Elements elements1 = document.select("div.box-des p");
-        String[] obj = elements.toString().split("\\n");
-        Document docScript;
-        int count = 0;
-
-        for(String Obj : obj) {
-            try {
-                docScript = Jsoup.parse(Obj);
-                imageURL = docScript.select("img").attr("data-src");
-                title = docScript.select("a").attr("title");
-                newsURL = originalLink + elements.get(count).select("a").attr("href");
-                description = elements1.get(count).select("p").text();
-            }catch (IndexOutOfBoundsException ex) {
-                break;
-            }
+        Elements article = document.select("article");
+        for (Element art: article) {
+            title = art.select("div.box-img a").attr("title");
+            imageURL = art.select("div.box-img a img").attr("data-src");
+            newsURL = originalLink + art.select("div.box-img a").attr("href");
+            description = art.select("div.box-des p").text();
             newsList.add(new News(newsURL, title, description, imageURL));
-            count++;
         }
     }
 

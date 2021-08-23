@@ -79,4 +79,7 @@ public class SupportedMethod {
         }
     }
 
+    public void nhanDanLoad() throws IOException {
+
+    }
 }

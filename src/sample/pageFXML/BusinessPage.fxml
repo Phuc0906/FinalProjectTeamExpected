@@ -82,7 +82,7 @@
                             <ImageView fx:id="image1" pickOnBounds="true" preserveRatio="true" />
                             <VBox fx:id="coverBox1" prefHeight="113.0" prefWidth="785.0" >
                                 <children>
-                                    <Label style="-fx-background-color: yellow" fx:id="title1" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="title1" prefWidth="789.0" text="Label" />
                                     <Label fx:id="description1" prefWidth="803.0" text="Label" />
                                 </children>
                             </VBox>

@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import sample.SupportClass.SupportedMethod;
 
 public class Main extends Application {
 
@@ -17,6 +18,8 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(homePage, 1000, 720));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
+
+        new SupportedMethod().nhanDanLoad();
     }
 
     public void closeApp(Stage stage) {
