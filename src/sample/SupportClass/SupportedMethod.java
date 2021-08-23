@@ -79,11 +79,4 @@ public class SupportedMethod {
         }
     }
 
-    public void scrapeVnExpress(String url) throws IOException {
-
-    }
-
-    public void loadNhandan() throws IOException {
-
-    }
 }

@@ -104,7 +104,6 @@ public class NewsManagement {
         String title;
         String description;
         String imageURL[];
-        System.out.println("hello");
         int count = 0;
         for (String img: imgStrings) {
             Document linkImg = Jsoup.parse(img.replaceAll("\n", "") + "</div>");
