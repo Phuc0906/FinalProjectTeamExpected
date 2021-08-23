@@ -121,19 +121,31 @@ public class NewsManagement {
     }
 
     public void loadNhanDan(String url) throws  IOException {
+        String originalLink = "https://nhandan.vn/";
         String newsURL;
         String title;
         String description;
         String imageURL;
-        Document doc = Jsoup.connect(url).get();
-        Elements ele = doc.select("div.box-widget-loaded");
-        Elements element = ele.select("article");
-        for (Element element1 : element) {
-            title = element1.select("div.box-title a").attr("title");
-            newsURL = "https://nhandan.vn/" + element1.select("div.box-title a").attr("href");
-            imageURL = element1.select("div.box-img a img").attr("data-src");
-            description = element1.select("div.box-des").text();
+
+        Document document = Jsoup.connect(url).get();
+        Elements elements = document.select("div.box-img a");
+        Elements elements1 = document.select("div.box-des p");
+        String[] obj = elements.toString().split("\\n");
+        Document docScript;
+        int count = 0;
+
+        for(String Obj : obj) {
+            try {
+                docScript = Jsoup.parse(Obj);
+                imageURL = docScript.select("img").attr("data-src");
+                title = docScript.select("a").attr("title");
+                newsURL = originalLink + elements.get(count).select("a").attr("href");
+                description = elements1.get(count).select("p").text();
+            }catch (IndexOutOfBoundsException ex) {
+                break;
+            }
             newsList.add(new News(newsURL, title, description, imageURL));
+            count++;
         }
     }
 
@@ -147,15 +159,6 @@ public class NewsManagement {
     }
 
     public int getSize() { return this.newsList.size(); }
-    public void printOut() {
-        for (News news: newsList) {
-            System.out.println("---------------------");
-            System.out.println("article: " + news.getNewsURL());
-            System.out.println("article: " + news.getTitle());
-            System.out.println("article: " + news.getDescription());
-            System.out.println("article: " + news.getImageURL());
-        }
-    }
 
     public News getNews(int whichNews) {
         return newsList.get(whichNews);
