@@ -2,11 +2,14 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -28,6 +31,12 @@ public class ArticleController extends ChangingCategory {
 
     @FXML
     ScrollPane scrPane;
+
+    @FXML
+    Button logo;
+
+    @FXML
+    HBox buttonBox;
 
     public void setArticleBox(News news) throws IOException {
         coverPane.prefWidthProperty().bind(scrPane.widthProperty());
@@ -84,6 +93,15 @@ public class ArticleController extends ChangingCategory {
     public void setArticleBox() throws IOException {
         coverPane.prefWidthProperty().bind(scrPane.widthProperty());
         articleBox.setSpacing(20);
+
+        logo.prefWidthProperty().bind(articleBox.widthProperty().divide(3));
+        logo.prefHeightProperty().bind(scrPane.heightProperty().divide(5));
+        logo.setAlignment(Pos.CENTER);
+        logo.setStyle("-fx-background-color: lightgreen");
+
+        buttonBox.prefHeightProperty().bind(scrPane.heightProperty().divide(15));
+        buttonBox.setAlignment(Pos.CENTER_LEFT);
+
 
         Document doc = Jsoup.connect("https://vnexpress.net/di-tim-so-ca-tu-vong-covid-19-thuc-te-toan-cau-4345051.html").get();
         Elements paragraph = doc.select("p.normal");
