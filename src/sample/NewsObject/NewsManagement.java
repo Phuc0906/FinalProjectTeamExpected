@@ -60,7 +60,7 @@ public class NewsManagement {
 
         Document doc = Jsoup.connect(url).get();
         Elements articles = doc.select("p.article-thumbnail");
-        String[] script = articles.select("img").toString().split("\n");
+        String[] script = articles.select("img").toString().split("\\n");
         Elements descriptions = doc.select("p.article-summary");
         Document docScript;
         int count = 0;
@@ -96,44 +96,58 @@ public class NewsManagement {
 
     public void loadVnExpress(String webURL) throws IOException {
         Document doc = Jsoup.connect(webURL).get();
-        extractingArticleForVnExpress(doc, "div.list-news-subfolder", this.newsList );
-    }
-
-    private void extractingArticleForVnExpress(Document doc, String path, ArrayList<News> newsList) {
+        Elements imgList = doc.select("div.thumb-art");
+        String[] imgStrings = imgList.toString().split("</div>");
+        Elements descriptionList = doc.select("p.description");
+        String[] descriptions = descriptionList.toString().split("</p>");
         String newsURL;
         String title;
         String description;
-        String imageURLScraping;
         String imageURL[];
-
-        Elements articleList = doc.select(path);
-        for (Element article: articleList.select("article")) {
-            title = article.select("h3.title-news a").attr("title");
-            newsURL = article.select("h3 a").attr("href");
-            imageURLScraping = article.select("div.thumb-art a picture source").attr("data-srcset");
-            imageURL = imageURLScraping.split("\\s");
-            description = article.select("p.description a").text();
-            if (imageURL[0].contains("http")) {
-                newsList.add(new News(newsURL, title, description, imageURL[0]));
+        int count = 0;
+        for (String img: imgStrings) {
+            Document linkImg = Jsoup.parse(img.replaceAll("\n", "") + "</div>");
+            newsURL= linkImg.select("a").attr("href");
+            imageURL = linkImg.select("source").attr("data-srcset").split("\\s");
+            if (imageURL[0].isEmpty()) {
+                imageURL = linkImg.select("source").attr("srcset").split("\\s");
             }
+            title = linkImg.select("a").attr("title");
 
+            Document descriptionHTML = Jsoup.parse(descriptions[count].replaceAll("\n", "").replaceAll(">\\s+<", "><") + "</p>");
+            description = descriptionHTML.select("p").text();
+
+            newsList.add(new News(newsURL, title, description, imageURL[0]));
+            count++;
         }
     }
 
     public void loadNhanDan(String url) throws  IOException {
+        String originalLink = "https://nhandan.vn/";
         String newsURL;
         String title;
         String description;
         String imageURL;
-        Document doc = Jsoup.connect(url).get();
-        Elements ele = doc.select("div.box-widget-loaded");
-        Elements element = ele.select("article");
-        for (Element element1 : element) {
-            title = element1.select("div.box-title a").attr("title");
-            newsURL = "https://nhandan.vn/" + element1.select("div.box-title a").attr("href");
-            imageURL = element1.select("div.box-img a img").attr("data-src");
-            description = element1.select("div.box-des").text();
+
+        Document document = Jsoup.connect(url).get();
+        Elements elements = document.select("div.box-img a");
+        Elements elements1 = document.select("div.box-des p");
+        String[] obj = elements.toString().split("\\n");
+        Document docScript;
+        int count = 0;
+
+        for(String Obj : obj) {
+            try {
+                docScript = Jsoup.parse(Obj);
+                imageURL = docScript.select("img").attr("data-src");
+                title = docScript.select("a").attr("title");
+                newsURL = originalLink + elements.get(count).select("a").attr("href");
+                description = elements1.get(count).select("p").text();
+            }catch (IndexOutOfBoundsException ex) {
+                break;
+            }
             newsList.add(new News(newsURL, title, description, imageURL));
+            count++;
         }
     }
 
@@ -147,15 +161,6 @@ public class NewsManagement {
     }
 
     public int getSize() { return this.newsList.size(); }
-    public void printOut() {
-        for (News news: newsList) {
-            System.out.println("---------------------");
-            System.out.println("article: " + news.getNewsURL());
-            System.out.println("article: " + news.getTitle());
-            System.out.println("article: " + news.getDescription());
-            System.out.println("article: " + news.getImageURL());
-        }
-    }
 
     public News getNews(int whichNews) {
         return newsList.get(whichNews);

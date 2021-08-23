@@ -2,8 +2,10 @@ package sample.SupportClass;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import org.jsoup.Jsoup;
@@ -13,11 +15,13 @@ import org.jsoup.select.Elements;
 import sample.NewsObject.News;
 import sample.NewsObject.NewsManagement;
 
+import javax.print.Doc;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class SupportedMethod {
+
     public String breakingString(String inputString, int numberOfWordPerLine) {
         // split string into individual words
         String[] splittedString = inputString.split("\\s");
@@ -39,49 +43,40 @@ public class SupportedMethod {
         return completedParagraph;
     }
 
-    public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList){
+    public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, AnchorPane coverPane){
         int count = begin;
         for (Label title: labelList) {
             title.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
             title.setAlignment(Pos.TOP_LEFT);
+            title.prefHeightProperty().bind(imgLayouts.get(0).fitHeightProperty().divide(2));
+            title.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgLayouts.get(0).fitWidthProperty()));
+            title.setWrapText(true);
             title.setText(newsList.getNews(count).getTitle());
             count++;
         }
     }
 
-    public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList){
+    public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, AnchorPane coverPane){
         int count = begin;
         for (Label description: labelList) {
-            description.setFont(Font.font("Time New Roman", FontWeight.BOLD, 15));
+            description.setFont(Font.font("Time New Roman", FontWeight.BOLD, 20));
             description.setAlignment(Pos.TOP_LEFT);
-            description.setText(breakingString(newsList.getNews(count).getDescription(), 15));
+            description.setWrapText(true);
+            description.setText(newsList.getNews(count).getDescription());
+            description.prefHeightProperty().bind(imgLayouts.get(0).fitHeightProperty().divide(2));
+            description.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgLayouts.get(0).fitWidthProperty()).multiply(3.5).divide(5));
             count++;
         }
     }
 
-    public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList){
+    public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList, AnchorPane coverPane){
         int count = begin;
         for (ImageView img: imgList) {
             img.setImage(new Image(newsList.getNews(count).getImageURL()));
+            img.fitHeightProperty().bind(coverPane.heightProperty().divide(5));
+            img.autosize();
             count++;
         }
     }
 
-    public void scrapeArticle(String webURL) throws IOException {
-        Document doc = Jsoup.connect(webURL).get();
-        String newsURL;
-        String title;
-        String description;
-        String imageURLScraping;
-        String imageURL[];
-//        Elements components = doc.select("div.header-content");
-//        System.out.println(components.select("span.date").text());
-//        Elements img = doc.select("article.fck_detail");
-//        String[] imageURL;
-//        for (Element singleImg: img.select("figure")) {
-//            imageURL = singleImg.select("div.fig-picture picture source").attr("data-srcset").split("\\s");
-//            System.out.println(imageURL[0]);
-//        }
-
-    }
 }
