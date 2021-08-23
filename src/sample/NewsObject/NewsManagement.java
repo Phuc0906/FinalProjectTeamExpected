@@ -79,19 +79,24 @@ public class NewsManagement {
     }
 
     public void loadTuoiTre(String url) throws  IOException {
+        String originalURL = "https://tuoitre.vn/";
         String newsURL;
         String title;
         String description;
         String imageURL;
+
         Document doc = Jsoup.connect(url).get();
-        Elements el = doc.select("ul.list-news-content");
-        for (Element element : el.select("li")) {
-            newsURL = "https://tuoitre.vn" + element.select("a").attr("href");
-            title = element.select("a").attr("title");
-            imageURL = element.select("a img").attr("src");
-            description = element.select("div.name-news p.sapo").text();
+        Elements articles = doc.select("li.news-item");
+        String[] articleString = articles.toString().split("</li>");
+        for (String art: articleString) {
+            Document docScript = Jsoup.parse(art.replaceAll("\n", "") + "</li>");
+            title = docScript.select("a").attr("title");
+            newsURL = originalURL + docScript.select("a").attr("href");
+            imageURL = docScript.select("a img").attr("src");
+            description = docScript.select("div.name-news p.sapo").text();
             this.newsList.add(new News(newsURL, title, description, imageURL));
         }
+        System.out.println(articleString.length);
     }
 
     public void loadVnExpress(String webURL) throws IOException {

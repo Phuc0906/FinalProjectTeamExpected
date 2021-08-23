@@ -79,7 +79,13 @@ public class SupportedMethod {
         }
     }
 
-    public void nhanDanLoad() throws IOException {
-
+    public void setArticle(String vnExpressURL) throws IOException {
+        Document doc = Jsoup.connect(vnExpressURL).get();
+        Elements paragraph = doc.select("p.normal");
+        String[] paragraphString = paragraph.toString().split("\n");
+        for (String para: paragraphString) {
+            Document docScript = Jsoup.parse(para);
+            System.out.println(docScript.text());
+        }
     }
 }

@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -182,4 +183,9 @@ public class ChangingPage extends ChangingCategory{
             coverBox.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgList.get(0).fitWidthProperty()));
         }
     }
+
+    public void toArticle1(MouseEvent event) {
+        
+    }
+
 }

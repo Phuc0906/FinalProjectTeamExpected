@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import java.util.ArrayList?>
 <AnchorPane fx:id="coverPane" maxHeight="720.0" maxWidth="1000.0" prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BusinessController">
     <Button fx:id="logo" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="188.0" style="-fx-background-color: white;" text="Vietcetera." AnchorPane.leftAnchor="10.0">
         <font>
@@ -77,12 +76,12 @@
         <content>
             <VBox fx:id="vCover" spacing="10.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="250.0">
                 <children>
-                    <HBox AnchorPane.rightAnchor="0.0" spacing="10.0">
+                    <HBox spacing="10.0" AnchorPane.rightAnchor="0.0">
                         <children>
                             <ImageView fx:id="image1" pickOnBounds="true" preserveRatio="true" />
-                            <VBox fx:id="coverBox1" prefHeight="113.0" prefWidth="785.0" >
+                            <VBox fx:id="coverBox1" prefHeight="113.0" prefWidth="785.0">
                                 <children>
-                                    <Label style="-fx-background-color: yellow" fx:id="title1" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="title1" onMouseClicked="#toArticle1" prefWidth="789.0" text="Label" />
                                     <Label fx:id="description1" prefWidth="803.0" text="Label" />
                                 </children>
                             </VBox>
@@ -178,7 +177,7 @@
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="image10"  pickOnBounds="true" preserveRatio="true" />
+                            <ImageView fx:id="image10" pickOnBounds="true" preserveRatio="true" />
                             <VBox fx:id="coverBox10" prefHeight="113.0" prefWidth="785.0">
                                 <children>
                                     <Label fx:id="title10" prefHeight="50.0" prefWidth="789.0" text="Label" />
@@ -225,16 +224,16 @@
                             <fx:reference source="image10" />
                         </ArrayList>
                         <ArrayList fx:id="coverBoxList">
-                            <fx:reference source="coverBox1"/>
-                            <fx:reference source="coverBox2"/>
-                            <fx:reference source="coverBox3"/>
-                            <fx:reference source="coverBox4"/>
-                            <fx:reference source="coverBox5"/>
-                            <fx:reference source="coverBox6"/>
-                            <fx:reference source="coverBox7"/>
-                            <fx:reference source="coverBox8"/>
-                            <fx:reference source="coverBox9"/>
-                            <fx:reference source="coverBox10"/>
+                            <fx:reference source="coverBox1" />
+                            <fx:reference source="coverBox2" />
+                            <fx:reference source="coverBox3" />
+                            <fx:reference source="coverBox4" />
+                            <fx:reference source="coverBox5" />
+                            <fx:reference source="coverBox6" />
+                            <fx:reference source="coverBox7" />
+                            <fx:reference source="coverBox8" />
+                            <fx:reference source="coverBox9" />
+                            <fx:reference source="coverBox10" />
                         </ArrayList>
                     </fx:define>
                 </children>
