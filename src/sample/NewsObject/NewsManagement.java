@@ -96,27 +96,30 @@ public class NewsManagement {
 
     public void loadVnExpress(String webURL) throws IOException {
         Document doc = Jsoup.connect(webURL).get();
-        extractingArticleForVnExpress(doc, "div.list-news-subfolder", this.newsList );
-    }
-
-    private void extractingArticleForVnExpress(Document doc, String path, ArrayList<News> newsList) {
+        Elements imgList = doc.select("div.thumb-art");
+        String[] imgStrings = imgList.toString().split("</div>");
+        Elements descriptionList = doc.select("p.description");
+        String[] descriptions = descriptionList.toString().split("</p>");
         String newsURL;
         String title;
         String description;
-        String imageURLScraping;
         String imageURL[];
-
-        Elements articleList = doc.select(path);
-        for (Element article: articleList.select("article")) {
-            title = article.select("h3.title-news a").attr("title");
-            newsURL = article.select("h3 a").attr("href");
-            imageURLScraping = article.select("div.thumb-art a picture source").attr("data-srcset");
-            imageURL = imageURLScraping.split("\\s");
-            description = article.select("p.description a").text();
-            if (imageURL[0].contains("http")) {
-                newsList.add(new News(newsURL, title, description, imageURL[0]));
+        System.out.println("hello");
+        int count = 0;
+        for (String img: imgStrings) {
+            Document linkImg = Jsoup.parse(img.replaceAll("\n", "") + "</div>");
+            newsURL= linkImg.select("a").attr("href");
+            imageURL = linkImg.select("source").attr("data-srcset").split("\\s");
+            if (imageURL[0].isEmpty()) {
+                imageURL = linkImg.select("source").attr("srcset").split("\\s");
             }
+            title = linkImg.select("a").attr("title");
 
+            Document descriptionHTML = Jsoup.parse(descriptions[count].replaceAll("\n", "").replaceAll(">\\s+<", "><") + "</p>");
+            description = descriptionHTML.select("p").text();
+
+            newsList.add(new News(newsURL, title, description, imageURL[0]));
+            count++;
         }
     }
 

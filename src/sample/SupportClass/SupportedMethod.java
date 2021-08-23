@@ -15,6 +15,7 @@ import org.jsoup.select.Elements;
 import sample.NewsObject.News;
 import sample.NewsObject.NewsManagement;
 
+import javax.print.Doc;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -76,6 +77,10 @@ public class SupportedMethod {
             img.autosize();
             count++;
         }
+    }
+
+    public void scrapeVnExpress(String url) throws IOException {
+
     }
 
     public void loadNhandan() throws IOException {

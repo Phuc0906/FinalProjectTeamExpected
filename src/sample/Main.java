@@ -23,5 +23,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(homePage, 1000, 720));
         new SupportedMethod().loadNhandan();
         primaryStage.show();
+        primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
+        new SupportedMethod().scrapeVnExpress("https://timkiem.vnexpress.net/?q=covid");
     }
 }
