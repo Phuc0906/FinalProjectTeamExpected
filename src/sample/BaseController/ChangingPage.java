@@ -3,6 +3,8 @@ package sample.BaseController;
 import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -15,6 +17,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import sample.ArticleController;
+import sample.NewController;
 import sample.NewsObject.NewsManagement;
 import sample.SupportClass.SupportedMethod;
 
@@ -22,6 +25,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ChangingPage extends ChangingCategory{
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     private SupportedMethod supportedMethod = new SupportedMethod();
     private NewsManagement newsList;
@@ -185,8 +192,17 @@ public class ChangingPage extends ChangingCategory{
         }
     }
 
-    public void toArticle1(MouseEvent event) {
-//        setArticleBox(this.newsList.searchTitle(titleList.get(0).getText()));
+    public void toArticle1(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        root = loader.load();
+
+        ArticleController newController = loader.getController();
+        newController.setArticleBox(this.newsList.searchTitle(titleList.get(0).getText()));
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

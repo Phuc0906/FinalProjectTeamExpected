@@ -1,9 +1,12 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -20,7 +23,16 @@ public class ArticleController extends ChangingCategory {
     @FXML
     VBox articleBox;
 
+    @FXML
+    AnchorPane coverPane;
+
+    @FXML
+    ScrollPane scrPane;
+
     public void setArticleBox(News news) throws IOException {
+        coverPane.prefWidthProperty().bind(scrPane.widthProperty());
+        articleBox.setSpacing(20);
+
         Label title = new Label();
         title.setText(news.getTitle());
         title.setFont(Font.font("",FontWeight.BOLD,20));
@@ -37,9 +49,11 @@ public class ArticleController extends ChangingCategory {
                 String[] paragraphList = paragraph.toString().split("\n");
                 for (String para: paragraphList) {
                     Document docScript = Jsoup.parse(para);
-//            System.out.println(docScript.text());
                     Label text = new Label();
+                    text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
                     text.setText(docScript.text());
+                    text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
+                    text.setWrapText(true);
                     articleBox.getChildren().add(text);
                 }
                 break;
@@ -53,15 +67,35 @@ public class ArticleController extends ChangingCategory {
                     Document docScript = Jsoup.parse(para);
                     if(!docScript.text().contains("Ảnh") && !docScript.text().contains("TTO")) {
                         Label text = new Label();
+                        text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
+                        text.setWrapText(true);
                         text.setText(docScript.text());
                         articleBox.getChildren().add(text);
                     }
                 }
                 Elements author = doc.select("div.main-content-body div.author");
-//                System.out.println(author.text());
                 articleBox.getChildren().add(new Label(author.text()));
                 break;
             }
+        }
+
+    }
+
+    public void setArticleBox() throws IOException {
+        coverPane.prefWidthProperty().bind(scrPane.widthProperty());
+        articleBox.setSpacing(20);
+
+        Document doc = Jsoup.connect("https://vnexpress.net/di-tim-so-ca-tu-vong-covid-19-thuc-te-toan-cau-4345051.html").get();
+        Elements paragraph = doc.select("p.normal");
+        String[] paragraphList = paragraph.toString().split("\n");
+        for (String para: paragraphList) {
+            Document docScript = Jsoup.parse(para);
+            Label text = new Label();
+            text.setText(docScript.text());
+            text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
+            text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
+            text.setWrapText(true);
+            articleBox.getChildren().add(text);
         }
 
     }
