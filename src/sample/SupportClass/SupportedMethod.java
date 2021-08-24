@@ -71,10 +71,17 @@ public class SupportedMethod {
 
     public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList, AnchorPane coverPane){
         int count = begin;
+        System.out.println("-----------------------------");
         for (ImageView img: imgList) {
-            img.setImage(new Image(newsList.getNews(count).getImageURL()));
-            img.fitHeightProperty().bind(coverPane.heightProperty().divide(5));
-            img.autosize();
+            if (newsList.getNews(count).getImageURL().isEmpty()) {
+                continue;
+            }
+            System.out.println(newsList.getNews(count).getImageURL());
+            Image image = new Image(newsList.getNews(count).getImageURL());
+            img.setImage(image);
+//            img.fitHeightProperty().bind(coverPane.heightProperty().divide(5));
+//            img.autosize();
+            System.out.println("Pass");
             count++;
         }
     }

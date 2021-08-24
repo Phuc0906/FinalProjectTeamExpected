@@ -16,11 +16,15 @@ public class Main extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/TestingCoding.fxml"));
         Parent homePage = loader.load();
 
-        ArticleController newController = loader.getController();
-        newController.setArticleBox();
+        TestingCodeController newController = loader.getController();
+        newController.setArticle("https://vnexpress.net/kinh-doanh", "https://nhandan.vn/kinhte", "https://tuoitre.vn/kinh-doanh.htm", "https://thanhnien.vn/tai-chinh-kinh-doanh/doanh-nghiep/", "https://zingnews.vn/kinh-doanh-tai-chinh.html");
+        newController.setComponent();
+        newController.setImgList();
+        newController.setTitle();
+        newController.setDescription();
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
