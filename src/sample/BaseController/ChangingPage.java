@@ -4,14 +4,17 @@ import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -26,12 +29,18 @@ import java.util.ArrayList;
 
 public class ChangingPage extends ChangingCategory{
 
+    ScrollPane scrPane;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     private SupportedMethod supportedMethod = new SupportedMethod();
     private NewsManagement newsList;
+
+    @FXML
+    AnchorPane coverPane;
+
 
 
     public ChangingPage(String vnExpressURL1, String vnExpressURL2, String vnExpressURL3,
@@ -89,108 +98,145 @@ public class ChangingPage extends ChangingCategory{
         newsList.covidThanhNien(thanhNienURL);
     }
 
-    @FXML
-    AnchorPane coverPane;
-
-    @FXML
-    ArrayList<VBox> coverBoxList;
-
-    @FXML
-    ScrollPane scrPane;
 
 
-    @FXML
-    ArrayList<ImageView> imgList;
+    private VBox _articleBox = new VBox();
 
-    @FXML
-    ArrayList<Label> titleList;
+    private ArrayList<ImageView> imgList = new ArrayList<>();
+    private ArrayList<Label> titleList = new ArrayList<>();
+    private ArrayList<Label> descriptionList = new ArrayList<>();
+    private ArrayList<Button> pageButtons = new ArrayList<>();
 
-    @FXML
-    ArrayList<Label> descriptionList;
+    public void setComponent(ScrollPane scrPane) {
+        this.scrPane = scrPane;
+        // create a box to store 5 button
+        VBox readingBox = new VBox();
+        readingBox.setSpacing(5);
+
+        HBox buttonBox = new HBox();
+        for (int i = 0; i < 5; i++) {
+            Button button = new Button(String.valueOf(i + 1));
+            int finalI = i;
+            button.setOnAction(e -> {
+                switch (finalI) {
+                    case 0:
+                        setTitle();
+                        setDescription();
+                        setImgList();
+                        break;
+                    case 1:
+                        setTitle2();
+                        setDescription2();
+                        setImgList2();
+                        break;
+                    case 2:
+                        setTitle3();
+                        setDescription3();
+                        setImgList3();
+                        break;
+                    case 3:
+                        setTitle4();
+                        setDescription4();
+                        setImgList4();
+                        break;
+                    case 4:
+                        setTitle5();
+                        setDescription5();
+                        setImgList5();
+                        break;
+                }
+            });
+            buttonBox.getChildren().add(button);
+            pageButtons.add(button);
+        }
+        _articleBox.setSpacing(20);
+
+        // create array for imageview, title, description
+
+        VBox newsListContent = new VBox();
+        // initialize page
+        for (int i = 0; i < 10; i++) {
+            // create a hbox to store image, title, description
+            HBox newsBox = new HBox();
+            newsBox.setAlignment(Pos.TOP_LEFT);
+            newsBox.setSpacing(5);
+
+            ImageView img = new ImageView();
+//            img.setImage(new Image("https://i1-vnexpress.vnecdn.net/2021/08/23/top-1629730799-8863-1629731159.jpg?w=680&h=408&q=100&dpr=2&fit=crop&s=XKmQqzXD9eqZnlBt7d6LIg"));
+
+            img.setFitWidth(200);
+            img.setFitHeight(150);
+            imgList.add(img);
+
+            // create vbox to add title and description
+            VBox newsInfo = new VBox();
+            newsInfo.setSpacing(5);
+
+            Label title = new Label();
+            title.setFont(Font.font("Arial", FontWeight.NORMAL, 25));
+            title.prefHeightProperty().bind(img.fitHeightProperty().divide(2));
+            title.prefWidthProperty().bind(scrPane.widthProperty());
+            title.setWrapText(true);
+            title.setStyle("-fx-background-color: lightgreen");
+            titleList.add(title);
+
+            Label description = new Label();
+            title.setFont(Font.font("Arial", FontWeight.NORMAL, 15));
+            title.prefHeightProperty().bind(img.fitHeightProperty().divide(2));
+            description.setWrapText(true);
+            description.prefWidthProperty().bind(scrPane.widthProperty());
+            description.setStyle("-fx-background-color: lightblue");
+            descriptionList.add(description);
+            newsInfo.getChildren().addAll(title, description);
+
+            newsBox.getChildren().addAll(img, newsInfo);
+            newsListContent.getChildren().add(newsBox);
+            System.out.println(newsList.getSize());
+        }
+
+        _articleBox.getChildren().addAll(buttonBox, newsListContent);
+    }
 
     public void setImgList() {
-        new SupportedMethod().setImgList(imgList, 0, this.newsList, coverPane);
+        new SupportedMethod().setImgList(imgList, 0, this.newsList, scrPane);
     }
-    public void setImgList2() { supportedMethod.setImgList(imgList, 10, this.newsList, coverPane); }
-    public void setImgList3() { supportedMethod.setImgList(imgList, 20, this.newsList, coverPane); }
-    public void setImgList4() { supportedMethod.setImgList(imgList, 30, this.newsList, coverPane); }
-    public void setImgList5() { supportedMethod.setImgList(imgList, 40, this.newsList, coverPane); }
+    public void setImgList2() { supportedMethod.setImgList(imgList, 10, this.newsList, scrPane); }
+    public void setImgList3() { supportedMethod.setImgList(imgList, 20, this.newsList, scrPane); }
+    public void setImgList4() { supportedMethod.setImgList(imgList, 30, this.newsList, scrPane); }
+    public void setImgList5() { supportedMethod.setImgList(imgList, 40, this.newsList, scrPane); }
 
     public void setDescription() {
-        supportedMethod.setDescriptionList(descriptionList, 0, this.newsList, imgList, coverPane);
+        supportedMethod.setDescriptionList(descriptionList, 0, this.newsList, imgList, scrPane);
     }
     public void setDescription2() {
-        supportedMethod.setDescriptionList(descriptionList, 10, this.newsList, imgList, coverPane);
+        supportedMethod.setDescriptionList(descriptionList, 10, this.newsList, imgList, scrPane);
     }
     public void setDescription3() {
-        supportedMethod.setDescriptionList(descriptionList, 20, this.newsList, imgList, coverPane);
+        supportedMethod.setDescriptionList(descriptionList, 20, this.newsList, imgList, scrPane);
     }
     public void setDescription4() {
-        supportedMethod.setDescriptionList(descriptionList, 30, this.newsList, imgList, coverPane);
+        supportedMethod.setDescriptionList(descriptionList, 30, this.newsList, imgList, scrPane);
     }
     public void setDescription5() {
-        supportedMethod.setDescriptionList(descriptionList, 40, this.newsList, imgList, coverPane);
+        supportedMethod.setDescriptionList(descriptionList, 40, this.newsList, imgList, scrPane);
     }
 
 
     public void setTitle() {
-        new SupportedMethod().setTitleList(titleList, 0, this.newsList, imgList, coverPane);
+        new SupportedMethod().setTitleList(titleList, 0, this.newsList, imgList, scrPane);
     }
     public void setTitle2() {
-        supportedMethod.setTitleList(titleList, 10, this.newsList, imgList, coverPane);
+        supportedMethod.setTitleList(titleList, 10, this.newsList, imgList, scrPane);
     }
-    public void setTitle3() { supportedMethod.setTitleList(titleList, 20, this.newsList, imgList, coverPane); }
+    public void setTitle3() { supportedMethod.setTitleList(titleList, 20, this.newsList, imgList, scrPane); }
     public void setTitle4() {
-        supportedMethod.setTitleList(titleList, 30, this.newsList, imgList, coverPane);
+        supportedMethod.setTitleList(titleList, 30, this.newsList, imgList, scrPane);
     }
     public void setTitle5() {
-        supportedMethod.setTitleList(titleList, 40, this.newsList, imgList, coverPane);
-    }
-
-    public void moveToPage1(ActionEvent event) throws IOException {
-        setImgList();
-        setDescription();
-        setTitle();
-        scrPane.setVvalue(0);
+        supportedMethod.setTitleList(titleList, 40, this.newsList, imgList, scrPane);
     }
 
 
-    public void moveToPage2(ActionEvent event) throws IOException {
-        setImgList2();
-        setDescription2();
-        setTitle2();
-        scrPane.setVvalue(0);
-    }
-
-    public void moveToPage3(ActionEvent event) throws IOException {
-
-        setImgList3();
-        setDescription3();
-        setTitle3();
-        scrPane.setVvalue(0);
-    }
-
-    public void moveToPage4(ActionEvent event) throws IOException {
-
-        setImgList4();
-        setDescription4();
-        setTitle4();
-        scrPane.setVvalue(0);
-    }
-
-    public void moveToPage5(ActionEvent event) throws IOException {
-
-        setImgList5();
-        setDescription5();
-        setTitle5();
-        scrPane.setVvalue(0);
-    }
-
-    public void bindingPane() {
-        for (VBox coverBox : coverBoxList) {
-            coverBox.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgList.get(0).fitWidthProperty()));
-        }
-    }
 
     public void toArticle1(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
@@ -203,6 +249,10 @@ public class ChangingPage extends ChangingCategory{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public VBox getArticleBox() {
+        return this._articleBox;
     }
 
 }

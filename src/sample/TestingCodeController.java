@@ -13,13 +13,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import sample.BaseController.ChangingCategory;
+import sample.BaseController.ChangingPage;
 import sample.NewsObject.NewsManagement;
 import sample.SupportClass.SupportedMethod;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class TestingCodeController extends ChangingCategory {
+public class TestingCodeController extends ChangingPage {
     private ArrayList<ImageView> imgList = new ArrayList<>();
     private ArrayList<Label> titleList = new ArrayList<>();
     private ArrayList<Label> descriptionList = new ArrayList<>();
@@ -28,6 +29,11 @@ public class TestingCodeController extends ChangingCategory {
     private SupportedMethod supportedMethod = new SupportedMethod();
 
     private NewsManagement newsList = new NewsManagement();
+
+    public TestingCodeController() throws IOException {
+        super("https://vnexpress.net/kinh-doanh", "https://nhandan.vn/kinhte", "https://tuoitre.vn/kinh-doanh.htm", "https://thanhnien.vn/tai-chinh-kinh-doanh/doanh-nghiep/", "https://zingnews.vn/kinh-doanh-tai-chinh.html");
+
+    }
 
     public void setArticle(String vnExpressURL, String nhanDanUrl, String tuoiTreURL, String thanhNienURL, String zingURL) throws IOException {
         newsList.loadVnExpress(vnExpressURL);
@@ -152,45 +158,5 @@ public class TestingCodeController extends ChangingCategory {
 
         articleBox.getChildren().addAll(buttonBox, newsListContent);
     }
-
-    public void setImgList() {
-        new SupportedMethod().setImgList(imgList, 0, this.newsList, coverPane);
-    }
-    public void setImgList2() { supportedMethod.setImgList(imgList, 10, this.newsList, coverPane); }
-    public void setImgList3() { supportedMethod.setImgList(imgList, 20, this.newsList, coverPane); }
-    public void setImgList4() { supportedMethod.setImgList(imgList, 30, this.newsList, coverPane); }
-    public void setImgList5() { supportedMethod.setImgList(imgList, 40, this.newsList, coverPane); }
-
-    public void setDescription() {
-        supportedMethod.setDescriptionList(descriptionList, 0, this.newsList, imgList, coverPane);
-    }
-    public void setDescription2() {
-        supportedMethod.setDescriptionList(descriptionList, 10, this.newsList, imgList, coverPane);
-    }
-    public void setDescription3() {
-        supportedMethod.setDescriptionList(descriptionList, 20, this.newsList, imgList, coverPane);
-    }
-    public void setDescription4() {
-        supportedMethod.setDescriptionList(descriptionList, 30, this.newsList, imgList, coverPane);
-    }
-    public void setDescription5() {
-        supportedMethod.setDescriptionList(descriptionList, 40, this.newsList, imgList, coverPane);
-    }
-
-
-    public void setTitle() {
-        new SupportedMethod().setTitleList(titleList, 0, this.newsList, imgList, coverPane);
-    }
-    public void setTitle2() {
-        supportedMethod.setTitleList(titleList, 10, this.newsList, imgList, coverPane);
-    }
-    public void setTitle3() { supportedMethod.setTitleList(titleList, 20, this.newsList, imgList, coverPane); }
-    public void setTitle4() {
-        supportedMethod.setTitleList(titleList, 30, this.newsList, imgList, coverPane);
-    }
-    public void setTitle5() {
-        supportedMethod.setTitleList(titleList, 40, this.newsList, imgList, coverPane);
-    }
-
 
 }

@@ -22,7 +22,7 @@ public class Main extends Application {
         TestingCodeController newController = loader.getController();
         newController.setArticle("https://vnexpress.net/kinh-doanh", "https://nhandan.vn/kinhte", "https://tuoitre.vn/kinh-doanh.htm", "https://thanhnien.vn/tai-chinh-kinh-doanh/doanh-nghiep/", "https://zingnews.vn/kinh-doanh-tai-chinh.html");
         newController.setComponent();
-        newController.setImgList();
+//        newController.setImgList();
         newController.setTitle();
         newController.setDescription();
 

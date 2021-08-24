@@ -95,4 +95,46 @@ public class SupportedMethod {
             System.out.println(docScript.text());
         }
     }
+
+    public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, ScrollPane coverPane){
+        int count = begin;
+        for (Label title: labelList) {
+            title.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
+            title.setAlignment(Pos.TOP_LEFT);
+            title.prefHeightProperty().bind(imgLayouts.get(0).fitHeightProperty().divide(2));
+            title.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgLayouts.get(0).fitWidthProperty()));
+            title.setWrapText(true);
+            title.setText(newsList.getNews(count).getTitle());
+            count++;
+        }
+    }
+
+    public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, ScrollPane coverPane){
+        int count = begin;
+        for (Label description: labelList) {
+            description.setFont(Font.font("Time New Roman", FontWeight.BOLD, 20));
+            description.setAlignment(Pos.TOP_LEFT);
+            description.setWrapText(true);
+            description.setText(newsList.getNews(count).getDescription());
+            description.prefHeightProperty().bind(imgLayouts.get(0).fitHeightProperty().divide(2));
+            description.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgLayouts.get(0).fitWidthProperty()).multiply(3.5).divide(5));
+            count++;
+        }
+    }
+
+    public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList, ScrollPane coverPane){
+        int count = begin;
+        System.out.println("-----------------------------");
+        for (ImageView img: imgList) {
+            if (newsList.getNews(count).getImageURL().isEmpty()) {
+                continue;
+            }
+            System.out.println(newsList.getNews(count).getImageURL());
+            Image image = new Image(newsList.getNews(count).getImageURL());
+            img.setImage(image);
+            img.fitHeightProperty().bind(coverPane.heightProperty().divide(5));
+            System.out.println("Pass");
+            count++;
+        }
+    }
 }
