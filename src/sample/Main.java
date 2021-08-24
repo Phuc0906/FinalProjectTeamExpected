@@ -19,12 +19,11 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         Parent homePage = loader.load();
 
-        ArticleController newController = loader.getController();
-        newController.setArticleBox();
+        new SupportedMethod().scraping("https://zingnews.vn/doi-song.html");
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
-        primaryStage.show();
+//        primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
 
 

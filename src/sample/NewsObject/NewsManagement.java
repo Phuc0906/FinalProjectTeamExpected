@@ -52,29 +52,30 @@ public class NewsManagement {
     }
 
     public void loadZingNews(String url) throws  IOException {
-        String originalLink = "https://zingnews.vn/";
+        String originalURL = "https://zingnews.vn/";
         String newsURL;
         String title;
         String description;
         String imageURL;
 
-        Document doc = Jsoup.connect(url).get();
-        Elements articles = doc.select("p.article-thumbnail");
-        String[] script = articles.select("img").toString().split("\\n");
-        Elements descriptions = doc.select("p.article-summary");
-        Document docScript;
-        int count = 0;
-        for (String img: script) {
-            docScript = Jsoup.parse(img);
-            imageURL = docScript.select("img").attr("src");
-            newsURL = originalLink + articles.get(count).select("a").attr("href");
-            description = descriptions.get(count).text();
-            title = docScript.select("img").attr("alt");
-            if (!imageURL.contains("http")) {
-                imageURL = docScript.select("img").attr("data-src");
+        Document document = Jsoup.connect(webURL).get();
+        Elements article = document.select("article.article-item");
+        String[] articleSscript = article.toString().split("</article>");
+        for (String script: articleSscript) {
+            Document docScript = Jsoup.parse(script.replaceAll("\n", "") + "</article>");
+            newsURL = docScript.select("a").attr("href");
+            title = docScript.select("header p.article-title").text();
+            imageURL = docScript.select("img").attr("data-src");
+            description = docScript.select("header p.article-summary").text();
+            if (imageURL.isEmpty()) {
+                imageURL = docScript.select("img").attr("src");
             }
-            this.newsList.add(new News(newsURL, title.split("hinh")[0], description, imageURL));
-            count++;
+            if (newsURL.isEmpty() || imageURL.isEmpty() || title.isEmpty()) {
+                continue;
+            }
+
+            this.newsList.add(new News(newsURL, title, description, imageURL));
+
         }
     }
 

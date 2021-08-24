@@ -88,4 +88,8 @@ public class SupportedMethod {
             System.out.println(docScript.text());
         }
     }
+
+    public void scraping(String webURL) throws IOException {
+
+    }
 }
