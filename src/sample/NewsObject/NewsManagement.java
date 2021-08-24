@@ -58,7 +58,7 @@ public class NewsManagement {
         String description;
         String imageURL;
 
-        Document document = Jsoup.connect(webURL).get();
+        Document document = Jsoup.connect(url).get();
         Elements article = document.select("article.article-item");
         String[] articleSscript = article.toString().split("</article>");
         for (String script: articleSscript) {

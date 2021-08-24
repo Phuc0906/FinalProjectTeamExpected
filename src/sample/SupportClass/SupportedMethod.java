@@ -90,6 +90,14 @@ public class SupportedMethod {
     }
 
     public void scraping(String webURL) throws IOException {
-
+        Document document = Jsoup.connect(webURL).get();
+        Elements figure = document.select("figure");
+        String[] figures = figure.toString().split("</figure>");
+        System.out.println(figure);
+        for (String figurePara: figures) {
+            Document img = Jsoup.parse(figurePara.replaceAll("\n", "") + "</figure>");
+            String[] imgList = img.select("source").attr("data-srcset").split(" ");
+            System.out.println(imgList[0]);
+        }
     }
 }

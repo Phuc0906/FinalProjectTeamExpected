@@ -16,14 +16,14 @@ public class Main extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
         Parent homePage = loader.load();
 
-        new SupportedMethod().scraping("https://zingnews.vn/doi-song.html");
+        new SupportedMethod().scraping("https://vnexpress.net/ong-nguyen-thanh-phong-toi-khac-ghi-nhieu-ky-uc-voi-thanh-pho-4345586.html");
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
-//        primaryStage.show();
+        primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
 
 
