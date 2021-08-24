@@ -7,12 +7,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import sample.SupportClass.SupportedMethod;
 
 public class Main extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
         Parent homePage = loader.load();
 
         ArticleController newController = loader.getController();

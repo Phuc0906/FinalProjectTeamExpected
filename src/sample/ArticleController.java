@@ -18,7 +18,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import sample.BaseController.ChangingCategory;
 import sample.NewsObject.News;
-import sample.NewsObject.NewsManagement;
 
 import java.io.IOException;
 
@@ -55,7 +54,11 @@ public class ArticleController extends ChangingCategory {
 
             case "VN Express": {
                 Elements paragraph = doc.select("p.normal");
+                Elements figure = doc.select("figure");
+                String[] figures = figure.toString().split("</figure>");
                 String[] paragraphList = paragraph.toString().split("\n");
+                int count = 1;
+                int imgCount = 0;
                 for (String para: paragraphList) {
                     Document docScript = Jsoup.parse(para);
                     Label text = new Label();
@@ -63,7 +66,16 @@ public class ArticleController extends ChangingCategory {
                     text.setText(docScript.text());
                     text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                     text.setWrapText(true);
+
+                    if (count % 3 == 0) {
+                        Document img = Jsoup.parse(figures[imgCount].replaceAll("\n", "") + "</figure>");
+                        String[] imgList = img.select("source").attr("data-srcset").split(" ");
+                        System.out.println(imgList[0]);
+                        articleBox.getChildren().add(new ImageView(new Image(imgList[0])));
+                        imgCount++;
+                    }
                     articleBox.getChildren().add(text);
+                    count++;
                 }
                 break;
             }
