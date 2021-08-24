@@ -100,30 +100,25 @@ public class NewsManagement {
     }
 
     public void loadVnExpress(String webURL) throws IOException {
-        Document doc = Jsoup.connect(webURL).get();
-        Elements imgList = doc.select("div.thumb-art");
-        String[] imgStrings = imgList.toString().split("</div>");
-        Elements descriptionList = doc.select("p.description");
-        String[] descriptions = descriptionList.toString().split("</p>");
+        Document document = Jsoup.connect(url).get();
+        Elements articles = document.select("article.item-news");
         String newsURL;
         String title;
         String description;
         String imageURL[];
         int count = 0;
-        for (String img: imgStrings) {
-            Document linkImg = Jsoup.parse(img.replaceAll("\n", "") + "</div>");
-            newsURL= linkImg.select("a").attr("href");
-            imageURL = linkImg.select("source").attr("data-srcset").split("\\s");
+        for (Element art: articles) {
+            title = art.select("h3 a").attr("title");
+            description = art.select("p a").text();
+            imageURL = art.select("div a picture source").attr("srcset").toString().split(" ");
             if (imageURL[0].isEmpty()) {
-                imageURL = linkImg.select("source").attr("srcset").split("\\s");
+                imageURL = imageURL = art.select("div a picture source").attr("data-srcset").toString().split(" ");
             }
-            title = linkImg.select("a").attr("title");
-
-            Document descriptionHTML = Jsoup.parse(descriptions[count].replaceAll("\n", "").replaceAll(">\\s+<", "><") + "</p>");
-            description = descriptionHTML.select("p").text();
-
-            newsList.add(new News(newsURL, title, description, imageURL[0]));
-            count++;
+            newsURL = art.select("h3 a").attr("href");
+            if (imageURL[0].isEmpty() || newsURL.isEmpty() || description.isEmpty() || title.isEmpty()) {
+                continue;
+            }
+            this.newsList.add(new News(newsURL, title, description, imageURL[0]));
         }
     }
 
