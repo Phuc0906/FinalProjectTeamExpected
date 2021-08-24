@@ -26,9 +26,10 @@ public class Main extends Application {
         newController.setTitle();
         newController.setDescription();
 
+        new SupportedMethod().scrapeVN("https://vnexpress.net/giai-tri");
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
-        primaryStage.show();
+//        primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
 
 

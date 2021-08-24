@@ -137,4 +137,8 @@ public class SupportedMethod {
             count++;
         }
     }
+
+    public void scrapeVN(String url) throws IOException {
+
+    }
 }
