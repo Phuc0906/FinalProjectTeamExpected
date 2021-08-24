@@ -38,7 +38,7 @@ public class ArticleController extends ChangingCategory {
     @FXML
     HBox buttonBox;
 
-    public void setArticleBox(News news) throws IOException {
+    public void setContent(News news) throws IOException {
         coverPane.prefWidthProperty().bind(scrPane.widthProperty());
         articleBox.setSpacing(20);
 
@@ -86,11 +86,12 @@ public class ArticleController extends ChangingCategory {
                 articleBox.getChildren().add(new Label(author.text()));
                 break;
             }
+            default:
+                System.out.println("From unknown outlet");
         }
-
     }
 
-    public void setArticleBox() throws IOException {
+    public void setContent() throws IOException {
         coverPane.prefWidthProperty().bind(scrPane.widthProperty());
         articleBox.setSpacing(20);
 

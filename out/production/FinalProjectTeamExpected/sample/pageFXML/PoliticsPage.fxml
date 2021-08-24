@@ -83,150 +83,130 @@
                 <children>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../Image/0ktMni.jpg" />
-                                </image>
+                            <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                               
                             </ImageView>
                             <VBox>
                                 <children>
-                                    <Label fx:id="title1" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description1" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="title1" onMouseClicked="#toArticle1" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description1"  prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../Image/0ktMni.jpg" />
-                                </image>
+                            <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                               
                             </ImageView>
                             <VBox>
                                 <children>
-                                    <Label fx:id="title2" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description2" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="title2" onMouseClicked="#toArticle2" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description2"  prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img3" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../Image/0ktMni.jpg" />
-                                </image>
+                            <ImageView fx:id="img3" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                               
                             </ImageView>
                             <VBox>
                                 <children>
-                                    <Label fx:id="title3" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description3" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="title3" onMouseClicked="#toArticle3" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description3"  prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img4" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../Image/0ktMni.jpg" />
-                                </image>
+                            <ImageView fx:id="img4" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                               
                             </ImageView>
                             <VBox>
                                 <children>
-                                    <Label fx:id="title4" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description4" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="title4" onMouseClicked="#toArticle4" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description4"  prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img5" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../Image/0ktMni.jpg" />
-                                </image>
+                            <ImageView fx:id="img5" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                               
                             </ImageView>
                             <VBox>
                                 <children>
-                                    <Label fx:id="title5" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description5" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="title5" onMouseClicked="#toArticle5" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description5"  prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img6" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../Image/0ktMni.jpg" />
-                                </image>
+                            <ImageView fx:id="img6" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                               
                             </ImageView>
                             <VBox>
                                 <children>
-                                    <Label fx:id="title6" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description6" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="title6" onMouseClicked="#toArticle6" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description6"  prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img7" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../Image/0ktMni.jpg" />
-                                </image>
+                            <ImageView fx:id="img7" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                               
                             </ImageView>
                             <VBox>
                                 <children>
-                                    <Label fx:id="title7" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description7" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="title7" onMouseClicked="#toArticle7" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description7"  prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img8" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../Image/0ktMni.jpg" />
-                                </image>
+                            <ImageView fx:id="img8" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                               
                             </ImageView>
                             <VBox>
                                 <children>
-                                    <Label fx:id="title8" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description8" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="title8" onMouseClicked="#toArticle8" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description8"  prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img9" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../Image/0ktMni.jpg" />
-                                </image>
+                            <ImageView fx:id="img9" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                               
                             </ImageView>
                             <VBox>
                                 <children>
-                                    <Label fx:id="title9" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description9" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="title9" onMouseClicked="#toArticle9" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description9"  prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img10" fitHeight="150.0" fitWidth="200.0" onDragDetected="#setImgList" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../Image/0ktMni.jpg" />
-                                </image>
+                            <ImageView fx:id="img10" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                               
                             </ImageView>
                             <VBox>
                                 <children>
-                                    <Label fx:id="title10" onDragDetected="#setTitle" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description10" onDragDetected="#setDescription" prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="title10" onMouseClicked="#toArticle10" prefHeight="50.0" prefWidth="789.0" text="Label" />
+                                    <Label fx:id="description10"  prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>

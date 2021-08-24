@@ -1,6 +1,5 @@
 package sample.BaseController;
 
-import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,11 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import sample.ArticleController;
-import sample.NewController;
 import sample.NewsObject.NewsManagement;
 import sample.SupportClass.SupportedMethod;
 
@@ -197,7 +193,7 @@ public class ChangingPage extends ChangingCategory{
         root = loader.load();
 
         ArticleController newController = loader.getController();
-        newController.setArticleBox(this.newsList.searchTitle(titleList.get(0).getText()));
+        newController.setContent(this.newsList.searchTitle(titleList.get(0).getText()));
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -205,4 +201,120 @@ public class ChangingPage extends ChangingCategory{
         stage.show();
     }
 
+    public void toArticle2(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        root = loader.load();
+
+        ArticleController newController = loader.getController();
+        newController.setContent(this.newsList.searchTitle(titleList.get(1).getText()));
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void toArticle3(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        root = loader.load();
+
+        ArticleController newController = loader.getController();
+        newController.setContent(this.newsList.searchTitle(titleList.get(2).getText()));
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void toArticle4(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        root = loader.load();
+
+        ArticleController newController = loader.getController();
+        newController.setContent(this.newsList.searchTitle(titleList.get(3).getText()));
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void toArticle5(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        root = loader.load();
+
+        ArticleController newController = loader.getController();
+        newController.setContent(this.newsList.searchTitle(titleList.get(4).getText()));
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void toArticle6(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        root = loader.load();
+
+        ArticleController newController = loader.getController();
+        newController.setContent(this.newsList.searchTitle(titleList.get(5).getText()));
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void toArticle7(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        root = loader.load();
+
+        ArticleController newController = loader.getController();
+        newController.setContent(this.newsList.searchTitle(titleList.get(6).getText()));
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void toArticle8(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        root = loader.load();
+
+        ArticleController newController = loader.getController();
+        newController.setContent(this.newsList.searchTitle(titleList.get(7).getText()));
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void toArticle9(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        root = loader.load();
+
+        ArticleController newController = loader.getController();
+        newController.setContent(this.newsList.searchTitle(titleList.get(8).getText()));
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void toArticle10(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        root = loader.load();
+
+        ArticleController newController = loader.getController();
+        newController.setContent(this.newsList.searchTitle(titleList.get(9).getText()));
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

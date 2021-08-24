@@ -7,10 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-import sample.SupportClass.SupportedMethod;
 
 public class Main extends Application {
 
@@ -20,7 +16,7 @@ public class Main extends Application {
         Parent homePage = loader.load();
 
         ArticleController newController = loader.getController();
-        newController.setArticleBox();
+        newController.setContent();
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
