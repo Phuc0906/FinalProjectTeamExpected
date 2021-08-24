@@ -100,13 +100,12 @@ public class NewsManagement {
     }
 
     public void loadVnExpress(String webURL) throws IOException {
-        Document document = Jsoup.connect(url).get();
+        Document document = Jsoup.connect(webURL).get();
         Elements articles = document.select("article.item-news");
         String newsURL;
         String title;
         String description;
         String imageURL[];
-        int count = 0;
         for (Element art: articles) {
             title = art.select("h3 a").attr("title");
             description = art.select("p a").text();
