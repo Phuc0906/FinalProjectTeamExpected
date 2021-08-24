@@ -75,7 +75,6 @@ public class NewsManagement {
             }
 
             this.newsList.add(new News(newsURL, title, description, imageURL));
-
         }
     }
 
@@ -97,7 +96,6 @@ public class NewsManagement {
             description = docScript.select("div.name-news p.sapo").text();
             this.newsList.add(new News(newsURL, title, description, imageURL));
         }
-        System.out.println(articleString.length);
     }
 
     public void loadVnExpress(String webURL) throws IOException {

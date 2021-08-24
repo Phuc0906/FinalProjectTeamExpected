@@ -68,11 +68,15 @@ public class ArticleController extends ChangingCategory {
                     text.setWrapText(true);
 
                     if (count % 3 == 0) {
-                        Document img = Jsoup.parse(figures[imgCount].replaceAll("\n", "") + "</figure>");
-                        String[] imgList = img.select("source").attr("data-srcset").split(" ");
-                        System.out.println(imgList[0]);
-                        articleBox.getChildren().add(new ImageView(new Image(imgList[0])));
-                        imgCount++;
+                        try {
+                            Document img = Jsoup.parse(figures[imgCount].replaceAll("\n", "") + "</figure>");
+                            String[] imgList = img.select("source").attr("data-srcset").split(" ");
+                            articleBox.getChildren().add(new ImageView(new Image(imgList[0])));
+                            imgCount++;
+                        }catch (Exception ex) {
+                            // skipping error
+                        }
+
                     }
                     articleBox.getChildren().add(text);
                     count++;
