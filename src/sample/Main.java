@@ -9,6 +9,8 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import sample.SupportClass.SupportedMethod;
 
+import java.util.ArrayList;
+
 public class Main extends Application {
 
     @Override
@@ -16,11 +18,12 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
         Parent homePage = loader.load();
 
+        new SupportedMethod().scrapeCategory("https://vnexpress.net/");
+
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
-        primaryStage.show();
+//        primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
-
     }
 
     public void closeApp(Stage stage) {
