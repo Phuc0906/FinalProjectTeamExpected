@@ -63,7 +63,7 @@ public class NewsManagement {
         String[] articleSscript = article.toString().split("</article>");
         for (String script: articleSscript) {
             Document docScript = Jsoup.parse(script.replaceAll("\n", "") + "</article>");
-            newsURL = docScript.select("a").attr("href");
+            newsURL = originalURL + docScript.select("a").attr("href");
             title = docScript.select("header p.article-title").text();
             imageURL = docScript.select("img").attr("data-src");
             description = docScript.select("header p.article-summary").text();
