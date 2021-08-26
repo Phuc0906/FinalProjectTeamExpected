@@ -37,6 +37,17 @@ public class ArticleController extends ChangingCategory {
     @FXML
     HBox buttonBox;
 
+    public void setError() throws  IOException {
+        coverPane.prefWidthProperty().bind(scrPane.widthProperty());
+        articleBox.setSpacing(20);
+        Label error = new Label();
+        error.setText("Error 404: File not found.");
+        error.setFont(Font.font("",FontWeight.BOLD,50));
+        error.setWrapText(true);
+        articleBox.getChildren().clear();
+        articleBox.getChildren().add(error);
+    }
+
     public void setContent(News news) throws IOException {
         coverPane.prefWidthProperty().bind(scrPane.widthProperty());
         articleBox.setSpacing(20);
@@ -44,22 +55,34 @@ public class ArticleController extends ChangingCategory {
         Label title = new Label();
         title.setText(news.getTitle());
         title.setFont(Font.font("",FontWeight.BOLD,20));
-        ImageView imageView = new ImageView(new Image(news.getImageURL()));
         articleBox.getChildren().add(title);
         articleBox.getChildren().add(new Label(news.getDescription()));
-        articleBox.getChildren().add(imageView);
+
 
         Document doc = Jsoup.connect(news.getNewsURL()).get();
         switch (news.getNewsOutlet()) {
 
             case "VN Express": {
-                Elements paragraph = doc.select("p.normal");
+                int count = 0;
+                int imgCount = 0;
                 Elements figure = doc.select("figure");
                 String[] figures = figure.toString().split("</figure>");
+                Document img = Jsoup.parse(figures[imgCount].replaceAll("\n", "") + "</figure>");
+                String[] imgList = img.select("source").attr("data-srcset").split(" ");
+                for (String img1 : imgList) {
+                    System.out.println(img1);
+                }
+                if(imgList[imgCount] != null) {
+                    articleBox.getChildren().add(new ImageView(new Image(imgList[imgCount])));
+                    imgCount++;
+                } else {
+                    ImageView imageView = new ImageView(new Image(news.getImageURL()));
+                    articleBox.getChildren().add(imageView);
+                }
+                Elements paragraph = doc.select("p.normal");
                 String[] paragraphList = paragraph.toString().split("\n");
-                int count = 1;
-                int imgCount = 0;
                 for (String para: paragraphList) {
+
                     Document docScript = Jsoup.parse(para);
                     Label text = new Label();
                     text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
@@ -67,11 +90,9 @@ public class ArticleController extends ChangingCategory {
                     text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                     text.setWrapText(true);
 
-                    if (count % 3 == 0) {
+                    if (text.getText().contains("Ảnh")) {
                         try {
-                            Document img = Jsoup.parse(figures[imgCount].replaceAll("\n", "") + "</figure>");
-                            String[] imgList = img.select("source").attr("data-srcset").split(" ");
-                            articleBox.getChildren().add(new ImageView(new Image(imgList[0])));
+                            articleBox.getChildren().add(new ImageView(new Image(imgList[imgCount])));
                             imgCount++;
                         }catch (Exception ex) {
                             // skipping error
@@ -86,7 +107,8 @@ public class ArticleController extends ChangingCategory {
 
             case "Tuoi Tre": {
                 Elements paragraph = doc.select("div.main-content-body p");
-//        System.out.println(paragraph);
+                String img = paragraph.select("img").attr("src");
+                System.out.println(img);
                 String[] paragraphString = paragraph.toString().split("\n");
                 for (String para: paragraphString) {
                     Document docScript = Jsoup.parse(para);

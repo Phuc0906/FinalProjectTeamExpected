@@ -193,8 +193,11 @@ public class ChangingPage extends ChangingCategory{
         root = loader.load();
 
         ArticleController newController = loader.getController();
-        newController.setContent(this.newsList.searchTitle(titleList.get(0).getText()));
-
+        try {
+            newController.setContent(this.newsList.searchTitle(titleList.get(0).getText()));
+        } catch (Exception ex) {
+            newController.setError();
+        }
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
