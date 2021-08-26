@@ -78,21 +78,4 @@ public class SupportedMethod {
             count++;
         }
     }
-
-    public void loadZingArticle (String zingUrl) throws IOException {
-        String para;
-        Document doc = Jsoup.connect(zingUrl).get();
-        Elements elements = doc.select("div.the-article-body p");
-        String[] paragraphs = elements.toString().split("\n");
-        for (String paragraph : paragraphs) {
-            Document docScript = Jsoup.parse(paragraph);
-//            Label text = new Label();
-//            text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
-//            text.setWrapText(true);
-//            text.setText(docScript.select("p").text());
-            para = docScript.select("p").text();
-//            articleBox.getChildren().add(text);
-            System.out.println(para);
-        }
-    }
 }

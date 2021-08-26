@@ -60,7 +60,6 @@ public class ArticleController extends ChangingCategory {
 
 
         Document doc = Jsoup.connect(news.getNewsURL()).get();
-
         switch (news.getNewsOutlet()) {
 
             case "VN Express": {
@@ -123,21 +122,6 @@ public class ArticleController extends ChangingCategory {
                 }
                 Elements author = doc.select("div.main-content-body div.author");
                 articleBox.getChildren().add(new Label(author.text()));
-                break;
-            }
-
-            case "Zing News": {
-                Elements elements = doc.select("div.the-article-body p");
-                String[] paragraphs = elements.toString().split("\n");
-                for (String paragraph : paragraphs) {
-                    Document docScript = Jsoup.parse(paragraph);
-                    Label text = new Label();
-                    text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
-                    text.setWrapText(true);
-                    text.setText(docScript.select("p").text());
-                    articleBox.getChildren().add(text);
-                }
-                System.out.println("Zing News");
                 break;
             }
             default:
