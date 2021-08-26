@@ -12,6 +12,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import sample.ArticleController;
 import sample.NewsObject.News;
 import sample.NewsObject.NewsManagement;
 
@@ -93,7 +94,9 @@ public class SupportedMethod {
                 Document ulScript = Jsoup.parse(ulContent.toString());
                 for (Element cateLink: ulScript.select("li")) {
                     if (cateLink.select("a").attr("href").contains("/")) {
-                        System.out.println(cateLink.select("a").attr("href"));
+                        if (!(cateLink.select("a").attr("href").length() <= 1)) {
+                            System.out.println(cateLink.select("a").attr("href"));
+                        }
                     }
                 }
                 break;
@@ -112,61 +115,62 @@ public class SupportedMethod {
             Document menuScrape = Jsoup.parse(menu.toString());
             for (Element menuLink: menuScrape.select("li")) {
                 if (menuLink.attr("class").contains("parent") || menuLink.attr("class").contains("menu")) {
-                    System.out.println(menuLink.select("a").attr("href"));
+                    if (!(menuLink.select("a").attr("href").length() <= 1)) {
+                        System.out.println(menuLink.select("a").attr("href"));
+                    }
                 }
             }
         }
     }
 
-    public ArrayList<String> getHref(String url) throws IOException {
-        ArrayList<String> webLinksList = new ArrayList<>();
-        ArrayList<String> category = new ArrayList<>();
+    public void scrapeArticleLink(String url) throws IOException {
         Document document = Jsoup.connect(url).get();
-        Elements links = document.select("article a");
-        if (links.size() == 0) {
-            links = document.select("li.news-item a");
-            System.out.println("IN");
+        Elements articles = document.select("article a");
+        if (articles.size() == 0) {
+            articles = document.select("div li.news-item a");
         }
-
-
-        for (Element link: links) {
-            String webLink = link.attr("href");
-            if (!webLink.contains("http")) {
-                webLink = url + webLink;
-            }
-            if (webLink.toCharArray()[webLink.length() - 1] == '/') {
-                if (!category.contains(webLink)) {
-                    category.add(webLink);
-                    System.out.println("Category: " + webLink);
+        ArrayList<String> articleLink = new ArrayList<>();
+        String webLink;
+        for (Element link: articles) {
+            if (!articleLink.contains(link.attr("href"))) {
+                if (!(link.attr("href").length() <= 1)) {
+                    articleLink.add((link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href"));
+                    System.out.println((link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href"));
                 }
-            }else {
-                webLinksList.add(webLink);
+
             }
+
         }
-        return webLinksList;
     }
 
-    public void scrapingGeneral(String webURL) throws IOException {
-        String[] sampleCountry = new String[]{ "mỹ", "việt nam", "afghanistan", "nhật bản"};
-        Document document = Jsoup.connect(webURL).get();
-        String keywords = document.select("meta[name=keywords]").attr("content").toLowerCase();
-        String date = document.select("meta[name=pubdate]").attr("content");
-        System.out.println("Keyword: " + keywords);
-        String categories = "";
+    public void scrapeArticle(String url) throws IOException {
+        String[] countries = new String[]{ "mỹ", "việt nam", "afghanistan", "nhật bản"};
 
-        // check covid category
-        if (keywords.contains("covid")) {
-            categories += "Covid, ";
-        }
-
-        // check in the counrty list
-        for (String country: sampleCountry) {
-            if (keywords.contains(country)) {
-                categories += "the gioi, ";
-                break;
+        Document document = Jsoup.connect(url).get();
+        Elements keyWord = document.select("meta[property=article:tag]");
+        String description = document.select("meta[property=og:description]").attr("content");
+        String title = document.select("meta[property=og:title]").attr("content");
+        Elements imageURLs = document.select("meta[property=og:image]");
+        String category = "";
+        for (Element keyword: keyWord) {
+            // check category
+            for (String country: countries) {
+                if (keyword.attr("content").toLowerCase().contains(country)) {
+                    category += "The gioi ";
+                    break;
+                }
             }
+            if (keyword.attr("content").toLowerCase().contains("covid") || keyword.attr("content").toLowerCase().contains("ncov")) {
+                category += "Covid ";
+            }
+            if (keyword.attr("content").toLowerCase().contains("cong nghe")) {
+                category += "Cong Nghe";
+            }
+            System.out.println("Article keyword: " + keyword.attr("content"));
         }
-        System.out.println("Date: " + date);
-        System.out.println("Category: " + categories);
+
+        System.out.println("Description: " + description);
+        System.out.println("Title: " + title);
+        System.out.println("Category: " + category);
     }
 }

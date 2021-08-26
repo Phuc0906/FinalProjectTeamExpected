@@ -18,7 +18,13 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
         Parent homePage = loader.load();
 
-        new SupportedMethod().scrapeCategory("https://vnexpress.net/");
+        //article list
+        //https://tuoitre.vn/
+        //https://zingnews.vn/
+        //https://nhandan.vn/
+        //https://vnexpress.net/
+
+        new SupportedMethod().scrapeArticle("https://vnexpress.net/hanh-trinh-tron-khoi-kabul-cua-nu-ca-si-afghanistan-4346037.html");
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
