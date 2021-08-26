@@ -16,21 +16,11 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
         Parent homePage = loader.load();
 
+        ArticleController newController = loader.getController();
+        newController.setContent();
+        new SupportedMethod().loadZingArticle("https://zingnews.vn/thu-tuong-lam-truong-ban-chi-dao-quoc-gia-phong-chong-dich-covid-19-post1254703.html");
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
         primaryStage.show();
-        primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
-
-    }
-
-    public void closeApp(Stage stage) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Close App");
-        alert.setContentText("Do you want to close the app?");
-        alert.setHeaderText("You are trying to close the app");
-
-        if(alert.showAndWait().get() == ButtonType.OK) {
-            stage.close();
-        }
     }
 }
