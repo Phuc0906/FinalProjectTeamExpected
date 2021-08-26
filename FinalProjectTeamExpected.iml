@@ -24,5 +24,9 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="org.jsoup:jsoup:1.14.1" level="project" />
+<<<<<<< HEAD
+=======
+    <orderEntry type="library" name="lib1" level="project" />
+>>>>>>> Zing
   </component>
 </module>
