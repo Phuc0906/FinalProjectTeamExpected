@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -54,35 +55,27 @@ public class ArticleController extends ChangingCategory {
 
         Label title = new Label();
         title.setText(news.getTitle());
-        title.setFont(Font.font("",FontWeight.BOLD,20));
+        title.setFont(Font.font("",FontWeight.BOLD,30));
+        title.setWrapText(true);
         articleBox.getChildren().add(title);
-        articleBox.getChildren().add(new Label(news.getDescription()));
 
+        Label description = new Label();
+        description.setText(news.getDescription());
+        description.setFont(Font.font("",FontWeight.SEMI_BOLD, FontPosture.ITALIC,20));
+        description.setWrapText(true);
+        articleBox.getChildren().add(description);
 
         Document doc = Jsoup.connect(news.getNewsURL()).get();
         switch (news.getNewsOutlet()) {
 
             case "VN Express": {
-                int count = 0;
-                int imgCount = 0;
+                Elements paragraph = doc.select("p");
                 Elements figure = doc.select("figure");
                 String[] figures = figure.toString().split("</figure>");
-                Document img = Jsoup.parse(figures[imgCount].replaceAll("\n", "") + "</figure>");
-                String[] imgList = img.select("source").attr("data-srcset").split(" ");
-                for (String img1 : imgList) {
-                    System.out.println(img1);
-                }
-                if(imgList[imgCount] != null) {
-                    articleBox.getChildren().add(new ImageView(new Image(imgList[imgCount])));
-                    imgCount++;
-                } else {
-                    ImageView imageView = new ImageView(new Image(news.getImageURL()));
-                    articleBox.getChildren().add(imageView);
-                }
-                Elements paragraph = doc.select("p.normal");
                 String[] paragraphList = paragraph.toString().split("\n");
+                int count = 1;
+                int imgCount = 0;
                 for (String para: paragraphList) {
-
                     Document docScript = Jsoup.parse(para);
                     Label text = new Label();
                     text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
@@ -90,8 +83,10 @@ public class ArticleController extends ChangingCategory {
                     text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                     text.setWrapText(true);
 
-                    if (text.getText().contains("Ảnh")) {
+                    if (docScript.text().contains("Ảnh")) {
                         try {
+                            Document img = Jsoup.parse(figures[imgCount].replaceAll("\n", "") + "</figure>");
+                            String[] imgList = img.select("source").attr("data-srcset").split(" ");
                             articleBox.getChildren().add(new ImageView(new Image(imgList[imgCount])));
                             imgCount++;
                         }catch (Exception ex) {
