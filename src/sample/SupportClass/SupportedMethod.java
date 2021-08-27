@@ -12,8 +12,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import sample.ArticleController;
-import sample.NewsObject.News;
 import sample.NewsObject.NewsManagement;
 
 import javax.print.Doc;
@@ -150,7 +148,7 @@ public class SupportedMethod {
         Elements keyWord = document.select("meta[property=article:tag]");
         String description = document.select("meta[property=og:description]").attr("content");
         String title = document.select("meta[property=og:title]").attr("content");
-        Elements imageURLs = document.select("meta[property=og:image]");
+        String imageURLs = document.select("meta[property=og:image]").attr("content");
         String category = "";
         for (Element keyword: keyWord) {
             // check category
@@ -172,5 +170,36 @@ public class SupportedMethod {
         System.out.println("Description: " + description);
         System.out.println("Title: " + title);
         System.out.println("Category: " + category);
+        System.out.println("Image url: " + imageURLs);
+
+        //scrape paragraph
+        ArrayList<String> paragraphs = new ArrayList<>();
+
+        Elements articlesParagraph = document.select("p");
+        for (Element element: articlesParagraph) {
+            if ((element.attributes().size() == 0) || (element.attr("class").contains("Normal"))) {
+                paragraphs.add(element.text());
+                System.out.println(element.text());
+            }
+        }
+
+        if (paragraphs.size() < 5) {
+            paragraphs.clear();
+        }
+
+        if (paragraphs.size() == 0) {
+            articlesParagraph = document.select("div");
+            for (Element elements: articlesParagraph) {
+                if (elements.attr("class").length() == 0) {
+                    if (elements.attributes().size() == 0) {
+                        if (!(elements.text().length() == 0)) {
+                            System.out.println(elements.text());
+                            paragraphs.add(elements.text());
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
