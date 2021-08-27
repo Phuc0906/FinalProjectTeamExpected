@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import sample.BaseController.ChangingPage;
+
 import java.io.IOException;
 
 public class BusinessController extends ChangingPage {
