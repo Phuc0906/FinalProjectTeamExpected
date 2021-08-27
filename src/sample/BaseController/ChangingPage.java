@@ -76,8 +76,8 @@ public class ChangingPage extends ChangingCategory{
 
     public ChangingPage(String tuoitreURL, String tuoitreURL2) throws IOException {
         newsList = new NewsManagement();
-        newsList.loadNhanDan(tuoitreURL);
-        newsList.loadNhanDan(tuoitreURL2);
+        newsList.loadZingNews(tuoitreURL);
+        newsList.loadZingNews(tuoitreURL2);
     }
 
     public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL) throws IOException {

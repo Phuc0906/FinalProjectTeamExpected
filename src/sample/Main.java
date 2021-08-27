@@ -18,19 +18,8 @@ public class Main extends Application {
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
+//        new SupportedMethod().loadZingArticle("https://zingnews.vn/thu-tuong-tphcm-day-nhanh-xet-nghiem-dien-rong-so-tan-dan-neu-can-post1255629.html");
         primaryStage.show();
-        primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
 
-    }
-
-    public void closeApp(Stage stage) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Close App");
-        alert.setContentText("Do you want to close the app?");
-        alert.setHeaderText("You are trying to close the app");
-
-        if(alert.showAndWait().get() == ButtonType.OK) {
-            stage.close();
-        }
     }
 }

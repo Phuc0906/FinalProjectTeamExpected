@@ -6,6 +6,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import org.jsoup.Jsoup;
@@ -19,6 +20,7 @@ import javax.print.Doc;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class SupportedMethod {
 
@@ -79,20 +81,60 @@ public class SupportedMethod {
         }
     }
 
-    public void loadZingArticle (String zingUrl) throws IOException {
-        String para;
-        Document doc = Jsoup.connect(zingUrl).get();
-        Elements elements = doc.select("div.the-article-body p");
-        String[] paragraphs = elements.toString().split("\n");
-        for (String paragraph : paragraphs) {
-            Document docScript = Jsoup.parse(paragraph);
+//    public void loadZingArticle (String zingUrl) throws IOException {
+//        String para;
+//        String imgURL;
+//
+//        Document doc = Jsoup.connect(zingUrl).get();
+//
+//        ArrayList<String> imgList = new ArrayList<>();
+//        List<String> desList = new ArrayList<>();
+//
+//        Elements Box = doc.select("table.picture tbody tr td");
+//        String[] BoxImg = Box.select("td.pic").toString().split("\"");
+//
+//        for (String box : BoxImg) {
+//            if(box.contains("https://")) {
+//                imgURL = box;
+//                System.out.println(imgURL);
+//                imgList.add(imgURL);
+//            }
+//        }
+//
+//        String[] BoxDes = Box.select("td.pCaption").toString().split("\n");
+//        for (String box : BoxDes) {
+//            Document document = Jsoup.parse(box);
+//            String desImg = document.select("p").text();
+//            desList.add(desImg);
+//            System.out.println(desImg);
+//            }
+//        System.out.println(Box.select("td.pCaption"));
+//        System.out.println("---------");
+//
+//        int count = 0;
+//        Elements elements = doc.select("div.the-article-body");
+//        String[] paragraphs = elements.toString().split("\n");
+//        for (String paragraph : paragraphs) {
+//            Document docScript = Jsoup.parse(paragraph);
+//            if (docScript.text().contains("Ảnh")) {
+//                try {
+//                    VBox viewPhoto = new VBox();
+//                    ImageView photo = new ImageView(new Image(imgList.get(count));
+//                    Label photoDescription = new Label(desList.get(count));
+//                    photoDescription.setWrapText(true);
+//                    viewPhoto.getChildren().addAll(photo,photoDescription);
+//                    articleBox.getChildren().add(viewPhoto);
+//                    count++;
+//                } catch (Exception ex) {
+//                    // skipping error
+//                }
+//            }
 //            Label text = new Label();
 //            text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
 //            text.setWrapText(true);
 //            text.setText(docScript.select("p").text());
-            para = docScript.select("p").text();
-//            articleBox.getChildren().add(text);
-            System.out.println(para);
-        }
-    }
+//            para = docScript.select("p").text();
+//            System.out.println(para);
+//        }
+//    }
 }
