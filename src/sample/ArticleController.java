@@ -16,11 +16,13 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import sample.BaseController.ChangingCategory;
 import sample.NewsObject.News;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ArticleController extends ChangingCategory {
     @FXML
@@ -57,15 +59,18 @@ public class ArticleController extends ChangingCategory {
         title.setText(news.getTitle());
         title.setFont(Font.font("",FontWeight.BOLD,30));
         title.setWrapText(true);
+        title.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
         articleBox.getChildren().add(title);
 
         Label description = new Label();
         description.setText(news.getDescription());
         description.setFont(Font.font("",FontWeight.SEMI_BOLD, FontPosture.ITALIC,20));
         description.setWrapText(true);
+        description.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
         articleBox.getChildren().add(description);
 
         Document doc = Jsoup.connect(news.getNewsURL()).get();
+
         switch (news.getNewsOutlet()) {
 
             case "VN Express": {
@@ -101,17 +106,33 @@ public class ArticleController extends ChangingCategory {
             }
 
             case "Tuoi Tre": {
+                int imgCount = 0;
+                // add all img to imgList
+                ArrayList<String> imgList = new ArrayList<>();
+                Elements list = doc.select("div.main-content-body div.VCSortableInPreviewMode");
+                for (Element html : list) {
+                    String img = html.select("img").attr("src");
+                    imgList.add(img);
+                }
+
                 Elements paragraph = doc.select("div.main-content-body p");
-                String img = paragraph.select("img").attr("src");
-                System.out.println(img);
                 String[] paragraphString = paragraph.toString().split("\n");
                 for (String para: paragraphString) {
                     Document docScript = Jsoup.parse(para);
-                    if(!docScript.text().contains("Ảnh") && !docScript.text().contains("TTO")) {
+                    if (docScript.text().contains("Ảnh")) {
+                        try {
+                            articleBox.getChildren().add(new ImageView(new Image(imgList.get(imgCount))));
+                            imgCount++;
+                        } catch (Exception ex) {
+                            // skipping error
+                        }
+                    }
+                    if(!docScript.text().contains("TTO")) {
                         Label text = new Label();
                         text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
                         text.setWrapText(true);
                         text.setText(docScript.text());
+                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                         articleBox.getChildren().add(text);
                     }
                 }
@@ -119,6 +140,7 @@ public class ArticleController extends ChangingCategory {
                 articleBox.getChildren().add(new Label(author.text()));
                 break;
             }
+
             case "Zing News": {
                 Elements elements = doc.select("div.the-article-body p");
                 String[] paragraphs = elements.toString().split("\n");
@@ -133,6 +155,7 @@ public class ArticleController extends ChangingCategory {
                 System.out.println("Zing News");
                 break;
             }
+
             default:
                 System.out.println("From unknown outlet");
         }
