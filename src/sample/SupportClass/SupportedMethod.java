@@ -149,6 +149,7 @@ public class SupportedMethod {
         String description = document.select("meta[property=og:description]").attr("content");
         String title = document.select("meta[property=og:title]").attr("content");
         String imageURLs = document.select("meta[property=og:image]").attr("content");
+        String time = document.select("meta[property=article:published_time]").attr("content");
         String category = "";
         for (Element keyword: keyWord) {
             // check category
@@ -171,6 +172,7 @@ public class SupportedMethod {
         System.out.println("Title: " + title);
         System.out.println("Category: " + category);
         System.out.println("Image url: " + imageURLs);
+        System.out.println("Time: " + time);
 
         //scrape paragraph
         ArrayList<String> paragraphs = new ArrayList<>();

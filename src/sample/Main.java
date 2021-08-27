@@ -24,7 +24,8 @@ public class Main extends Application {
         //https://nhandan.vn/
         //https://vnexpress.net/
 
-        new SupportedMethod().scrapeArticle("https://vnexpress.net/oto-cho-luc-luong-chong-dich-gap-nan-4346885.html");
+        new SupportedMethod().scrapeArticle("https://tuoitre.vn/ban-tin-covid-19-toi-26-8-ca-nuoc-11-575-ca-nhiem-moi-binh-duong-nhieu-hon-tp-hcm-20210826171423625.htm");
+
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
