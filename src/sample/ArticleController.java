@@ -94,6 +94,7 @@ public class ArticleController extends ChangingCategory {
                             VBox viewPhoto = new VBox();
                             ImageView photo = new ImageView(new Image(imgList[imgCount]));
                             Label photoDescription = new Label(docScript.text());
+                            photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
                             photoDescription.setWrapText(true);
                             photoDescription.prefWidthProperty().bind(viewPhoto.widthProperty());
                             viewPhoto.getChildren().addAll(photo,photoDescription);
@@ -127,6 +128,7 @@ public class ArticleController extends ChangingCategory {
                             VBox viewPhoto = new VBox();
                             ImageView photo = new ImageView(new Image(imgList.get(imgCount)));
                             Label photoDescription = new Label(docScript.text());
+                            photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
                             photoDescription.setWrapText(true);
                             photoDescription.prefWidthProperty().bind(viewPhoto.widthProperty());
                             viewPhoto.getChildren().addAll(photo,photoDescription);
@@ -171,6 +173,7 @@ public class ArticleController extends ChangingCategory {
                 Elements photoBox = doc.select("div.box-detail-thumb");
                 ImageView photo = new ImageView(new Image(photoBox.select("img").attr("src")));
                 Label photoDescription = new Label(photoBox.text());
+                photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
                 photoDescription.setWrapText(true);
                 photoDescription.prefWidthProperty().bind(viewPhoto.widthProperty());
                 viewPhoto.setSpacing(0);
@@ -195,7 +198,7 @@ public class ArticleController extends ChangingCategory {
             }
 
             default:
-                System.out.println("From unknown outlet");
+                setError();
         }
     }
 }
