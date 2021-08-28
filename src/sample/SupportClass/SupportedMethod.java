@@ -82,59 +82,17 @@ public class SupportedMethod {
     }
 
 //    public void loadZingArticle (String zingUrl) throws IOException {
-//        String para;
-//        String imgURL;
+//        List<String> subTitleList = new ArrayList<>();
 //
 //        Document doc = Jsoup.connect(zingUrl).get();
-//
-//        ArrayList<String> imgList = new ArrayList<>();
-//        List<String> desList = new ArrayList<>();
-//
-//        Elements Box = doc.select("table.picture tbody tr td");
-//        String[] BoxImg = Box.select("td.pic").toString().split("\"");
-//
-//        for (String box : BoxImg) {
-//            if(box.contains("https://")) {
-//                imgURL = box;
-//                System.out.println(imgURL);
-//                imgList.add(imgURL);
-//            }
-//        }
-//
-//        String[] BoxDes = Box.select("td.pCaption").toString().split("\n");
-//        for (String box : BoxDes) {
-//            Document document = Jsoup.parse(box);
-//            String desImg = document.select("p").text();
-//            desList.add(desImg);
-//            System.out.println(desImg);
-//            }
-//        System.out.println(Box.select("td.pCaption"));
-//        System.out.println("---------");
-//
-//        int count = 0;
-//        Elements elements = doc.select("div.the-article-body");
-//        String[] paragraphs = elements.toString().split("\n");
-//        for (String paragraph : paragraphs) {
-//            Document docScript = Jsoup.parse(paragraph);
-//            if (docScript.text().contains("Ảnh")) {
-//                try {
-//                    VBox viewPhoto = new VBox();
-//                    ImageView photo = new ImageView(new Image(imgList.get(count));
-//                    Label photoDescription = new Label(desList.get(count));
-//                    photoDescription.setWrapText(true);
-//                    viewPhoto.getChildren().addAll(photo,photoDescription);
-//                    articleBox.getChildren().add(viewPhoto);
-//                    count++;
-//                } catch (Exception ex) {
-//                    // skipping error
-//                }
-//            }
-//            Label text = new Label();
-//            text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
-//            text.setWrapText(true);
-//            text.setText(docScript.select("p").text());
-//            para = docScript.select("p").text();
-//            System.out.println(para);
+//        Elements Box = doc.select("div.the-article-body h3");
+////        String[] subTitle = Box.text().split("(?=\\p{Upper})");
+//        String[] subTitles = Box.toString().split("\n");
+//        for (String s : subTitles) {
+//            Document document = Jsoup.parse(s);
+//            String subTitle = document.text();
+//            subTitleList.add(subTitle);
+//            System.out.println(subTitle);
 //        }
 //    }
 }

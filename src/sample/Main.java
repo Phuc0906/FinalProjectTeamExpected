@@ -18,7 +18,7 @@ public class Main extends Application {
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
-//        new SupportedMethod().loadZingArticle("https://zingnews.vn/thu-tuong-tphcm-day-nhanh-xet-nghiem-dien-rong-so-tan-dan-neu-can-post1255629.html");
+//        new SupportedMethod().loadZingArticle("https://zingnews.vn/thu-tuong-dat-moc-kiem-soat-dich-truoc-159-voi-dong-nai-post1255971.html");
         primaryStage.show();
 
     }
