@@ -96,7 +96,7 @@ public class ArticleController extends ChangingCategory {
                             Label photoDescription = new Label(docScript.text());
                             photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
                             photoDescription.setWrapText(true);
-                            photoDescription.prefWidthProperty().bind(viewPhoto.widthProperty());
+                            photoDescription.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                             viewPhoto.getChildren().addAll(photo,photoDescription);
                             articleBox.getChildren().add(viewPhoto);
                             imgCount++;
@@ -130,7 +130,7 @@ public class ArticleController extends ChangingCategory {
                             Label photoDescription = new Label(docScript.text());
                             photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
                             photoDescription.setWrapText(true);
-                            photoDescription.prefWidthProperty().bind(viewPhoto.widthProperty());
+                            photoDescription.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                             viewPhoto.getChildren().addAll(photo,photoDescription);
                             articleBox.getChildren().add(viewPhoto);
                             imgCount++;
@@ -175,7 +175,7 @@ public class ArticleController extends ChangingCategory {
                 Label photoDescription = new Label(photoBox.text());
                 photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
                 photoDescription.setWrapText(true);
-                photoDescription.prefWidthProperty().bind(viewPhoto.widthProperty());
+                photoDescription.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                 viewPhoto.setSpacing(0);
                 viewPhoto.getChildren().addAll(photo,photoDescription);
                 articleBox.getChildren().add(viewPhoto);
@@ -196,9 +196,8 @@ public class ArticleController extends ChangingCategory {
                 author.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                 articleBox.getChildren().add(author);
             }
-
             default:
-                setError();
+                System.out.println("error");
         }
     }
 }
