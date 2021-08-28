@@ -9,7 +9,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -19,8 +18,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import sample.BaseController.ChangingCategory;
 import sample.NewsObject.News;
-
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -195,33 +192,5 @@ public class ArticleController extends ChangingCategory {
             default:
                 System.out.println("From unknown outlet");
         }
-    }
-
-    public void setContent() throws IOException {
-        coverPane.prefWidthProperty().bind(scrPane.widthProperty());
-        articleBox.setSpacing(20);
-
-        logo.prefWidthProperty().bind(articleBox.widthProperty().divide(3));
-        logo.prefHeightProperty().bind(scrPane.heightProperty().divide(5));
-        logo.setAlignment(Pos.CENTER);
-        logo.setStyle("-fx-background-color: lightgreen");
-
-        buttonBox.prefHeightProperty().bind(scrPane.heightProperty().divide(15));
-        buttonBox.setAlignment(Pos.CENTER_LEFT);
-
-
-        Document doc = Jsoup.connect("https://vnexpress.net/di-tim-so-ca-tu-vong-covid-19-thuc-te-toan-cau-4345051.html").get();
-        Elements paragraph = doc.select("p.normal");
-        String[] paragraphList = paragraph.toString().split("\n");
-        for (String para : paragraphList) {
-            Document docScript = Jsoup.parse(para);
-            Label text = new Label();
-            text.setText(docScript.text());
-            text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
-            text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-            text.setWrapText(true);
-            articleBox.getChildren().add(text);
-        }
-
     }
 }

@@ -22,27 +22,6 @@ import java.util.LinkedList;
 
 public class SupportedMethod {
 
-    public String breakingString(String inputString, int numberOfWordPerLine) {
-        // split string into individual words
-        String[] splittedString = inputString.split("\\s");
-        LinkedList<String> paragraphStructure = new LinkedList<>();
-        int count = 0;
-        for (int i = 0; i < splittedString.length; i++) {
-            if (count == numberOfWordPerLine) {
-                paragraphStructure.add("\n");
-                count = 0;
-            }
-            paragraphStructure.add(splittedString[i] + " ");
-            count++;
-        }
-
-        String completedParagraph = "";
-        for (int i = 0; i < paragraphStructure.size(); i++) {
-            completedParagraph += paragraphStructure.get(i);
-        }
-        return completedParagraph;
-    }
-
     public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, AnchorPane coverPane){
         int count = begin;
         for (Label title: labelList) {
@@ -79,20 +58,4 @@ public class SupportedMethod {
         }
     }
 
-    public void loadZingArticle (String zingUrl) throws IOException {
-        String para;
-        Document doc = Jsoup.connect(zingUrl).get();
-        Elements elements = doc.select("div.the-article-body p");
-        String[] paragraphs = elements.toString().split("\n");
-        for (String paragraph : paragraphs) {
-            Document docScript = Jsoup.parse(paragraph);
-//            Label text = new Label();
-//            text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
-//            text.setWrapText(true);
-//            text.setText(docScript.select("p").text());
-            para = docScript.select("p").text();
-//            articleBox.getChildren().add(text);
-            System.out.println(para);
-        }
-    }
 }

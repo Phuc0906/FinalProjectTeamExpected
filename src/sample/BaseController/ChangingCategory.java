@@ -26,6 +26,7 @@ public class ChangingCategory {
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }

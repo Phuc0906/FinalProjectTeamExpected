@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <?import java.util.ArrayList?>
-<AnchorPane fx:id="coverPane" maxHeight="720.0" maxWidth="1000.0" prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PoliticsController">
-    <Button fx:id="logo" layoutX="10.0" layoutY="4.0" mnemonicParsing="false"  prefHeight="98.0" prefWidth="188.0" style="-fx-background-color: white;" text="Vietcetera." AnchorPane.leftAnchor="10.0">
+<AnchorPane fx:id="coverPane" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PoliticsController">
+    <Button fx:id="logo" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="188.0" style="-fx-background-color: white;" text="Vietcetera." AnchorPane.leftAnchor="10.0">
         <font>
             <Font name="Javanese Text" size="30.0" />
         </font>
@@ -83,130 +78,130 @@
                 <children>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                
                             </ImageView>
                             <VBox>
                                 <children>
                                     <Label fx:id="title1" onMouseClicked="#toArticle1" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description1"  prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="description1" prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                
                             </ImageView>
                             <VBox>
                                 <children>
                                     <Label fx:id="title2" onMouseClicked="#toArticle2" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description2"  prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="description2" prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img3" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="img3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                
                             </ImageView>
                             <VBox>
                                 <children>
                                     <Label fx:id="title3" onMouseClicked="#toArticle3" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description3"  prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="description3" prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img4" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="img4" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                
                             </ImageView>
                             <VBox>
                                 <children>
                                     <Label fx:id="title4" onMouseClicked="#toArticle4" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description4"  prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="description4" prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img5" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="img5" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                
                             </ImageView>
                             <VBox>
                                 <children>
                                     <Label fx:id="title5" onMouseClicked="#toArticle5" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description5"  prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="description5" prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img6" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="img6" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                
                             </ImageView>
                             <VBox>
                                 <children>
                                     <Label fx:id="title6" onMouseClicked="#toArticle6" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description6"  prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="description6" prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img7" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="img7" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                
                             </ImageView>
                             <VBox>
                                 <children>
                                     <Label fx:id="title7" onMouseClicked="#toArticle7" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description7"  prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="description7" prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img8" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="img8" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                
                             </ImageView>
                             <VBox>
                                 <children>
                                     <Label fx:id="title8" onMouseClicked="#toArticle8" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description8"  prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="description8" prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img9" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="img9" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                
                             </ImageView>
                             <VBox>
                                 <children>
                                     <Label fx:id="title9" onMouseClicked="#toArticle9" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description9"  prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="description9" prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>
                     </HBox>
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
-                            <ImageView fx:id="img10" fitHeight="150.0" fitWidth="200.0"  pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="img10" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                
                             </ImageView>
                             <VBox>
                                 <children>
                                     <Label fx:id="title10" onMouseClicked="#toArticle10" prefHeight="50.0" prefWidth="789.0" text="Label" />
-                                    <Label fx:id="description10"  prefHeight="60.0" prefWidth="781.0" text="Label" />
+                                    <Label fx:id="description10" prefHeight="60.0" prefWidth="781.0" text="Label" />
                                 </children>
                             </VBox>
                         </children>

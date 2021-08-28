@@ -22,7 +22,8 @@ public class Main extends Application {
         newController.setImgList();
 
         primaryStage.setTitle("Projekt Red");
-        primaryStage.setScene(new Scene(homePage, 1000, 720));
+        primaryStage.setScene(new Scene(homePage));
+        primaryStage.setFullScreen(true);
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
 
