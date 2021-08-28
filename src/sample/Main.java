@@ -16,6 +16,11 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
         Parent homePage = loader.load();
 
+        NewController newController = loader.getController();
+        newController.setTitle();
+        newController.setDescription();
+        newController.setImgList();
+
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
         primaryStage.show();

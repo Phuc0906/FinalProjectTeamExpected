@@ -126,6 +126,7 @@ public class ArticleController extends ChangingCategory {
                             ImageView photo = new ImageView(new Image(imgList.get(imgCount)));
                             Label photoDescription = new Label(docScript.text());
                             photoDescription.setWrapText(true);
+                            photoDescription.prefWidthProperty().bind(viewPhoto.widthProperty());
                             viewPhoto.getChildren().addAll(photo,photoDescription);
                             articleBox.getChildren().add(viewPhoto);
                             imgCount++;
@@ -169,6 +170,7 @@ public class ArticleController extends ChangingCategory {
                 ImageView photo = new ImageView(new Image(photoBox.select("img").attr("src")));
                 Label photoDescription = new Label(photoBox.text());
                 photoDescription.setWrapText(true);
+                photoDescription.prefWidthProperty().bind(viewPhoto.widthProperty());
                 viewPhoto.setSpacing(0);
                 viewPhoto.getChildren().addAll(photo,photoDescription);
                 articleBox.getChildren().add(viewPhoto);
