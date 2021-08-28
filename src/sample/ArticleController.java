@@ -85,7 +85,7 @@ public class ArticleController extends ChangingCategory {
                     text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                     text.setWrapText(true);
 
-                    if (docScript.text().contains("Ảnh")) {
+                    if (docScript.text().contains("Ảnh:")) {
                         try {
                             Document img = Jsoup.parse(figures[imgCount].replaceAll("\n", "") + "</figure>");
                             String[] imgList = img.select("source").attr("data-srcset").split(" ");
@@ -117,7 +117,7 @@ public class ArticleController extends ChangingCategory {
                 for (String para : paragraphString) {
                     Document docScript = Jsoup.parse(para);
                     //add img
-                    if (docScript.text().contains("Ảnh")) {
+                    if (docScript.text().contains("Ảnh:")) {
                         try {
                             VBox viewPhoto = new VBox();
                             ImageView photo = new ImageView(new Image(imgList.get(imgCount)));
@@ -132,7 +132,7 @@ public class ArticleController extends ChangingCategory {
                         }
                     }
                     // add paragraph
-                    if (!docScript.text().contains("Ảnh") && !docScript.text().contains("TTO")) {
+                    if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("TTO")) {
                         Label text = new Label();
                         text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
                         text.setWrapText(true);

@@ -1,10 +1,10 @@
 package sample.NewsObject;
 
 public class News {
-    private String newsURL;
-    private String title;
-    private String description;
-    private String imageURL;
+    private final String newsURL;
+    private final String title;
+    private final String description;
+    private final String imageURL;
     private String newsOutlet;
 
     public News(String newsURL, String title, String description, String imageURL) {
@@ -35,5 +35,7 @@ public class News {
         return imageURL;
     }
 
-    public String getNewsOutlet() { return newsOutlet; }
+    public String getNewsOutlet() {
+        return newsOutlet;
+    }
 }
