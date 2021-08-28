@@ -67,7 +67,7 @@ public class ArticleController extends ChangingCategory {
         articleBox.getChildren().add(description);
 
         Document doc = Jsoup.connect(news.getNewsURL()).get();
-
+        System.out.println(news.getNewsOutlet());
         switch (news.getNewsOutlet()) {
 
             case "VN Express": {
@@ -75,29 +75,34 @@ public class ArticleController extends ChangingCategory {
                 Elements figure = doc.select("figure");
                 String[] figures = figure.toString().split("</figure>");
                 String[] paragraphList = paragraph.toString().split("\n");
-                int count = 1;
                 int imgCount = 0;
                 for (String para : paragraphList) {
                     Document docScript = Jsoup.parse(para);
-                    Label text = new Label();
-                    text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
-                    text.setText(docScript.text());
-                    text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                    text.setWrapText(true);
+                    if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("TTO") && !docScript.text().replaceAll("\\s+","").equalsIgnoreCase(news.getDescription().replaceAll("\\s+",""))) {
+                        Label text = new Label();
+                        text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
+                        text.setText(docScript.text());
+                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
+                        text.setWrapText(true);
+                        articleBox.getChildren().add(text);
+                    }
 
                     if (docScript.text().contains("Ảnh:")) {
                         try {
                             Document img = Jsoup.parse(figures[imgCount].replaceAll("\n", "") + "</figure>");
                             String[] imgList = img.select("source").attr("data-srcset").split(" ");
-                            articleBox.getChildren().add(new ImageView(new Image(imgList[imgCount])));
+                            VBox viewPhoto = new VBox();
+                            ImageView photo = new ImageView(new Image(imgList[imgCount]));
+                            Label photoDescription = new Label(docScript.text());
+                            photoDescription.setWrapText(true);
+                            photoDescription.prefWidthProperty().bind(viewPhoto.widthProperty());
+                            viewPhoto.getChildren().addAll(photo,photoDescription);
+                            articleBox.getChildren().add(viewPhoto);
                             imgCount++;
                         } catch (Exception ex) {
                             // skipping error
                         }
-
                     }
-                    articleBox.getChildren().add(text);
-                    count++;
                 }
                 break;
             }
