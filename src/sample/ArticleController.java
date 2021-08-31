@@ -196,8 +196,18 @@ public class ArticleController extends ChangingCategory {
                 author.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                 articleBox.getChildren().add(author);
             }
+
+            case "Thanh Nien": {
+                Elements paraList = doc.select("div.cms-body div");
+                for (Element paragraph : paraList) {
+                    if (!paragraph.select("div").text().contains("Ảnh:")) {
+                        if (!paragraph.select("div").text().contains("Tin liên quan"))
+                            System.out.println(paragraph.select("div").text());
+                    }
+                }
+            }
             default:
-                System.out.println("error");
+                System.out.println(news.getNewsOutlet());
         }
     }
 }
