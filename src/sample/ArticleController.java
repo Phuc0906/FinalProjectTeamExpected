@@ -230,7 +230,45 @@ public class ArticleController extends ChangingCategory {
                 author.setWrapText(true);
                 author.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                 articleBox.getChildren().add(author);
+                break;
             }
+//            case "Thanh Nien": {
+//                List<String> imgList = new ArrayList<>();
+//                List<String> desList = new ArrayList<>();
+//                Elements Boxes = doc.select("div#abody div table.imagefull tbody tr td div");
+//
+//                for (Element Box : Boxes) {
+//                    String urlImage = Box.select("img").attr("data-src");
+//                    if (urlImage.length() != 0) imgList.add(urlImage);
+//                }
+//
+//                for (Element Box : Boxes.select("div.imgcaption p")) {
+//                    String imgDes = Box.text();
+//                    desList.add(imgDes);
+//                }
+//                int count = 0;
+//                Elements elements = doc.select("div#abody div");
+//                String[] paragraphs = elements.toString().split("\n");
+//
+//                for (String paragraph : paragraphs) {
+//                    try {
+//                        count++;
+//                        VBox viewPhoto = new VBox();
+//                        ImageView photo = new ImageView(new Image(imgList.get(count - 1)));
+//                        photo.setPreserveRatio(true);
+//                        Text photoDescription = new Text(desList.get(count - 1));
+//                        Text author = new Text(desList.get(count));
+//                        photoDescription.setWrappingWidth(550);
+//                        viewPhoto.getChildren().addAll(photo, photoDescription, author);
+//                        articleBox.getChildren().add(viewPhoto);
+//                        count++;
+//                    } catch (Exception ex) {
+//                        // skipping error
+//                    }
+//
+//                    if (paragraph.)
+//                }
+//            }
 
             default:
                 System.out.println("From unknown outlet");

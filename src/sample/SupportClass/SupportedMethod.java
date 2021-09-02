@@ -81,18 +81,12 @@ public class SupportedMethod {
         }
     }
 
-//    public void loadZingArticle (String zingUrl) throws IOException {
-//        List<String> subTitleList = new ArrayList<>();
-//
-//        Document doc = Jsoup.connect(zingUrl).get();
-//        Elements Box = doc.select("div.the-article-body h3");
-////        String[] subTitle = Box.text().split("(?=\\p{Upper})");
-//        String[] subTitles = Box.toString().split("\n");
-//        for (String s : subTitles) {
-//            Document document = Jsoup.parse(s);
-//            String subTitle = document.text();
-//            subTitleList.add(subTitle);
-//            System.out.println(subTitle);
-//        }
-//    }
+    public void ThanhNienArtical (String URL) throws IOException {
+        List<String> imgList = new ArrayList<>();
+        List<String> desList = new ArrayList<>();
+
+        Document doc = Jsoup.connect(URL).get();
+        Elements Boxes = doc.select("div#abody div ");
+        System.out.println(Boxes);
+    }
 }
