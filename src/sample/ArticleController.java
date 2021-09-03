@@ -160,7 +160,7 @@ public class ArticleController extends ChangingCategory {
                         imgList.add(box);
                     }
                 }
-                
+
                 int count = 0;
                 Elements elements = doc.select("div.the-article-body p");
                 String[] paragraphs = elements.toString().split("\n");
@@ -227,32 +227,40 @@ public class ArticleController extends ChangingCategory {
 //            case "Thanh Nien": {
 //                List<String> imgList = new ArrayList<>();
 //                List<String> desList = new ArrayList<>();
+//                List<String> auList = new ArrayList<>();
 //
-//                //find image and description then save to Arraylist
 //                Elements Boxes = doc.select("div#abody div table.imagefull tbody tr td div");
+//
 //                for (Element Box : Boxes) {
 //                    String urlImage = Box.select("img").attr("data-src");
 //                    if (urlImage.length() != 0) imgList.add(urlImage);
 //                }
+//                System.out.println(imgList.size());
 //
 //                for (Element Box : Boxes.select("div.imgcaption p")) {
 //                    String imgDes = Box.text();
 //                    desList.add(imgDes);
 //                }
 //
+//                for (int i = 0; i < desList.size(); i++) {
+//                    if (i % 2 != 0 || desList.get(i).contains("ẢNH: ")) {
+//                        String author = desList.get(i);
+//                        if(author.length() != 0) auList.add(author); desList.remove(author);
+//                    }
+//                }
+//
 //                int cnt = 0;
 //                Elements elements = doc.select("div#abody div");
-//                String[] paragraphs = elements.toString().split("\n");
+////                String[] paragraphs = elements.toString().split("\n");
 //
-//                for (String paragraph : paragraphs) {
-//                    Document docScript = Jsoup.parse(paragraph);
+//                for (Element paragraph : elements) {
+////                    Document docScript = Jsoup.parse(paragraph);
 //                    try {
-//                        cnt++;
 //                        VBox viewPhoto = new VBox();
-//                        ImageView photo = new ImageView(new Image(imgList.get(cnt - 1)));
+//                        ImageView photo = new ImageView(new Image(imgList.get(cnt)));
 //                        photo.setPreserveRatio(true);
-//                        Text photoDescription = new Text(desList.get(cnt - 1));
-//                        Text author = new Text(desList.get(cnt));
+//                        Text photoDescription = new Text(desList.get(cnt));
+//                        Text author = new Text(auList.get(cnt));
 //                        photoDescription.setWrappingWidth(550);
 //                        viewPhoto.getChildren().addAll(photo, photoDescription, author);
 //                        articleBox.getChildren().add(viewPhoto);
@@ -261,18 +269,17 @@ public class ArticleController extends ChangingCategory {
 //                        // skipping error
 //                    }
 //
-//                    if (!docScript.text().contains(desList.get(cnt))) {
+//                    if (paragraph.text().contains(desList.get(cnt))) {
 //                        Label text = new Label();
 //                        text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
 //                        text.setWrapText(true);
-//                        text.setText(docScript.text());
+//                        text.setText(paragraph.text());
 //                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
 //                        articleBox.getChildren().add(text);
 //                    }
 //                }
 //                break;
 //            }
-
             default:
                 System.out.println("From unknown outlet");
         }
