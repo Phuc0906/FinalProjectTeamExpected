@@ -86,7 +86,18 @@ public class SupportedMethod {
         List<String> desList = new ArrayList<>();
 
         Document doc = Jsoup.connect(URL).get();
-        Elements Boxes = doc.select("div#abody div ");
-        System.out.println(Boxes);
+        Elements Boxes = doc.select("div#abody div table.imagefull tbody tr td div");
+
+        for (Element Box : Boxes) {
+            String urlImage = Box.select("img").attr("data-src");
+            if (urlImage.length() != 0) imgList.add(urlImage);
+        }
+        System.out.println(imgList.size());
+
+        for (Element Box : Boxes.select("div.imgcaption p")) {
+            String imgDes = Box.text();
+            desList.add(imgDes);
+        }
+        System.out.println(desList.size());
     }
 }

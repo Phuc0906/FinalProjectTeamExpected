@@ -19,7 +19,7 @@ public class Main extends Application {
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
         new SupportedMethod().ThanhNienArtical("https://thanhnien.vn/the-thao/bong-da-viet-nam/vong-loai-world-cup-2022-a-rap-xe-ut-vs-tuyen-viet-nam-khang-dinh-ban-linh-139656t.html");
-//        primaryStage.show();
+        primaryStage.show();
 
     }
 }

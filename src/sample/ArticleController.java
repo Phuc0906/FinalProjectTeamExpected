@@ -152,7 +152,6 @@ public class ArticleController extends ChangingCategory {
 
             case "Zing News": {
                 ArrayList<String> imgList = new ArrayList<>();
-                List<String> desList = new ArrayList<>();
 
                 Elements Box = doc.select("table.picture tbody tr td");
                 String[] BoxImg = Box.select("td.pic").toString().split("\"");
@@ -161,14 +160,7 @@ public class ArticleController extends ChangingCategory {
                         imgList.add(box);
                     }
                 }
-
-                String[] BoxDes = Box.select("td.pCaption").toString().split("\n");
-                for (String box : BoxDes) {
-                    Document document = Jsoup.parse(box);
-                    String desImg = document.select("p").text();
-                    desList.add(desImg);
-                }
-
+                
                 int count = 0;
                 Elements elements = doc.select("div.the-article-body p");
                 String[] paragraphs = elements.toString().split("\n");
@@ -183,7 +175,7 @@ public class ArticleController extends ChangingCategory {
                             photo.setFitHeight(500);
                             photo.setFitWidth(600);
                             photo.setPreserveRatio(true);
-                            Text photoDescription = new Text(desList.get(count));
+                            Text photoDescription = new Text(docScript.text());
                             photoDescription.setWrappingWidth(550);
                             viewPhoto.getChildren().addAll(photo,photoDescription);
                             articleBox.getChildren().add(viewPhoto);
@@ -235,8 +227,9 @@ public class ArticleController extends ChangingCategory {
 //            case "Thanh Nien": {
 //                List<String> imgList = new ArrayList<>();
 //                List<String> desList = new ArrayList<>();
-//                Elements Boxes = doc.select("div#abody div table.imagefull tbody tr td div");
 //
+//                //find image and description then save to Arraylist
+//                Elements Boxes = doc.select("div#abody div table.imagefull tbody tr td div");
 //                for (Element Box : Boxes) {
 //                    String urlImage = Box.select("img").attr("data-src");
 //                    if (urlImage.length() != 0) imgList.add(urlImage);
@@ -246,28 +239,38 @@ public class ArticleController extends ChangingCategory {
 //                    String imgDes = Box.text();
 //                    desList.add(imgDes);
 //                }
-//                int count = 0;
+//
+//                int cnt = 0;
 //                Elements elements = doc.select("div#abody div");
 //                String[] paragraphs = elements.toString().split("\n");
 //
 //                for (String paragraph : paragraphs) {
+//                    Document docScript = Jsoup.parse(paragraph);
 //                    try {
-//                        count++;
+//                        cnt++;
 //                        VBox viewPhoto = new VBox();
-//                        ImageView photo = new ImageView(new Image(imgList.get(count - 1)));
+//                        ImageView photo = new ImageView(new Image(imgList.get(cnt - 1)));
 //                        photo.setPreserveRatio(true);
-//                        Text photoDescription = new Text(desList.get(count - 1));
-//                        Text author = new Text(desList.get(count));
+//                        Text photoDescription = new Text(desList.get(cnt - 1));
+//                        Text author = new Text(desList.get(cnt));
 //                        photoDescription.setWrappingWidth(550);
 //                        viewPhoto.getChildren().addAll(photo, photoDescription, author);
 //                        articleBox.getChildren().add(viewPhoto);
-//                        count++;
+//                        cnt++;
 //                    } catch (Exception ex) {
 //                        // skipping error
 //                    }
 //
-//                    if (paragraph.)
+//                    if (!docScript.text().contains(desList.get(cnt))) {
+//                        Label text = new Label();
+//                        text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
+//                        text.setWrapText(true);
+//                        text.setText(docScript.text());
+//                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
+//                        articleBox.getChildren().add(text);
+//                    }
 //                }
+//                break;
 //            }
 
             default:
