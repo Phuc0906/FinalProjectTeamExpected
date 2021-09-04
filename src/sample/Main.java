@@ -11,6 +11,8 @@ import sample.NewsObject.AppendingArticle;
 import sample.NewsObject.ScrapeArticle;
 import sample.SupportClass.SupportedMethod;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main extends Application {
@@ -34,8 +36,6 @@ public class Main extends Application {
         }catch (Exception ex) {
             ex.printStackTrace();
         }
-
-        new SupportedMethod().scrapeArticle("https://thanhnien.vn/the-thao/bong-da-viet-nam/chu-tich-nuoc-nguyen-xuan-phuc-gui-loi-dong-vien-toi-thay-tro-hlv-park-hang-seo-139700t.html");
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
