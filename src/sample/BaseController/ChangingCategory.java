@@ -1,19 +1,60 @@
 package sample.BaseController;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import sample.*;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ChangingCategory {
+public class ChangingCategory implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    ///////////////////////Phong's page
+    @FXML
+    private ScrollPane parent;
+
+    @FXML
+    private Button btnMode;
+
+    private static boolean isLightMode = true;
+
+    @FXML
+    public void changeMode() {
+        isLightMode = !isLightMode;
+        if (isLightMode) setLightMode();
+        else setDarkMode();
+    }
+
+
+    public void setLightMode() {
+        parent.getStylesheets().remove("fileCss/styleDarkMode.css");
+        parent.getStylesheets().add("fileCss/styleLightMode.css");
+        btnMode.setText("Dark");
+    }
+
+    public void setDarkMode() {
+        parent.getStylesheets().remove("fileCss/styleLightMode.css");
+        parent.getStylesheets().add("fileCss/styleDarkMode.css");
+        btnMode.setText("Light");
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if (!isLightMode) setDarkMode();
+    }
+    /////////////////////////Phong's page
 
     public void toNewPage(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));

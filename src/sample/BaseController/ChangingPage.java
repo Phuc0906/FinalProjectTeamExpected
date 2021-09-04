@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ChangingPage extends ChangingCategory implements Initializable {
+public class ChangingPage extends ChangingCategory {
 
     private Stage stage;
     private Scene scene;
@@ -33,40 +33,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     private SupportedMethod supportedMethod = new SupportedMethod();
     private NewsManagement newsList;
 
-    ///////////////////////Phong's page
-    @FXML
-    private ScrollPane parent;
 
-    @FXML
-    private Button btnMode;
-
-    private static boolean isLightMode = true;
-
-    @FXML
-    public void changeMode() {
-        isLightMode = !isLightMode;
-        if (isLightMode) setLightMode();
-        else setDarkMode();
-    }
-
-
-    public void setLightMode() {
-        parent.getStylesheets().remove("fileCss/styleDarkMode.css");
-        parent.getStylesheets().add("fileCss/styleLightMode.css");
-        btnMode.setText("Dark");
-    }
-
-    public void setDarkMode() {
-        parent.getStylesheets().remove("fileCss/styleLightMode.css");
-        parent.getStylesheets().add("fileCss/styleDarkMode.css");
-        btnMode.setText("Light");
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        if (!isLightMode) setDarkMode();
-    }
-    /////////////////////////Phong's page
 
     public ChangingPage(String vnExpressURL1, String vnExpressURL2, String vnExpressURL3,
                         String nhanDanUrl1, String nhanDanUrl2, String nhanDanUrl3, String nhanDanUrl4, String nhanDanUrl5,
@@ -233,7 +200,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     }
 
     public void toArticle1(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
         ArticleController newController = loader.getController();
@@ -249,7 +216,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     }
 
     public void toArticle2(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
         ArticleController newController = loader.getController();
@@ -262,7 +229,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     }
 
     public void toArticle3(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
         ArticleController newController = loader.getController();
@@ -275,7 +242,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     }
 
     public void toArticle4(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
         ArticleController newController = loader.getController();
@@ -288,7 +255,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     }
 
     public void toArticle5(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
         ArticleController newController = loader.getController();
@@ -301,7 +268,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     }
 
     public void toArticle6(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
         ArticleController newController = loader.getController();
@@ -314,7 +281,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     }
 
     public void toArticle7(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
         ArticleController newController = loader.getController();
@@ -327,7 +294,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     }
 
     public void toArticle8(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
         ArticleController newController = loader.getController();
@@ -340,7 +307,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     }
 
     public void toArticle9(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
         ArticleController newController = loader.getController();
@@ -353,7 +320,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     }
 
     public void toArticle10(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
         ArticleController newController = loader.getController();

@@ -118,7 +118,7 @@
                     <children>
                         <VBox maxHeight="2090.0" prefHeight="1590.0" prefWidth="100.0" spacing="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                             <children>
-                                <HBox spacing="20.0" styleClass="secondary-pane">
+                                <HBox prefWidth="200.0" spacing="20.0" styleClass="secondary-pane">
                                     <children>
                                         <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                                         <VBox maxHeight="200.0" spacing="10.0">
