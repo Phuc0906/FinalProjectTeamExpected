@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import sample.NewsObject.AppendingArticle;
+import sample.NewsObject.ScrapeArticle;
 import sample.SupportClass.SupportedMethod;
 
 import java.util.ArrayList;
@@ -23,9 +25,17 @@ public class Main extends Application {
         //https://zingnews.vn/
         //https://nhandan.vn/
         //https://vnexpress.net/
+        //https://thanhnien.vn
 
-        new SupportedMethod().scrapeArticle("https://tuoitre.vn/ban-tin-covid-19-toi-26-8-ca-nuoc-11-575-ca-nhiem-moi-binh-duong-nhieu-hon-tp-hcm-20210826171423625.htm");
+        //article: https://nhandan.vn/chuyen-lam-an/giua-thang-11-nha-may-duong-phung-hiep-se-vao-vu-san-xuat-663008/
 
+        try {
+            AppendingArticle appendingArticle = new AppendingArticle();
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        new SupportedMethod().scrapeArticle("https://thanhnien.vn/the-thao/bong-da-viet-nam/chu-tich-nuoc-nguyen-xuan-phuc-gui-loi-dong-vien-toi-thay-tro-hlv-park-hang-seo-139700t.html");
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));

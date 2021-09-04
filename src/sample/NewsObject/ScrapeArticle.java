@@ -1,82 +1,32 @@
-package sample.SupportClass;
+package sample.NewsObject;
 
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import sample.NewsObject.NewsManagement;
 
-import javax.print.Doc;
-import javax.sound.sampled.Line;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
-public class SupportedMethod {
+public class ScrapeArticle {
 
-    public String breakingString(String inputString, int numberOfWordPerLine) {
-        // split string into individual words
-        String[] splittedString = inputString.split("\\s");
-        LinkedList<String> paragraphStructure = new LinkedList<>();
-        int count = 0;
-        for (int i = 0; i < splittedString.length; i++) {
-            if (count == numberOfWordPerLine) {
-                paragraphStructure.add("\n");
-                count = 0;
+    public ScrapeArticle(){
+    }
+
+    public ArrayList<String> scrapeArticleLink(String url) throws IOException {
+        Document document = Jsoup.connect(url).get();
+        Elements articles = document.select("article a");
+        ArrayList<String> articleLinks = new ArrayList<>();
+        if (articles.size() == 0) {
+            articles = document.select("div li.news-item a");
+        }
+
+        for (Element link: articles) {
+            if (!((articleLinks.contains(link.attr("href"))) && (link.attr("href").length() <= 1)) && !articleLinks.contains((link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href"))) {
+                articleLinks.add((link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href"));
             }
-            paragraphStructure.add(splittedString[i] + " ");
-            count++;
         }
-
-        String completedParagraph = "";
-        for (int i = 0; i < paragraphStructure.size(); i++) {
-            completedParagraph += paragraphStructure.get(i);
-        }
-        return completedParagraph;
-    }
-
-    public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, AnchorPane coverPane){
-        int count = begin;
-        for (Label title: labelList) {
-            title.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
-            title.setAlignment(Pos.TOP_LEFT);
-            title.prefHeightProperty().bind(imgLayouts.get(0).fitHeightProperty().divide(2));
-            title.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgLayouts.get(0).fitWidthProperty()));
-            title.setWrapText(true);
-            title.setText(newsList.getNews(count).getTitle());
-            count++;
-        }
-    }
-
-    public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, AnchorPane coverPane){
-        int count = begin;
-        for (Label description: labelList) {
-            description.setFont(Font.font("Time New Roman", FontWeight.BOLD, 20));
-            description.setAlignment(Pos.TOP_LEFT);
-            description.setWrapText(true);
-            description.setText(newsList.getNews(count).getDescription());
-            description.prefHeightProperty().bind(imgLayouts.get(0).fitHeightProperty().divide(2));
-            description.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgLayouts.get(0).fitWidthProperty()).multiply(3.5).divide(5));
-            count++;
-        }
-    }
-
-    public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList, AnchorPane coverPane){
-        int count = begin;
-        for (ImageView img: imgList) {
-            img.setImage(new Image(newsList.getNews(count).getImageURL()));
-            img.fitHeightProperty().bind(coverPane.heightProperty().divide(5));
-            img.autosize();
-            count++;
-        }
+        return articleLinks;
     }
 
     public void scrapeArticle(String url) throws IOException {
@@ -90,14 +40,10 @@ public class SupportedMethod {
         String description = document.select("meta[property=og:description]").attr("content");
         String title = document.select("meta[property=og:title]").attr("content");
         String imageURLs = document.select("meta[property=og:image]").attr("content");
-        String time = document.select("meta[itemprop=datePublished]").attr("content");
-        if (time.isEmpty()) {
-            time = document.select("div.box-date").text();
-        }
+        String time = document.select("meta[property=article:published_time]").attr("content");
 
         // use string category to store the category which article belongs to
         String category = "";
-        String keywords = "";
         for (Element keyword: keyWord) {
             // check category
             for (String country: countries) {
@@ -117,7 +63,8 @@ public class SupportedMethod {
                 category += "Cong Nghe";
             }
 
-            keywords += keyword.attr("content") + " ";
+            // print out keywords in meta data
+            System.out.println("Article keyword: " + keyword.attr("content"));
         }
 
         // print out scraped content
@@ -126,7 +73,6 @@ public class SupportedMethod {
         System.out.println("Category: " + category);
         System.out.println("Image url: " + imageURLs);
         System.out.println("Time: " + time);
-        System.out.println("Article keywords: " + keywords);
 
         //create array listt to store paragraph
         ArrayList<String> paragraphs = new ArrayList<>();
@@ -164,6 +110,5 @@ public class SupportedMethod {
         }
 
     }
-
 
 }
