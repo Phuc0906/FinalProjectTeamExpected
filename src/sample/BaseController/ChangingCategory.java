@@ -89,7 +89,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toPoliticsPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/PoliticsPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/PoliticsPage(Phong).fxml"));
         root = loader.load();
 
         PoliticsController entertainmentController = loader.getController();
@@ -104,13 +104,13 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toBusinessPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/BusinessPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/BusinessPage(Phong).fxml"));
         root = loader.load();
         BusinessController businessController = loader.getController();
         businessController.setImgList();
         businessController.setTitle();
         businessController.setDescription();
-        businessController.bindingPane();
+//        businessController.bindingPane();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -119,7 +119,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toTechPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/TechPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/TechPage(Phong).fxml"));
         root = loader.load();
         TechController techController = loader.getController();
         techController.setImgList();
@@ -133,7 +133,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toHealthPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/HealthPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/HealthPage(Phong).fxml"));
         root = loader.load();
         HealthController healthController = loader.getController();
         healthController.setImgList();
@@ -147,7 +147,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toSportsPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/SportsPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/SportsPage(Phong).fxml"));
         root = loader.load();
         SportController sportController = loader.getController();
         sportController.setImgList();
@@ -161,7 +161,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toEntertainmentPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentPage(Phong).fxml"));
         root = loader.load();
 
         EntertainmentController entertainmentController = loader.getController();
@@ -176,7 +176,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toWorldPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage(Phong).fxml"));
         root = loader.load();
         WorldController worldController = loader.getController();
         worldController.setImgList();
@@ -190,7 +190,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toOthersPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/OthersPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/OthersPage(Phong).fxml"));
         root = loader.load();
         OthersController othersController = loader.getController();
         othersController.setImgList();
