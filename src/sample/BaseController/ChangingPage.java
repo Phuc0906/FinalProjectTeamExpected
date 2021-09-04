@@ -3,9 +3,11 @@ package sample.BaseController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
@@ -18,9 +20,11 @@ import sample.NewsObject.NewsManagement;
 import sample.SupportClass.SupportedMethod;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class ChangingPage extends ChangingCategory{
+public class ChangingPage extends ChangingCategory implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -29,6 +33,40 @@ public class ChangingPage extends ChangingCategory{
     private SupportedMethod supportedMethod = new SupportedMethod();
     private NewsManagement newsList;
 
+    ///////////////////////Phong's page
+    @FXML
+    private ScrollPane parent;
+
+    @FXML
+    private Button btnMode;
+
+    private static boolean isLightMode = true;
+
+    @FXML
+    public void changeMode() {
+        isLightMode = !isLightMode;
+        if (isLightMode) setLightMode();
+        else setDarkMode();
+    }
+
+
+    public void setLightMode() {
+        parent.getStylesheets().remove("fileCss/styleDarkMode.css");
+        parent.getStylesheets().add("fileCss/styleLightMode.css");
+        btnMode.setText("Dark");
+    }
+
+    public void setDarkMode() {
+        parent.getStylesheets().remove("fileCss/styleLightMode.css");
+        parent.getStylesheets().add("fileCss/styleDarkMode.css");
+        btnMode.setText("Light");
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if (!isLightMode) setDarkMode();
+    }
+    /////////////////////////Phong's page
 
     public ChangingPage(String vnExpressURL1, String vnExpressURL2, String vnExpressURL3,
                         String nhanDanUrl1, String nhanDanUrl2, String nhanDanUrl3, String nhanDanUrl4, String nhanDanUrl5,
