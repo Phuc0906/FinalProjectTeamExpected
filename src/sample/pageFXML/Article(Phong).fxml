@@ -43,47 +43,47 @@
                                                 <Font name="System Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" styleClass="button-cate" text="Covid">
+                                        <Button mnemonicParsing="false" onAction="#toCovidPage" styleClass="button-cate" text="Covid">
                                             <font>
                                                 <Font name="System Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" styleClass="button-cate" text="Politics">
+                                        <Button mnemonicParsing="false" onAction="#toPoliticsPage" styleClass="button-cate" text="Politics">
                                             <font>
                                                 <Font name="System Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" styleClass="button-cate" text="Business">
+                                        <Button mnemonicParsing="false" onAction="#toBusinessPage" styleClass="button-cate" text="Business">
                                             <font>
                                                 <Font name="System Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" styleClass="button-cate" text="Technology">
+                                        <Button mnemonicParsing="false" onAction="#toTechPage" styleClass="button-cate" text="Technology">
                                             <font>
                                                 <Font name="System Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" styleClass="button-cate" text="Health">
+                                        <Button mnemonicParsing="false" onAction="#toHealthPage" styleClass="button-cate" text="Health">
                                             <font>
                                                 <Font name="System Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" styleClass="button-cate" text="Sports">
+                                        <Button mnemonicParsing="false" onAction="#toSportsPage" styleClass="button-cate" text="Sports">
                                             <font>
                                                 <Font name="System Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" styleClass="button-cate" text="Entertainment">
+                                        <Button mnemonicParsing="false" onAction="#toEntertainmentPage" styleClass="button-cate" text="Entertainment">
                                             <font>
                                                 <Font name="System Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" styleClass="button-cate" text="World">
+                                        <Button mnemonicParsing="false" onAction="#toWorldPage" styleClass="button-cate" text="World">
                                             <font>
                                                 <Font name="System Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" styleClass="button-cate" text="Others">
+                                        <Button mnemonicParsing="false" onAction="#toOthersPage" styleClass="button-cate" text="Others">
                                             <font>
                                                 <Font name="System Bold" size="16.0" />
                                             </font>

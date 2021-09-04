@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ChangingPage extends ChangingCategory {
+public class ChangingPage extends ChangingCategory implements Initializable{
 
     private Stage stage;
     private Scene scene;
