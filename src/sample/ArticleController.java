@@ -1,8 +1,6 @@
 package sample;
 
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -26,19 +24,19 @@ public class ArticleController extends ChangingCategory {
     VBox articleBox;
 
     @FXML
-    AnchorPane coverPane;
+    BorderPane coverPane;
 
     @FXML
-    ScrollPane scrPane;
+    ScrollPane parent;
 
     @FXML
     Button logo;
 
-    @FXML
-    HBox buttonBox;
+//    @FXML
+//    HBox buttonBox;
 
     public void setError() throws IOException {
-        coverPane.prefWidthProperty().bind(scrPane.widthProperty());
+        coverPane.prefWidthProperty().bind(parent.widthProperty());
         articleBox.setSpacing(20);
         Label error = new Label();
         error.setText("Error 404: File not found.");
@@ -49,7 +47,7 @@ public class ArticleController extends ChangingCategory {
     }
 
     public void setContent(News news) throws IOException {
-        coverPane.prefWidthProperty().bind(scrPane.widthProperty());
+        coverPane.prefWidthProperty().bind(parent.widthProperty());
         articleBox.setSpacing(20);
 
         Label title = new Label();

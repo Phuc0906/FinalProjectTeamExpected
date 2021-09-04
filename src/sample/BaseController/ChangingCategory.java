@@ -1,19 +1,60 @@
 package sample.BaseController;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import sample.*;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ChangingCategory {
+public class ChangingCategory implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    ///////////////////////Phong's page
+    @FXML
+    private ScrollPane parent;
+
+    @FXML
+    private Button btnMode;
+
+    private static boolean isLightMode = true;
+
+    @FXML
+    public void changeMode() {
+        isLightMode = !isLightMode;
+        if (isLightMode) setLightMode();
+        else setDarkMode();
+    }
+
+
+    public void setLightMode() {
+        parent.getStylesheets().remove("fileCss/styleDarkMode.css");
+        parent.getStylesheets().add("fileCss/styleLightMode.css");
+        btnMode.setText("Dark");
+    }
+
+    public void setDarkMode() {
+        parent.getStylesheets().remove("fileCss/styleLightMode.css");
+        parent.getStylesheets().add("fileCss/styleDarkMode.css");
+        btnMode.setText("Light");
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if (!isLightMode) setDarkMode();
+    }
+    /////////////////////////Phong's page
 
     public void toNewPage(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
@@ -48,7 +89,7 @@ public class ChangingCategory {
     }
 
     public void toPoliticsPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/PoliticsPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/PoliticsPage(Phong).fxml"));
         root = loader.load();
 
         PoliticsController entertainmentController = loader.getController();
@@ -63,13 +104,13 @@ public class ChangingCategory {
     }
 
     public void toBusinessPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/BusinessPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/BusinessPage(Phong).fxml"));
         root = loader.load();
         BusinessController businessController = loader.getController();
         businessController.setImgList();
         businessController.setTitle();
         businessController.setDescription();
-        businessController.bindingPane();
+//        businessController.bindingPane();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -78,7 +119,7 @@ public class ChangingCategory {
     }
 
     public void toTechPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/TechPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/TechPage(Phong).fxml"));
         root = loader.load();
         TechController techController = loader.getController();
         techController.setImgList();
@@ -92,7 +133,7 @@ public class ChangingCategory {
     }
 
     public void toHealthPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/HealthPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/HealthPage(Phong).fxml"));
         root = loader.load();
         HealthController healthController = loader.getController();
         healthController.setImgList();
@@ -106,7 +147,7 @@ public class ChangingCategory {
     }
 
     public void toSportsPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/SportsPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/SportsPage(Phong).fxml"));
         root = loader.load();
         SportController sportController = loader.getController();
         sportController.setImgList();
@@ -120,7 +161,7 @@ public class ChangingCategory {
     }
 
     public void toEntertainmentPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentPage(Phong).fxml"));
         root = loader.load();
 
         EntertainmentController entertainmentController = loader.getController();
@@ -135,7 +176,7 @@ public class ChangingCategory {
     }
 
     public void toWorldPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage(Phong).fxml"));
         root = loader.load();
         WorldController worldController = loader.getController();
         worldController.setImgList();
@@ -149,7 +190,7 @@ public class ChangingCategory {
     }
 
     public void toOthersPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/OthersPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/OthersPage(Phong).fxml"));
         root = loader.load();
         OthersController othersController = loader.getController();
         othersController.setImgList();

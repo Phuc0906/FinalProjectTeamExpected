@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane fx:id="scrPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ArticleController">
+<ScrollPane fx:id="parent" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ArticleController">
     <content>
-        <AnchorPane fx:id="coverPane" maxHeight="720.0" prefHeight="720.0" style="-fx-background-color: white;">
+        <AnchorPane maxHeight="720.0" prefHeight="720.0" style="-fx-background-color: white;">
             <VBox layoutX="10.0" layoutY="4.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
                 <children>
                     <Button fx:id="logo" mnemonicParsing="false" prefHeight="98.0" style="-fx-background-color: white;" text="Vietcetera.">

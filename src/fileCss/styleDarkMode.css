@@ -1,0 +1,61 @@
+.primary-parent{
+    -fx-background-color:  #18191a;
+}
+
+.secondary-pane{
+    -fx-background-color:  #242526;
+    -fx-background-radius: 15 15 15 15;
+}
+
+.button-cate{
+    -fx-background-color:  #18191a;
+    -fx-background-radius :  30 30 30 30;
+    -fx-text-fill: WHITE;
+}
+
+.button-cate:hover{
+    -fx-background-radius :  30 30 30 30;
+    -fx-background-color:  #242526;
+}
+
+.button-cate:pressed{
+    -fx-background-radius :  30 30 30 30;
+    -fx-background-color:  #00ffff;
+    -fx-text-fill: BLACK;
+}
+
+.buttonMode{
+    -fx-background-color:  WHITE;
+    -fx-background-radius :  30 30 30 30;
+    -fx-text-fill: BLACK;
+}
+
+.buttonMode:hover{
+    -fx-background-color: #131515;
+    -fx-text-fill: WHITE;
+}
+
+.intro{
+    -fx-text-fill: WHITE;
+}
+
+
+.tittle{
+    -fx-text-fill: WHITE;
+}
+
+.description{
+    -fx-text-fill: WHITE;
+}
+
+.line{
+    -fx-stroke: WHITE;
+}
+
+.btnBack{
+    -fx-background-color: #18191a;
+    -fx-text-fill: WHITE;
+}
+.btnBack:hover{
+    -fx-text-fill: BLUE;
+}

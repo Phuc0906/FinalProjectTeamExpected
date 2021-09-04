@@ -27,8 +27,8 @@ public class SupportedMethod {
         for (Label title: labelList) {
             title.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
             title.setAlignment(Pos.TOP_LEFT);
-            title.prefHeightProperty().bind(imgLayouts.get(0).fitHeightProperty().divide(2));
-            title.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgLayouts.get(0).fitWidthProperty()));
+//            title.prefHeightProperty().bind(imgLayouts.get(0).fitHeightProperty().divide(2));
+//            title.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgLayouts.get(0).fitWidthProperty()));
             title.setWrapText(true);
             title.setText(newsList.getNews(count).getTitle());
             count++;
@@ -42,8 +42,8 @@ public class SupportedMethod {
             description.setAlignment(Pos.TOP_LEFT);
             description.setWrapText(true);
             description.setText(newsList.getNews(count).getDescription());
-            description.prefHeightProperty().bind(imgLayouts.get(0).fitHeightProperty().divide(2));
-            description.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgLayouts.get(0).fitWidthProperty()).multiply(3.5).divide(5));
+//            description.prefHeightProperty().bind(imgLayouts.get(0).fitHeightProperty().divide(2));
+//            description.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgLayouts.get(0).fitWidthProperty()).multiply(3.5).divide(5));
             count++;
         }
     }
@@ -52,7 +52,7 @@ public class SupportedMethod {
         int count = begin;
         for (ImageView img: imgList) {
             img.setImage(new Image(newsList.getNews(count).getImageURL()));
-            img.fitHeightProperty().bind(coverPane.heightProperty().divide(5));
+//            img.fitHeightProperty().bind(coverPane.heightProperty().divide(5));
             img.autosize();
             count++;
         }
