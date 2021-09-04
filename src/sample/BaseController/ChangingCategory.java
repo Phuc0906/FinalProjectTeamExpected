@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ChangingCategory implements Initializable {
-    private Stage stage;
+    public Stage stage;
     private Scene scene;
     private Parent root;
 

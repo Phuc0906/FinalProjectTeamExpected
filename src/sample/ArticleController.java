@@ -1,6 +1,9 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -10,6 +13,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -207,5 +211,17 @@ public class ArticleController extends ChangingCategory {
             default:
                 System.out.println(news.getNewsOutlet());
         }
+    }
+
+    private Scene previousScene;
+
+    public void getPreviousScene(Scene scene) {
+        this.previousScene = scene;
+    }
+
+    public void back(ActionEvent actionEvent) throws IOException {
+        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(this.previousScene);
+        stage.show();
     }
 }
