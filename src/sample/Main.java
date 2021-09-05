@@ -18,8 +18,8 @@ public class Main extends Application {
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
-        new SupportedMethod().ThanhNienArtical("https://thanhnien.vn/the-thao/bong-da-viet-nam/truoc-khi-dinh-the-do-duy-manh-bi-the-vang-dau-tien-luc-nao-va-vi-sao-139681t.html");
-//        primaryStage.show();
+//        new SupportedMethod().ThanhNienArtical("https://thanhnien.vn/van-hoa/gia-dinh-cam-van-hat-sai-gon-toi-se-gui-uoc-mong-thanh-pho-se-lai-vui-1445009.html");
+        primaryStage.show();
 
     }
 }

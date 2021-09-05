@@ -19,6 +19,27 @@ public class NewsManagement {
         String title;
         String description;
         String imageURL;
+        String origin = "https://thanhnien.vn/";
+        Document doc = Jsoup.connect(url).get();
+        Elements elements = doc.select("div.relative article.story");
+        for (Element element : elements) {
+            newsURL = element.select("a").attr("href");
+            if (!newsURL.contains("https:")) newsURL = origin + newsURL;
+            title = element.select("a").attr("title");
+            description = element.select("div.summary").text();
+            imageURL = element.select("a img").attr("data-src");
+            if (imageURL.isEmpty() || title.isEmpty()) {
+                continue;
+            }
+            this.newsList.add(new News(newsURL, title, description, imageURL));
+        }
+    }
+
+    public void loadThanhNienSport(String url) throws  IOException {
+        String newsURL;
+        String title;
+        String description;
+        String imageURL;
         Document doc = Jsoup.connect(url).get();
         Elements el = doc.select("div.col390");
         if (el.isEmpty()) el = doc.select("div.feature");
@@ -27,26 +48,6 @@ public class NewsManagement {
             title = element.select("article.story--primary a").attr("title");
             imageURL = element.select("article.story--primary a img").attr("src");
             description = "";
-            this.newsList.add(new News(newsURL, title, description, imageURL));
-        }
-    }
-
-    public void covidThanhNien(String url) throws  IOException{
-        String newsURL;
-        String title;
-        String description;
-        String imageURL;
-        Document doc = Jsoup.connect(url).get();
-        Elements el = doc.select("div.relative");
-        for (Element element : el.select("article")) {
-            newsURL = element.select("a").attr("href");
-            ///in special cases
-            if (!newsURL.contains("https")) newsURL = "https://thanhnien.vn" + element.select("a").attr("href");
-            title = element.select("a").attr("title");
-            imageURL = element.select("a img").attr("data-src");
-            description = element.select("div.summary").text();
-            //in special cases
-            if (description==null) description = element.select("div.summary div").text();
             this.newsList.add(new News(newsURL, title, description, imageURL));
         }
     }

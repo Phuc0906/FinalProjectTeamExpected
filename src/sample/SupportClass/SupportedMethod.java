@@ -84,29 +84,15 @@ public class SupportedMethod {
     public void ThanhNienArtical (String URL) throws IOException {
         List<String> imgList = new ArrayList<>();
         List<String> desList = new ArrayList<>();
-        List<String> auList = new ArrayList<>();
 
         Document doc = Jsoup.connect(URL).get();
-        Elements Boxes = doc.select("div#abody div table.imagefull tbody tr td div");
-
-        for (Element Box : Boxes) {
-            String urlImage = Box.select("img").attr("data-src");
-            if (urlImage.length() != 0) imgList.add(urlImage);
-        }
-        System.out.println(imgList.size());
-
-        for (Element Box : Boxes.select("div.imgcaption p")) {
-            String imgDes = Box.text();
-            desList.add(imgDes);
+        Elements elements = doc.select("figure");
+        for (Element element : elements) {
+            String imgURL = element.select("a img").attr("src");
+            System.out.println(imgURL);
+            String imgDes = element.select("a img").attr("alt");
+            System.out.println(imgDes);
         }
 
-        for (int i = 0; i < desList.size(); i++) {
-            if (i % 2 != 0 || desList.get(i).contains("ẢNH: ")) {
-                String author = desList.get(i);
-                if(author.length() != 0) auList.add(author); desList.remove(author);
-            }
-        }
-        System.out.println(desList);
-        System.out.println(auList);
     }
 }
