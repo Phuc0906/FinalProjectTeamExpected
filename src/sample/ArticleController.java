@@ -219,9 +219,14 @@ public class ArticleController extends ChangingCategory {
         this.previousScene = scene;
     }
 
-    public void back(ActionEvent actionEvent) throws IOException {
+    public void back(ActionEvent actionEvent) {
+        double width = ((Node)actionEvent.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)actionEvent.getSource()).getScene().getWindow().getHeight();
+
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.setScene(this.previousScene);
+        stage.setWidth(width);
+        stage.setHeight(height);
         stage.show();
     }
 }

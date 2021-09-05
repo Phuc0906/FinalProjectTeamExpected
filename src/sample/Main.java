@@ -9,6 +9,8 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import sample.SupportClass.SupportedMethod;
 
+import java.awt.*;
+
 public class Main extends Application {
 
     @Override
@@ -23,7 +25,6 @@ public class Main extends Application {
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage));
-        primaryStage.setFullScreen(true);
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
 

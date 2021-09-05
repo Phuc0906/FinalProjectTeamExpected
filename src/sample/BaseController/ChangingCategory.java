@@ -57,7 +57,7 @@ public class ChangingCategory implements Initializable {
     /////////////////////////Phong's page
 
     public void toNewPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage(Phong).fxml"));
         root = loader.load();
 
         NewController newController = loader.getController();
@@ -66,15 +66,13 @@ public class ChangingCategory implements Initializable {
         newController.setImgList();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setFullScreen(true);
-        stage.setScene(scene);
+        stage.getScene().setRoot(root);
         stage.show();
     }
 
 
     public void toCovidPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage(Phong).fxml"));
         root = loader.load();
 
         CovidController entertainmentController = loader.getController();
@@ -83,8 +81,7 @@ public class ChangingCategory implements Initializable {
         entertainmentController.setImgList();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+        stage.getScene().setRoot(root);
         stage.show();
     }
 
@@ -98,14 +95,14 @@ public class ChangingCategory implements Initializable {
         entertainmentController.setImgList();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+        stage.getScene().setRoot(root);
         stage.show();
     }
 
     public void toBusinessPage(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/BusinessPage(Phong).fxml"));
         root = loader.load();
+
         BusinessController businessController = loader.getController();
         businessController.setImgList();
         businessController.setTitle();
@@ -113,50 +110,49 @@ public class ChangingCategory implements Initializable {
 //        businessController.bindingPane();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+        stage.getScene().setRoot(root);
         stage.show();
     }
 
     public void toTechPage(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/TechPage(Phong).fxml"));
         root = loader.load();
+
         TechController techController = loader.getController();
         techController.setImgList();
         techController.setTitle();
         techController.setDescription();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+        stage.getScene().setRoot(root);
         stage.show();
     }
 
     public void toHealthPage(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/HealthPage(Phong).fxml"));
         root = loader.load();
+
         HealthController healthController = loader.getController();
         healthController.setImgList();
         healthController.setTitle();
         healthController.setDescription();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+        stage.getScene().setRoot(root);
         stage.show();
     }
 
     public void toSportsPage(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/SportsPage(Phong).fxml"));
         root = loader.load();
+
         SportController sportController = loader.getController();
         sportController.setImgList();
         sportController.setTitle();
         sportController.setDescription();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+        stage.getScene().setRoot(root);
         stage.show();
     }
 
@@ -170,36 +166,35 @@ public class ChangingCategory implements Initializable {
         entertainmentController.setImgList();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+        stage.getScene().setRoot(root);
         stage.show();
     }
 
     public void toWorldPage(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage(Phong).fxml"));
         root = loader.load();
+
         WorldController worldController = loader.getController();
         worldController.setImgList();
         worldController.setTitle();
         worldController.setDescription();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+        stage.getScene().setRoot(root);
         stage.show();
     }
 
     public void toOthersPage(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/OthersPage(Phong).fxml"));
         root = loader.load();
+
         OthersController othersController = loader.getController();
         othersController.setImgList();
         othersController.setTitle();
         othersController.setDescription();
-
+        
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+        stage.getScene().setRoot(root);
         stage.show();
     }
 }

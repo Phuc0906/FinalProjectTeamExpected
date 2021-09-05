@@ -203,6 +203,9 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+
         ArticleController articleController = loader.getController();
 
         Node node = (Node) event.getSource();
@@ -217,7 +220,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -225,6 +228,9 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     public void toArticle2(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
+
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -240,7 +246,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -248,6 +254,9 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     public void toArticle3(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
+
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -263,7 +272,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -271,6 +280,9 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     public void toArticle4(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
+
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -286,7 +298,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -294,6 +306,9 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     public void toArticle5(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
+
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -309,7 +324,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -317,6 +332,9 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     public void toArticle6(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
+
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -332,7 +350,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -340,6 +358,9 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     public void toArticle7(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
+
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -355,7 +376,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -363,6 +384,9 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     public void toArticle8(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
+
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -378,7 +402,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -386,6 +410,9 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     public void toArticle9(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
+
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -401,7 +428,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -409,6 +436,9 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     public void toArticle10(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
+
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -424,7 +454,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
