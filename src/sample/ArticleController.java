@@ -53,7 +53,7 @@ public class ArticleController extends ChangingCategory {
     }
 
     public void setContent(News news) throws IOException {
-        coverPane.prefWidthProperty().bind(scrPane.widthProperty());
+        coverPane.prefWidthProperty().bind(parent.widthProperty());
         articleBox.setSpacing(10);
         coverPane.prefWidthProperty().bind(parent.widthProperty());
         articleBox.setSpacing(20);

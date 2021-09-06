@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
@@ -20,9 +19,7 @@ import sample.NewsObject.NewsManagement;
 import sample.SupportClass.SupportedMethod;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class ChangingPage extends ChangingCategory implements Initializable{
 
@@ -82,7 +79,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
 
     public ChangingPage(String thanhNienURL) throws IOException {
         newsList = new NewsManagement();
-        newsList.loadThanhNien(thanhNienURL);
+        newsList.loadZingNews(thanhNienURL);
     }
 
     public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL) throws IOException {
