@@ -7,13 +7,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-import sample.NewsObject.AppendingArticle;
-import sample.NewsObject.ScrapeArticle;
 import sample.SupportClass.SupportedMethod;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main extends Application {
 
@@ -31,11 +28,21 @@ public class Main extends Application {
 
         //article: https://nhandan.vn/chuyen-lam-an/giua-thang-11-nha-may-duong-phung-hiep-se-vao-vu-san-xuat-663008/
 
-        try {
-            AppendingArticle appendingArticle = new AppendingArticle();
-        }catch (Exception ex) {
-            ex.printStackTrace();
-        }
+//        try {
+//            AppendingArticle appendingArticle = new AppendingArticle();
+//        }catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+        long start = System.currentTimeMillis();
+        SupportedMethod supportedMethod = new SupportedMethod();
+        supportedMethod.setFile();
+
+        supportedMethod.scrapeCategory("https://vnexpress.net");
+        supportedMethod.scrapeCategory("https://zingnews.vn");
+        supportedMethod.scrapeCategory("https://nhandan.vn");
+        supportedMethod.scrapeCategory("https://tuoitre.vn");
+        supportedMethod.closeFile();
+        System.out.println("Time consumption: " + (System.currentTimeMillis() - start));
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage, 1000, 720));
