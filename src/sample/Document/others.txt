@@ -1,7 +1,6 @@
 https://vnexpress.net/tin-tuc-24h
 https://vnexpress.net/goc-nhin
 https://vnexpress.net/khoa-hoc
-https://vnexpress.net/giai-tri
 https://vnexpress.net/phap-luat
 https://vnexpress.net/giao-duc
 https://vnexpress.net/doi-song
@@ -66,7 +65,6 @@ https://zingnews.vn/vo-thuat.html
 https://zingnews.vn/bong-da-viet-nam.html
 https://zingnews.vn/bong-da-anh.html
 https://zingnews.vn/vo-thuat.html
-https://zingnews.vn/giai-tri.html
 https://zingnews.vn/sao-viet.html
 https://zingnews.vn/am-nhac.html
 https://zingnews.vn/phim-anh.html
@@ -230,9 +228,11 @@ https://tuoitre.vn/xe.htm
 https://dulich.tuoitre.vn
 https://tuoitre.vn/nhip-song-tre.htm
 https://tuoitre.vn/van-hoa.htm
-https://tuoitre.vn/giai-tri.htm
 https://thethao.tuoitre.vn
 https://tuoitre.vn/giao-duc.htm
 https://tuoitre.vn/khoa-hoc.htm
 https://tuoitre.vn/gia-that.htm
 https://tuoitre.vn/ban-doc-lam-bao.htm
+https://thanhnien.vn/video/phong-su/
+https://thanhnien.vn/video/mon-ngon/
+https://thanhnien.vn/video/truc-tuyen/

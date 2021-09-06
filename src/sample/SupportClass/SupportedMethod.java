@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class SupportedMethod {
     PrintWriter techFile;
@@ -34,6 +35,18 @@ public class SupportedMethod {
     PrintWriter healthFile;
     PrintWriter covidFile;
     PrintWriter newFile;
+
+    //-----------------
+    File techFileRead;
+    File businessFileRead;
+    File worldFileRead;
+    File sportsFileRead;
+    File othersFileRead;
+    File entertainmentFileRead;
+    File politicsFileRead;
+    File healthFileRead;
+    File covidFileRead;
+    File newFileRead;
 
 
 
@@ -61,6 +74,19 @@ public class SupportedMethod {
         covidFile = new PrintWriter("src/sample/Document/ArticleLink/covid.txt");
         newFile = new PrintWriter("src/sample/Document/ArticleLink/new.txt");
         businessFile = new PrintWriter("src/sample/Document/ArticleLink/business.txt");
+    }
+
+    public void setReadCategory() {
+        techFileRead = new File("src/sample/Document/technology.txt");
+        worldFileRead = new File("src/sample/Document/world.txt");
+        sportsFileRead = new File("src/sample/Document/sports.txt");
+        othersFileRead = new File("src/sample/Document/others.txt");
+        entertainmentFileRead = new File("src/sample/Document/entertainment.txt");
+        politicsFileRead = new File("src/sample/Document/politics.txt");
+        healthFileRead = new File("src/sample/Document/health.txt");
+        covidFileRead = new File("src/sample/Document/covid.txt");
+        newFileRead = new File("src/sample/Document/new.txt");
+        businessFileRead = new File("src/sample/Document/business.txt");
     }
 
     public void closeFile() {
@@ -133,26 +159,88 @@ public class SupportedMethod {
         }
     }
 
-
-    public void scrapeArticleLink(String url, PrintWriter categorySource) throws IOException {
-        Document document = Jsoup.connect(url).get();
-        Elements articles = document.select("article a");
-        ArrayList<String> articleLinks = new ArrayList<>();
-        if (articles.size() == 0) {
-            articles = document.select("div li.news-item a");
+    int covidCount = 0;
+    public void scrapeArticleLink(int whichFile) throws IOException {
+        File readFile;
+        PrintWriter writerFile;
+        switch (whichFile) {
+            case 1:
+                readFile = politicsFileRead;
+                writerFile = politicsFile;
+                break;
+            case 2:
+                readFile = sportsFileRead;
+                writerFile = sportsFile;
+                break;
+            case 3:
+                readFile = techFileRead;
+                writerFile = techFile;
+                break;
+            case 4:
+                readFile = worldFileRead;
+                writerFile = worldFile;
+                break;
+            case 5:
+                readFile = businessFileRead;
+                writerFile = businessFile;
+                break;
+            case 6:
+                readFile = healthFileRead;
+                writerFile = healthFile;
+                break;
+            case 7:
+                readFile = othersFileRead;
+                writerFile = othersFile;
+                break;
+            default:
+                readFile = entertainmentFileRead;
+                writerFile = entertainmentFile;
         }
 
-        for (Element link: articles) {
-            if (!((articleLinks.contains(link.attr("href"))) && (link.attr("href").length() <= 1)) && !articleLinks.contains((link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href"))) {
-                String addedString = (link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href");
-                if (articleLinks.size() > 1) {
-                    if (addedString.contains(articleLinks.get(articleLinks.size() - 1))) {
-                        continue;
+        int countArticle = 0;
+        Scanner categoryRead = new Scanner(readFile);
+        String readURL;
+        String url;
+        while (categoryRead.hasNextLine()) {
+            readURL = categoryRead.nextLine();
+            Document document = Jsoup.connect(readURL).get();
+
+            if (readURL.toLowerCase().contains("vnexpress")) {
+                url = "https://vnexpress.net";
+            }else if (readURL.toLowerCase().contains("zingnew")) {
+                url = "https://zingnews.vn";
+            }else if (readURL.contains("thanhnien")) {
+                url = "https://thanhnien.vn";
+            }else if (readURL.contains("tuoitre")) {
+                url = "https://tuoitre.vn";
+            }else {
+                url = "https://nhandan.vn/";
+            }
+
+            Elements articles = document.select("article a");
+            ArrayList<String> articleLinks = new ArrayList<>();
+            if (articles.size() == 0) {
+                articles = document.select("div li.news-item a");
+            }
+
+            for (Element link : articles) {
+                if (!((articleLinks.contains(link.attr("href"))) && (link.attr("href").length() <= 1)) && !articleLinks.contains((link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href"))) {
+                    String addedString = (link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href");
+                    if (articleLinks.size() > 1) {
+                        if (addedString.contains(articleLinks.get(articleLinks.size() - 1))) {
+                            continue;
+                        }
+                    }
+                    articleLinks.add(addedString);
+
+                    writerFile.println(addedString);
+                    countArticle++;
+                    if (countArticle == 50) { return; }
+                    if (addedString.contains("covid") && (covidCount < 50)) {
+                        covidFile.println(addedString);
+                        covidCount++;
                     }
                 }
-                articleLinks.add(addedString);
-
-                categorySource.println((link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href"));
             }
         }
     }
@@ -216,6 +304,8 @@ public class SupportedMethod {
                 politicsFile.println(link);
             }else if (link.contains("suc-khoe")){
                 healthFile.println(link);
+            }else if (link.contains("giai-tri")) {
+                entertainmentFile.println(link);
             }else {
                 othersFile.println(link);
             }

@@ -41,7 +41,16 @@ public class Main extends Application {
         supportedMethod.scrapeCategory("https://zingnews.vn");
         supportedMethod.scrapeCategory("https://nhandan.vn");
         supportedMethod.scrapeCategory("https://tuoitre.vn");
+        supportedMethod.scrapeCategory("https://thanhnien.vn");
         supportedMethod.closeFile();
+
+        supportedMethod.setReadCategory();
+        supportedMethod.setFileArticle();
+        for (int i = 1; i < 9; i++) {
+            supportedMethod.scrapeArticleLink(i);
+        }
+        supportedMethod.closeFile();
+
         System.out.println("Time consumption: " + (System.currentTimeMillis() - start));
 
         primaryStage.setTitle("Projekt Red");
