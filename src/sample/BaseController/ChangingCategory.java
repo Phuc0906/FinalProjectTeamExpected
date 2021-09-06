@@ -28,7 +28,7 @@ public class ChangingCategory implements Initializable {
     @FXML
     private Button btnMode;
 
-    private static boolean isLightMode = true;
+    protected static boolean isLightMode = true;
 
     @FXML
     public void changeMode() {

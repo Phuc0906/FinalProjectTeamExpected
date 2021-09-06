@@ -123,7 +123,7 @@
                                         <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                                         <VBox maxHeight="200.0" spacing="10.0">
                                             <children>
-                                                <Label fx:id="title1" onMouseClicked="#toArticle1" styleClass="tittle" text="Tittle" textFill="WHITE" wrapText="true">
+                                                <Label fx:id="title1" onMouseClicked="#toArticle1" styleClass="tittle" text="Title" textFill="WHITE" wrapText="true">
                                                     <font>
                                                         <Font name="System Bold" size="22.0" />
                                                     </font>
@@ -148,7 +148,7 @@
                                         <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                                         <VBox maxHeight="250.0" spacing="10.0">
                                             <children>
-                                                <Label fx:id="title2" onMouseClicked="#toArticle2" styleClass="tittle" text="Tittle" textFill="WHITE" wrapText="true">
+                                                <Label fx:id="title2" onMouseClicked="#toArticle2" styleClass="tittle" text="" textFill="WHITE" wrapText="true">
                                                     <font>
                                                         <Font name="System Bold" size="22.0" />
                                                     </font>
@@ -236,7 +236,7 @@
                                         <ImageView fx:id="img6" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                                         <VBox maxHeight="250.0" spacing="10.0">
                                             <children>
-                                                <Label fx:id="title6" onMouseClicked="#toArticle6" styleClass="tittle" text="Label" textFill="WHITE" wrapText="true">
+                                                <Label fx:id="title6" onMouseClicked="#toArticle6" styleClass="Title" text="Label" textFill="WHITE" wrapText="true">
                                                     <font>
                                                         <Font name="System Bold" size="22.0" />
                                                     </font>
