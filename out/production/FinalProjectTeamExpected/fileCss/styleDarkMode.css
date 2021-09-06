@@ -35,18 +35,9 @@
     -fx-text-fill: WHITE;
 }
 
-/*.intro{*/
-/*    -fx-text-fill: WHITE;*/
-/*}*/
-
-
-/*.tittle{*/
-/*    -fx-text-fill: WHITE;*/
-/*}*/
-
-/*.description{*/
-/*    -fx-text-fill: WHITE;*/
-/*}*/
+.label{
+    -fx-text-fill: WHITE;
+}
 
 .line{
     -fx-stroke: WHITE;
@@ -61,7 +52,5 @@
     -fx-text-fill: BLUE;
 }
 
-.label{
-    -fx-text-fill: WHITE;
-}
+
 
