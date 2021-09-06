@@ -2,6 +2,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -54,7 +55,7 @@ public class ArticleController extends ChangingCategory {
     public void setContent(News news) throws IOException {
         coverPane.prefWidthProperty().bind(parent.widthProperty());
         articleBox.setSpacing(20);
-
+        articleBox.setPadding(new Insets(10,40,10,20));
         Label title = new Label();
         title.setText(news.getTitle());
         title.setFont(Font.font("", FontWeight.BOLD, 30));
@@ -181,9 +182,10 @@ public class ArticleController extends ChangingCategory {
                             photo.setFitHeight(500);
                             photo.setFitWidth(600);
                             photo.setPreserveRatio(true);
-                            Text photoDescription = new Text(docScript.text());
+                            Label photoDescription = new Label(docScript.text());
+                            photoDescription.setWrapText(true);
+                            photoDescription.setPrefWidth(600);
                             photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
-                            photoDescription.setWrappingWidth(550);
                             viewPhoto.getChildren().addAll(photo,photoDescription);
                             articleBox.getChildren().add(viewPhoto);
                             count++;
@@ -281,9 +283,10 @@ public class ArticleController extends ChangingCategory {
                             photo.setFitHeight(500);
                             photo.setFitWidth(600);
                             photo.setPreserveRatio(true);
-                            Text photoDescription = new Text(desList.get(cnt));
-                            Text author = new Text(auList.get(cnt));
-                            photoDescription.setWrappingWidth(550);
+                            Label photoDescription = new Label(desList.get(cnt));
+                            Label author = new Label(auList.get(cnt));
+                            photoDescription.setWrapText(true);
+                            photoDescription.setPrefWidth(600);
                             photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
                             viewPhoto.getChildren().addAll(photo, photoDescription, author);
                             articleBox.getChildren().add(viewPhoto);

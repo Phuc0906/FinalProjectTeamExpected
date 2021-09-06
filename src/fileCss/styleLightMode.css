@@ -39,6 +39,9 @@
     -fx-text-fill: BLACK;
 }
 
+.text{
+    -fx-text-fill: BLACK;
+}
 
 .line{
     -fx-stroke: BLACK;

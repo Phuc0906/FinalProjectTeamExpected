@@ -39,6 +39,11 @@
     -fx-text-fill: WHITE;
 }
 
+.text{
+    -fx-text-fill: WHITE;
+}
+
+
 .line{
     -fx-stroke: WHITE;
 }
