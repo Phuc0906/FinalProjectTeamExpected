@@ -103,7 +103,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     ArrayList<VBox> coverBoxList;
 
     @FXML
-    ScrollPane scrPane;
+    ScrollPane parent;
 
 
     @FXML
@@ -158,7 +158,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setImgList();
         setDescription();
         setTitle();
-        scrPane.setVvalue(0);
+        parent.setVvalue(0);
     }
 
 
@@ -166,7 +166,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setImgList2();
         setDescription2();
         setTitle2();
-        scrPane.setVvalue(0);
+       parent.setVvalue(0);
     }
 
     public void moveToPage3(ActionEvent event) throws IOException {
@@ -174,7 +174,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setImgList3();
         setDescription3();
         setTitle3();
-        scrPane.setVvalue(0);
+        parent.setVvalue(0);
     }
 
     public void moveToPage4(ActionEvent event) throws IOException {
@@ -182,7 +182,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setImgList4();
         setDescription4();
         setTitle4();
-        scrPane.setVvalue(0);
+        parent.setVvalue(0);
     }
 
     public void moveToPage5(ActionEvent event) throws IOException {
@@ -190,7 +190,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setImgList5();
         setDescription5();
         setTitle5();
-        scrPane.setVvalue(0);
+        parent.setVvalue(0);
     }
 
     public void bindingPane() {
@@ -203,14 +203,24 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
-        ArticleController newController = loader.getController();
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+
+        ArticleController articleController = loader.getController();
+
+        Node node = (Node) event.getSource();
+        Stage thisStage = (Stage) node.getScene().getWindow();
+        Scene thisScene = thisStage.getScene();
+        articleController.getPreviousScene(thisScene);
+
         try {
-            newController.setContent(this.newsList.searchTitle(titleList.get(0).getText()));
+            articleController.setContent(this.newsList.searchTitle(titleList.get(0).getText()));
         } catch (Exception ex) {
-            newController.setError();
+            articleController.setError();
         }
+
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -219,11 +229,24 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
-        ArticleController newController = loader.getController();
-        newController.setContent(this.newsList.searchTitle(titleList.get(1).getText()));
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+
+        ArticleController articleController = loader.getController();
+
+        Node node = (Node) event.getSource();
+        Stage thisStage = (Stage) node.getScene().getWindow();
+        Scene thisScene = thisStage.getScene();
+        articleController.getPreviousScene(thisScene);
+
+        try {
+            articleController.setContent(this.newsList.searchTitle(titleList.get(1).getText()));
+        } catch (Exception ex) {
+            articleController.setError();
+        }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -232,11 +255,24 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
-        ArticleController newController = loader.getController();
-        newController.setContent(this.newsList.searchTitle(titleList.get(2).getText()));
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+
+        ArticleController articleController = loader.getController();
+
+        Node node = (Node) event.getSource();
+        Stage thisStage = (Stage) node.getScene().getWindow();
+        Scene thisScene = thisStage.getScene();
+        articleController.getPreviousScene(thisScene);
+
+        try {
+            articleController.setContent(this.newsList.searchTitle(titleList.get(2).getText()));
+        } catch (Exception ex) {
+            articleController.setError();
+        }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -245,11 +281,24 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
-        ArticleController newController = loader.getController();
-        newController.setContent(this.newsList.searchTitle(titleList.get(3).getText()));
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+
+        ArticleController articleController = loader.getController();
+
+        Node node = (Node) event.getSource();
+        Stage thisStage = (Stage) node.getScene().getWindow();
+        Scene thisScene = thisStage.getScene();
+        articleController.getPreviousScene(thisScene);
+
+        try {
+            articleController.setContent(this.newsList.searchTitle(titleList.get(3).getText()));
+        } catch (Exception ex) {
+            articleController.setError();
+        }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -258,11 +307,24 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
-        ArticleController newController = loader.getController();
-        newController.setContent(this.newsList.searchTitle(titleList.get(4).getText()));
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+
+        ArticleController articleController = loader.getController();
+
+        Node node = (Node) event.getSource();
+        Stage thisStage = (Stage) node.getScene().getWindow();
+        Scene thisScene = thisStage.getScene();
+        articleController.getPreviousScene(thisScene);
+
+        try {
+            articleController.setContent(this.newsList.searchTitle(titleList.get(4).getText()));
+        } catch (Exception ex) {
+            articleController.setError();
+        }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -271,11 +333,24 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
-        ArticleController newController = loader.getController();
-        newController.setContent(this.newsList.searchTitle(titleList.get(5).getText()));
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+
+        ArticleController articleController = loader.getController();
+
+        Node node = (Node) event.getSource();
+        Stage thisStage = (Stage) node.getScene().getWindow();
+        Scene thisScene = thisStage.getScene();
+        articleController.getPreviousScene(thisScene);
+
+        try {
+            articleController.setContent(this.newsList.searchTitle(titleList.get(5).getText()));
+        } catch (Exception ex) {
+            articleController.setError();
+        }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -284,11 +359,24 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
-        ArticleController newController = loader.getController();
-        newController.setContent(this.newsList.searchTitle(titleList.get(6).getText()));
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+
+        ArticleController articleController = loader.getController();
+
+        Node node = (Node) event.getSource();
+        Stage thisStage = (Stage) node.getScene().getWindow();
+        Scene thisScene = thisStage.getScene();
+        articleController.getPreviousScene(thisScene);
+
+        try {
+            articleController.setContent(this.newsList.searchTitle(titleList.get(6).getText()));
+        } catch (Exception ex) {
+            articleController.setError();
+        }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -297,11 +385,24 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
-        ArticleController newController = loader.getController();
-        newController.setContent(this.newsList.searchTitle(titleList.get(7).getText()));
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+
+        ArticleController articleController = loader.getController();
+
+        Node node = (Node) event.getSource();
+        Stage thisStage = (Stage) node.getScene().getWindow();
+        Scene thisScene = thisStage.getScene();
+        articleController.getPreviousScene(thisScene);
+
+        try {
+            articleController.setContent(this.newsList.searchTitle(titleList.get(7).getText()));
+        } catch (Exception ex) {
+            articleController.setError();
+        }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -310,11 +411,24 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
-        ArticleController newController = loader.getController();
-        newController.setContent(this.newsList.searchTitle(titleList.get(8).getText()));
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+
+        ArticleController articleController = loader.getController();
+
+        Node node = (Node) event.getSource();
+        Stage thisStage = (Stage) node.getScene().getWindow();
+        Scene thisScene = thisStage.getScene();
+        articleController.getPreviousScene(thisScene);
+
+        try {
+            articleController.setContent(this.newsList.searchTitle(titleList.get(8).getText()));
+        } catch (Exception ex) {
+            articleController.setError();
+        }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
@@ -323,11 +437,24 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
         root = loader.load();
 
-        ArticleController newController = loader.getController();
-        newController.setContent(this.newsList.searchTitle(titleList.get(9).getText()));
+        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+
+        ArticleController articleController = loader.getController();
+
+        Node node = (Node) event.getSource();
+        Stage thisStage = (Stage) node.getScene().getWindow();
+        Scene thisScene = thisStage.getScene();
+        articleController.getPreviousScene(thisScene);
+
+        try {
+            articleController.setContent(this.newsList.searchTitle(titleList.get(9).getText()));
+        } catch (Exception ex) {
+            articleController.setError();
+        }
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,width,height);
         stage.setScene(scene);
         stage.show();
     }
