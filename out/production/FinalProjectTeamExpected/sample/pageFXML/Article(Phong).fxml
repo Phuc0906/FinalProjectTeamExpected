@@ -112,6 +112,9 @@
                             </font>
                         </Label>
                </children>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
             </VBox>
             </center>
         </BorderPane>
