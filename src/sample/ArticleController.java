@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -155,15 +156,47 @@ public class ArticleController extends ChangingCategory {
             }
 
             case "Zing News": {
+                ArrayList<String> imgList = new ArrayList<>();
+
+                Elements Box = doc.select("table.picture tbody tr td");
+                String[] BoxImg = Box.select("td.pic").toString().split("\"");
+                for (String box : BoxImg) {
+                    if(box.contains("https://")) {
+                        imgList.add(box);
+                    }
+                }
+
+                int count = 0;
                 Elements elements = doc.select("div.the-article-body p");
                 String[] paragraphs = elements.toString().split("\n");
+
                 for (String paragraph : paragraphs) {
                     Document docScript = Jsoup.parse(paragraph);
-                    Label text = new Label();
-                    text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
-                    text.setWrapText(true);
-                    text.setText(docScript.select("p").text());
-                    articleBox.getChildren().add(text);
+
+                    if (docScript.text().contains("Ảnh: ")) {
+                        try {
+                            VBox viewPhoto = new VBox();
+                            ImageView photo = new ImageView(new Image(imgList.get(count)));
+                            photo.setFitHeight(500);
+                            photo.setFitWidth(600);
+                            photo.setPreserveRatio(true);
+                            Text photoDescription = new Text(docScript.text());
+                            photoDescription.setWrappingWidth(550);
+                            viewPhoto.getChildren().addAll(photo,photoDescription);
+                            articleBox.getChildren().add(viewPhoto);
+                            count++;
+                        } catch (Exception ex) {
+                            // skipping error
+                        }
+                    }
+
+                    if (!docScript.text().contains("Ảnh: ")) {
+                        Label text = new Label();
+                        text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
+                        text.setWrapText(true);
+                        text.setText(docScript.text());
+                        articleBox.getChildren().add(text);
+                    }
                 }
                 System.out.println("Zing News");
                 break;
