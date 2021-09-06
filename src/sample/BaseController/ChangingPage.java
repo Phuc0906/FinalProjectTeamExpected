@@ -74,15 +74,15 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         newsList.loadZingNews(zingURL);
     }
 
-    public ChangingPage(String zingURL) throws IOException {
+    public ChangingPage(String thanhnienUrl, String thanhNienUrl) throws IOException {
         newsList = new NewsManagement();
-        newsList.loadZingNews(zingURL);
+        newsList.loadThanhNien(thanhnienUrl);
+        newsList.loadThanhNien(thanhNienUrl);
     }
 
-    public ChangingPage(String tuoitreURL, String tuoitreURL2) throws IOException {
+    public ChangingPage(String thanhNienURL) throws IOException {
         newsList = new NewsManagement();
-        newsList.loadNhanDan(tuoitreURL);
-        newsList.loadNhanDan(tuoitreURL2);
+        newsList.loadThanhNien(thanhNienURL);
     }
 
     public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL) throws IOException {
@@ -92,9 +92,10 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         newsList.loadTuoiTre(tuoiTreURL);
     }
 
-    public void setCovidThanhNien(String thanhNienURL) throws  IOException{
-        newsList.covidThanhNien(thanhNienURL);
-    }
+   public void setThanhNienSport(String ThanhNienUrl) throws IOException {
+        newsList = new NewsManagement();
+        newsList.loadThanhNienSport(ThanhNienUrl);
+   }
 
     @FXML
     AnchorPane coverPane;

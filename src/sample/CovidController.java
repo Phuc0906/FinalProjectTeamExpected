@@ -22,6 +22,6 @@ import java.util.ArrayList;
 
 public class CovidController extends ChangingPage {
     public CovidController() throws IOException {
-        super( "https://nhandan.vn/chinhtri","https://nhandan.vn/xahoi");
+        super("https://thanhnien.vn/suc-khoe/", "https://thanhnien.vn/van-hoa/");
     }
 }

@@ -24,20 +24,9 @@ public class Main extends Application {
         newController.setImgList();
 
         primaryStage.setTitle("Projekt Red");
-        primaryStage.setScene(new Scene(homePage));
+        primaryStage.setScene(new Scene(homePage, 1000, 720));
+//        new SupportedMethod().ThanhNienArtical("https://thanhnien.vn/van-hoa/gia-dinh-cam-van-hat-sai-gon-toi-se-gui-uoc-mong-thanh-pho-se-lai-vui-1445009.html");
         primaryStage.show();
-        primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
 
-    }
-
-    public void closeApp(Stage stage) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Close App");
-        alert.setContentText("Do you want to close the app?");
-        alert.setHeaderText("You are trying to close the app");
-
-        if(alert.showAndWait().get() == ButtonType.OK) {
-            stage.close();
-        }
     }
 }
