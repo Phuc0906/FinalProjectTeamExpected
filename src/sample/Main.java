@@ -26,7 +26,10 @@ public class Main extends Application {
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage));
         primaryStage.show();
-        primaryStage.setOnCloseRequest(event -> closeApp(primaryStage));
+        primaryStage.setOnCloseRequest(event -> {
+            event.consume();
+            closeApp(primaryStage);
+        });
 
     }
 
