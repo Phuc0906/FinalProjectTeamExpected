@@ -203,7 +203,7 @@ public class SupportedMethod {
         String url;
         while (categoryRead.hasNextLine()) {
             readURL = categoryRead.nextLine();
-            Document document = Jsoup.connect(readURL).get();
+            Document document = Jsoup.connect(readURL).timeout(250).get();
 
             if (readURL.toLowerCase().contains("vnexpress")) {
                 url = "https://vnexpress.net";
@@ -233,13 +233,18 @@ public class SupportedMethod {
                     }
                     articleLinks.add(addedString);
 
-                    writerFile.println(addedString);
-                    countArticle++;
-                    if (countArticle == 50) { return; }
-                    if (addedString.contains("covid") && (covidCount < 50)) {
-                        covidFile.println(addedString);
-                        covidCount++;
+                    if (scrapeArticle(addedString)) {
+                        writerFile.println(addedString);
+                        System.out.println("is wrote");
+                        countArticle++;
+                        if (countArticle == 50) { return; }
+                        if (addedString.contains("covid") && (covidCount < 50)) {
+                            System.out.println("is wrote covid");
+                            covidFile.println(addedString);
+                            covidCount++;
+                        }
                     }
+
                 }
             }
         }
@@ -313,39 +318,48 @@ public class SupportedMethod {
         }
     }
 
-    public void scrapeArticle(String url) throws IOException {
+    public boolean scrapeArticle(String url) throws IOException {
 
         // String array for the gioi detection
-        String[] countries = new String[]{ "mỹ", "việt nam", "afghanistan", "nhật bản"};
-        Document document = Jsoup.connect(url).get();
+        try {
+            boolean isSuccess = false;
+            long start = System.currentTimeMillis();
+            Document documentInternet = Jsoup.connect(url).timeout(250).get();
+            Document document = Jsoup.parse(documentInternet.toString());
+            System.out.println("Connection time " + (System.currentTimeMillis() - start));
+//            // check keywords at the beginning if there is any article do not have keyword => ignore
+//            // use string category to store the category which article belongs to
+//            String keywords = "";
+//            Elements keyWord = document.select("meta[property=article:tag]");
+//            for (Element keyword: keyWord) {
+//                // check category
+//
+//                keywords += keyword.attr("content").toLowerCase() + "";
+//            }
+//            if (keywords.isEmpty()) {
+//                System.out.println("\t\t wrong article type - keyword ");
+//                return false; // interrupt method
+//            }
 
-        // check keywords at the beginning if there is any article do not have keyword => ignore
-        // use string category to store the category which article belongs to
-        String keywords = "";
-        Elements keyWord = document.select("meta[property=article:tag]");
-        for (Element keyword: keyWord) {
-            // check category
-            for (String country: countries) {
-                // compare the keyword with country array
-                if (keyword.attr("content").toLowerCase().contains(country)) {
-                    break;
-                }
+
+            // scrape data through meta document
+            String description = document.select("meta[property=og:description]").attr("content");
+            String title = document.select("meta[property=og:title]").attr("content");
+            String imageURLs = document.select("meta[property=og:image]").attr("content");
+            String time = document.select("meta[itemprop=datePublished]").attr("content");
+            if (time.isEmpty()) {
+                time = document.select("div.box-date").text();
             }
-            keywords += keyword.attr("content").toLowerCase() + "";
-        }
-        if (keywords.isEmpty()) {
-            return; // interrupt method
+
+            if (time.isEmpty() || imageURLs.isEmpty() || title.isEmpty() || description.isEmpty()) {
+                System.out.println("\t\t wrong article type - component");
+            }
+
+            return !time.isEmpty() && !imageURLs.isEmpty() && !title.isEmpty() && !description.isEmpty();
+        }catch (Exception ex) {
+            return false;
         }
 
-
-        // scrape data through meta document
-        String description = document.select("meta[property=og:description]").attr("content");
-        String title = document.select("meta[property=og:title]").attr("content");
-        String imageURLs = document.select("meta[property=og:image]").attr("content");
-        String time = document.select("meta[itemprop=datePublished]").attr("content");
-        if (time.isEmpty()) {
-            time = document.select("div.box-date").text();
-        }
 
 
 

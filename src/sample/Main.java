@@ -10,9 +10,13 @@ import javafx.stage.Stage;
 import sample.SupportClass.SupportedMethod;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main extends Application {
+    private static SupportedMethod supportedMethod = new SupportedMethod();
 
     @Override
     public void start (Stage primaryStage) throws Exception {
@@ -34,7 +38,7 @@ public class Main extends Application {
 //            ex.printStackTrace();
 //        }
         long start = System.currentTimeMillis();
-        SupportedMethod supportedMethod = new SupportedMethod();
+
         supportedMethod.setFile();
 
         supportedMethod.scrapeCategory("https://vnexpress.net");
@@ -42,13 +46,21 @@ public class Main extends Application {
         supportedMethod.scrapeCategory("https://nhandan.vn");
         supportedMethod.scrapeCategory("https://tuoitre.vn");
         supportedMethod.scrapeCategory("https://thanhnien.vn");
+        System.out.println("Done scraping category");
         supportedMethod.closeFile();
 
         supportedMethod.setReadCategory();
         supportedMethod.setFileArticle();
+        System.out.println("Start scraping");
+        ExecutorService executorService = Executors.newCachedThreadPool();
         for (int i = 1; i < 9; i++) {
-            supportedMethod.scrapeArticleLink(i);
+            executorService.execute(new ThreadScraping(i));
         }
+        executorService.shutdown();
+        while (!executorService.isTerminated()) {
+
+        }
+
         supportedMethod.closeFile();
 
         System.out.println("Time consumption: " + (System.currentTimeMillis() - start));
@@ -67,6 +79,23 @@ public class Main extends Application {
 
         if(alert.showAndWait().get() == ButtonType.OK) {
             stage.close();
+        }
+    }
+
+    private class ThreadScraping implements Runnable {
+        int whichArticle;
+
+        public ThreadScraping(int whichArticle) {
+            this.whichArticle = whichArticle;
+        }
+
+        @Override
+        public void run() {
+            try {
+                supportedMethod.scrapeArticleLink(whichArticle);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
