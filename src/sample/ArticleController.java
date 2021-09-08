@@ -245,7 +245,13 @@ public class ArticleController extends ChangingCategory {
                 for (int i = 0; i < desList.size(); i++) {
                     if (i % 2 != 0 || desList.get(i).contains("ẢNH: ")) {
                         String author = desList.get(i);
-                        if(author.length() != 0) auList.add(author);
+                        auList.add(author);
+                    }
+                }
+
+                for (int i = 0; i < desList.size(); i++) {
+                    if (i % 2 != 0 || desList.get(i).contains("ẢNH: ")) {
+                        desList.remove(i);
                     }
                 }
 
@@ -258,13 +264,9 @@ public class ArticleController extends ChangingCategory {
                 idPhotoDescription.setWrapText(true);
                 articleBox.getChildren().addAll(idPhoto, idPhotoDescription);
 
-
                 int cnt = 0;
                 Elements elements = doc.select("div#abody div");
-//                String[] paragraphs = elements.toString().split("\n");
-
                 for (Element paragraph : elements) {
-//                    Document docScript = Jsoup.parse(paragraph);
                     if (imgList.size() > 0 && paragraph.text().contains(desList.get(0))) {
                         try {
                             VBox viewPhoto = new VBox();
@@ -278,17 +280,23 @@ public class ArticleController extends ChangingCategory {
                             viewPhoto.getChildren().addAll(photo, photoDescription, author);
                             articleBox.getChildren().add(viewPhoto);
                             cnt++;
-                        } catch (Exception ex) {
-                            // skipping error
-                        }
-                    }
-                    Label text = new Label();
-                    text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
-                    text.setWrapText(true);
-                    text.setText(paragraph.text());
-                    text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                    articleBox.getChildren().add(text);
 
+                        } catch (Exception ex) {}
+                    }
+                    String redundancyText = paragraph.select("div.imgcaption p").text();
+                    if (paragraph.text().contains(redundancyText)) {
+                        String mainText = paragraph.text().replace(redundancyText, "");
+                       for (String author : auList) {
+                           mainText = mainText.replace(author, "");
+                       }
+//                       mainText = mainText.replaceAll("[\\r\\n]+", "");
+                        Label text = new Label();
+                        text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
+                        text.setWrapText(true);
+                        text.setText(mainText);
+                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
+                        articleBox.getChildren().add(text);
+                    }
                 }
                 System.out.println("Thanh Nien");
                 break;
