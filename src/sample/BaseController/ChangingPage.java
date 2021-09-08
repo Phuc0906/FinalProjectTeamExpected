@@ -166,7 +166,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setImgList2();
         setDescription2();
         setTitle2();
-       parent.setVvalue(0);
+        parent.setVvalue(0);
     }
 
     public void moveToPage3(ActionEvent event) throws IOException {

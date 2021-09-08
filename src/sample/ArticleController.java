@@ -82,7 +82,7 @@ public class ArticleController extends ChangingCategory {
                 int imgCount = 0;
                 for (String para : paragraphList) {
                     Document docScript = Jsoup.parse(para);
-                    if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("TTO") && !docScript.text().replaceAll("\\s+","").equalsIgnoreCase(news.getDescription().replaceAll("\\s+",""))) {
+                    if (!docScript.text().contains("Ảnh:")  && !docScript.text().contains("TTO") && !docScript.text().replaceAll("\\s+","").equalsIgnoreCase(news.getDescription().replaceAll("\\s+",""))) {
                         Label text = new Label();
                         text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
                         text.setText(docScript.text());
@@ -234,6 +234,7 @@ public class ArticleController extends ChangingCategory {
                 author.setWrapText(true);
                 author.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                 articleBox.getChildren().add(author);
+                break;
             }
 
             case "Thanh Nien": {
