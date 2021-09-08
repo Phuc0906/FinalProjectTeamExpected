@@ -52,7 +52,6 @@ public class ChangingCategory implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         if (!isLightMode) setDarkMode();
     }
-    /////////////////////////Phong's page
 
     public void toNewPage(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
@@ -105,7 +104,6 @@ public class ChangingCategory implements Initializable {
         businessController.setImgList();
         businessController.setTitle();
         businessController.setDescription();
-//        businessController.bindingPane();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);

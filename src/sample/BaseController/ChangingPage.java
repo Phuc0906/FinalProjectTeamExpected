@@ -172,12 +172,6 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         parent.setVvalue(0);
     }
 
-    public void bindingPane() {
-        for (VBox coverBox : coverBoxList) {
-            coverBox.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgList.get(0).fitWidthProperty()));
-        }
-    }
-
     public void toArticle1(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();

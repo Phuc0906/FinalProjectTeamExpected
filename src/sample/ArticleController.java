@@ -68,7 +68,7 @@ public class ArticleController extends ChangingCategory {
         articleBox.getChildren().add(description);
 
         Document doc = Jsoup.connect(news.getNewsURL()).get();
-        System.out.println(news.getNewsOutlet());
+        System.out.println(news.getNewsURL());
         switch (news.getNewsOutlet()) {
 
             case "VN Express": {
@@ -79,7 +79,7 @@ public class ArticleController extends ChangingCategory {
                 int imgCount = 0;
                 for (String para : paragraphList) {
                     Document docScript = Jsoup.parse(para);
-                    if (!docScript.text().contains("Ảnh:")  && !docScript.text().contains("TTO") && !docScript.text().replaceAll("\\s+","").equalsIgnoreCase(news.getDescription().replaceAll("\\s+",""))) {
+                    if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("Video:") && !docScript.text().contains("TTO") && !docScript.text().replaceAll("\\s+","").equalsIgnoreCase(news.getDescription().replaceAll("\\s+",""))) {
                         Label text = new Label();
                         text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
                         text.setText(docScript.text());
