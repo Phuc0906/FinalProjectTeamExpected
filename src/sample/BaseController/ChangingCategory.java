@@ -72,10 +72,10 @@ public class ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
         root = loader.load();
 
-        CovidController entertainmentController = loader.getController();
-        entertainmentController.setTitle();
-        entertainmentController.setDescription();
-        entertainmentController.setImgList();
+        CovidController covidController = loader.getController();
+        covidController.setTitle();
+        covidController.setDescription();
+        covidController.setImgList();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
@@ -86,10 +86,10 @@ public class ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/PoliticsPage.fxml"));
         root = loader.load();
 
-        PoliticsController entertainmentController = loader.getController();
-        entertainmentController.setTitle();
-        entertainmentController.setDescription();
-        entertainmentController.setImgList();
+        PoliticsController politicsController = loader.getController();
+        politicsController.setTitle();
+        politicsController.setDescription();
+        politicsController.setImgList();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
