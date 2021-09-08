@@ -304,8 +304,6 @@ public class ArticleController extends ChangingCategory {
                 System.out.println("Thanh Nien");
                 break;
             }
-            default:
-                System.out.println(news.getNewsOutlet());
         }
     }
 

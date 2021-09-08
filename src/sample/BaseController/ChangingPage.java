@@ -79,9 +79,6 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     AnchorPane coverPane;
 
     @FXML
-    ArrayList<VBox> coverBoxList;
-
-    @FXML
     ScrollPane parent;
 
 
