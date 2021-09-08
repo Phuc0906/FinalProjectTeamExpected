@@ -37,9 +37,6 @@ public class ArticleController extends ChangingCategory {
     @FXML
     ScrollPane parent;
 
-    @FXML
-    Button logo;
-
 
     public void setError() throws IOException {
         coverPane.prefWidthProperty().bind(parent.widthProperty());

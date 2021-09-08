@@ -18,10 +18,8 @@ import java.util.ResourceBundle;
 
 public class ChangingCategory implements Initializable {
     public Stage stage;
-    private Scene scene;
     private Parent root;
 
-    ///////////////////////Phong's page
     @FXML
     private ScrollPane parent;
 
@@ -57,7 +55,7 @@ public class ChangingCategory implements Initializable {
     /////////////////////////Phong's page
 
     public void toNewPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
         root = loader.load();
 
         NewController newController = loader.getController();
@@ -72,7 +70,7 @@ public class ChangingCategory implements Initializable {
 
 
     public void toCovidPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
         root = loader.load();
 
         CovidController entertainmentController = loader.getController();
@@ -86,7 +84,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toPoliticsPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/PoliticsPage(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/PoliticsPage.fxml"));
         root = loader.load();
 
         PoliticsController entertainmentController = loader.getController();
@@ -100,7 +98,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toBusinessPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/BusinessPage(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/BusinessPage.fxml"));
         root = loader.load();
 
         BusinessController businessController = loader.getController();
@@ -115,7 +113,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toTechPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/TechPage(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/TechPage.fxml"));
         root = loader.load();
 
         TechController techController = loader.getController();
@@ -129,7 +127,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toHealthPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/HealthPage(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/HealthPage.fxml"));
         root = loader.load();
 
         HealthController healthController = loader.getController();
@@ -143,7 +141,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toSportsPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/SportsPage(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/SportsPage.fxml"));
         root = loader.load();
 
         SportController sportController = loader.getController();
@@ -157,7 +155,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toEntertainmentPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentPage(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentPage.fxml"));
         root = loader.load();
 
         EntertainmentController entertainmentController = loader.getController();
@@ -171,7 +169,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toWorldPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage.fxml"));
         root = loader.load();
 
         WorldController worldController = loader.getController();
@@ -185,7 +183,7 @@ public class ChangingCategory implements Initializable {
     }
 
     public void toOthersPage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/OthersPage(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/OthersPage.fxml"));
         root = loader.load();
 
         OthersController othersController = loader.getController();

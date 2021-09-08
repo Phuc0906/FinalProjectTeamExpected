@@ -74,27 +74,6 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         newsList.loadZingNews(zingURL);
     }
 
-    public ChangingPage(String zingURL) throws IOException {
-        newsList = new NewsManagement();
-        newsList.loadZingNews(zingURL);
-    }
-
-    public ChangingPage(String tuoitreURL, String tuoitreURL2) throws IOException {
-        newsList = new NewsManagement();
-        newsList.loadNhanDan(tuoitreURL);
-        newsList.loadNhanDan(tuoitreURL2);
-    }
-
-    public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL) throws IOException {
-        newsList = new NewsManagement();
-        newsList.loadVnExpress(vnExpressURL);
-        newsList.loadNhanDan(nhanDanUrl);
-        newsList.loadTuoiTre(tuoiTreURL);
-    }
-
-    public void setCovidThanhNien(String thanhNienURL) throws  IOException{
-        newsList.covidThanhNien(thanhNienURL);
-    }
 
     @FXML
     AnchorPane coverPane;
@@ -200,7 +179,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     }
 
     public void toArticle1(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
         double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
@@ -226,7 +205,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     }
 
     public void toArticle2(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
         double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
@@ -252,7 +231,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     }
 
     public void toArticle3(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
         double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
@@ -278,7 +257,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     }
 
     public void toArticle4(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
         double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
@@ -304,7 +283,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     }
 
     public void toArticle5(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
         double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
@@ -330,7 +309,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     }
 
     public void toArticle6(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
         double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
@@ -356,7 +335,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     }
 
     public void toArticle7(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
         double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
@@ -382,7 +361,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     }
 
     public void toArticle8(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
         double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
@@ -408,7 +387,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     }
 
     public void toArticle9(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
         double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
@@ -434,7 +413,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     }
 
     public void toArticle10(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article(Phong).fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
         double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
