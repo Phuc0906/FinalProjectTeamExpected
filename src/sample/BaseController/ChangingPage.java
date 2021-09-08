@@ -201,6 +201,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,width,height);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 
@@ -227,6 +228,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,width,height);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 
@@ -253,6 +255,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,width,height);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 
@@ -279,6 +282,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,width,height);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 
@@ -305,6 +309,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,width,height);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 
@@ -331,6 +336,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,width,height);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 
@@ -357,6 +363,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,width,height);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 
@@ -383,6 +390,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,width,height);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 
@@ -409,6 +417,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,width,height);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 
@@ -435,6 +444,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,width,height);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 }

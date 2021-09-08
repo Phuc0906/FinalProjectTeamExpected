@@ -321,6 +321,7 @@ public class ArticleController extends ChangingCategory {
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.setScene(this.previousScene);
+        stage.sizeToScene();
         stage.setWidth(width);
         stage.setHeight(height);
         stage.show();
