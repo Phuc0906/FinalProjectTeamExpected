@@ -30,7 +30,7 @@ public class Main extends Application {
         newController.setImgList();
         newController.setTime();
 
-        primaryStage.setTitle("Projekt Red");
+        primaryStage.setTitle("The ; expected");
         primaryStage.setScene(new Scene(homePage));
         primaryStage.show();
 
