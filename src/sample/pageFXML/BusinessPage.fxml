@@ -126,7 +126,12 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
-                                    <Label fx:id="time1" text="Time" />
+                                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                                       <children>
+                                                      <Label fx:id="outlet1" text="Outlet" />
+                                                      <Label fx:id="time1" text="Time" />
+                                       </children>
+                                    </HBox>
                                             </children>
                                         </VBox>
                                     </children>
@@ -152,7 +157,12 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
-                                    <Label fx:id="time2" text="Time" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                                                    <children>
+                                                        <Label fx:id="outlet2" text="Outlet" />
+                                                        <Label fx:id="time2" text="Time" />
+                                                    </children>
+                                                </HBox>
                                             </children>
                                         </VBox>
                                     </children>
@@ -175,7 +185,12 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
-                                    <Label fx:id="time3" text="Time" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                                                    <children>
+                                                        <Label fx:id="outlet3" text="Outlet" />
+                                                        <Label fx:id="time3" text="Time" />
+                                                    </children>
+                                                </HBox>
                                             </children>
                                         </VBox>
                                     </children>
@@ -198,7 +213,12 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
-                                    <Label fx:id="time4" text="Time" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                                                    <children>
+                                                        <Label fx:id="outlet4" text="Outlet" />
+                                                        <Label fx:id="time4" text="Time" />
+                                                    </children>
+                                                </HBox>
                                             </children>
                                         </VBox>
                                     </children>
@@ -221,7 +241,12 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
-                                    <Label fx:id="time5" text="Time" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                                                    <children>
+                                                        <Label fx:id="outlet5" text="Outlet" />
+                                                        <Label fx:id="time5" text="Time" />
+                                                    </children>
+                                                </HBox>
                                             </children>
                                         </VBox>
                                     </children>
@@ -244,7 +269,12 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
-                                    <Label fx:id="time6" text="Time" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                                                    <children>
+                                                        <Label fx:id="outlet6" text="Outlet" />
+                                                        <Label fx:id="time6" text="Time" />
+                                                    </children>
+                                                </HBox>
                                             </children>
                                         </VBox>
                                     </children>
@@ -267,7 +297,12 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
-                                    <Label fx:id="time7" text="Time" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                                                    <children>
+                                                        <Label fx:id="outlet7" text="Outlet" />
+                                                        <Label fx:id="time7" text="Time" />
+                                                    </children>
+                                                </HBox>
                                             </children>
                                         </VBox>
                                     </children>
@@ -290,7 +325,12 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
-                                    <Label fx:id="time8" text="Time" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                                                    <children>
+                                                        <Label fx:id="outlet8" text="Outlet" />
+                                                        <Label fx:id="time8" text="Time" />
+                                                    </children>
+                                                </HBox>
                                             </children>
                                         </VBox>
                                     </children>
@@ -313,7 +353,12 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
-                                    <Label fx:id="time9" text="Time" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                                                    <children>
+                                                        <Label fx:id="outlet9" text="Outlet" />
+                                                        <Label fx:id="time9" text="Time" />
+                                                    </children>
+                                                </HBox>
                                             </children>
                                         </VBox>
                                     </children>
@@ -336,7 +381,12 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
-                                    <Label fx:id="time10" text="Time" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                                                    <children>
+                                                        <Label fx:id="outlet10" text="Outlet" />
+                                                        <Label fx:id="time10" text="Time" />
+                                                    </children>
+                                                </HBox>
                                             </children>
                                         </VBox>
                                     </children>
@@ -392,6 +442,18 @@
                                         <fx:reference source="time8" />
                                         <fx:reference source="time9" />
                                         <fx:reference source="time10" />
+                                    </ArrayList>
+                                    <ArrayList fx:id="outletList">
+                                        <fx:reference source="outlet1" />
+                                        <fx:reference source="outlet2" />
+                                        <fx:reference source="outlet3" />
+                                        <fx:reference source="outlet4" />
+                                        <fx:reference source="outlet5" />
+                                        <fx:reference source="outlet6" />
+                                        <fx:reference source="outlet7" />
+                                        <fx:reference source="outlet8" />
+                                        <fx:reference source="outlet9" />
+                                        <fx:reference source="outlet10" />
                                     </ArrayList>
                                 </fx:define>
                             </children>
