@@ -16,7 +16,7 @@ public class NewsManagement {
     }
 
     public void addContent(News news) {
-        newsList.add(news);
+        newsList.add(new News(news.getNewsURL(), news.getTitle(), news.getDescription(), news.getImageURL()));
     }
 
     public void addContent(News news, String publishedDate, String timeDuration) {

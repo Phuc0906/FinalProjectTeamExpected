@@ -15,7 +15,7 @@ public class Main extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
         Parent homePage = loader.load();
 
         try {
@@ -24,7 +24,7 @@ public class Main extends Application {
             ex.printStackTrace();
         }
 
-        NewController newController = loader.getController();
+        CovidController newController = loader.getController();
         newController.setTitle();
         newController.setDescription();
         newController.setImgList();

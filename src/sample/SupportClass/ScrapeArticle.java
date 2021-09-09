@@ -13,10 +13,10 @@ import java.util.ArrayList;
 public class ScrapeArticle {
     private static PrintWriter covidFile;
     int covidCount = 0;
+    private ArrayList<String> titleArray = new ArrayList<>();
 
     static {
         try {
-
             covidFile = new PrintWriter("src/sample/Document/covid.txt");
 
         } catch (FileNotFoundException e) {
@@ -39,7 +39,7 @@ public class ScrapeArticle {
             if (!((articleLinks.contains(link.attr("href"))) && (link.attr("href").length() <= 1)) && !articleLinks.contains((link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href"))) {
                 String addedString = (link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href");
                 if (articleLinks.size() > 1) {
-                    if (addedString.contains(articleLinks.get(articleLinks.size() - 1))) {
+                    if (addedString.contains(articleLinks.get(articleLinks.size() - 1)) && !(addedString.contains("video"))) {
                         continue;
                     }
                 }
@@ -90,6 +90,14 @@ public class ScrapeArticle {
         String imageURLs = document.select("meta[property=og:image]").attr("content");
         String newsURL = url;
         String time = document.select("meta[itemprop=datePublished]").attr("content");
+
+        if (titleArray.size() > 1) {
+            if (titleArray.contains(title)) {
+                return;
+            }
+        }
+        titleArray.add(title);
+
         if (time.isEmpty()) {
             time = document.select("div.box-date").text();
         }
