@@ -15,7 +15,7 @@ public class Main extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
         Parent homePage = loader.load();
 
         try {
@@ -24,17 +24,16 @@ public class Main extends Application {
             ex.printStackTrace();
         }
 
-        CovidController newController = loader.getController();
+        NewController newController = loader.getController();
         newController.setTitle();
         newController.setDescription();
         newController.setImgList();
         newController.setTime();
 
-
-
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage));
         primaryStage.show();
+
         primaryStage.setOnCloseRequest(event -> {
             event.consume();
             closeApp(primaryStage);

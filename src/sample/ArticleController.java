@@ -35,8 +35,8 @@ public class ArticleController extends ChangingCategory {
     @FXML
     ScrollPane parent;
 
-
-    public void setError() throws IOException {
+//    display error message on the screen
+    public void setError() {
         coverPane.prefWidthProperty().bind(parent.widthProperty());
         articleBox.setSpacing(20);
         Label error = new Label();
@@ -47,10 +47,14 @@ public class ArticleController extends ChangingCategory {
         articleBox.getChildren().add(error);
     }
 
+    // add content to the page
     public void setContent(News news) throws IOException {
+        // set layout
         coverPane.prefWidthProperty().bind(parent.widthProperty());
         articleBox.setSpacing(20);
         articleBox.setPadding(new Insets(10,40,10,20));
+
+        // add title
         Label title = new Label();
         title.setText(news.getTitle());
         title.setFont(Font.font("", FontWeight.BOLD, 30));
@@ -58,6 +62,7 @@ public class ArticleController extends ChangingCategory {
         title.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
         articleBox.getChildren().add(title);
 
+        // add description
         Label description = new Label();
         description.setText(news.getDescription());
         description.setFont(Font.font("", FontWeight.SEMI_BOLD, FontPosture.ITALIC, 20));
@@ -65,18 +70,24 @@ public class ArticleController extends ChangingCategory {
         description.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
         articleBox.getChildren().add(description);
 
+        // scrape paragraphs and images
         Document doc = Jsoup.connect(news.getNewsURL()).get();
         System.out.println(news.getNewsURL());
         switch (news.getNewsOutlet()) {
-
+            // scrape article from VN express
             case "VN Express": {
+                // create String[] to store image URLs
                 Elements paragraph = doc.select("p");
+                String[] paragraphList = paragraph.toString().split("\n");
+
+                // create String[] to store paragraphs
                 Elements figure = doc.select("figure");
                 String[] figures = figure.toString().split("</figure>");
-                String[] paragraphList = paragraph.toString().split("\n");
+
                 int imgCount = 0;
                 for (String para : paragraphList) {
                     Document docScript = Jsoup.parse(para);
+                    // add paragraphs to the page
                     if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("Video:") && !docScript.text().contains("TTO") && !docScript.text().replaceAll("\\s+","").equalsIgnoreCase(news.getDescription().replaceAll("\\s+",""))) {
                         Label text = new Label();
                         text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
@@ -86,6 +97,7 @@ public class ArticleController extends ChangingCategory {
                         articleBox.getChildren().add(text);
                     }
 
+                    // add images to the page
                     if (docScript.text().contains("Ảnh:")) {
                         try {
                             Document img = Jsoup.parse(figures[imgCount].replaceAll("\n", "") + "</figure>");
@@ -108,8 +120,9 @@ public class ArticleController extends ChangingCategory {
             }
 
             case "Tuoi Tre": {
+                // scrape article from tuoi tre
                 int imgCount = 0;
-                // add all img to imgList
+                // add all images to imgList
                 ArrayList<String> imgList = new ArrayList<>();
                 Elements list = doc.select("div.main-content-body div.VCSortableInPreviewMode");
                 for (Element html : list) {
@@ -121,7 +134,7 @@ public class ArticleController extends ChangingCategory {
                 String[] paragraphString = paragraph.toString().split("\n");
                 for (String para : paragraphString) {
                     Document docScript = Jsoup.parse(para);
-                    //add img
+                    //add images
                     if (docScript.text().contains("Ảnh:")) {
                         try {
                             VBox viewPhoto = new VBox();
@@ -137,7 +150,7 @@ public class ArticleController extends ChangingCategory {
                             // skipping error
                         }
                     }
-                    // add paragraph
+                    // add paragraphs
                     if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("TTO")) {
                         Label text = new Label();
                         text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
@@ -147,12 +160,15 @@ public class ArticleController extends ChangingCategory {
                         articleBox.getChildren().add(text);
                     }
                 }
+                // add author name
                 Elements author = doc.select("div.main-content-body div.author");
                 articleBox.getChildren().add(new Label(author.text()));
                 break;
             }
 
             case "Zing News": {
+                // scrape article from zing news
+                // add all images to imgList
                 ArrayList<String> imgList = new ArrayList<>();
 
                 Elements Box = doc.select("table.picture tbody tr td");
@@ -316,12 +332,17 @@ public class ArticleController extends ChangingCategory {
         this.previousScene = scene;
     }
 
+    // set the previous scene
     public void back(ActionEvent actionEvent) {
+        // get the size of the window
         double width = ((Node)actionEvent.getSource()).getScene().getWindow().getWidth();
         double height = ((Node)actionEvent.getSource()).getScene().getWindow().getHeight();
 
+        // get the stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        // put the previous scene inside the stage
         stage.setScene(this.previousScene);
+        // stretch the stage to the current size
         stage.sizeToScene();
         stage.setWidth(width);
         stage.setHeight(height);
