@@ -7,13 +7,15 @@ public class News {
     private final String imageURL;
     private String newsOutlet;
     private String newsTime;
+    private String newsTimeDuration;
 
-    public News(String newsURL, String title, String description, String imageURL, String newsTime) {
+    public News(String newsURL, String title, String description, String imageURL, String newsTime, String newsTimeDuration) {
         this.newsURL = newsURL;
         this.title = title;
         this.description = description;
         this.imageURL = imageURL;
         this.newsTime = newsTime;
+        this.newsTimeDuration = newsTimeDuration;
         if (newsURL.contains("https://thanhnien.vn")) this.newsOutlet = "Thanh Nien";
         else if (newsURL.contains("https://vnexpress.net")) this.newsOutlet = "VN Express";
         else if (newsURL.contains("https://zingnews.vn")) this.newsOutlet = "Zing News";

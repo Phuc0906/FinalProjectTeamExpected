@@ -27,6 +27,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
 public class ChangingPage extends ChangingCategory implements Initializable{
@@ -206,8 +208,30 @@ public class ChangingPage extends ChangingCategory implements Initializable{
 
         // re-write newlist
         newsList.clearList();
+        LocalDate localDate = LocalDate.now();
+        Calendar calendar = new GregorianCalendar();
+        String timeDuration = "";
+        String datePublished;
         for (Time time: timesList) {
-            newsList.addContent(time.getNews());
+            if (localDate.getMonthValue() - time.getMonth() == 0) {
+                if (localDate.getDayOfMonth() - time.getDay() == 0) {
+                    if (calendar.get(Calendar.HOUR_OF_DAY) - time.getHour() == 0) {
+                        if (calendar.get(Calendar.MINUTE) - time.getMinute() == 0 ) {
+                            timeDuration = "Just now";
+                        }else {
+                            timeDuration = (calendar.get(Calendar.MINUTE) - time.getMinute()) + " minutes ago";
+                        }
+                    }else {
+                        timeDuration = (calendar.get(Calendar.HOUR_OF_DAY) - time.getHour()) + " hours ago";
+                    }
+                }else {
+                    timeDuration = (localDate.getDayOfMonth() - time.getDay()) + " days ago";
+                }
+            }else {
+                timeDuration = (localDate.getMonthValue() - time.getMonth()) + " months ago";
+            }
+            datePublished = time.getDay() + "/" + time.getMonth() + "/" + localDate.getYear() + " - " + time.getHour() + ":" + time.getMinute();
+            newsList.addContent(time.getNews(), datePublished, timeDuration);
         }
     }
 
