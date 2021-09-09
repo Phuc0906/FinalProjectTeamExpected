@@ -83,6 +83,10 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         sortNewsList();
     }
 
+    public ChangingPage(String zingURL) throws IOException {
+        newsList = new NewsManagement();
+        newsList.loadZingNews(zingURL);
+    }
 
     private Time splittedTime(String time, News news) {
         LocalDate currentDate = LocalDate.now();
@@ -218,6 +222,10 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     private void sortNewsList() {
         setNewsTime();
     }
+   public void setThanhNienSport(String ThanhNienUrl) throws IOException {
+        newsList = new NewsManagement();
+        newsList.loadThanhNienSport(ThanhNienUrl);
+   }
 
     @FXML
     AnchorPane coverPane;

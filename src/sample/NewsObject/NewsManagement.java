@@ -24,6 +24,27 @@ public class NewsManagement {
         String title;
         String description;
         String imageURL;
+        String origin = "https://thanhnien.vn/";
+        Document doc = Jsoup.connect(url).get();
+        Elements elements = doc.select("div.relative article.story");
+        for (Element element : elements) {
+            newsURL = element.select("a").attr("href");
+            if (!newsURL.contains("https:")) newsURL = origin + newsURL;
+            title = element.select("a").attr("title");
+            description = element.select("div.summary").text();
+            imageURL = element.select("a img").attr("data-src");
+            if (imageURL.isEmpty() || title.isEmpty()) {
+                continue;
+            }
+            this.newsList.add(new News(newsURL, title, description, imageURL));
+        }
+    }
+
+    public void loadThanhNienSport(String url) throws  IOException {
+        String newsURL;
+        String title;
+        String description;
+        String imageURL;
         Document doc = Jsoup.connect(url).get();
         Elements el = doc.select("div.col390");
         if (el.isEmpty()) el = doc.select("div.feature");
@@ -35,7 +56,6 @@ public class NewsManagement {
             this.newsList.add(new News(newsURL, title, description, imageURL));
         }
     }
-
 
     public void loadZingNews(String url) throws  IOException {
         String originalURL = "https://zingnews.vn";

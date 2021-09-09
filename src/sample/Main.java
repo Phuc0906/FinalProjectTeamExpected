@@ -34,15 +34,4 @@ public class Main extends Application {
         });
 
     }
-
-    public void closeApp(Stage stage) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Close App");
-        alert.setContentText("Do you want to close the app?");
-        alert.setHeaderText("You are trying to close the app");
-
-        if(alert.showAndWait().get() == ButtonType.OK) {
-            stage.close();
-        }
-    }
 }
