@@ -305,7 +305,9 @@ public class ArticleController extends ChangingCategory {
                 break;
             }
         }
-        articleBox.getChildren().add(new Label(news.getNewsTimeDuration()));
+        Label footer = new Label();
+        footer.setText(news.getNewsOutlet() + " - " + news.getNewsTimeDuration());
+        articleBox.getChildren().add(footer);
     }
 
     private Scene previousScene;
