@@ -195,7 +195,6 @@ public class ArticleController extends ChangingCategory {
                         articleBox.getChildren().add(text);
                     }
                 }
-                System.out.println("Zing News");
                 break;
             }
 
@@ -305,10 +304,8 @@ public class ArticleController extends ChangingCategory {
                 System.out.println("Thanh Nien");
                 break;
             }
-
-            default:
-                System.out.println("From unknown outlet");
         }
+        articleBox.getChildren().add(new Label(news.getNewsTimeDuration()));
     }
 
     private Scene previousScene;
