@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import sample.SupportClass.ScrapeArticle;
+import sample.SupportClass.ScrapingCovid;
 import sample.SupportClass.SupportedMethod;
 
 public class Main extends Application {
@@ -16,6 +17,12 @@ public class Main extends Application {
     public void start (Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
         Parent homePage = loader.load();
+
+        try {
+            ScrapingCovid scrapingCovid = new ScrapingCovid();
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
         NewController newController = loader.getController();
         newController.setTitle();

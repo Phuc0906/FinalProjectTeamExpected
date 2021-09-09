@@ -8,121 +8,140 @@ import org.jsoup.select.Elements;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 public class ScrapeArticle {
-//    PrintWriter businessFile;
-//    PrintWriter worldFile;
-//    PrintWriter entertainmentFile;
-//    PrintWriter sportsFile;
-//    PrintWriter healthCategory;
-//    PrintWriter politicsFile;
-//    PrintWriter otherFile;
-//    PrintWriter technologyFile;
-//    PrintWriter covidFile;
-//    PrintWriter newFile;
+    private static PrintWriter covidFile;
+    int covidCount = 0;
 
-    PrintWriter vnExpressFile;
-    PrintWriter nhanDanFile;
-    PrintWriter tuoiTreFile;
-    PrintWriter thanhNienFile;
-    PrintWriter zingFile;
-    public ScrapeArticle() throws FileNotFoundException {
-        vnExpressFile = new PrintWriter("src/Documents/vnexpressCategory.txt");
-        zingFile = new PrintWriter("src/Documents/zingCategory.txt");
-        thanhNienFile = new PrintWriter("src/Documents/thanhNienCategory.txt");
-        tuoiTreFile = new PrintWriter("src/Documents/tuoiTreCategory.txt");
-        nhanDanFile = new PrintWriter("src/Documents/nhanDanCategory.txt");
-    }
+    static {
+        try {
 
-    public void setFile(int whichArticle) throws IOException {
-        Document scriptReading;
-        Elements categoryList;
+            covidFile = new PrintWriter("src/sample/Document/covid.txt");
 
-        switch (whichArticle) {
-            case 1:
-                // scrape vn express
-                scriptReading = Jsoup.connect("https://vnexpress.net").get();
-                categoryList = scriptReading.select("ul.parent li");
-                for (Element cateLink: categoryList) {
-                    if (!cateLink.select("a").attr("href").contains("video") && (cateLink.select("a").attr("href").contains("/"))) {
-                        if (!cateLink.select("a").attr("href").contains("http")) {
-                            System.out.println("https://vnexpress.net" + cateLink.select("a").attr("href"));
-                            vnExpressFile.println("https://vnexpress.net" + cateLink.select("a").attr("href"));
-                        }else {
-                            System.out.println(cateLink.select("a").attr("href"));
-                            vnExpressFile.println(cateLink.select("a").attr("href"));
-                        }
-                    }
-
-                }
-            case 2:
-                //scrape nhan dan
-                scriptReading = Jsoup.connect("https://nhandan.vn").get();
-                categoryList = scriptReading.select("ul.uk-clearfix li");
-                for (Element cateLink: categoryList) {
-                    if (!cateLink.select("a").attr("href").contains("video") && (cateLink.select("a").attr("href").contains("/"))) {
-                        if (!cateLink.select("a").attr("href").contains("http")) {
-                            System.out.println("https://nhandan.vn" + cateLink.select("a").attr("href"));
-                            nhanDanFile.println("https://nhandan.vn" + cateLink.select("a").attr("href"));
-                        }else {
-                            System.out.println(cateLink.select("a").attr("href"));
-                            nhanDanFile.println(cateLink.select("a").attr("href"));
-                        }
-                    }
-
-                }
-            case 3:
-                scriptReading = Jsoup.connect("https://zingnews.vn").get();
-                categoryList = scriptReading.select("nav.category-menu ul li");
-                for (Element cateLink: categoryList) {
-                    if (!cateLink.select("a").attr("href").contains("video") && (cateLink.select("a").attr("href").contains("/"))) {
-                        if (!cateLink.select("a").attr("href").contains("http")) {
-                            System.out.println("https://zingnews.vn" + cateLink.select("a").attr("href"));
-                            zingFile.println("https://zingnews.vn" + cateLink.select("a").attr("href"));
-                        }else {
-                            System.out.println(cateLink.select("a").attr("href"));
-                            zingFile.println(cateLink.select("a").attr("href"));
-                        }
-                    }
-
-                }
-            case 4:
-                scriptReading = Jsoup.connect("https://thanhnien.vn").get();
-                categoryList = scriptReading.select("ul.site-header__menu li");
-                for (Element cateLink: categoryList) {
-                    if (!cateLink.select("a").attr("href").contains("video") && (cateLink.select("a").attr("href").contains("/"))) {
-                        if (!cateLink.select("a").attr("href").contains("http")) {
-                            System.out.println("https://thanhnien.vn" + cateLink.select("a").attr("href"));
-                            thanhNienFile.println("https://thanhnien.vn" + cateLink.select("a").attr("href"));
-                        }else {
-                            System.out.println(cateLink.select("a").attr("href"));
-                            thanhNienFile.println(cateLink.select("a").attr("href"));
-                        }
-                    }
-                }
-            default:
-                scriptReading = Jsoup.connect("https://tuoitre.vn").get();
-                categoryList = scriptReading.select("ul.menu-ul li");
-                for (Element cateLink: categoryList) {
-                    if (!cateLink.select("a").attr("href").contains("video") && (cateLink.select("a").attr("href").contains("/"))) {
-                        if (!cateLink.select("a").attr("href").contains("http")) {
-                            System.out.println("https://tuoitre.vn" + cateLink.select("a").attr("href"));
-                            tuoiTreFile.println("https://tuoitre.vn" + cateLink.select("a").attr("href"));
-                        }else {
-                            System.out.println(cateLink.select("a").attr("href"));
-                            tuoiTreFile.println(cateLink.select("a").attr("href"));
-                        }
-
-                    }
-                }
+        } catch (FileNotFoundException e) {
+            System.out.println("Cannot write file");
         }
     }
 
+    public ScrapeArticle(){
+    }
+
+    public ArrayList<String> scrapeArticleLink(String url, PrintWriter categorySource) throws IOException {
+        Document document = Jsoup.connect(url).timeout(500).get();
+        Elements articles = document.select("article a");
+        ArrayList<String> articleLinks = new ArrayList<>();
+        if (articles.size() == 0) {
+            articles = document.select("div li.news-item a");
+        }
+
+        for (Element link: articles) {
+            if (!((articleLinks.contains(link.attr("href"))) && (link.attr("href").length() <= 1)) && !articleLinks.contains((link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href"))) {
+                String addedString = (link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href");
+                if (articleLinks.size() > 1) {
+                    if (addedString.contains(articleLinks.get(articleLinks.size() - 1))) {
+                        continue;
+                    }
+                }
+                articleLinks.add(addedString);
+                categorySource.println(addedString);
+            }
+        }
+        return articleLinks;
+    }
+
     public void closeFile() {
-        nhanDanFile.close();
-        tuoiTreFile.close();
-        thanhNienFile.close();
-        zingFile.close();
-        vnExpressFile.close();
+
+        covidFile.close();
+    }
+
+    public boolean checkInterrupted() {
+        return (covidCount == 50);
+    }
+
+    public void scrapeArticle(String url) throws IOException {
+
+        // String array for the gioi detection
+        String[] countries = new String[]{ "mỹ", "việt nam", "afghanistan", "nhật bản"};
+        Document document = Jsoup.connect(url).timeout(200).get();
+
+        // check keywords at the beginning if there is any article do not have keyword => ignore
+        // use string category to store the category which article belongs to
+        String keywords = "";
+        Elements keyWord = document.select("meta[property=article:tag]");
+        for (Element keyword: keyWord) {
+            // check category
+            for (String country: countries) {
+                // compare the keyword with country array
+                if (keyword.attr("content").toLowerCase().contains(country)) {
+                    break;
+                }
+            }
+            keywords += keyword.attr("content").toLowerCase() + "";
+        }
+        if (keywords.isEmpty()) {
+            return; // interrupt method
+        }
+
+
+        // scrape data through meta document
+        String description = document.select("meta[property=og:description]").attr("content");
+        String title = document.select("meta[property=og:title]").attr("content");
+        String imageURLs = document.select("meta[property=og:image]").attr("content");
+        String newsURL = url;
+        String time = document.select("meta[itemprop=datePublished]").attr("content");
+        if (time.isEmpty()) {
+            time = document.select("div.box-date").text();
+        }
+
+        if (!(keywords.isEmpty() || imageURLs.isEmpty() || time.isEmpty() || description.isEmpty())) {
+            if (keywords.contains("covid")) {
+                if (covidCount == 50) {
+                    return;
+                }
+                covidFile.println(title);
+                covidFile.println(description);
+                covidFile.println(newsURL);
+                covidFile.println(imageURLs);
+                covidFile.println("breakline-------------------------------------------------------");
+                covidCount++;
+            }
+        }
+
+
+        //create array listt to store paragraph
+        ArrayList<String> paragraphs = new ArrayList<>();
+
+        // scrape all article by selecting p script
+        Elements articlesParagraph = document.select("p");
+        for (Element element: articlesParagraph) {
+            if ((element.attributes().size() == 0) || (element.attr("class").contains("Normal"))) {
+                // except vnexpress article has class normal in the p script. otherwise, just come to p script
+                paragraphs.add(element.text());
+            }
+        }
+
+        if (paragraphs.size() < 5) {
+            // if the paragraph list is less than 5 items => that is not a article paragraph => clear the paragraph list and re-scraping
+            paragraphs.clear();
+        }
+
+        //the last case is thanh nien article. It will execute thanh nien scraping
+        if (paragraphs.size() == 0) {
+
+            // only thanh nien article wrap paragraph in div script
+            articlesParagraph = document.select("div");
+            for (Element elements: articlesParagraph) {
+                if (elements.attr("class").length() == 0) {
+                    if (elements.attributes().size() == 0) {
+                        if (!(elements.text().length() == 0)) {
+                            paragraphs.add(elements.text());
+                        }
+                    }
+                }
+            }
+        }
+
+
     }
 }

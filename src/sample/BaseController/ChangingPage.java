@@ -23,13 +23,12 @@ import sample.NewsObject.NewsManagement;
 import sample.NewsObject.Time;
 import sample.SupportClass.SupportedMethod;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ChangingPage extends ChangingCategory implements Initializable{
 
@@ -39,6 +38,25 @@ public class ChangingPage extends ChangingCategory implements Initializable{
 
     private SupportedMethod supportedMethod = new SupportedMethod();
     private NewsManagement newsList;
+
+    public ChangingPage() throws FileNotFoundException {
+        newsList = new NewsManagement();
+        File covidReader = new File("src/sample/Document/covid.txt");
+        Scanner reader = new Scanner(covidReader);
+        String title;
+        String imageUrl;
+        String description;
+        String newsURL;
+        while (reader.hasNextLine()) {
+            title = reader.nextLine();
+            description = reader.nextLine();
+            newsURL = reader.nextLine();
+            imageUrl = reader.nextLine();
+            reader.nextLine(); // skip the breaking line;
+            newsList.addContent(new News(newsURL, title, description, imageUrl));
+        }
+        sortNewsList();
+    }
 
 
 
