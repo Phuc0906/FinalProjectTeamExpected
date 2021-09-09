@@ -30,7 +30,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.*;
 
-public class ChangingPage extends ChangingCategory implements Initializable{
+public class ChangingPage extends ChangingCategory implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -57,7 +57,6 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         }
         sortNewsList();
     }
-
 
 
     public ChangingPage(String vnExpressURL1, String vnExpressURL2, String vnExpressURL3,
@@ -118,7 +117,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         if (date.isEmpty()) {
             date = time.split(",")[1].replaceAll(" ", "");
             publishedTime = time.split(" ")[2];
-        }else {
+        } else {
             publishedTime = time.split("T")[1].split("[+]")[0];
         }
         if ((publishedTime.length() == 8) || (publishedTime.length() == 5)) {
@@ -135,7 +134,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         if (date.length() == 10) {
             if (date.split("-")[0].length() == 4) {
                 day = Integer.parseInt(date.split("-")[2]);
-            }else {
+            } else {
                 day = Integer.parseInt(date.split("-")[4]);
             }
             month = Integer.parseInt(date.split("-")[1]);
@@ -172,7 +171,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
                     count++;
                     if (count == 50) break;
                 }
-            }catch (Exception ex) {
+            } catch (Exception ex) {
                 // skip it
             }
         }
@@ -185,17 +184,17 @@ public class ChangingPage extends ChangingCategory implements Initializable{
                     Time tmp = new Time(timesList.get(k));
                     timesList.set(k, timesList.get(i));
                     timesList.set(i, tmp);
-                }else if (timesList.get(i).getMonth() == timesList.get(k).getMonth()) {
+                } else if (timesList.get(i).getMonth() == timesList.get(k).getMonth()) {
                     if (timesList.get(i).getDay() < timesList.get(k).getDay()) {
                         Time tmp = new Time(timesList.get(k));
                         timesList.set(k, timesList.get(i));
                         timesList.set(i, tmp);
-                    }else if (timesList.get(i).getDay() == timesList.get(k).getDay()) {
+                    } else if (timesList.get(i).getDay() == timesList.get(k).getDay()) {
                         if (timesList.get(i).getHour() < timesList.get(k).getHour()) {
                             Time tmp = new Time(timesList.get(k));
                             timesList.set(k, timesList.get(i));
                             timesList.set(i, tmp);
-                        }else if (timesList.get(i).getHour() == timesList.get(k).getHour()) {
+                        } else if (timesList.get(i).getHour() == timesList.get(k).getHour()) {
                             if (timesList.get(i).getMinute() < timesList.get(k).getMinute()) {
                                 Time tmp = new Time(timesList.get(k));
                                 timesList.set(k, timesList.get(i));
@@ -213,22 +212,22 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         Calendar calendar = new GregorianCalendar();
         String timeDuration = "";
         String datePublished;
-        for (Time time: timesList) {
+        for (Time time : timesList) {
             if (localDate.getMonthValue() - time.getMonth() == 0) {
                 if (localDate.getDayOfMonth() - time.getDay() == 0) {
                     if (calendar.get(Calendar.HOUR_OF_DAY) - time.getHour() == 0) {
-                        if (calendar.get(Calendar.MINUTE) - time.getMinute() == 0 ) {
+                        if (calendar.get(Calendar.MINUTE) - time.getMinute() == 0) {
                             timeDuration = "Just now";
-                        }else {
+                        } else {
                             timeDuration = (calendar.get(Calendar.MINUTE) - time.getMinute()) + " minutes ago";
                         }
-                    }else {
+                    } else {
                         timeDuration = (calendar.get(Calendar.HOUR_OF_DAY) - time.getHour()) + " hours ago";
                     }
-                }else {
+                } else {
                     timeDuration = (localDate.getDayOfMonth() - time.getDay()) + " days ago";
                 }
-            }else {
+            } else {
                 timeDuration = (localDate.getMonthValue() - time.getMonth()) + " months ago";
             }
             datePublished = time.getDay() + "/" + time.getMonth() + "/" + localDate.getYear() + " - " + time.getHour() + ":" + time.getMinute();
@@ -240,10 +239,11 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     private void sortNewsList() {
         setNewsTime();
     }
-   public void setThanhNienSport(String ThanhNienUrl) throws IOException {
+
+    public void setThanhNienSport(String ThanhNienUrl) throws IOException {
         newsList = new NewsManagement();
         newsList.loadThanhNienSport(ThanhNienUrl);
-   }
+    }
 
     @FXML
     AnchorPane coverPane;
@@ -264,26 +264,45 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     @FXML
     ArrayList<Label> timeList;
 
+    @FXML
+    ArrayList<Label> outletList;
+
     public void setImgList() {
         new SupportedMethod().setImgList(imgList, 0, this.newsList, coverPane);
     }
-    public void setImgList2() { supportedMethod.setImgList(imgList, 10, this.newsList, coverPane); }
-    public void setImgList3() { supportedMethod.setImgList(imgList, 20, this.newsList, coverPane); }
-    public void setImgList4() { supportedMethod.setImgList(imgList, 30, this.newsList, coverPane); }
-    public void setImgList5() { supportedMethod.setImgList(imgList, 40, this.newsList, coverPane); }
+
+    public void setImgList2() {
+        supportedMethod.setImgList(imgList, 10, this.newsList, coverPane);
+    }
+
+    public void setImgList3() {
+        supportedMethod.setImgList(imgList, 20, this.newsList, coverPane);
+    }
+
+    public void setImgList4() {
+        supportedMethod.setImgList(imgList, 30, this.newsList, coverPane);
+    }
+
+    public void setImgList5() {
+        supportedMethod.setImgList(imgList, 40, this.newsList, coverPane);
+    }
 
     public void setDescription() {
         supportedMethod.setDescriptionList(descriptionList, 0, this.newsList, imgList, coverPane);
     }
+
     public void setDescription2() {
         supportedMethod.setDescriptionList(descriptionList, 10, this.newsList, imgList, coverPane);
     }
+
     public void setDescription3() {
         supportedMethod.setDescriptionList(descriptionList, 20, this.newsList, imgList, coverPane);
     }
+
     public void setDescription4() {
         supportedMethod.setDescriptionList(descriptionList, 30, this.newsList, imgList, coverPane);
     }
+
     public void setDescription5() {
         supportedMethod.setDescriptionList(descriptionList, 40, this.newsList, imgList, coverPane);
     }
@@ -292,13 +311,19 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     public void setTitle() {
         supportedMethod.setTitleList(titleList, 0, this.newsList, imgList, coverPane);
     }
+
     public void setTitle2() {
         supportedMethod.setTitleList(titleList, 10, this.newsList, imgList, coverPane);
     }
-    public void setTitle3() { supportedMethod.setTitleList(titleList, 20, this.newsList, imgList, coverPane); }
+
+    public void setTitle3() {
+        supportedMethod.setTitleList(titleList, 20, this.newsList, imgList, coverPane);
+    }
+
     public void setTitle4() {
         supportedMethod.setTitleList(titleList, 30, this.newsList, imgList, coverPane);
     }
+
     public void setTitle5() {
         supportedMethod.setTitleList(titleList, 40, this.newsList, imgList, coverPane);
     }
@@ -306,17 +331,39 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     public void setTime() {
         supportedMethod.setTimeList(timeList, 0, this.newsList);
     }
+
     public void setTime2() {
         supportedMethod.setTimeList(timeList, 10, this.newsList);
     }
+
     public void setTime3() {
         supportedMethod.setTimeList(timeList, 20, this.newsList);
     }
+
     public void setTime4() {
         supportedMethod.setTimeList(timeList, 30, this.newsList);
     }
+
     public void setTime5() {
         supportedMethod.setTimeList(timeList, 40, this.newsList);
+    }
+
+    public void setOutlet() {
+        supportedMethod.setOutletList(outletList, 0, this.newsList);
+    }
+
+    public void setOutlet2() {
+        supportedMethod.setOutletList(outletList, 10, this.newsList);
+    }
+
+    public void setOutlet3() {
+        supportedMethod.setOutletList(outletList, 20, this.newsList);
+    }
+
+    public void setOutlet4() {supportedMethod.setOutletList(outletList, 30, this.newsList); }
+
+    public void setOutlet5() {
+        supportedMethod.setOutletList(outletList, 40, this.newsList);
     }
 
     public void moveToPage1(ActionEvent event) throws IOException {
@@ -324,6 +371,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setDescription();
         setTitle();
         setTime();
+        setOutlet();
         parent.setVvalue(0);
     }
 
@@ -333,6 +381,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setDescription2();
         setTitle2();
         setTime2();
+        setOutlet2();
         parent.setVvalue(0);
     }
 
@@ -342,6 +391,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setDescription3();
         setTitle3();
         setTime3();
+        setOutlet3();
         parent.setVvalue(0);
     }
 
@@ -351,6 +401,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setDescription4();
         setTitle4();
         setTime4();
+        setOutlet4();
         parent.setVvalue(0);
     }
 
@@ -359,17 +410,17 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setDescription5();
         setTitle5();
         setTime5();
+        setOutlet5();
         parent.setVvalue(0);
     }
-
 
 
     public void toArticle1(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
-        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
-        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+        double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -384,8 +435,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
             articleController.setError();
         }
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,width,height);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.show();
@@ -395,8 +446,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
-        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
-        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+        double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -411,8 +462,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
             articleController.setError();
         }
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,width,height);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.show();
@@ -422,8 +473,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
-        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
-        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+        double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -438,8 +489,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
             articleController.setError();
         }
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,width,height);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.show();
@@ -449,8 +500,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
-        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
-        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+        double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -465,8 +516,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
             articleController.setError();
         }
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,width,height);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.show();
@@ -476,8 +527,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
-        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
-        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+        double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -492,8 +543,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
             articleController.setError();
         }
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,width,height);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.show();
@@ -503,8 +554,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
-        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
-        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+        double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -519,8 +570,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
             articleController.setError();
         }
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,width,height);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.show();
@@ -530,8 +581,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
-        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
-        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+        double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -546,8 +597,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
             articleController.setError();
         }
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,width,height);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.show();
@@ -557,8 +608,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
-        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
-        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+        double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -573,8 +624,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
             articleController.setError();
         }
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,width,height);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.show();
@@ -584,8 +635,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
-        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
-        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+        double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -600,8 +651,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
             articleController.setError();
         }
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,width,height);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.show();
@@ -611,8 +662,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
-        double width = ((Node)event.getSource()).getScene().getWindow().getWidth();
-        double height = ((Node)event.getSource()).getScene().getWindow().getHeight();
+        double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
+        double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
@@ -627,8 +678,8 @@ public class ChangingPage extends ChangingCategory implements Initializable{
             articleController.setError();
         }
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,width,height);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.show();

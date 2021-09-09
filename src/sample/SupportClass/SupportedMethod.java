@@ -63,6 +63,14 @@ public class SupportedMethod {
         }
     }
 
+    public void setOutletList(ArrayList<Label> outletList, int begin, NewsManagement newsList) {
+        int count = begin;
+        for (Label outletLabel : outletList) {
+            outletLabel.setText(newsList.getNews(count).getNewsOutlet());
+            count++;
+        }
+    }
+
     public void ThanhNienArtical (String URL) throws IOException {
         List<String> imgList = new ArrayList<>();
         List<String> desList = new ArrayList<>();

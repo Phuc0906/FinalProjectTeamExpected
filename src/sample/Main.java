@@ -29,6 +29,7 @@ public class Main extends Application {
         newController.setDescription();
         newController.setImgList();
         newController.setTime();
+        newController.setOutlet();
 
         primaryStage.setTitle("The ; expected");
         primaryStage.setScene(new Scene(homePage));
