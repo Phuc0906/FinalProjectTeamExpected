@@ -57,9 +57,12 @@ public class SupportedMethod {
 
     public void setTimeList(ArrayList<Label> timeList, int begin, NewsManagement newsList) {
         int count = begin;
-        for (Label timeLabel: timeList) {
+        for (Label timeLabel : timeList) {
             timeLabel.setText(newsList.getNews(count).getNewsTimeDuration());
             count++;
+        }
+    }
+
     public void ThanhNienArtical (String URL) throws IOException {
         List<String> imgList = new ArrayList<>();
         List<String> desList = new ArrayList<>();
