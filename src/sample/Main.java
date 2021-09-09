@@ -8,16 +8,23 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import sample.SupportClass.ScrapeArticle;
+import sample.SupportClass.ScrapingCovid;
 import sample.SupportClass.SupportedMethod;
 
 public class Main extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
         Parent homePage = loader.load();
 
-        NewController newController = loader.getController();
+        try {
+            ScrapingCovid scrapingCovid = new ScrapingCovid();
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        CovidController newController = loader.getController();
         newController.setTitle();
         newController.setDescription();
         newController.setImgList();
