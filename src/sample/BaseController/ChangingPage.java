@@ -21,6 +21,7 @@ import sample.ArticleController;
 import sample.NewsObject.News;
 import sample.NewsObject.NewsManagement;
 import sample.NewsObject.Time;
+import sample.SupportClass.ScrapingCovid;
 import sample.SupportClass.SupportedMethod;
 
 import java.io.File;
@@ -41,6 +42,15 @@ public class ChangingPage extends ChangingCategory implements Initializable {
 
     public ChangingPage() throws FileNotFoundException {
         newsList = new NewsManagement();
+
+        if (!isScrape()) {
+            try {
+                ScrapingCovid scrapingCovid = new ScrapingCovid();
+            }catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
         File covidReader = new File("src/sample/Document/covid.txt");
         Scanner reader = new Scanner(covidReader);
         String title;
@@ -103,6 +113,22 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     public ChangingPage(String zingURL) throws IOException {
         newsList = new NewsManagement();
         newsList.loadZingNews(zingURL);
+    }
+
+    // check if scraped
+    private boolean isScrape(){
+        File covidReader = new File("src/sample/Document/covid.txt");
+        try {
+            Scanner reader = new Scanner(covidReader);
+            if (reader.nextLine().isEmpty()) {
+                return false;
+            }else {
+                return true;
+            }
+        }catch (Exception ex) {
+            return false;
+        }
+
     }
 
     private Time splittedTime(String time, News news) {

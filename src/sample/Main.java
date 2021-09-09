@@ -21,12 +21,6 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
         Parent homePage = loader.load();
 
-        try {
-            ScrapingCovid scrapingCovid = new ScrapingCovid();
-        }catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
         NewController newController = loader.getController();
         newController.setTitle();
         newController.setDescription();
@@ -37,6 +31,7 @@ public class Main extends Application {
         primaryStage.setTitle("The ; expected");
         primaryStage.setScene(new Scene(homePage));
         primaryStage.show();
+
 
         primaryStage.setOnCloseRequest(event -> {
             event.consume();
