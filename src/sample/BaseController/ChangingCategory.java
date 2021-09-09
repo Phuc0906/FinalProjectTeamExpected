@@ -61,6 +61,7 @@ public class ChangingCategory implements Initializable {
         newController.setTitle();
         newController.setDescription();
         newController.setImgList();
+        newController.setTime();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
@@ -76,6 +77,7 @@ public class ChangingCategory implements Initializable {
         covidController.setTitle();
         covidController.setDescription();
         covidController.setImgList();
+        covidController.setTime();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
@@ -90,6 +92,7 @@ public class ChangingCategory implements Initializable {
         politicsController.setTitle();
         politicsController.setDescription();
         politicsController.setImgList();
+        politicsController.setTime();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
@@ -104,6 +107,7 @@ public class ChangingCategory implements Initializable {
         businessController.setImgList();
         businessController.setTitle();
         businessController.setDescription();
+        businessController.setTime();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
@@ -118,6 +122,7 @@ public class ChangingCategory implements Initializable {
         techController.setImgList();
         techController.setTitle();
         techController.setDescription();
+        techController.setTime();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
@@ -132,6 +137,7 @@ public class ChangingCategory implements Initializable {
         healthController.setImgList();
         healthController.setTitle();
         healthController.setDescription();
+        healthController.setTime();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
@@ -146,6 +152,7 @@ public class ChangingCategory implements Initializable {
         sportController.setImgList();
         sportController.setTitle();
         sportController.setDescription();
+        sportController.setTime();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
@@ -160,6 +167,7 @@ public class ChangingCategory implements Initializable {
         entertainmentController.setTitle();
         entertainmentController.setDescription();
         entertainmentController.setImgList();
+        entertainmentController.setTime();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
@@ -174,6 +182,7 @@ public class ChangingCategory implements Initializable {
         worldController.setImgList();
         worldController.setTitle();
         worldController.setDescription();
+        worldController.setTime();
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
@@ -188,6 +197,7 @@ public class ChangingCategory implements Initializable {
         othersController.setImgList();
         othersController.setTitle();
         othersController.setDescription();
+        othersController.setTime();
         
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);

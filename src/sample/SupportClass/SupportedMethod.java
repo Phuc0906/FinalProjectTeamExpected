@@ -53,8 +53,12 @@ public class SupportedMethod {
         }
     }
 
-    public void setTimeList() {
-
+    public void setTimeList(ArrayList<Label> timeList, int begin, NewsManagement newsList) {
+        int count = begin;
+        for (Label timeLabel: timeList) {
+            timeLabel.setText(newsList.getNews(count).getNewsTimeDuration());
+            count++;
+        }
     }
 
 }

@@ -39,6 +39,14 @@ public class News {
         this.newsTime = time;
     }
 
+    public String getNewsTime() {
+        return this.newsTime;
+    }
+
+    public String getNewsTimeDuration() {
+        return this.newsTimeDuration;
+    }
+
     public String getNewsURL() {
         return newsURL;
     }

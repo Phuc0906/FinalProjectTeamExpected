@@ -84,22 +84,6 @@ public class ChangingPage extends ChangingCategory implements Initializable{
     }
 
 
-    public ChangingPage(String tuoitreURL, String tuoitreURL2) throws IOException {
-        newsList = new NewsManagement();
-        newsList.loadNhanDan(tuoitreURL);
-        newsList.loadNhanDan(tuoitreURL2);
-        sortNewsList();
-    }
-
-    public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL) throws IOException {
-        newsList = new NewsManagement();
-        newsList.loadVnExpress(vnExpressURL);
-        newsList.loadNhanDan(nhanDanUrl);
-        newsList.loadTuoiTre(tuoiTreURL);
-        sortNewsList();
-    }
-
-
     private Time splittedTime(String time, News news) {
         LocalDate currentDate = LocalDate.now();
         boolean dateQualified = false;
@@ -230,13 +214,9 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         }
     }
 
-    public void setCovidThanhNien(String thanhNienURL) throws  IOException{
-        newsList.covidThanhNien(thanhNienURL);
-    }
 
     private void sortNewsList() {
         setNewsTime();
-        System.out.println(newsList.getSize());
     }
 
     @FXML
@@ -254,6 +234,9 @@ public class ChangingPage extends ChangingCategory implements Initializable{
 
     @FXML
     ArrayList<Label> descriptionList;
+
+    @FXML
+    ArrayList<Label> timeList;
 
     public void setImgList() {
         new SupportedMethod().setImgList(imgList, 0, this.newsList, coverPane);
@@ -281,7 +264,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
 
 
     public void setTitle() {
-        new SupportedMethod().setTitleList(titleList, 0, this.newsList, imgList, coverPane);
+        supportedMethod.setTitleList(titleList, 0, this.newsList, imgList, coverPane);
     }
     public void setTitle2() {
         supportedMethod.setTitleList(titleList, 10, this.newsList, imgList, coverPane);
@@ -294,10 +277,27 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         supportedMethod.setTitleList(titleList, 40, this.newsList, imgList, coverPane);
     }
 
+    public void setTime() {
+        supportedMethod.setTimeList(timeList, 0, this.newsList);
+    }
+    public void setTime2() {
+        supportedMethod.setTimeList(timeList, 10, this.newsList);
+    }
+    public void setTime3() {
+        supportedMethod.setTimeList(timeList, 20, this.newsList);
+    }
+    public void setTime4() {
+        supportedMethod.setTimeList(timeList, 30, this.newsList);
+    }
+    public void setTime5() {
+        supportedMethod.setTimeList(timeList, 40, this.newsList);
+    }
+
     public void moveToPage1(ActionEvent event) throws IOException {
         setImgList();
         setDescription();
         setTitle();
+        setTime();
         parent.setVvalue(0);
     }
 
@@ -306,6 +306,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setImgList2();
         setDescription2();
         setTitle2();
+        setTime2();
         parent.setVvalue(0);
     }
 
@@ -314,6 +315,7 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setImgList3();
         setDescription3();
         setTitle3();
+        setTime3();
         parent.setVvalue(0);
     }
 
@@ -322,24 +324,19 @@ public class ChangingPage extends ChangingCategory implements Initializable{
         setImgList4();
         setDescription4();
         setTitle4();
+        setTime4();
         parent.setVvalue(0);
     }
 
     public void moveToPage5(ActionEvent event) throws IOException {
-
         setImgList5();
         setDescription5();
         setTitle5();
+        setTime5();
         parent.setVvalue(0);
     }
 
 
-
-    public void bindingPane() {
-        for (VBox coverBox : coverBoxList) {
-            coverBox.prefWidthProperty().bind(coverPane.widthProperty().subtract(imgList.get(0).fitWidthProperty()));
-        }
-    }
 
     public void toArticle1(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));

@@ -21,6 +21,7 @@ public class Main extends Application {
         newController.setTitle();
         newController.setDescription();
         newController.setImgList();
+        newController.setTime();
 
 
 

@@ -16,7 +16,7 @@ public class NewsManagement {
     }
 
     public void addContent(News news, String publishedDate, String timeDuration) {
-        newsList.add(new News(news.getNewsURL(), news.getTitle(), news.getDescription(), news.getImageURL()));
+        newsList.add(new News(news.getNewsURL(), news.getTitle(), news.getDescription(), news.getImageURL(), publishedDate, timeDuration));
     }
 
     public void loadThanhNien(String url) throws  IOException {
