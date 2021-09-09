@@ -35,6 +35,14 @@
     -fx-text-fill: WHITE;
 }
 
+.buttonModeArticle{
+    -fx-background-color:  #18191a;
+}
+
+.buttonModeArticle:hover{
+    -fx-background-color: #18191a;
+}
+
 .label{
     -fx-text-fill: WHITE;
 }

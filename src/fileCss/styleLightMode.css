@@ -35,6 +35,14 @@
     -fx-text-fill: BLACK;
 }
 
+.buttonModeArticle{
+    -fx-background-color:  WHITE;
+}
+
+.buttonModeArticle:hover{
+    -fx-background-color: WHITE;
+}
+
 .label{
     -fx-text-fill: BLACK;
 }
