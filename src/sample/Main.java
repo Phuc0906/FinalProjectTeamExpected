@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import sample.SupportClass.ScrapeArticle;
 import sample.SupportClass.SupportedMethod;
 
 import java.awt.*;
@@ -22,6 +23,8 @@ public class Main extends Application {
         newController.setTitle();
         newController.setDescription();
         newController.setImgList();
+
+
 
         primaryStage.setTitle("Projekt Red");
         primaryStage.setScene(new Scene(homePage));

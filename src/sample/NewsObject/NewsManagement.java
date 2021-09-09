@@ -11,7 +11,12 @@ import java.util.ArrayList;
 public class NewsManagement {
     ArrayList<News> newsList = new ArrayList<>();
 
+
     public NewsManagement() {
+    }
+
+    public void addContent(News news) {
+        newsList.add(new News(news.getNewsURL(), news.getTitle(), news.getDescription(), news.getImageURL()));
     }
 
     public void loadThanhNien(String url) throws  IOException {
@@ -52,7 +57,7 @@ public class NewsManagement {
     }
 
     public void loadZingNews(String url) throws  IOException {
-        String originalURL = "https://zingnews.vn/";
+        String originalURL = "https://zingnews.vn";
         String newsURL;
         String title;
         String description;
@@ -79,7 +84,7 @@ public class NewsManagement {
     }
 
     public void loadTuoiTre(String url) throws  IOException {
-        String originalURL = "https://tuoitre.vn/";
+        String originalURL = "https://tuoitre.vn";
         String newsURL;
         String title;
         String description;
@@ -121,7 +126,7 @@ public class NewsManagement {
     }
 
     public void loadNhanDan(String url) throws  IOException {
-        String originalLink = "https://nhandan.vn/";
+        String originalLink = "https://nhandan.vn";
         String newsURL;
         String title;
         String description;
@@ -145,6 +150,10 @@ public class NewsManagement {
             }
         }
         return null;
+    }
+
+    public void clearList() {
+        newsList.clear();
     }
 
     public int getSize() { return this.newsList.size(); }
