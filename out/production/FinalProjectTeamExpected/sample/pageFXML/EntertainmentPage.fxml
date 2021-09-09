@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import java.util.ArrayList?>
-<ScrollPane fx:id="parent" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="813.0" styleClass="primary-parent" stylesheets="@../../fileCss/styleLightMode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BusinessController">
+<ScrollPane fx:id="parent" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="813.0" styleClass="primary-parent" stylesheets="@../../fileCss/styleLightMode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EntertainmentController">
     <content>
         <BorderPane styleClass="primary-parent">
             <top>
@@ -95,13 +95,13 @@
                                         <Insets bottom="10.0" />
                                     </padding>
                                 </FlowPane>
-                                <Line endX="537.2717895507812" endY="-3.8285269737243652" startX="350.0" startY="-3.8285555839538574" styleClass="line" />
-                                <Label alignment="CENTER" styleClass="tittle" text="BUSINESS">
+                                <Line endX="537.2717895507812" endY="-3.8285269737243652" startX="180.0" startY="-3.8285555839538574" styleClass="line" />
+                                <Label alignment="CENTER" styleClass="tittle" text="ENTERTAINMENT">
                                     <font>
                                         <Font name="Rockwell Bold" size="35.0" />
                                     </font>
                                 </Label>
-                                <Line endX="537.2717895507812" endY="-3.8285269737243652" startX="350.0" startY="-3.8285555839538574" styleClass="line" VBox.vgrow="ALWAYS" />
+                                <Line endX="537.2717895507812" endY="-3.8285269737243652" startX="180.0" startY="-3.8285555839538574" styleClass="line" VBox.vgrow="ALWAYS" />
                             </children>
                             <padding>
                                 <Insets left="5.0" right="5.0" />
@@ -133,6 +133,7 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
+                                                <Label fx:id="time1" text="Time" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -158,6 +159,7 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
+                                                <Label fx:id="time2" text="Time" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -180,6 +182,7 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
+                                                <Label fx:id="time3" text="Time" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -202,6 +205,7 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
+                                                <Label fx:id="time4" text="Time" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -224,6 +228,7 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
+                                                <Label fx:id="time5" text="Time" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -246,6 +251,7 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
+                                                <Label fx:id="time6" text="Time" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -268,6 +274,7 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
+                                                <Label fx:id="time7" text="Time" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -290,6 +297,7 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
+                                                <Label fx:id="time8" text="Time" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -312,6 +320,7 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
+                                                <Label fx:id="time9" text="Time" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -334,6 +343,7 @@
                                                         <Font size="15.0" />
                                                     </font>
                                                 </Label>
+                                                <Label fx:id="time10" text="Time" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -377,6 +387,18 @@
                                         <fx:reference source="img8" />
                                         <fx:reference source="img9" />
                                         <fx:reference source="img10" />
+                                    </ArrayList>
+                                    <ArrayList fx:id="timeList">
+                                        <fx:reference source="time1" />
+                                        <fx:reference source="time2" />
+                                        <fx:reference source="time3" />
+                                        <fx:reference source="time4" />
+                                        <fx:reference source="time5" />
+                                        <fx:reference source="time6" />
+                                        <fx:reference source="time7" />
+                                        <fx:reference source="time8" />
+                                        <fx:reference source="time9" />
+                                        <fx:reference source="time10" />
                                     </ArrayList>
                                 </fx:define>
                             </children>

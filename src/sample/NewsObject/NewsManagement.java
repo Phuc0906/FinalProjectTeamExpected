@@ -11,10 +11,36 @@ import java.util.ArrayList;
 public class NewsManagement {
     ArrayList<News> newsList = new ArrayList<>();
 
+
     public NewsManagement() {
     }
 
+    public void addContent(News news, String publishedDate, String timeDuration) {
+        newsList.add(new News(news.getNewsURL(), news.getTitle(), news.getDescription(), news.getImageURL(), publishedDate, timeDuration));
+    }
+
     public void loadThanhNien(String url) throws  IOException {
+        String newsURL;
+        String title;
+        String description;
+        String imageURL;
+        String origin = "https://thanhnien.vn/";
+        Document doc = Jsoup.connect(url).get();
+        Elements elements = doc.select("div.relative article.story");
+        for (Element element : elements) {
+            newsURL = element.select("a").attr("href");
+            if (!newsURL.contains("https:")) newsURL = origin + newsURL;
+            title = element.select("a").attr("title");
+            description = element.select("div.summary").text();
+            imageURL = element.select("a img").attr("data-src");
+            if (imageURL.isEmpty() || title.isEmpty()) {
+                continue;
+            }
+            this.newsList.add(new News(newsURL, title, description, imageURL));
+        }
+    }
+
+    public void loadThanhNienSport(String url) throws  IOException {
         String newsURL;
         String title;
         String description;
@@ -31,28 +57,8 @@ public class NewsManagement {
         }
     }
 
-    public void covidThanhNien(String url) throws  IOException{
-        String newsURL;
-        String title;
-        String description;
-        String imageURL;
-        Document doc = Jsoup.connect(url).get();
-        Elements el = doc.select("div.relative");
-        for (Element element : el.select("article")) {
-            newsURL = element.select("a").attr("href");
-            ///in special cases
-            if (!newsURL.contains("https")) newsURL = "https://thanhnien.vn" + element.select("a").attr("href");
-            title = element.select("a").attr("title");
-            imageURL = element.select("a img").attr("data-src");
-            description = element.select("div.summary").text();
-            //in special cases
-            if (description==null) description = element.select("div.summary div").text();
-            this.newsList.add(new News(newsURL, title, description, imageURL));
-        }
-    }
-
     public void loadZingNews(String url) throws  IOException {
-        String originalURL = "https://zingnews.vn/";
+        String originalURL = "https://zingnews.vn";
         String newsURL;
         String title;
         String description;
@@ -79,7 +85,7 @@ public class NewsManagement {
     }
 
     public void loadTuoiTre(String url) throws  IOException {
-        String originalURL = "https://tuoitre.vn/";
+        String originalURL = "https://tuoitre.vn";
         String newsURL;
         String title;
         String description;
@@ -121,7 +127,7 @@ public class NewsManagement {
     }
 
     public void loadNhanDan(String url) throws  IOException {
-        String originalLink = "https://nhandan.vn/";
+        String originalLink = "https://nhandan.vn";
         String newsURL;
         String title;
         String description;
@@ -145,6 +151,10 @@ public class NewsManagement {
             }
         }
         return null;
+    }
+
+    public void clearList() {
+        newsList.clear();
     }
 
     public int getSize() { return this.newsList.size(); }

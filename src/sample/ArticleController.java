@@ -5,18 +5,16 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.text.Text;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -36,9 +34,6 @@ public class ArticleController extends ChangingCategory {
 
     @FXML
     ScrollPane parent;
-
-    @FXML
-    Button logo;
 
 
     public void setError() throws IOException {
@@ -71,7 +66,7 @@ public class ArticleController extends ChangingCategory {
         articleBox.getChildren().add(description);
 
         Document doc = Jsoup.connect(news.getNewsURL()).get();
-        System.out.println(news.getNewsOutlet());
+        System.out.println(news.getNewsURL());
         switch (news.getNewsOutlet()) {
 
             case "VN Express": {
@@ -82,7 +77,7 @@ public class ArticleController extends ChangingCategory {
                 int imgCount = 0;
                 for (String para : paragraphList) {
                     Document docScript = Jsoup.parse(para);
-                    if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("TTO") && !docScript.text().replaceAll("\\s+","").equalsIgnoreCase(news.getDescription().replaceAll("\\s+",""))) {
+                    if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("Video:") && !docScript.text().contains("TTO") && !docScript.text().replaceAll("\\s+","").equalsIgnoreCase(news.getDescription().replaceAll("\\s+",""))) {
                         Label text = new Label();
                         text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
                         text.setText(docScript.text());
@@ -182,10 +177,8 @@ public class ArticleController extends ChangingCategory {
                             photo.setFitHeight(500);
                             photo.setFitWidth(600);
                             photo.setPreserveRatio(true);
-                            Label photoDescription = new Label(docScript.text());
-                            photoDescription.setWrapText(true);
-                            photoDescription.setPrefWidth(600);
-                            photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
+                            Text photoDescription = new Text(docScript.text());
+                            photoDescription.setWrappingWidth(550);
                             viewPhoto.getChildren().addAll(photo,photoDescription);
                             articleBox.getChildren().add(viewPhoto);
                             count++;
@@ -198,7 +191,6 @@ public class ArticleController extends ChangingCategory {
                         Label text = new Label();
                         text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
                         text.setWrapText(true);
-                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                         text.setText(docScript.text());
                         articleBox.getChildren().add(text);
                     }
@@ -234,6 +226,7 @@ public class ArticleController extends ChangingCategory {
                 author.setWrapText(true);
                 author.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                 articleBox.getChildren().add(author);
+                break;
             }
 
             case "Thanh Nien": {
@@ -256,7 +249,13 @@ public class ArticleController extends ChangingCategory {
                 for (int i = 0; i < desList.size(); i++) {
                     if (i % 2 != 0 || desList.get(i).contains("ẢNH: ")) {
                         String author = desList.get(i);
-                        if(author.length() != 0) auList.add(author);
+                        auList.add(author);
+                    }
+                }
+
+                for (int i = 0; i < desList.size(); i++) {
+                    if (i % 2 != 0 || desList.get(i).contains("ẢNH: ")) {
+                        desList.remove(i);
                     }
                 }
 
@@ -269,13 +268,9 @@ public class ArticleController extends ChangingCategory {
                 idPhotoDescription.setWrapText(true);
                 articleBox.getChildren().addAll(idPhoto, idPhotoDescription);
 
-
                 int cnt = 0;
                 Elements elements = doc.select("div#abody div");
-//                String[] paragraphs = elements.toString().split("\n");
-
                 for (Element paragraph : elements) {
-//                    Document docScript = Jsoup.parse(paragraph);
                     if (imgList.size() > 0 && paragraph.text().contains(desList.get(0))) {
                         try {
                             VBox viewPhoto = new VBox();
@@ -283,31 +278,36 @@ public class ArticleController extends ChangingCategory {
                             photo.setFitHeight(500);
                             photo.setFitWidth(600);
                             photo.setPreserveRatio(true);
-                            Label photoDescription = new Label(desList.get(cnt));
-                            Label author = new Label(auList.get(cnt));
-                            photoDescription.setWrapText(true);
-                            photoDescription.setPrefWidth(600);
-                            photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
+                            Text photoDescription = new Text(desList.get(cnt));
+                            Text author = new Text(auList.get(cnt));
+                            photoDescription.setWrappingWidth(550);
                             viewPhoto.getChildren().addAll(photo, photoDescription, author);
                             articleBox.getChildren().add(viewPhoto);
                             cnt++;
-                        } catch (Exception ex) {
-                            // skipping error
-                        }
-                    }
-                    Label text = new Label();
-                    text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
-                    text.setWrapText(true);
-                    text.setText(paragraph.text());
-                    text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                    articleBox.getChildren().add(text);
 
+                        } catch (Exception ex) {}
+                    }
+                    String redundancyText = paragraph.select("div.imgcaption p").text();
+                    if (paragraph.text().contains(redundancyText)) {
+                        String mainText = paragraph.text().replace(redundancyText, "");
+                        for (String author : auList) {
+                            mainText = mainText.replace(author, "");
+                        }
+//                       mainText = mainText.replaceAll("[\\r\\n]+", "");
+                        Label text = new Label();
+                        text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
+                        text.setWrapText(true);
+                        text.setText(mainText);
+                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
+                        articleBox.getChildren().add(text);
+                    }
                 }
                 System.out.println("Thanh Nien");
                 break;
             }
+
             default:
-                System.out.println(news.getNewsOutlet());
+                System.out.println("From unknown outlet");
         }
     }
 
@@ -323,6 +323,7 @@ public class ArticleController extends ChangingCategory {
 
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.setScene(this.previousScene);
+        stage.sizeToScene();
         stage.setWidth(width);
         stage.setHeight(height);
         stage.show();
