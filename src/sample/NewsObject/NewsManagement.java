@@ -104,7 +104,7 @@ public class NewsManagement {
             newsURL = originalURL + docScript.select("a").attr("href");
             imageURL = docScript.select("a img").attr("src");
             description = docScript.select("div.name-news p.sapo").text();
-            if(title.equals("") || imageURL.equals("") || newsURL.equals("") || description.equals("")) continue;
+            if(title.isEmpty() || imageURL.isEmpty() || newsURL.isEmpty() || description.isEmpty()) continue;
             this.newsList.add(new News(newsURL, title, description, imageURL));
         }
     }
