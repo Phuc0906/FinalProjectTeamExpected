@@ -131,7 +131,7 @@
                                                   <Font size="15.0" />
                                               </font>
                                           </Label>
-                                          <HBox alignment="BOTTOM_LEFT" prefWidth="200.0" spacing="40.0">
+                                          <HBox prefWidth="200.0" spacing="40.0">
                                               <children>
                                                   <Label fx:id="outlet1" text="Outlet" />
                                                   <Label fx:id="time1" text="Time" />
@@ -162,7 +162,7 @@
                                                   <Font size="15.0" />
                                               </font>
                                           </Label>
-                                          <HBox alignment="BOTTOM_LEFT" prefWidth="200.0" spacing="40.0">
+                                          <HBox prefWidth="200.0" spacing="40.0">
                                               <children>
                                                   <Label fx:id="outlet2" text="Outlet" />
                                                   <Label fx:id="time2" text="Time" />
