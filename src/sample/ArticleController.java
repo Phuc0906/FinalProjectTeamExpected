@@ -286,7 +286,7 @@ public class ArticleController extends ChangingCategory {
                 int cnt = 0;
                 Elements elements = doc.select("div#abody div");
                 for (Element paragraph : elements) {
-                    if (imgList.size() > 0 && paragraph.text().contains(desList.get(0))) {
+                    if (imgList.size() > 0 && paragraph.text().contains(desList.get(0)) && cnt < desList.size()) {
                         try {
                             VBox viewPhoto = new VBox();
                             ImageView photo = new ImageView(new Image(imgList.get(cnt)));
@@ -300,7 +300,9 @@ public class ArticleController extends ChangingCategory {
                             articleBox.getChildren().add(viewPhoto);
                             cnt++;
 
-                        } catch (Exception ex) {}
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
                     }
                     String redundancyText = paragraph.select("div.imgcaption p").text();
                     if (paragraph.text().contains(redundancyText)) {
@@ -310,11 +312,13 @@ public class ArticleController extends ChangingCategory {
                         }
 //                       mainText = mainText.replaceAll("[\\r\\n]+", "");
                         Label text = new Label();
-                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
+                        text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
                         text.setWrapText(true);
-                        text.setText(mainText);
-                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                        articleBox.getChildren().add(text);
+                        if (!mainText.equals("")) {
+                            text.setText(mainText);
+                            text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
+                            articleBox.getChildren().add(text);
+                        }
                     }
                 }
                 System.out.println("Thanh Nien");
