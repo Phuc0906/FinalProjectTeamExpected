@@ -49,9 +49,12 @@ public class SupportedMethod {
     public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList, AnchorPane coverPane){
         int count = begin;
         for (ImageView img: imgList) {
-            img.setImage(new Image(newsList.getNews(count).getImageURL()));
-            img.autosize();
-            count++;
+            try {
+                img.setImage(new Image(newsList.getNews(count).getImageURL()));
+                img.autosize();
+                count++;
+            } catch (Exception exception) {
+            }
         }
     }
 
