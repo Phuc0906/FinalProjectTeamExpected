@@ -286,7 +286,7 @@ public class ArticleController extends ChangingCategory {
                 int cnt = 0;
                 Elements elements = doc.select("div#abody div");
                 for (Element paragraph : elements) {
-                    if (imgList.size() > 0 && paragraph.text().contains(desList.get(0)) && cnt < desList.size()) {
+                    if (imgList.size() > 0 && paragraph.text().contains(desList.get(cnt)) && cnt < desList.size() - 1) {
                         try {
                             VBox viewPhoto = new VBox();
                             ImageView photo = new ImageView(new Image(imgList.get(cnt)));
