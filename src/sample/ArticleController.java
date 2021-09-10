@@ -293,9 +293,9 @@ public class ArticleController extends ChangingCategory {
                             photo.setFitHeight(500);
                             photo.setFitWidth(600);
                             photo.setPreserveRatio(true);
-                            Text photoDescription = new Text(desList.get(cnt));
-                            Text author = new Text(auList.get(cnt));
-                            photoDescription.setWrappingWidth(550);
+                            Label photoDescription = new Label(desList.get(cnt));
+                            Label author = new Label(auList.get(cnt));
+                            photoDescription.setWrapText(true);
                             viewPhoto.getChildren().addAll(photo, photoDescription, author);
                             articleBox.getChildren().add(viewPhoto);
                             cnt++;
