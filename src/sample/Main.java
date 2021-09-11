@@ -9,7 +9,7 @@
     Le Tan Phong s3877819
     Thai Thuan s3877024
   Last modified date: 11/9/2021
-  Acknowledgement: Thanks and give credits to the resources that you used in this file
+  Acknowledgement: https://www.youtube.com/watch?v=9XJicRt_FaI&t=5536s
 */
 package sample;
 
@@ -34,6 +34,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
         Parent homePage = loader.load();
 
+        // set content for the homepage
         NewController newController = loader.getController();
         newController.setTitle();
         newController.setDescription();
@@ -41,13 +42,15 @@ public class Main extends Application {
         newController.setTime();
         newController.setOutlet();
 
+        // show the stage
         primaryStage.setTitle("The ; expected");
         primaryStage.setScene(new Scene(homePage));
         primaryStage.show();
 
-
+        // send alert to user if they want to close the application
         primaryStage.setOnCloseRequest(event -> {
             event.consume();
+            // clear text files after closing application
             try {
                 clearFile();
             } catch (FileNotFoundException e) {
@@ -58,6 +61,7 @@ public class Main extends Application {
 
     }
 
+    // clear resource text files
     public void clearFile() throws FileNotFoundException {
         PrintWriter writer = new PrintWriter("src/sample/Document/categoryLinks.txt");
         writer.print("");
@@ -79,12 +83,14 @@ public class Main extends Application {
         writer5.close();
     }
 
+    // open alert scene
     public void closeApp(Stage stage) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Close App");
         alert.setContentText("Do you want to close the app?");
         alert.setHeaderText("You are trying to close the app");
 
+        // close the application if the user want to
         if(alert.showAndWait().get() == ButtonType.OK) {
             stage.close();
         }

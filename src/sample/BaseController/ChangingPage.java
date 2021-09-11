@@ -9,7 +9,7 @@
     Le Tan Phong s3877819
     Thai Thuan s3877024
   Last modified date: 11/9/2021
-  Acknowledgement: Thanks and give credits to the resources that you used in this file
+  Acknowledgement: https://www.youtube.com/watch?v=9XJicRt_FaI&t=5536s
 */
 package sample.BaseController;
 
@@ -306,6 +306,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     @FXML
     ArrayList<Label> outletList;
 
+    // set images for 1,2,3,4,5 button
     public void setImgList() {
         new SupportedMethod().setImgList(imgList, 0, this.newsList, coverPane);
     }
@@ -326,6 +327,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         supportedMethod.setImgList(imgList, 40, this.newsList, coverPane);
     }
 
+    // set description for 1,2,3,4,5 button
     public void setDescription() {
         supportedMethod.setDescriptionList(descriptionList, 0, this.newsList, imgList, coverPane);
     }
@@ -346,7 +348,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         supportedMethod.setDescriptionList(descriptionList, 40, this.newsList, imgList, coverPane);
     }
 
-
+    // set title for 1,2,3,4,5 button
     public void setTitle() {
         supportedMethod.setTitleList(titleList, 0, this.newsList, imgList, coverPane);
     }
@@ -405,7 +407,9 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         supportedMethod.setOutletList(outletList, 40, this.newsList);
     }
 
+    // button 1 event - go to first page of the category
     public void moveToPage1(ActionEvent event) throws IOException {
+        // set content of 10 latest news
         setImgList();
         setDescription();
         setTitle();
@@ -414,8 +418,9 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         parent.setVvalue(0);
     }
 
-
+    // button 2 event - go to second page of the category
     public void moveToPage2(ActionEvent event) throws IOException {
+        // set content for page 2
         setImgList2();
         setDescription2();
         setTitle2();
@@ -424,8 +429,9 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         parent.setVvalue(0);
     }
 
+    // button 3 event - go to third page of the category
     public void moveToPage3(ActionEvent event) throws IOException {
-
+        // set content for page 3
         setImgList3();
         setDescription3();
         setTitle3();
@@ -434,8 +440,9 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         parent.setVvalue(0);
     }
 
+    // button 4 event - go to fourth page of the category
     public void moveToPage4(ActionEvent event) throws IOException {
-
+        // set content for page 4
         setImgList4();
         setDescription4();
         setTitle4();
@@ -444,7 +451,9 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         parent.setVvalue(0);
     }
 
+    // button 5 event - go to fifth page of the category
     public void moveToPage5(ActionEvent event) throws IOException {
+        // set content for page 5
         setImgList5();
         setDescription5();
         setTitle5();
@@ -453,30 +462,37 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         parent.setVvalue(0);
     }
 
-
+    // Display the article
     public void toArticle1(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
+        // get the size of the previous window
         double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
         double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
+        // get the controller
         ArticleController articleController = loader.getController();
 
+        // pass this scene article controller to set this scene when using back button.
         Node node = (Node) event.getSource();
         Stage thisStage = (Stage) node.getScene().getWindow();
         Scene thisScene = thisStage.getScene();
         articleController.getPreviousScene(thisScene);
 
+        // pass the news to setContent method in articleController
         try {
             articleController.setContent(this.newsList.searchTitle(titleList.get(0).getText()));
         } catch (Exception ex) {
+            // set error scene
             articleController.setError();
         }
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        // set the scene to previous window size
         scene = new Scene(root, width, height);
         stage.setScene(scene);
+        // prevent the stage from getting smaller them the scene
         stage.sizeToScene();
         stage.show();
     }
@@ -485,25 +501,31 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
+        // get the size of the previous window
         double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
         double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
+        // pass this scene article controller to set this scene when using back button.
         Node node = (Node) event.getSource();
         Stage thisStage = (Stage) node.getScene().getWindow();
         Scene thisScene = thisStage.getScene();
         articleController.getPreviousScene(thisScene);
 
+        // pass the news to setContent method in articleController
         try {
             articleController.setContent(this.newsList.searchTitle(titleList.get(1).getText()));
         } catch (Exception ex) {
+            // set error scene
             articleController.setError();
         }
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        // set the scene to previous window size
         scene = new Scene(root, width, height);
         stage.setScene(scene);
+        // prevent the stage from getting smaller them the scene
         stage.sizeToScene();
         stage.show();
     }
@@ -512,25 +534,31 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/Article.fxml"));
         root = loader.load();
 
+        // get the size of the previous window
         double width = ((Node) event.getSource()).getScene().getWindow().getWidth();
         double height = ((Node) event.getSource()).getScene().getWindow().getHeight();
 
         ArticleController articleController = loader.getController();
 
+        // pass this scene article controller to set this scene when using back button.
         Node node = (Node) event.getSource();
         Stage thisStage = (Stage) node.getScene().getWindow();
         Scene thisScene = thisStage.getScene();
         articleController.getPreviousScene(thisScene);
 
+        // pass the news to setContent method in articleController
         try {
             articleController.setContent(this.newsList.searchTitle(titleList.get(2).getText()));
         } catch (Exception ex) {
+            // set error scene
             articleController.setError();
         }
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        // set the scene to previous window size
         scene = new Scene(root, width, height);
         stage.setScene(scene);
+        // prevent the stage from getting smaller them the scene
         stage.sizeToScene();
         stage.show();
     }
