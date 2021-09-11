@@ -184,6 +184,15 @@ public class ArticleController extends ChangingCategory {
                 // add all images to imgList
                 ArrayList<String> imgList = new ArrayList<>();
 
+                // get related articles
+                ArrayList<String> relatedNewsList = new ArrayList<>();
+                Elements relatedArticleSection = doc.select("div.the-article-body div.inner-article p");
+                for (Element el : relatedArticleSection) {
+                    String relatedNews = el.text();
+                    relatedNewsList.add(relatedNews);
+                }
+
+                // get img
                 Elements Box = doc.select("table.picture tbody tr td");
                 String[] BoxImg = Box.select("td.pic").toString().split("\"");
                 for (String box : BoxImg) {
@@ -207,6 +216,7 @@ public class ArticleController extends ChangingCategory {
                             photo.setFitWidth(600);
                             photo.setPreserveRatio(true);
                             Label photoDescription = new Label(docScript.text());
+                            photoDescription.setWrapText(true);
                             photoDescription.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                             viewPhoto.getChildren().addAll(photo,photoDescription);
                             articleBox.getChildren().add(viewPhoto);
@@ -216,7 +226,7 @@ public class ArticleController extends ChangingCategory {
                         }
                     }
 
-                    if (!docScript.text().contains("Ảnh: ")) {
+                    if (checkZingNewsContent(docScript.text(), relatedNewsList)) {
                         Label text = new Label();
                         text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
                         text.setWrapText(true);
@@ -341,6 +351,17 @@ public class ArticleController extends ChangingCategory {
         Label footer = new Label();
         footer.setText(news.getNewsOutlet() + " - " + news.getNewsTimeDuration());
         articleBox.getChildren().add(footer);
+    }
+
+    private boolean checkZingNewsContent(String text, ArrayList<String> relatedNewsList) {
+        boolean check1 = true;
+        boolean check2 = true;
+        for (String str : relatedNewsList) {
+            if (text.equals(str)) check1 = false;
+        }
+        if (text.contains("Ảnh: ")) check2 = false;
+        if(check1 == false || check2 == false) return false;
+        return true;
     }
 
     private Scene previousScene;
