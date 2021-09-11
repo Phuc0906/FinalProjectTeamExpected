@@ -117,11 +117,22 @@ public class ChangingCategory implements Initializable {
         politicsController.setTime();
         politicsController.setOutlet();
 
+        Thread thread = new Thread(new ShowingStage());
+        thread.start();
+
         // get current stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         // using same scene to stay in the same window size
         stage.getScene().setRoot(root);
         stage.show();
+    }
+
+    class ShowingStage implements Runnable {
+
+        @Override
+        public void run() {
+            Stage stage = new Stage();
+        }
     }
 
     public void toBusinessPage(ActionEvent actionEvent) throws IOException {

@@ -31,18 +31,10 @@ public class Main extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/LoadingScreen.fxml"));
         Parent homePage = loader.load();
 
-        // set content for the homepage
-        NewController newController = loader.getController();
-        newController.setTitle();
-        newController.setDescription();
-        newController.setImgList();
-        newController.setTime();
-        newController.setOutlet();
-
-        // show the stage
+//        // show the stage
         primaryStage.setTitle("The ; expected");
         primaryStage.setScene(new Scene(homePage));
         primaryStage.show();
