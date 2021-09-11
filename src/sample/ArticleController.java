@@ -207,6 +207,7 @@ public class ArticleController extends ChangingCategory {
                         Label text = new Label();
                         text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
                         text.setWrapText(true);
+                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                         text.setText(docScript.text());
                         articleBox.getChildren().add(text);
                     }
