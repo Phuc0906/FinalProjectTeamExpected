@@ -9,7 +9,7 @@
     Le Tan Phong s3877819
     Thai Thuan s3877024
   Last modified date: 11/9/2021
-  Acknowledgement: Thanks and give credits to the resources that you used in this file
+  Acknowledgement: https://www.youtube.com/watch?v=9XJicRt_FaI&t=5536s
 */
 package sample;
 
@@ -206,8 +206,8 @@ public class ArticleController extends ChangingCategory {
                             photo.setFitHeight(500);
                             photo.setFitWidth(600);
                             photo.setPreserveRatio(true);
-                            Text photoDescription = new Text(docScript.text());
-                            photoDescription.setWrappingWidth(550);
+                            Label photoDescription = new Label(docScript.text());
+                            photoDescription.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                             viewPhoto.getChildren().addAll(photo,photoDescription);
                             articleBox.getChildren().add(viewPhoto);
                             count++;
@@ -335,7 +335,6 @@ public class ArticleController extends ChangingCategory {
                         }
                     }
                 }
-                System.out.println("Thanh Nien");
                 break;
             }
         }

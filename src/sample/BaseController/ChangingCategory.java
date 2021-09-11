@@ -9,7 +9,7 @@
     Le Tan Phong s3877819
     Thai Thuan s3877024
   Last modified date: 11/9/2021
-  Acknowledgement: Thanks and give credits to the resources that you used in this file
+  Acknowledgement: https://www.youtube.com/watch?v=9XJicRt_FaI&t=5536s
 */
 package sample.BaseController;
 
@@ -70,6 +70,7 @@ public class ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
         root = loader.load();
 
+        // set up content of the category
         NewController newController = loader.getController();
         newController.setTitle();
         newController.setDescription();
@@ -77,7 +78,9 @@ public class ChangingCategory implements Initializable {
         newController.setTime();
         newController.setOutlet();
 
+        // get current stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        // using same scene to stay in the same window size
         stage.getScene().setRoot(root);
         stage.show();
     }
@@ -87,6 +90,7 @@ public class ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/CovidPage.fxml"));
         root = loader.load();
 
+        // set up content of the category
         CovidController covidController = loader.getController();
         covidController.setTitle();
         covidController.setDescription();
@@ -94,7 +98,9 @@ public class ChangingCategory implements Initializable {
         covidController.setTime();
         covidController.setOutlet();
 
+        // get current stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        // using same scene to stay in the same window size
         stage.getScene().setRoot(root);
         stage.show();
     }
@@ -103,6 +109,7 @@ public class ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/PoliticsPage.fxml"));
         root = loader.load();
 
+        // set up content of the category
         PoliticsController politicsController = loader.getController();
         politicsController.setTitle();
         politicsController.setDescription();
@@ -110,7 +117,9 @@ public class ChangingCategory implements Initializable {
         politicsController.setTime();
         politicsController.setOutlet();
 
+        // get current stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        // using same scene to stay in the same window size
         stage.getScene().setRoot(root);
         stage.show();
     }
@@ -119,6 +128,7 @@ public class ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/BusinessPage.fxml"));
         root = loader.load();
 
+        // set up content of the category
         BusinessController businessController = loader.getController();
         businessController.setImgList();
         businessController.setTitle();
@@ -126,7 +136,9 @@ public class ChangingCategory implements Initializable {
         businessController.setTime();
         businessController.setOutlet();
 
+        // get current stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        // using same scene to stay in the same window size
         stage.getScene().setRoot(root);
         stage.show();
     }
@@ -135,6 +147,7 @@ public class ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/TechPage.fxml"));
         root = loader.load();
 
+        // set up content of the category
         TechController techController = loader.getController();
         techController.setImgList();
         techController.setTitle();
@@ -142,7 +155,9 @@ public class ChangingCategory implements Initializable {
         techController.setTime();
         techController.setOutlet();
 
+        // get current stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        // using same scene to stay in the same window size
         stage.getScene().setRoot(root);
         stage.show();
     }
@@ -151,6 +166,7 @@ public class ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/HealthPage.fxml"));
         root = loader.load();
 
+        // set up content of the category
         HealthController healthController = loader.getController();
         healthController.setImgList();
         healthController.setTitle();
@@ -158,7 +174,9 @@ public class ChangingCategory implements Initializable {
         healthController.setTime();
         healthController.setOutlet();
 
+        // get current stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        // using same scene to stay in the same window size
         stage.getScene().setRoot(root);
         stage.show();
     }
@@ -167,6 +185,7 @@ public class ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/SportsPage.fxml"));
         root = loader.load();
 
+        // set up content of the category
         SportController sportController = loader.getController();
         sportController.setImgList();
         sportController.setTitle();
@@ -174,7 +193,9 @@ public class ChangingCategory implements Initializable {
         sportController.setTime();
         sportController.setOutlet();
 
+        // get current stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        // using same scene to stay in the same window size
         stage.getScene().setRoot(root);
         stage.show();
     }
@@ -183,6 +204,7 @@ public class ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/EntertainmentPage.fxml"));
         root = loader.load();
 
+        // set up content of the category
         EntertainmentController entertainmentController = loader.getController();
         entertainmentController.setTitle();
         entertainmentController.setDescription();
@@ -190,7 +212,9 @@ public class ChangingCategory implements Initializable {
         entertainmentController.setTime();
         entertainmentController.setOutlet();
 
+        // get current stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        // using same scene to stay in the same window size
         stage.getScene().setRoot(root);
         stage.show();
     }
@@ -199,6 +223,7 @@ public class ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/WorldPage.fxml"));
         root = loader.load();
 
+        // set up content of the category
         WorldController worldController = loader.getController();
         worldController.setImgList();
         worldController.setTitle();
@@ -206,7 +231,9 @@ public class ChangingCategory implements Initializable {
         worldController.setTime();
         worldController.setOutlet();
 
+        // get current stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        // using same scene to stay in the same window size
         stage.getScene().setRoot(root);
         stage.show();
     }
@@ -215,14 +242,17 @@ public class ChangingCategory implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/OthersPage.fxml"));
         root = loader.load();
 
+        // set up content of the category
         OthersController othersController = loader.getController();
         othersController.setImgList();
         othersController.setTitle();
         othersController.setDescription();
         othersController.setTime();
         othersController.setOutlet();
-        
+
+        // get current stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        // using same scene to stay in the same window size
         stage.getScene().setRoot(root);
         stage.show();
     }
