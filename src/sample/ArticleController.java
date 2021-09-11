@@ -57,7 +57,7 @@ public class ArticleController extends ChangingCategory {
         // add title
         Label title = new Label();
         title.setText(news.getTitle());
-        title.setFont(Font.font("", FontWeight.BOLD, 30));
+        title.setFont(Font.font("Roboto", FontWeight.BOLD, 30));
         title.setWrapText(true);
         title.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
         articleBox.getChildren().add(title);
@@ -65,7 +65,7 @@ public class ArticleController extends ChangingCategory {
         // add description
         Label description = new Label();
         description.setText(news.getDescription());
-        description.setFont(Font.font("", FontWeight.SEMI_BOLD, FontPosture.ITALIC, 20));
+        description.setFont(Font.font("Roboto", FontWeight.SEMI_BOLD, FontPosture.ITALIC, 20));
         description.setWrapText(true);
         description.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
         articleBox.getChildren().add(description);
@@ -90,7 +90,7 @@ public class ArticleController extends ChangingCategory {
                     // add paragraphs to the page
                     if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("Video:") && !docScript.text().contains("TTO") && !docScript.text().replaceAll("\\s+","").equalsIgnoreCase(news.getDescription().replaceAll("\\s+",""))) {
                         Label text = new Label();
-                        text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
+                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
                         text.setText(docScript.text());
                         text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                         text.setWrapText(true);
@@ -105,7 +105,7 @@ public class ArticleController extends ChangingCategory {
                             VBox viewPhoto = new VBox();
                             ImageView photo = new ImageView(new Image(imgList[imgCount]));
                             Label photoDescription = new Label(docScript.text());
-                            photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
+                            photoDescription.setFont(Font.font("Roboto", FontWeight.NORMAL,FontPosture.ITALIC,15));
                             photoDescription.setWrapText(true);
                             photoDescription.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                             viewPhoto.getChildren().addAll(photo,photoDescription);
@@ -140,7 +140,7 @@ public class ArticleController extends ChangingCategory {
                             VBox viewPhoto = new VBox();
                             ImageView photo = new ImageView(new Image(imgList.get(imgCount)));
                             Label photoDescription = new Label(docScript.text());
-                            photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
+                            photoDescription.setFont(Font.font("Roboto", FontWeight.NORMAL,FontPosture.ITALIC,15));
                             photoDescription.setWrapText(true);
                             photoDescription.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                             viewPhoto.getChildren().addAll(photo,photoDescription);
@@ -153,7 +153,7 @@ public class ArticleController extends ChangingCategory {
                     // add paragraphs
                     if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("TTO")) {
                         Label text = new Label();
-                        text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
+                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
                         text.setWrapText(true);
                         text.setText(docScript.text());
                         text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
@@ -205,7 +205,7 @@ public class ArticleController extends ChangingCategory {
 
                     if (!docScript.text().contains("Ảnh: ")) {
                         Label text = new Label();
-                        text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
+                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
                         text.setWrapText(true);
                         text.setText(docScript.text());
                         articleBox.getChildren().add(text);
@@ -219,7 +219,7 @@ public class ArticleController extends ChangingCategory {
                 Elements photoBox = doc.select("div.box-detail-thumb");
                 ImageView photo = new ImageView(new Image(photoBox.select("img").attr("src")));
                 Label photoDescription = new Label(photoBox.text());
-                photoDescription.setFont(Font.font("Arial", FontWeight.NORMAL,FontPosture.ITALIC,15));
+                photoDescription.setFont(Font.font("Roboto", FontWeight.NORMAL,FontPosture.ITALIC,15));
                 photoDescription.setWrapText(true);
                 photoDescription.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                 viewPhoto.setSpacing(0);
@@ -230,14 +230,14 @@ public class ArticleController extends ChangingCategory {
                 for (Element para : docText) {
                     String paragraph = para.text();
                     Label text = new Label();
-                    text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
+                    text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
                     text.setWrapText(true);
                     text.setText(paragraph);
                     text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                     articleBox.getChildren().add(text);
                 }
                 Label author = new Label(doc.select("div.entry-content div.box-author").text());
-                author.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
+                author.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
                 author.setWrapText(true);
                 author.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                 articleBox.getChildren().add(author);
@@ -286,21 +286,23 @@ public class ArticleController extends ChangingCategory {
                 int cnt = 0;
                 Elements elements = doc.select("div#abody div");
                 for (Element paragraph : elements) {
-                    if (imgList.size() > 0 && paragraph.text().contains(desList.get(0))) {
+                    if (imgList.size() > 0 && paragraph.text().contains(desList.get(cnt)) && cnt < desList.size() - 1) {
                         try {
                             VBox viewPhoto = new VBox();
                             ImageView photo = new ImageView(new Image(imgList.get(cnt)));
                             photo.setFitHeight(500);
                             photo.setFitWidth(600);
                             photo.setPreserveRatio(true);
-                            Text photoDescription = new Text(desList.get(cnt));
-                            Text author = new Text(auList.get(cnt));
-                            photoDescription.setWrappingWidth(550);
+                            Label photoDescription = new Label(desList.get(cnt));
+                            Label author = new Label(auList.get(cnt));
+                            photoDescription.setWrapText(true);
                             viewPhoto.getChildren().addAll(photo, photoDescription, author);
                             articleBox.getChildren().add(viewPhoto);
                             cnt++;
 
-                        } catch (Exception ex) {}
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
                     }
                     String redundancyText = paragraph.select("div.imgcaption p").text();
                     if (paragraph.text().contains(redundancyText)) {
@@ -312,9 +314,11 @@ public class ArticleController extends ChangingCategory {
                         Label text = new Label();
                         text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
                         text.setWrapText(true);
-                        text.setText(mainText);
-                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                        articleBox.getChildren().add(text);
+                        if (!mainText.equals("")) {
+                            text.setText(mainText);
+                            text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
+                            articleBox.getChildren().add(text);
+                        }
                     }
                 }
                 System.out.println("Thanh Nien");

@@ -27,7 +27,7 @@ public class SupportedMethod {
     public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, AnchorPane coverPane){
         int count = begin;
         for (Label title: labelList) {
-            title.setFont(Font.font("Time New Roman", FontWeight.BOLD, 30));
+            title.setFont(Font.font("Time New Roman", FontWeight.BOLD, 25));
             title.setAlignment(Pos.TOP_LEFT);
             title.setWrapText(true);
             title.setText(newsList.getNews(count).getTitle());
@@ -38,7 +38,7 @@ public class SupportedMethod {
     public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, AnchorPane coverPane){
         int count = begin;
         for (Label description: labelList) {
-            description.setFont(Font.font("Time New Roman", FontWeight.BOLD, 20));
+            description.setFont(Font.font("Time New Roman", FontWeight.NORMAL, 15));
             description.setAlignment(Pos.TOP_LEFT);
             description.setWrapText(true);
             description.setText(newsList.getNews(count).getDescription());
@@ -49,9 +49,12 @@ public class SupportedMethod {
     public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList, AnchorPane coverPane){
         int count = begin;
         for (ImageView img: imgList) {
-            img.setImage(new Image(newsList.getNews(count).getImageURL()));
-            img.autosize();
-            count++;
+            try {
+                img.setImage(new Image(newsList.getNews(count).getImageURL()));
+                img.autosize();
+                count++;
+            } catch (Exception exception) {
+            }
         }
     }
 
