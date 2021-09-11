@@ -1,3 +1,16 @@
+/*
+  RMIT University Vietnam
+  Course: INTE2512 Object-Oriented Programming
+  Semester: 2021B
+  Assessment: Final Project
+  Created  date: 17/7/2021
+  Author: Nguyen Hung Anh s3877798
+    Hoang Phuc s3879362
+    Le Tan Phong s3877819
+    Thai Thuan s3877024
+  Last modified date: 11/9/2021
+  Acknowledgement: Thanks and give credits to the resources that you used in this file
+*/
 package sample;
 
 import javafx.event.ActionEvent;
@@ -207,6 +220,7 @@ public class ArticleController extends ChangingCategory {
                         Label text = new Label();
                         text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
                         text.setWrapText(true);
+                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                         text.setText(docScript.text());
                         articleBox.getChildren().add(text);
                     }
