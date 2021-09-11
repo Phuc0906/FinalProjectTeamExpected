@@ -28,7 +28,7 @@ public class ScrapeArticle {
     }
 
     public ArrayList<String> scrapeArticleLink(String url, PrintWriter categorySource) throws IOException {
-        Document document = Jsoup.connect(url).timeout(500).get();
+        Document document = Jsoup.connect(url).timeout(200).get();
         Elements articles = document.select("article a");
         ArrayList<String> articleLinks = new ArrayList<>();
         if (articles.size() == 0) {
@@ -39,9 +39,13 @@ public class ScrapeArticle {
             if (!((articleLinks.contains(link.attr("href"))) && (link.attr("href").length() <= 1)) && !articleLinks.contains((link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href"))) {
                 String addedString = (link.attr("href").contains("http")) ? link.attr("href") : url + link.attr("href");
                 if (articleLinks.size() > 1) {
-                    if (addedString.contains(articleLinks.get(articleLinks.size() - 1)) && !(addedString.contains("video"))) {
+                    if (addedString.contains(articleLinks.get(articleLinks.size() - 1))) {
                         continue;
                     }
+                }
+
+                if (addedString.contains("video")) {
+                    continue;
                 }
                 articleLinks.add(addedString);
                 categorySource.println(addedString);

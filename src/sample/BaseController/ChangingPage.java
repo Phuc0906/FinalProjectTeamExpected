@@ -181,7 +181,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         ArrayList<Time> timesList = new ArrayList<>();
         for (int i = 0; i < this.newsList.getSize(); i++) {
             try {
-                Document newsDocument = Jsoup.connect(newsList.getNews(i).getNewsURL()).timeout(800).get();
+                Document newsDocument = Jsoup.connect(newsList.getNews(i).getNewsURL()).timeout(200).get();
                 String time = newsDocument.select("meta[itemprop=datePublished]").attr("content");
                 if (time.isEmpty()) {
                     time = newsDocument.select("div.box-date").text();
