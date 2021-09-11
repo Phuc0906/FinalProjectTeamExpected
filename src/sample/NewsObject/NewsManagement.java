@@ -115,8 +115,15 @@ public class NewsManagement {
             Document docScript = Jsoup.parse(art.replaceAll("\n", "") + "</li>");
             title = docScript.select("a").attr("title");
             newsURL = originalURL + docScript.select("a").attr("href");
-            imageURL = docScript.select("a img").attr("src");
+            if(!url.equals("https://congnghe.tuoitre.vn")) {
+                imageURL = docScript.select("a img").attr("src");
+            } else {
+                // get image url for tuoi tre tech
+                Document image = Jsoup.connect(newsURL).get();
+                imageURL = image.select("div.main-content-body div.VCSortableInPreviewMode img").attr("src");
+            }
             description = docScript.select("div.name-news p.sapo").text();
+
             if(title.isEmpty() || imageURL.isEmpty() || newsURL.isEmpty() || description.isEmpty()) continue;
             this.newsList.add(new News(newsURL, title, description, imageURL));
         }

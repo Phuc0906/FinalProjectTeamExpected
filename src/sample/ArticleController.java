@@ -148,7 +148,7 @@ public class ArticleController extends ChangingCategory {
                 for (String para : paragraphString) {
                     Document docScript = Jsoup.parse(para);
                     //add images
-                    if (docScript.text().contains("Ảnh:")) {
+                    if (docScript.text().contains("Ảnh:") || docScript.text().contains("Ảnh chụp màn hình") || docScript.text().contains("Ảnh minh họa:") || docScript.text().contains("Ảnh (minh họa):")) {
                         try {
                             VBox viewPhoto = new VBox();
                             ImageView photo = new ImageView(new Image(imgList.get(imgCount)));
@@ -164,7 +164,7 @@ public class ArticleController extends ChangingCategory {
                         }
                     }
                     // add paragraphs
-                    if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("TTO")) {
+                    if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("Ảnh chụp màn hình") && !docScript.text().contains("Ảnh minh họa:") && !docScript.text().contains("Ảnh (minh họa):") && !docScript.text().contains("TTO")) {
                         Label text = new Label();
                         text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
                         text.setWrapText(true);
