@@ -57,31 +57,39 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     private SupportedMethod supportedMethod = new SupportedMethod();
     private NewsManagement newsList;
 
-    public ChangingPage() throws FileNotFoundException {
+    public ChangingPage() throws IOException {
         newsList = new NewsManagement();
+        newsList.loadNhanDan("https://nhandan.vn/Search/%22covid%22");
+        newsList.loadVnExpress("https://timkiem.vnexpress.net/?q=covid");
+        newsList.loadTuoiTre("https://tuoitre.vn/tim-kiem.htm?keywords=covid");
+        newsList.loadThanhNien("https://thanhnien.vn/tim-kiem/Y292aWQ=/covid.html");
+        newsList.loadZingNews("https://zingnews.vn/covid-tim-kiem.html");
 
-        if (!isScrape()) {
-            try {
-                ScrapingCovid scrapingCovid = new ScrapingCovid();
-            }catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
 
-        File covidReader = new File("src/sample/Document/covid.txt");
-        Scanner reader = new Scanner(covidReader);
-        String title;
-        String imageUrl;
-        String description;
-        String newsURL;
-        while (reader.hasNextLine()) {
-            title = reader.nextLine();
-            description = reader.nextLine();
-            newsURL = reader.nextLine();
-            imageUrl = reader.nextLine();
-            reader.nextLine(); // skip the breaking line;
-            newsList.addContent(new News(newsURL, title, description, imageUrl));
-        }
+//        if (!isScrape()) {
+//            try {
+//                ScrapingCovid scrapingCovid = new ScrapingCovid();
+//            }catch (Exception ex) {
+//                ex.printStackTrace();
+//            }
+//        }
+//
+//        System.out.println("Done scraping");
+//
+//        File covidReader = new File("src/sample/Document/covid.txt");
+//        Scanner reader = new Scanner(covidReader);
+//        String title;
+//        String imageUrl;
+//        String description;
+//        String newsURL;
+//        while (reader.hasNextLine()) {
+//            title = reader.nextLine();
+//            description = reader.nextLine();
+//            newsURL = reader.nextLine();
+//            imageUrl = reader.nextLine();
+//            reader.nextLine(); // skip the breaking line;
+//            newsList.addContent(new News(newsURL, title, description, imageUrl));
+//        }
         sortNewsList();
     }
 
@@ -122,7 +130,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         newsList.loadVnExpress(vnExpressURL);
         newsList.loadTuoiTre(tuoiTreURL);
         newsList.loadThanhNien(thanhNienURL);
-//        newsList.loadNhanDan(nhanDanUrl);
+        newsList.loadNhanDan(nhanDanUrl);
         newsList.loadZingNews(zingURL);
 
         sortNewsList();
