@@ -102,12 +102,7 @@ public class ArticleController extends ChangingCategory {
                     Document docScript = Jsoup.parse(para);
                     // add paragraphs to the page
                     if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("Video:") && !docScript.text().contains("TTO") && !docScript.text().replaceAll("\\s+","").equalsIgnoreCase(news.getDescription().replaceAll("\\s+",""))) {
-                        Label text = new Label();
-                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
-                        text.setText(docScript.text());
-                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                        text.setWrapText(true);
-                        articleBox.getChildren().add(text);
+                        setParagraph(docScript.text());
                     }
 
                     // add images to the page
@@ -165,12 +160,7 @@ public class ArticleController extends ChangingCategory {
                     }
                     // add paragraphs
                     if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("Ảnh chụp màn hình") && !docScript.text().contains("Ảnh minh họa:") && !docScript.text().contains("Ảnh (minh họa):") && !docScript.text().contains("TTO")) {
-                        Label text = new Label();
-                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
-                        text.setWrapText(true);
-                        text.setText(docScript.text());
-                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                        articleBox.getChildren().add(text);
+                        setParagraph(docScript.text());
                     }
                 }
                 // add author name
@@ -227,12 +217,7 @@ public class ArticleController extends ChangingCategory {
                     }
 
                     if (checkZingNewsContent(docScript.text(), relatedNewsList)) {
-                        Label text = new Label();
-                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
-                        text.setWrapText(true);
-                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                        text.setText(docScript.text());
-                        articleBox.getChildren().add(text);
+                        setParagraph(docScript.text());
                     }
                 }
                 break;
@@ -252,13 +237,7 @@ public class ArticleController extends ChangingCategory {
 
                 Elements docText = doc.select("div.entry-content div.detail-content-body p");
                 for (Element para : docText) {
-                    String paragraph = para.text();
-                    Label text = new Label();
-                    text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
-                    text.setWrapText(true);
-                    text.setText(paragraph);
-                    text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                    articleBox.getChildren().add(text);
+                    setParagraph(para.text());
                 }
                 Label author = new Label(doc.select("div.entry-content div.box-author").text());
                 author.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
@@ -351,6 +330,15 @@ public class ArticleController extends ChangingCategory {
         Label footer = new Label();
         footer.setText(news.getNewsOutlet() + " - " + news.getNewsTimeDuration());
         articleBox.getChildren().add(footer);
+    }
+
+    private void setParagraph(String paragraph) {
+        Label text = new Label();
+        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
+        text.setText(paragraph);
+        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
+        text.setWrapText(true);
+        articleBox.getChildren().add(text);
     }
 
     private boolean checkZingNewsContent(String text, ArrayList<String> relatedNewsList) {
