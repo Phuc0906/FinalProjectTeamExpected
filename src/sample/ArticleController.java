@@ -165,14 +165,9 @@ public class ArticleController extends ChangingCategory {
                             // skipping error
                         }
                     }
-                    // add paragraphs
-                        Label text = new Label();
-                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
-                        text.setWrapText(true);
+                    // add paragraph
                         if (!docScript.text().contains("TTO")) {
-                            text.setText(docScript.text());
-                            text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                            articleBox.getChildren().add(text);
+                            setParagraph(docScript.text());
                         }
                 }
                 // add author name
@@ -235,7 +230,7 @@ public class ArticleController extends ChangingCategory {
                             // skipping error
                         }
                     }
-                    if (checkZingNewsContent(docScript.text(), relatedNewsList)) {
+                    if (checkZingNewsContent(docScript.text(), relatedNewsList, news.getDescription())) {
                         Label text = new Label();
                         text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
                         text.setWrapText(true);
@@ -375,13 +370,10 @@ public class ArticleController extends ChangingCategory {
 
     private boolean checkZingNewsContent(String text, ArrayList<String> relatedNewsList, String description) {
         for (String str : relatedNewsList) {
-            if (text.equals(str)) {
-                check1 = false;
-                break;
-            }
+            if (text.equals(str)) return false;
         }
-        if (text.contains("Ảnh: ")) check2 = false;
-        return check1 && check2;
+        if (!isParagraph(text,description)) return false;
+        return true;
     }
 
     private Scene previousScene;
