@@ -166,9 +166,12 @@ public class ArticleController extends ChangingCategory {
                         }
                     }
                     // add paragraph
-                        if (isParagraph(docScript.text(), news.getDescription())) {
-                            setParagraph(docScript.text());
-                        }
+//                        if (isParagraph(docScript.text(), news.getDescription())) {
+                            String mainText = mainScript(docScript.text(), desList);
+                            if(!mainText.equals("")) {
+                                setParagraph(mainText);
+                            }
+//                        }
                 }
                 // add author name
                 Elements author = doc.select("div.main-content-body div.author");
@@ -180,7 +183,7 @@ public class ArticleController extends ChangingCategory {
                 // scrape article from zing news
                 // add all images to imgList
                 ArrayList<String> imgList = new ArrayList<>();
-                List<String> desList = new ArrayList<>();
+                ArrayList<String> desList = new ArrayList<>();
 
                 // get related articles
                 ArrayList<String> relatedNewsList = new ArrayList<>();
@@ -231,12 +234,9 @@ public class ArticleController extends ChangingCategory {
                         }
                     }
                     if (checkZingNewsContent(docScript.text(), relatedNewsList, news.getDescription())) {
-                        Label text = new Label();
-                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
-                        text.setWrapText(true);
-                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                        text.setText(docScript.text());
-                        articleBox.getChildren().add(text);
+                        String mainText = mainScript(docScript.text(), desList);
+                        if (!mainText.equals(""))
+                            setParagraph(mainText);
                     }
                 }
                 break;
@@ -268,7 +268,6 @@ public class ArticleController extends ChangingCategory {
             }
 
             case "Thanh Nien": {
-                //create 
                 List<String> imgList = new ArrayList<>();
                 List<String> desList = new ArrayList<>();
                 List<String> auList = new ArrayList<>();
@@ -277,12 +276,12 @@ public class ArticleController extends ChangingCategory {
 
                 for (Element Box : Boxes) {
                     String urlImage = Box.select("img").attr("data-src");
-                    if (urlImage.length() != 0) imgList.add(urlImage);
+                    if (urlImage.length() != 0) imgList.add(urlImage); //add url image into list
                 }
 
                 for (Element Box : Boxes.select("div.imgcaption p")) {
                     String imgDes = Box.text();
-                    desList.add(imgDes);
+                    desList.add(imgDes);//add description
                 }
 
                 for (int i = 0; i < desList.size(); i++) {
@@ -294,7 +293,7 @@ public class ArticleController extends ChangingCategory {
 
                 for (int i = 0; i < desList.size(); i++) {
                     if (i % 2 != 0 || desList.get(i).contains("ẢNH: ")) {
-                        desList.remove(i);
+                        desList.remove(i);//remove redundant text in desList
                     }
                 }
 
@@ -339,6 +338,7 @@ public class ArticleController extends ChangingCategory {
                         }
                     }
                 }
+                //add author
                 Elements author = doc.select("div.left h4");
                 Label authLabel = new Label(author.text());
                 articleBox.getChildren().add(authLabel);
@@ -364,16 +364,14 @@ public class ArticleController extends ChangingCategory {
         for (String str : condition) {
             if (paragraph.contains(str)) return false;
         }
-        if (paragraph.replaceAll("\\s+","").equalsIgnoreCase(description.replaceAll("\\s+",""))) return false;
-        return true;
+        return !paragraph.replaceAll("\\s+", "").equalsIgnoreCase(description.replaceAll("\\s+", ""));
     }
 
     private boolean checkZingNewsContent(String text, ArrayList<String> relatedNewsList, String description) {
         for (String str : relatedNewsList) {
             if (text.equals(str)) return false;
         }
-        if (!isParagraph(text,description)) return false;
-        return true;
+        return isParagraph(text, description);
     }
 
     private Scene previousScene;
@@ -397,5 +395,12 @@ public class ArticleController extends ChangingCategory {
         stage.setWidth(width);
         stage.setHeight(height);
         stage.show();
+    }
+
+    private String mainScript(String docScript, ArrayList<String> desList) {
+        for (String des : desList) {
+             docScript = docScript.replace(des, "");
+        }
+        return docScript;
     }
 }
