@@ -129,39 +129,51 @@ public class ArticleController extends ChangingCategory {
 
             case "Tuoi Tre": {
                 // scrape article from tuoi tre
-                int imgCount = 0;
+                int cnt = 0;
                 // add all images to imgList
                 ArrayList<String> imgList = new ArrayList<>();
+                ArrayList<String> desList = new ArrayList<>();
                 Elements list = doc.select("div.main-content-body div.VCSortableInPreviewMode");
                 for (Element html : list) {
                     String img = html.select("img").attr("src");
                     imgList.add(img);
                 }
 
+                for (Element html : list) {
+                    String desImg = html.select("div.PhotoCMS_Caption p").text();
+                    desList.add(desImg);
+                }
+
                 Elements paragraph = doc.select("div.main-content-body p");
                 String[] paragraphString = paragraph.toString().split("\n");
+
                 for (String para : paragraphString) {
                     Document docScript = Jsoup.parse(para);
                     //add images
-                    if (!isParagraph(docScript.text(),news.getDescription()) && !docScript.text().contains("Video: ") && !docScript.text().contains("TTO")) {
+                    if (imgList.size() > 0 && paragraph.text().contains(desList.get(cnt)) && cnt < desList.size() - 1) {
                         try {
                             VBox viewPhoto = new VBox();
-                            ImageView photo = new ImageView(new Image(imgList.get(imgCount)));
-                            Label photoDescription = new Label(docScript.text());
+                            ImageView photo = new ImageView(new Image(imgList.get(cnt)));
+                            Label photoDescription = new Label(desList.get(cnt));
                             photoDescription.setFont(Font.font("Roboto", FontWeight.NORMAL,FontPosture.ITALIC,15));
                             photoDescription.setWrapText(true);
                             photoDescription.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                             viewPhoto.getChildren().addAll(photo,photoDescription);
                             articleBox.getChildren().add(viewPhoto);
-                            imgCount++;
+                            cnt++;
                         } catch (Exception ex) {
                             // skipping error
                         }
                     }
                     // add paragraphs
-                    if (isParagraph(docScript.text(), news.getDescription())) {
-                        setParagraph(docScript.text());
-                    }
+                        Label text = new Label();
+                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
+                        text.setWrapText(true);
+                        if (!docScript.text().contains("TTO")) {
+                            text.setText(docScript.text());
+                            text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
+                            articleBox.getChildren().add(text);
+                        }
                 }
                 // add author name
                 Elements author = doc.select("div.main-content-body div.author");
@@ -173,6 +185,7 @@ public class ArticleController extends ChangingCategory {
                 // scrape article from zing news
                 // add all images to imgList
                 ArrayList<String> imgList = new ArrayList<>();
+                List<String> desList = new ArrayList<>();
 
                 // get related articles
                 ArrayList<String> relatedNewsList = new ArrayList<>();
@@ -191,6 +204,13 @@ public class ArticleController extends ChangingCategory {
                     }
                 }
 
+                String[] BoxDes = Box.select("td.pCaption").toString().split("\n");
+                for (String box : BoxDes) {
+                    Document document = Jsoup.parse(box);
+                    String desImg = document.select("p").text();
+                    desList.add(desImg);
+                }
+
                 int count = 0;
                 Elements elements = doc.select("div.the-article-body p");
                 String[] paragraphs = elements.toString().split("\n");
@@ -198,14 +218,14 @@ public class ArticleController extends ChangingCategory {
                 for (String paragraph : paragraphs) {
                     Document docScript = Jsoup.parse(paragraph);
 
-                    if (!isParagraph(docScript.text(),news.getDescription()) && !docScript.text().contains("Video: ") && !docScript.text().contains("TTO")) {
+                    if (imgList.size() > 0 && docScript.text().contains(desList.get(count)) && count < desList.size() - 1) {
                         try {
                             VBox viewPhoto = new VBox();
                             ImageView photo = new ImageView(new Image(imgList.get(count)));
                             photo.setFitHeight(500);
                             photo.setFitWidth(600);
                             photo.setPreserveRatio(true);
-                            Label photoDescription = new Label(docScript.text());
+                            Label photoDescription = new Label(desList.get(count));
                             photoDescription.setWrapText(true);
                             photoDescription.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
                             viewPhoto.getChildren().addAll(photo,photoDescription);
@@ -215,19 +235,24 @@ public class ArticleController extends ChangingCategory {
                             // skipping error
                         }
                     }
-
-                    if (checkZingNewsContent(docScript.text(), relatedNewsList, news.getDescription())) {
-                        setParagraph(docScript.text());
+                    if (checkZingNewsContent(docScript.text(), relatedNewsList)) {
+                        Label text = new Label();
+                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
+                        text.setWrapText(true);
+                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
+                        text.setText(docScript.text());
+                        articleBox.getChildren().add(text);
                     }
                 }
                 break;
             }
 
             case "Nhan Dan": {
+                //Add photo
                 VBox viewPhoto = new VBox();
                 Elements photoBox = doc.select("div.box-detail-thumb");
                 ImageView photo = new ImageView(new Image(photoBox.select("img").attr("src")));
-                Label photoDescription = new Label(photoBox.text());
+                Label photoDescription = new Label(photoBox.text());//add photo description
                 photoDescription.setFont(Font.font("Roboto", FontWeight.NORMAL,FontPosture.ITALIC,15));
                 photoDescription.setWrapText(true);
                 photoDescription.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
@@ -248,6 +273,7 @@ public class ArticleController extends ChangingCategory {
             }
 
             case "Thanh Nien": {
+                //create 
                 List<String> imgList = new ArrayList<>();
                 List<String> desList = new ArrayList<>();
                 List<String> auList = new ArrayList<>();
@@ -318,6 +344,9 @@ public class ArticleController extends ChangingCategory {
                         }
                     }
                 }
+                Elements author = doc.select("div.left h4");
+                Label authLabel = new Label(author.text());
+                articleBox.getChildren().add(authLabel);
                 break;
             }
         }
@@ -346,10 +375,13 @@ public class ArticleController extends ChangingCategory {
 
     private boolean checkZingNewsContent(String text, ArrayList<String> relatedNewsList, String description) {
         for (String str : relatedNewsList) {
-            if (text.equals(str)) return false;
+            if (text.equals(str)) {
+                check1 = false;
+                break;
+            }
         }
-        if (!isParagraph(text, description)) return false;
-        return true;
+        if (text.contains("Ảnh: ")) check2 = false;
+        return check1 && check2;
     }
 
     private Scene previousScene;
