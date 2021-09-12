@@ -20,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import sample.SupportClass.ScrapeArticle;
 import sample.SupportClass.ScrapingCovid;
 import sample.SupportClass.SupportedMethod;
@@ -37,6 +38,7 @@ public class Main extends Application {
 //        // show the stage
         primaryStage.setTitle("The ; expected");
         primaryStage.setScene(new Scene(homePage));
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
 
         // send alert to user if they want to close the application

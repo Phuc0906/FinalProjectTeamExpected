@@ -2,13 +2,90 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="coverPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoadingScreenController">
+<AnchorPane fx:id="coverPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1e1e23;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoadingScreenController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="101.0" prefHeight="185.0" prefWidth="488.0" text="Articles are loading..." AnchorPane.bottomAnchor="114.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="101.0">
+      <Pane layoutX="-94.0" layoutY="-19.0" prefHeight="200.0" prefWidth="200.0" rotate="45.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Pane layoutX="-21.0" layoutY="-22.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e2e2e2;" />
+         </children>
+      </Pane>
+      <Pane layoutX="569.0" layoutY="81.0" prefHeight="200.0" prefWidth="17.0" style="-fx-background-color: #f63b01;" />
+      <Label alignment="CENTER" layoutX="180.0" layoutY="260.0" text="T H E ; E X P E C T E D" textAlignment="CENTER" textFill="#505054">
          <font>
-            <Font size="36.0" />
-         </font></Label>
+            <Font name="Segoe UI Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="454.0" layoutY="346.0" text="RMIT UNIVERITY" textAlignment="CENTER" textFill="#505054">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="270.0" layoutY="373.0" text="School of Science and Technology (SST)" textAlignment="CENTER" textFill="#505054">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="360.0" text="Loading . . . " textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="157.0" layoutY="146.0" text="NEWSPAPER APPLICATION">
+         <textFill>
+            <LinearGradient endX="0.5952380952380952" endY="0.5428571428571429" startX="0.7714285714285715">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9736841917037964" green="0.9331140518188477" blue="0.9331140518188477" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.21305841924398625">
+                     <color>
+                        <Color red="0.9700000286102295" green="0.9312000274658203" blue="0.9312000274658203" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.3917525773195877">
+                     <color>
+                        <Color red="0.9700000286102295" green="0.9312000274658203" blue="0.9312000274658203" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.4673539518900343">
+                     <color>
+                        <Color red="0.9700000286102295" green="0.9312000274658203" blue="0.9312000274658203" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.6013745704467354">
+                     <color>
+                        <Color red="0.9700000286102295" green="0.9312000274658203" blue="0.9312000274658203" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.7766323024054982">
+                     <color>
+                        <Color red="0.9700000286102295" green="0.9312000274658203" blue="0.9312000274658203" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="283.0" layoutY="231.0" text="from" textAlignment="CENTER" textFill="#505054">
+         <font>
+            <Font name="Segoe UI Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
