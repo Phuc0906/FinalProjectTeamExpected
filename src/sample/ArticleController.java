@@ -180,7 +180,6 @@ public class ArticleController extends ChangingCategory {
                             articleBox.getChildren().add(text);
                         }
                 }
-                System.out.println(desList);
                 // add author name
                 Elements author = doc.select("div.main-content-body div.author");
                 articleBox.getChildren().add(new Label(author.text()));
@@ -254,10 +253,11 @@ public class ArticleController extends ChangingCategory {
             }
 
             case "Nhan Dan": {
+                //Add photo
                 VBox viewPhoto = new VBox();
                 Elements photoBox = doc.select("div.box-detail-thumb");
                 ImageView photo = new ImageView(new Image(photoBox.select("img").attr("src")));
-                Label photoDescription = new Label(photoBox.text());
+                Label photoDescription = new Label(photoBox.text());//add photo description
                 photoDescription.setFont(Font.font("Roboto", FontWeight.NORMAL,FontPosture.ITALIC,15));
                 photoDescription.setWrapText(true);
                 photoDescription.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
@@ -284,6 +284,7 @@ public class ArticleController extends ChangingCategory {
             }
 
             case "Thanh Nien": {
+                //create 
                 List<String> imgList = new ArrayList<>();
                 List<String> desList = new ArrayList<>();
                 List<String> auList = new ArrayList<>();
@@ -360,6 +361,9 @@ public class ArticleController extends ChangingCategory {
                         }
                     }
                 }
+                Elements author = doc.select("div.left h4");
+                Label authLabel = new Label(author.text());
+                articleBox.getChildren().add(authLabel);
                 break;
             }
         }
