@@ -101,17 +101,12 @@ public class ArticleController extends ChangingCategory {
                 for (String para : paragraphList) {
                     Document docScript = Jsoup.parse(para);
                     // add paragraphs to the page
-                    if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("Video:") && !docScript.text().contains("TTO") && !docScript.text().replaceAll("\\s+","").equalsIgnoreCase(news.getDescription().replaceAll("\\s+",""))) {
-                        Label text = new Label();
-                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
-                        text.setText(docScript.text());
-                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                        text.setWrapText(true);
-                        articleBox.getChildren().add(text);
+                    if (isParagraph(docScript.text(),news.getDescription())) {
+                        setParagraph(docScript.text());
                     }
 
                     // add images to the page
-                    if (docScript.text().contains("Ảnh:")) {
+                    if (!isParagraph(docScript.text(),news.getDescription()) && !docScript.text().contains("Video: ") && !docScript.text().contains("TTO")) {
                         try {
                             Document img = Jsoup.parse(figures[imgCount].replaceAll("\n", "") + "</figure>");
                             String[] imgList = img.select("source").attr("data-srcset").split(" ");
@@ -148,7 +143,7 @@ public class ArticleController extends ChangingCategory {
                 for (String para : paragraphString) {
                     Document docScript = Jsoup.parse(para);
                     //add images
-                    if (docScript.text().contains("Ảnh:") || docScript.text().contains("Ảnh chụp màn hình") || docScript.text().contains("Ảnh minh họa:") || docScript.text().contains("Ảnh (minh họa):")) {
+                    if (!isParagraph(docScript.text(),news.getDescription()) && !docScript.text().contains("Video: ") && !docScript.text().contains("TTO")) {
                         try {
                             VBox viewPhoto = new VBox();
                             ImageView photo = new ImageView(new Image(imgList.get(imgCount)));
@@ -164,13 +159,8 @@ public class ArticleController extends ChangingCategory {
                         }
                     }
                     // add paragraphs
-                    if (!docScript.text().contains("Ảnh:") && !docScript.text().contains("Ảnh chụp màn hình") && !docScript.text().contains("Ảnh minh họa:") && !docScript.text().contains("Ảnh (minh họa):") && !docScript.text().contains("TTO")) {
-                        Label text = new Label();
-                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
-                        text.setWrapText(true);
-                        text.setText(docScript.text());
-                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                        articleBox.getChildren().add(text);
+                    if (isParagraph(docScript.text(), news.getDescription())) {
+                        setParagraph(docScript.text());
                     }
                 }
                 // add author name
@@ -208,7 +198,7 @@ public class ArticleController extends ChangingCategory {
                 for (String paragraph : paragraphs) {
                     Document docScript = Jsoup.parse(paragraph);
 
-                    if (docScript.text().contains("Ảnh: ")) {
+                    if (!isParagraph(docScript.text(),news.getDescription()) && !docScript.text().contains("Video: ") && !docScript.text().contains("TTO")) {
                         try {
                             VBox viewPhoto = new VBox();
                             ImageView photo = new ImageView(new Image(imgList.get(count)));
@@ -226,13 +216,8 @@ public class ArticleController extends ChangingCategory {
                         }
                     }
 
-                    if (checkZingNewsContent(docScript.text(), relatedNewsList)) {
-                        Label text = new Label();
-                        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
-                        text.setWrapText(true);
-                        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                        text.setText(docScript.text());
-                        articleBox.getChildren().add(text);
+                    if (checkZingNewsContent(docScript.text(), relatedNewsList, news.getDescription())) {
+                        setParagraph(docScript.text());
                     }
                 }
                 break;
@@ -252,13 +237,7 @@ public class ArticleController extends ChangingCategory {
 
                 Elements docText = doc.select("div.entry-content div.detail-content-body p");
                 for (Element para : docText) {
-                    String paragraph = para.text();
-                    Label text = new Label();
-                    text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
-                    text.setWrapText(true);
-                    text.setText(paragraph);
-                    text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                    articleBox.getChildren().add(text);
+                    setParagraph(para.text());
                 }
                 Label author = new Label(doc.select("div.entry-content div.box-author").text());
                 author.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
@@ -334,14 +313,8 @@ public class ArticleController extends ChangingCategory {
                         for (String author : auList) {
                             mainText = mainText.replace(author, "");
                         }
-//                       mainText = mainText.replaceAll("[\\r\\n]+", "");
-                        Label text = new Label();
-                        text.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
-                        text.setWrapText(true);
                         if (!mainText.equals("")) {
-                            text.setText(mainText);
-                            text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
-                            articleBox.getChildren().add(text);
+                            setParagraph(mainText);
                         }
                     }
                 }
@@ -353,14 +326,29 @@ public class ArticleController extends ChangingCategory {
         articleBox.getChildren().add(footer);
     }
 
-    private boolean checkZingNewsContent(String text, ArrayList<String> relatedNewsList) {
-        boolean check1 = true;
-        boolean check2 = true;
-        for (String str : relatedNewsList) {
-            if (text.equals(str)) check1 = false;
+    private void setParagraph(String paragraph) {
+        Label text = new Label();
+        text.setFont(Font.font("Roboto", FontWeight.NORMAL, 20));
+        text.setText(paragraph);
+        text.prefWidthProperty().bind(articleBox.widthProperty().divide(3).multiply(2));
+        text.setWrapText(true);
+        articleBox.getChildren().add(text);
+    }
+
+    private boolean isParagraph(String paragraph, String description) {
+        String[] condition = {"Ảnh:","Video:","TTO","Ảnh chụp màn hình","Ảnh minh họa:","Ảnh (minh họa):" };
+        for (String str : condition) {
+            if (paragraph.contains(str)) return false;
         }
-        if (text.contains("Ảnh: ")) check2 = false;
-        if(check1 == false || check2 == false) return false;
+        if (paragraph.replaceAll("\\s+","").equalsIgnoreCase(description.replaceAll("\\s+",""))) return false;
+        return true;
+    }
+
+    private boolean checkZingNewsContent(String text, ArrayList<String> relatedNewsList, String description) {
+        for (String str : relatedNewsList) {
+            if (text.equals(str)) return false;
+        }
+        if (!isParagraph(text, description)) return false;
         return true;
     }
 
