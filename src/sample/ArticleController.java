@@ -168,7 +168,7 @@ public class ArticleController extends ChangingCategory {
                     // add paragraph
 //                        if (isParagraph(docScript.text(), news.getDescription())) {
                             String mainText = mainScript(docScript.text(), desList);
-                            if(!mainText.equals("")) {
+                            if(!mainText.equals("") && isParagraph(mainText, news.getDescription())) {
                                 setParagraph(mainText);
                             }
 //                        }
