@@ -166,7 +166,7 @@ public class ArticleController extends ChangingCategory {
                         }
                     }
                     // add paragraph
-                        if (!docScript.text().contains("TTO")) {
+                        if (isParagraph(docScript.text(), news.getDescription())) {
                             setParagraph(docScript.text());
                         }
                 }
