@@ -44,16 +44,13 @@ public class LoadingScreenController implements Initializable {
             newController.setTime();
             newController.setOutlet();
             Parent finalHomePage = homePage;
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
+            Platform.runLater(() -> {
 
-                    Stage stage = new Stage();
-                    stage.setScene(new Scene(finalHomePage));
-                    stage.show();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(finalHomePage));
+                stage.show();
 
-                    coverPane.getScene().getWindow().hide();
-                }
+                coverPane.getScene().getWindow().hide();
             });
 
 

@@ -73,29 +73,24 @@ public class ScrapeArticle {
     }
 
     public boolean checkInterrupted() {
-        return (covidCount == 50);
+        return (getCovidCount() > 50);
     }
 
     public void scrapeArticle(String url) throws IOException {
 
         // String array for the gioi detection
         String[] countries = new String[]{ "mỹ", "việt nam", "afghanistan", "nhật bản"};
-        Document document = Jsoup.connect(url).timeout(200).get();
+        Document document = Jsoup.connect(url).timeout(100).get();
 
         // check keywords at the beginning if there is any article do not have keyword => ignore
         // use string category to store the category which article belongs to
         String keywords = "";
         Elements keyWord = document.select("meta[property=article:tag]");
         for (Element keyword: keyWord) {
-            // check category
-            for (String country: countries) {
-                // compare the keyword with country array
-                if (keyword.attr("content").toLowerCase().contains(country)) {
-                    break;
-                }
-            }
             keywords += keyword.attr("content").toLowerCase() + "";
         }
+
+        keywords += document.select("meta[name=keywords]").attr("content").toLowerCase();
         if (keywords.isEmpty()) {
             return; // interrupt method
         }
@@ -121,15 +116,11 @@ public class ScrapeArticle {
 
         if (!(keywords.isEmpty() || imageURLs.isEmpty() || time.isEmpty() || description.isEmpty())) {
             if (keywords.contains("covid")) {
-                if (covidCount == 50) {
+                if (getCovidCount() >= 50) {
                     return;
                 }
-                covidFile.println(title);
-                covidFile.println(description);
-                covidFile.println(newsURL);
-                covidFile.println(imageURLs);
-                covidFile.println("breakline-------------------------------------------------------");
-                covidCount++;
+
+                setFile(title, description, newsURL, imageURLs);
             }
         }
 
@@ -168,5 +159,18 @@ public class ScrapeArticle {
         }
 
 
+    }
+
+    private synchronized void setFile(String title, String description, String newsURL, String imageURLs) {
+        covidFile.println(title);
+        covidFile.println(description);
+        covidFile.println(newsURL);
+        covidFile.println(imageURLs);
+        covidFile.println("breakline-------------------------------------------------------");
+        covidCount++;
+    }
+
+    public synchronized int getCovidCount() {
+        return this.covidCount;
     }
 }
