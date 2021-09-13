@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="parent" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="813.0" styleClass="primary-parent" stylesheets="@../../fileCss/styleLightMode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ArticleController">
+<ScrollPane fx:id="parent" fitToWidth="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="813.0" styleClass="primary-parent" stylesheets="@../../fileCss/styleLightMode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ArticleController">
     <content>
         <BorderPane fx:id="coverPane" styleClass="primary-parent">
             <top>
