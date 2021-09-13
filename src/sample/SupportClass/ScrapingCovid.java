@@ -186,6 +186,7 @@ public class ScrapingCovid {
                 while (fileReader.hasNextLine()) {
                     categoryURL = fileReader.nextLine();
                     if (scrapeArticle.checkInterrupted()) {
+                        System.out.println("Article count: " + scrapeArticle.getCovidCount());
                         break;
                     }
                     try {

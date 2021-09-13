@@ -22,15 +22,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import sample.ArticleController;
+import sample.LoadingPage.SortingTime;
 import sample.NewsObject.News;
 import sample.NewsObject.NewsManagement;
 import sample.NewsObject.Time;
@@ -53,31 +57,39 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     private SupportedMethod supportedMethod = new SupportedMethod();
     private NewsManagement newsList;
 
-    public ChangingPage() throws FileNotFoundException {
+    public ChangingPage() throws IOException {
         newsList = new NewsManagement();
+        newsList.loadNhanDan("https://nhandan.vn/Search/%22covid%22");
+        newsList.loadVnExpress("https://timkiem.vnexpress.net/?q=covid");
+        newsList.loadTuoiTre("https://tuoitre.vn/tim-kiem.htm?keywords=covid");
+        newsList.loadThanhNien("https://thanhnien.vn/tim-kiem/Y292aWQ=/covid.html");
+        newsList.loadZingNews("https://zingnews.vn/covid-tim-kiem.html");
 
-        if (!isScrape()) {
-            try {
-                ScrapingCovid scrapingCovid = new ScrapingCovid();
-            }catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
 
-        File covidReader = new File("src/sample/Document/covid.txt");
-        Scanner reader = new Scanner(covidReader);
-        String title;
-        String imageUrl;
-        String description;
-        String newsURL;
-        while (reader.hasNextLine()) {
-            title = reader.nextLine();
-            description = reader.nextLine();
-            newsURL = reader.nextLine();
-            imageUrl = reader.nextLine();
-            reader.nextLine(); // skip the breaking line;
-            newsList.addContent(new News(newsURL, title, description, imageUrl));
-        }
+//        if (!isScrape()) {
+//            try {
+//                ScrapingCovid scrapingCovid = new ScrapingCovid();
+//            }catch (Exception ex) {
+//                ex.printStackTrace();
+//            }
+//        }
+//
+//        System.out.println("Done scraping");
+//
+//        File covidReader = new File("src/sample/Document/covid.txt");
+//        Scanner reader = new Scanner(covidReader);
+//        String title;
+//        String imageUrl;
+//        String description;
+//        String newsURL;
+//        while (reader.hasNextLine()) {
+//            title = reader.nextLine();
+//            description = reader.nextLine();
+//            newsURL = reader.nextLine();
+//            imageUrl = reader.nextLine();
+//            reader.nextLine(); // skip the breaking line;
+//            newsList.addContent(new News(newsURL, title, description, imageUrl));
+//        }
         sortNewsList();
     }
 
@@ -120,6 +132,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         newsList.loadThanhNien(thanhNienURL);
         newsList.loadNhanDan(nhanDanUrl);
         newsList.loadZingNews(zingURL);
+
         sortNewsList();
     }
 
@@ -246,6 +259,35 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         }
 
         // re-write newlist
+        newsList.clearList();
+        LocalDate localDate = LocalDate.now();
+        Calendar calendar = new GregorianCalendar();
+        String timeDuration = "";
+        String datePublished;
+        for (Time time : timesList) {
+            if (localDate.getMonthValue() - time.getMonth() == 0) {
+                if (localDate.getDayOfMonth() - time.getDay() == 0) {
+                    if (calendar.get(Calendar.HOUR_OF_DAY) - time.getHour() == 0) {
+                        if (calendar.get(Calendar.MINUTE) - time.getMinute() == 0) {
+                            timeDuration = "Just now";
+                        } else {
+                            timeDuration = (calendar.get(Calendar.MINUTE) - time.getMinute()) + " minutes ago";
+                        }
+                    } else {
+                        timeDuration = (calendar.get(Calendar.HOUR_OF_DAY) - time.getHour()) + " hours ago";
+                    }
+                } else {
+                    timeDuration = (localDate.getDayOfMonth() - time.getDay()) + " days ago";
+                }
+            } else {
+                timeDuration = (localDate.getMonthValue() - time.getMonth()) + " months ago";
+            }
+            datePublished = time.getDay() + "/" + time.getMonth() + "/" + localDate.getYear() + " - " + time.getHour() + ":" + time.getMinute();
+            newsList.addContent(time.getNews(), datePublished, timeDuration);
+        }
+    }
+
+    public void resetNewsList(ArrayList<Time> timesList) {
         newsList.clearList();
         LocalDate localDate = LocalDate.now();
         Calendar calendar = new GregorianCalendar();
