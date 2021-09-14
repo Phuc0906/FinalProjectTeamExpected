@@ -21,9 +21,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sample.SupportClass.ScrapeArticle;
-import sample.SupportClass.ScrapingCovid;
-import sample.SupportClass.SupportedMethod;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -44,37 +41,9 @@ public class Main extends Application {
         // send alert to user if they want to close the application
         primaryStage.setOnCloseRequest(event -> {
             event.consume();
-            // clear text files after closing application
-            try {
-                clearFile();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
             closeApp(primaryStage);
         });
 
-    }
-
-    // clear resource text files
-    public void clearFile() throws FileNotFoundException {
-        PrintWriter writer = new PrintWriter("src/sample/Document/categoryLinks.txt");
-        writer.print("");
-        writer.close();
-        PrintWriter writer1 = new PrintWriter("src/sample/Document/covid.txt");
-        writer1.print("");
-        writer1.close();
-        PrintWriter writer2 = new PrintWriter("src/sample/Document/nhanDancategoryLinks.txt");
-        writer2.print("");
-        writer2.close();
-        PrintWriter writer3 = new PrintWriter("src/sample/Document/thanhNiencategoryLinks.txt");
-        writer3.print("");
-        writer3.close();
-        PrintWriter writer4 = new PrintWriter("src/sample/Document/tuoiTrecategoryLinks.txt");
-        writer4.print("");
-        writer4.close();
-        PrintWriter writer5 = new PrintWriter("src/sample/Document/vnExpresscategoryLinks.txt");
-        writer5.print("");
-        writer5.close();
     }
 
     // open alert scene
