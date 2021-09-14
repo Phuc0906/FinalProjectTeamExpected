@@ -20,87 +20,58 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import sample.ArticleController;
-import sample.LoadingPage.SortingTime;
 import sample.NewsObject.News;
 import sample.NewsObject.NewsManagement;
 import sample.NewsObject.Time;
-import sample.SupportClass.ScrapingCovid;
 import sample.SupportClass.SupportedMethod;
-
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URL;
 import java.time.LocalDate;
 import java.util.*;
 
+// Create the changing class, so that all the category controller can inherit because all the category page have the same consumption of methods and attributes
 public class ChangingPage extends ChangingCategory implements Initializable {
 
+    // Create atrributes for the class
     private Stage stage;
     private Scene scene;
     private Parent root;
 
+    // Declare the supportedMethod class to consume some method for setting component
     private SupportedMethod supportedMethod = new SupportedMethod();
-    private NewsManagement newsList;
 
+    // Declare a newList to store the news' brief content and its url for scraping detail
+    private NewsManagement newsList = new NewsManagement() ;
+
+    // Create overload default constructors to load the news for difference category
     public ChangingPage() throws IOException {
-        newsList = new NewsManagement();
+        // each outlet has its own loading method
         newsList.loadNhanDan("https://nhandan.vn/Search/%22covid%22");
         newsList.loadVnExpress("https://timkiem.vnexpress.net/?q=covid");
         newsList.loadTuoiTre("https://tuoitre.vn/tim-kiem.htm?keywords=covid");
         newsList.loadThanhNien("https://thanhnien.vn/tim-kiem/Y292aWQ=/covid.html");
         newsList.loadZingNews("https://zingnews.vn/covid-tim-kiem.html");
 
-
-//        if (!isScrape()) {
-//            try {
-//                ScrapingCovid scrapingCovid = new ScrapingCovid();
-//            }catch (Exception ex) {
-//                ex.printStackTrace();
-//            }
-//        }
-//
-//        System.out.println("Done scraping");
-//
-//        File covidReader = new File("src/sample/Document/covid.txt");
-//        Scanner reader = new Scanner(covidReader);
-//        String title;
-//        String imageUrl;
-//        String description;
-//        String newsURL;
-//        while (reader.hasNextLine()) {
-//            title = reader.nextLine();
-//            description = reader.nextLine();
-//            newsURL = reader.nextLine();
-//            imageUrl = reader.nextLine();
-//            reader.nextLine(); // skip the breaking line;
-//            newsList.addContent(new News(newsURL, title, description, imageUrl));
-//        }
+        // After loading news the system will sort it from the earliest to latest news
         sortNewsList();
     }
 
-
+    // the default constructor for the other category, if that category is not related into any category, it will be load at other
     public ChangingPage(String vnExpressURL1, String vnExpressURL2, String vnExpressURL3,
                         String nhanDanUrl1, String nhanDanUrl2, String nhanDanUrl3, String nhanDanUrl4, String nhanDanUrl5,
                         String tuoiTreURL1, String tuoiTreURL2, String tuoiTreURL3, String tuoiTreURL4,
                         String thanhNienURL1, String thanhNienURL2,
                         String zingURL1, String zingURL2, String zingURL3) throws IOException {
-        newsList = new NewsManagement();
 
+        // each outlet has its own loading method
         newsList.loadVnExpress(vnExpressURL1);
         newsList.loadVnExpress(vnExpressURL2);
         newsList.loadVnExpress(vnExpressURL3);
@@ -122,68 +93,64 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         newsList.loadZingNews(zingURL1);
         newsList.loadZingNews(zingURL2);
         newsList.loadZingNews(zingURL3);
+
+        // After loading news the system will sort it from the earliest to latest news
         sortNewsList();
     }
 
+    // Use for loading each category of each newspaper
     public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL, String thanhNienURL, String zingURL) throws IOException {
-        newsList = new NewsManagement();
+        // each outlet has its own loading method
         newsList.loadVnExpress(vnExpressURL);
         newsList.loadTuoiTre(tuoiTreURL);
         newsList.loadThanhNien(thanhNienURL);
         newsList.loadNhanDan(nhanDanUrl);
         newsList.loadZingNews(zingURL);
 
+        // After loading news the system will sort it from the earliest to latest news
         sortNewsList();
     }
 
-    public ChangingPage(String zingURL) throws IOException {
-        newsList = new NewsManagement();
-        newsList.loadZingNews(zingURL);
-    }
 
-    // check if scraped
-    private boolean isScrape(){
-        File covidReader = new File("src/sample/Document/covid.txt");
-        try {
-            Scanner reader = new Scanner(covidReader);
-            if (reader.nextLine().isEmpty()) {
-                return false;
-            }else {
-                return true;
-            }
-        }catch (Exception ex) {
-            return false;
-        }
-
-    }
-
+    // use for splitting the time in the article time box
     private Time splittedTime(String time, News news) {
-        LocalDate currentDate = LocalDate.now();
+        // create 2 variable to check if that article has time or not, if not -> ignore it
         boolean dateQualified = false;
         boolean timeQualified = false;
 
+        // Create the variable to get the fully published time
         String publishedTime;
+
+        // Scraping the date and split it first
         String date = time.split("T")[0];
         int hour = 0;
         int minutes = 0;
+        // there are 2 types of date published in the article so if the date variable is empty, the program will get at differance strategy
         if (date.isEmpty()) {
             date = time.split(",")[1].replaceAll(" ", "");
             publishedTime = time.split(" ")[2];
         } else {
             publishedTime = time.split("T")[1].split("[+]")[0];
         }
+
+        // there are 2 types of time, which thier length is 5 and 8, the program will check if it matches these length of not
         if ((publishedTime.length() == 8) || (publishedTime.length() == 5)) {
             hour = Integer.parseInt(publishedTime.split(":")[0]);
             minutes = Integer.parseInt(publishedTime.split(":")[1]);
+
+            // if the time is fully scrape it will be qualified to set
             timeQualified = true;
         }
 
-
+        // This step is for scraping the date
         int day = 0;
         int month = 0;
-        int articleDuration = 0;
         // days scraping
+
+        // for all date's length must be 10, otherwise it will be unqualified
         if (date.length() == 10) {
+
+            // Splitting day, month algorithm
             if (date.split("-")[0].length() == 4) {
                 day = Integer.parseInt(date.split("-")[2]);
             } else {
@@ -191,9 +158,11 @@ public class ChangingPage extends ChangingCategory implements Initializable {
             }
             month = Integer.parseInt(date.split("-")[1]);
 
+            // after successfully scraping, it will be qualified
             dateQualified = true;
         }
 
+        // if the article's time and date is qualified the system will get it for showing out
         if (dateQualified && timeQualified && !news.getImageURL().isEmpty()) {
             return new Time(month, day, hour, minutes, news);
         }
@@ -203,11 +172,17 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     }
 
     private void setNewsTime() {
+        // create the count to count the qualified article
         int count = 0;
+
+        // create the time list to store qualified time
         ArrayList<Time> timesList = new ArrayList<>();
         for (int i = 0; i < this.newsList.getSize(); i++) {
             try {
+                // access to the article url
                 Document newsDocument = Jsoup.connect(newsList.getNews(i).getNewsURL()).timeout(200).get();
+
+                // scrape the time from the article meta, if this path does not have -> use the other path
                 String time = newsDocument.select("meta[itemprop=datePublished]").attr("content");
                 if (time.isEmpty()) {
                     time = newsDocument.select("div.box-date").text();
@@ -217,10 +192,16 @@ public class ChangingPage extends ChangingCategory implements Initializable {
                     time = newsDocument.select("meta[property=article:published_time]").attr("content");
                 }
 
+                // Call the Time class to store the splitted time
                 Time newsTime = splittedTime(time, newsList.getNews(i));
+
+                // check if the time is empty or the newsTime is not qualified -> ignore it
                 if (!time.isEmpty() && (newsTime != null)) {
+                    // add to the newsList
                     timesList.add(newsTime);
                     count++;
+
+                    // if the system scrapped 50 article it will stop because of the time limited
                     if (count == 50) break;
                 }
             } catch (Exception ex) {
@@ -229,7 +210,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         }
 
 
-        // sorting time list
+        // sorting time list using selection sort
         for (int i = 0; i < timesList.size() - 1; i++) {
             for (int k = i; k < timesList.size(); k++) {
                 if (timesList.get(i).getMonth() < timesList.get(k).getMonth()) {
@@ -260,35 +241,8 @@ public class ChangingPage extends ChangingCategory implements Initializable {
 
         // re-write newlist
         newsList.clearList();
-        LocalDate localDate = LocalDate.now();
-        Calendar calendar = new GregorianCalendar();
-        String timeDuration = "";
-        String datePublished;
-        for (Time time : timesList) {
-            if (localDate.getMonthValue() - time.getMonth() == 0) {
-                if (localDate.getDayOfMonth() - time.getDay() == 0) {
-                    if (calendar.get(Calendar.HOUR_OF_DAY) - time.getHour() == 0) {
-                        if (calendar.get(Calendar.MINUTE) - time.getMinute() == 0) {
-                            timeDuration = "Just now";
-                        } else {
-                            timeDuration = (calendar.get(Calendar.MINUTE) - time.getMinute()) + " minutes ago";
-                        }
-                    } else {
-                        timeDuration = (calendar.get(Calendar.HOUR_OF_DAY) - time.getHour()) + " hours ago";
-                    }
-                } else {
-                    timeDuration = (localDate.getDayOfMonth() - time.getDay()) + " days ago";
-                }
-            } else {
-                timeDuration = (localDate.getMonthValue() - time.getMonth()) + " months ago";
-            }
-            datePublished = time.getDay() + "/" + time.getMonth() + "/" + localDate.getYear() + " - " + time.getHour() + ":" + time.getMinute();
-            newsList.addContent(time.getNews(), datePublished, timeDuration);
-        }
-    }
 
-    public void resetNewsList(ArrayList<Time> timesList) {
-        newsList.clearList();
+        // use local date class to compute the time duration of article
         LocalDate localDate = LocalDate.now();
         Calendar calendar = new GregorianCalendar();
         String timeDuration = "";
