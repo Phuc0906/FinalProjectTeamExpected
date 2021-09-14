@@ -117,8 +117,6 @@ public class ChangingCategory implements Initializable {
         politicsController.setTime();
         politicsController.setOutlet();
 
-        Thread thread = new Thread(new ShowingStage());
-        thread.start();
 
         // get current stage
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -127,19 +125,18 @@ public class ChangingCategory implements Initializable {
         stage.show();
     }
 
-    class ShowingStage implements Runnable {
 
-        @Override
-        public void run() {
-            Stage stage = new Stage();
-        }
-    }
+    // Set the action event for each category button
 
+    // Action event for business page
     public void toBusinessPage(ActionEvent actionEvent) throws IOException {
+        // Load the fxml page and load it to the Parent class
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/BusinessPage.fxml"));
         root = loader.load();
 
         // set up content of the category
+
+        // Load the page controller of business page and then set the component to perform the category
         BusinessController businessController = loader.getController();
         businessController.setImgList();
         businessController.setTitle();
