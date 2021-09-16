@@ -23,7 +23,7 @@
                             <children>
                                 <HBox prefWidth="200.0">
                                     <children>
-                                        <Label styleClass="intro" text="BREAKING NEWS">
+                                        <Label styleClass="intro" text="T H E ; E X P E C T E D">
                                             <font>
                                                 <Font name="SansSerif Bold Italic" size="24.0" />
                                             </font>
@@ -113,7 +113,7 @@
                <children>
                         <Button mnemonicParsing="false" onAction="#back" styleClass="btnBack" text="Go back &lt;" underline="true" />
                         <VBox fx:id="articleBox" prefWidth="801.0" spacing="10.0" styleClass="secondary-pane" />
-                        <Label styleClass="intro" text="BREAKING NEWS">
+                        <Label styleClass="intro" text="T H E ; E X P E C T E D">
                             <font>
                                 <Font name="System Bold Italic" size="24.0" />
                             </font>
