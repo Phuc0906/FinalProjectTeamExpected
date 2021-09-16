@@ -36,7 +36,7 @@ public class Main extends Application {
         try {
             homePage = loader.load();
         }catch (Exception ex) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
+            loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
             homePage = null;
             try {
                 homePage = loader.load();
