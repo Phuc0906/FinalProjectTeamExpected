@@ -13,11 +13,11 @@
 */
 package sample;
 
-import sample.BaseController.ChangingPage;
+import sample.BaseController.CategoryPage;
 
 import java.io.IOException;
 
-public class PoliticsController extends ChangingPage {
+public class PoliticsController extends CategoryPage {
     public PoliticsController() throws IOException {
         super("https://vnexpress.net/phap-luat", "https://nhandan.vn/chinhtri", "https://tuoitre.vn/phap-luat.htm", "https://thanhnien.vn/thoi-su/", "https://zingnews.vn/chinh-tri.html");
     }

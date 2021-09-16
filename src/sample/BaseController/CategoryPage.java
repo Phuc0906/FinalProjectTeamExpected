@@ -38,7 +38,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 // Create the changing class, so that all the category controller can inherit because all the category page have the same consumption of methods and attributes
-public class ChangingPage extends ChangingCategory implements Initializable {
+public class CategoryPage extends ChangingCategory implements Initializable {
 
     @FXML
     AnchorPane coverPane;
@@ -74,7 +74,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     private NewsManagement newsList = new NewsManagement() ;
 
     // the default constructor for the other category, if that category is not related into any category, it will be load at other
-    public ChangingPage(String vnExpressURL1, String vnExpressURL2, String vnExpressURL3,
+    public CategoryPage(String vnExpressURL1, String vnExpressURL2, String vnExpressURL3,
                         String nhanDanUrl1, String nhanDanUrl2, String nhanDanUrl3, String nhanDanUrl4, String nhanDanUrl5,
                         String tuoiTreURL1, String tuoiTreURL2, String tuoiTreURL3, String tuoiTreURL4,
                         String thanhNienURL1, String thanhNienURL2,
@@ -108,7 +108,7 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     }
 
     // Use for loading each category of each newspaper
-    public ChangingPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL, String thanhNienURL, String zingURL) throws IOException {
+    public CategoryPage(String vnExpressURL, String nhanDanUrl, String tuoiTreURL, String thanhNienURL, String zingURL) throws IOException {
         // each outlet has its own loading method
         newsList.loadVnExpress(vnExpressURL);
         newsList.loadTuoiTre(tuoiTreURL);

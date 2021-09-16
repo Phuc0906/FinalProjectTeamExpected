@@ -13,11 +13,11 @@
 */
 package sample;
 
-import sample.BaseController.ChangingPage;
+import sample.BaseController.CategoryPage;
 
 import java.io.IOException;
 
-public class NewController extends ChangingPage {
+public class NewController extends CategoryPage {
     public NewController () throws IOException {
         super("https://vnexpress.net", "https://nhandan.vn", "https://tuoitre.vn", "https://thanhnien.vn", "https://zingnews.vn");
     }

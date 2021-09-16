@@ -85,7 +85,6 @@ public class ArticleController extends ChangingCategory {
 
         // scrape paragraphs and images
         Document doc = Jsoup.connect(news.getNewsURL()).get();
-        System.out.println(news.getNewsURL());
         switch (news.getNewsOutlet()) {
             // scrape article from VN express
             case "VN Express": {
@@ -307,7 +306,16 @@ public class ArticleController extends ChangingCategory {
                 articleBox.getChildren().addAll(idPhoto, idPhotoDescription);
 
                 int cnt = 0;
-                Elements elements = doc.select("div#abody div");
+                Elements elements1 = doc.select("div[itemprop=articleBody] div p");
+                Elements elements2 = doc.select("div[itemprop=articleBody] div");
+                Elements elements;
+
+                if (elements1.size() < elements2.size()) {
+                    elements = elements2;
+                }else {
+                    elements = elements1;
+                }
+
                 for (Element paragraph : elements) {
                     if (imgList.size() > 0 && paragraph.text().contains(desList.get(cnt)) && cnt < desList.size() - 1) {
                         try {

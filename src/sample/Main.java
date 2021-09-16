@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 public class Main extends Application {
@@ -30,7 +31,28 @@ public class Main extends Application {
     @Override
     public void start (Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/LoadingScreen.fxml"));
-        Parent homePage = loader.load();
+        Parent homePage;
+
+        try {
+            homePage = loader.load();
+        }catch (Exception ex) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("pageFXML/NewPage.fxml"));
+            homePage = null;
+            try {
+                homePage = loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            // set content for the homepage
+            NewController newController = loader.getController();
+            newController.setTitle();
+            newController.setDescription();
+            newController.setImgList();
+            newController.setTime();
+            newController.setOutlet();
+        }
+
 
 //        // show the stage
         primaryStage.setTitle("The ; expected");

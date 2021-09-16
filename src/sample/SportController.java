@@ -13,11 +13,11 @@
 */
 package sample;
 
-import sample.BaseController.ChangingPage;
+import sample.BaseController.CategoryPage;
 
 import java.io.IOException;
 
-public class SportController extends ChangingPage {
+public class SportController extends CategoryPage {
     public SportController() throws IOException {
         super("https://vnexpress.net/the-thao", "https://nhandan.vn/thethao", "https://tuoitre.vn/the-thao.htm", "https://thanhnien.vn/the-thao/", "https://zingnews.vn/the-thao.html");
     }

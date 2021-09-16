@@ -13,11 +13,11 @@
 */
 package sample;
 
-import sample.BaseController.ChangingPage;
+import sample.BaseController.CategoryPage;
 import java.io.IOException;
 
 
-public class CovidController extends ChangingPage {
+public class CovidController extends CategoryPage {
 
 
     public CovidController() throws IOException {
