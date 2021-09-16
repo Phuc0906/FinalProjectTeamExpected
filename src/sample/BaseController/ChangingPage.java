@@ -73,19 +73,6 @@ public class ChangingPage extends ChangingCategory implements Initializable {
     // Declare a newList to store the news' brief content and its url for scraping detail
     private NewsManagement newsList = new NewsManagement() ;
 
-    // Create overload default constructors to load the news for difference category
-    public ChangingPage() throws IOException {
-        // each outlet has its own loading method
-        newsList.loadNhanDan("https://nhandan.vn/Search/%22covid%22");
-        newsList.loadVnExpress("https://timkiem.vnexpress.net/?q=covid");
-        newsList.loadTuoiTre("https://tuoitre.vn/tim-kiem.htm?keywords=covid");
-        newsList.loadThanhNien("https://thanhnien.vn/tim-kiem/Y292aWQ=/covid.html");
-        newsList.loadZingNews("https://zingnews.vn/covid-tim-kiem.html");
-
-        // After loading news the system will sort it from the earliest to latest news
-        sortNewsList();
-    }
-
     // the default constructor for the other category, if that category is not related into any category, it will be load at other
     public ChangingPage(String vnExpressURL1, String vnExpressURL2, String vnExpressURL3,
                         String nhanDanUrl1, String nhanDanUrl2, String nhanDanUrl3, String nhanDanUrl4, String nhanDanUrl5,

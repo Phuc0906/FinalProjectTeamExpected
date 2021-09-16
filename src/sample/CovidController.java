@@ -18,7 +18,9 @@ import java.io.IOException;
 
 
 public class CovidController extends ChangingPage {
-    public CovidController() throws IOException {
 
+
+    public CovidController() throws IOException {
+        super("https://timkiem.vnexpress.net/?q=covid", "https://nhandan.vn/Search/%22covid%22", "https://tuoitre.vn/tim-kiem.htm?keywords=covid", "https://thanhnien.vn/tim-kiem/Y292aWQ=/covid.html", "https://zingnews.vn/covid-tim-kiem.html");
     }
 }
