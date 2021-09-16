@@ -24,14 +24,6 @@ import java.util.ArrayList;
 public class NewsManagement {
     ArrayList<News> newsList = new ArrayList<>();
 
-
-    public NewsManagement() {
-    }
-
-    public void addContent(News news) {
-        newsList.add(new News(news.getNewsURL(), news.getTitle(), news.getDescription(), news.getImageURL()));
-    }
-
     public void addContent(News news, String publishedDate, String timeDuration) {
         newsList.add(new News(news.getNewsURL(), news.getTitle(), news.getDescription(), news.getImageURL(), publishedDate, timeDuration));
     }
@@ -53,23 +45,6 @@ public class NewsManagement {
             if (imageURL.isEmpty() || title.isEmpty()) {
                 continue;
             }
-            this.newsList.add(new News(newsURL, title, description, imageURL));
-        }
-    }
-
-    public void loadThanhNienSport(String url) throws  IOException {
-        String newsURL;
-        String title;
-        String description;
-        String imageURL;
-        Document doc = Jsoup.connect(url).get();
-        Elements el = doc.select("div.col390");
-        if (el.isEmpty()) el = doc.select("div.feature");
-        for (Element element : el.select("article")) {
-            newsURL = element.select("article.story--primary a").attr("href");
-            title = element.select("article.story--primary a").attr("title");
-            imageURL = element.select("article.story--primary a img").attr("src");
-            description = "";
             this.newsList.add(new News(newsURL, title, description, imageURL));
         }
     }

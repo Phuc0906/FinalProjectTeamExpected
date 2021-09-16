@@ -40,6 +40,28 @@ import java.util.*;
 // Create the changing class, so that all the category controller can inherit because all the category page have the same consumption of methods and attributes
 public class ChangingPage extends ChangingCategory implements Initializable {
 
+    @FXML
+    AnchorPane coverPane;
+
+    @FXML
+    ScrollPane parent;
+
+
+    @FXML
+    ArrayList<ImageView> imgList;
+
+    @FXML
+    ArrayList<Label> titleList;
+
+    @FXML
+    ArrayList<Label> descriptionList;
+
+    @FXML
+    ArrayList<Label> timeList;
+
+    @FXML
+    ArrayList<Label> outletList;
+
     // Create atrributes for the class
     private Stage stage;
     private Scene scene;
@@ -171,7 +193,9 @@ public class ChangingPage extends ChangingCategory implements Initializable {
 
     }
 
-    private void setNewsTime() {
+
+
+    private void sortNewsList() {
         // create the count to count the qualified article
         int count = 0;
 
@@ -270,99 +294,67 @@ public class ChangingPage extends ChangingCategory implements Initializable {
         }
     }
 
-
-    private void sortNewsList() {
-        setNewsTime();
-    }
-
-    public void setThanhNienSport(String ThanhNienUrl) throws IOException {
-        newsList = new NewsManagement();
-        newsList.loadThanhNienSport(ThanhNienUrl);
-    }
-
-    @FXML
-    AnchorPane coverPane;
-
-    @FXML
-    ScrollPane parent;
-
-
-    @FXML
-    ArrayList<ImageView> imgList;
-
-    @FXML
-    ArrayList<Label> titleList;
-
-    @FXML
-    ArrayList<Label> descriptionList;
-
-    @FXML
-    ArrayList<Label> timeList;
-
-    @FXML
-    ArrayList<Label> outletList;
-
     // set images for 1,2,3,4,5 button
     public void setImgList() {
-        new SupportedMethod().setImgList(imgList, 0, this.newsList, coverPane);
+        new SupportedMethod().setImgList(imgList, 0, this.newsList);
     }
 
     public void setImgList2() {
-        supportedMethod.setImgList(imgList, 10, this.newsList, coverPane);
+        supportedMethod.setImgList(imgList, 10, this.newsList);
     }
 
     public void setImgList3() {
-        supportedMethod.setImgList(imgList, 20, this.newsList, coverPane);
+        supportedMethod.setImgList(imgList, 20, this.newsList);
     }
 
     public void setImgList4() {
-        supportedMethod.setImgList(imgList, 30, this.newsList, coverPane);
+        supportedMethod.setImgList(imgList, 30, this.newsList);
     }
 
     public void setImgList5() {
-        supportedMethod.setImgList(imgList, 40, this.newsList, coverPane);
+        supportedMethod.setImgList(imgList, 40, this.newsList);
     }
 
     // set description for 1,2,3,4,5 button
     public void setDescription() {
-        supportedMethod.setDescriptionList(descriptionList, 0, this.newsList, imgList, coverPane);
+        supportedMethod.setDescriptionList(descriptionList, 0, this.newsList);
     }
 
     public void setDescription2() {
-        supportedMethod.setDescriptionList(descriptionList, 10, this.newsList, imgList, coverPane);
+        supportedMethod.setDescriptionList(descriptionList, 10, this.newsList);
     }
 
     public void setDescription3() {
-        supportedMethod.setDescriptionList(descriptionList, 20, this.newsList, imgList, coverPane);
+        supportedMethod.setDescriptionList(descriptionList, 20, this.newsList);
     }
 
     public void setDescription4() {
-        supportedMethod.setDescriptionList(descriptionList, 30, this.newsList, imgList, coverPane);
+        supportedMethod.setDescriptionList(descriptionList, 30, this.newsList);
     }
 
     public void setDescription5() {
-        supportedMethod.setDescriptionList(descriptionList, 40, this.newsList, imgList, coverPane);
+        supportedMethod.setDescriptionList(descriptionList, 40, this.newsList);
     }
 
     // set title for 1,2,3,4,5 button
     public void setTitle() {
-        supportedMethod.setTitleList(titleList, 0, this.newsList, imgList, coverPane);
+        supportedMethod.setTitleList(titleList, 0, this.newsList);
     }
 
     public void setTitle2() {
-        supportedMethod.setTitleList(titleList, 10, this.newsList, imgList, coverPane);
+        supportedMethod.setTitleList(titleList, 10, this.newsList);
     }
 
     public void setTitle3() {
-        supportedMethod.setTitleList(titleList, 20, this.newsList, imgList, coverPane);
+        supportedMethod.setTitleList(titleList, 20, this.newsList);
     }
 
     public void setTitle4() {
-        supportedMethod.setTitleList(titleList, 30, this.newsList, imgList, coverPane);
+        supportedMethod.setTitleList(titleList, 30, this.newsList);
     }
 
     public void setTitle5() {
-        supportedMethod.setTitleList(titleList, 40, this.newsList, imgList, coverPane);
+        supportedMethod.setTitleList(titleList, 40, this.newsList);
     }
 
     public void setTime() {

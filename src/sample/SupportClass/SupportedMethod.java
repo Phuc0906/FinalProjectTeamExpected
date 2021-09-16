@@ -37,7 +37,7 @@ import java.util.List;
 
 public class SupportedMethod {
 
-    public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, AnchorPane coverPane){
+    public void setTitleList(ArrayList<Label> labelList, int begin, NewsManagement newsList){
         int count = begin;
         for (Label title: labelList) {
             title.setFont(Font.font("Time New Roman", FontWeight.BOLD, 25));
@@ -48,7 +48,7 @@ public class SupportedMethod {
         }
     }
 
-    public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList, ArrayList<ImageView> imgLayouts, AnchorPane coverPane){
+    public void setDescriptionList(ArrayList<Label> labelList, int begin, NewsManagement newsList){
         int count = begin;
         for (Label description: labelList) {
             description.setFont(Font.font("Time New Roman", FontWeight.NORMAL, 15));
@@ -59,7 +59,7 @@ public class SupportedMethod {
         }
     }
 
-    public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList, AnchorPane coverPane){
+    public void setImgList(ArrayList<ImageView> imgList, int begin, NewsManagement newsList){
         int count = begin;
         for (ImageView img: imgList) {
             try {
@@ -85,21 +85,6 @@ public class SupportedMethod {
             outletLabel.setText(newsList.getNews(count).getNewsOutlet());
             count++;
         }
-    }
-
-    public void ThanhNienArtical (String URL) throws IOException {
-        List<String> imgList = new ArrayList<>();
-        List<String> desList = new ArrayList<>();
-
-        Document doc = Jsoup.connect(URL).get();
-        Elements elements = doc.select("figure");
-        for (Element element : elements) {
-            String imgURL = element.select("a img").attr("src");
-            System.out.println(imgURL);
-            String imgDes = element.select("a img").attr("alt");
-            System.out.println(imgDes);
-        }
-
     }
 
 }
