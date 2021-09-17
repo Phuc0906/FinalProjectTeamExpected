@@ -19,7 +19,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
@@ -39,8 +38,10 @@ public class ChangingCategory implements Initializable {
     @FXML
     private Button btnMode;
 
+
     protected static boolean isLightMode = true;
 
+    //Method change Light <-> Dark mode
     @FXML
     public void changeMode() {
         isLightMode = !isLightMode;
@@ -48,19 +49,21 @@ public class ChangingCategory implements Initializable {
         else setDarkMode();
     }
 
-
+    //Set style light mode for stage
     public void setLightMode() {
         parent.getStylesheets().remove("fileCss/styleDarkMode.css");
         parent.getStylesheets().add("fileCss/styleLightMode.css");
         btnMode.setText("Dark");
     }
 
+    //Set style dark mode for stage
     public void setDarkMode() {
         parent.getStylesheets().remove("fileCss/styleLightMode.css");
         parent.getStylesheets().add("fileCss/styleDarkMode.css");
         btnMode.setText("Light");
     }
 
+    //Sync mode with previous page when navigate to new page
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (!isLightMode) setDarkMode();

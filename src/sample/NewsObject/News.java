@@ -9,7 +9,7 @@
     Le Tan Phong s3877819
     Thai Thuan s3877024
   Last modified date: 11/9/2021
-  Acknowledgement: Thanks and give credits to the resources that you used in this file
+  Acknowledgement:
 */
 package sample.NewsObject;
 
