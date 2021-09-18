@@ -38,7 +38,7 @@
                                 </HBox>
                                 <FlowPane alignment="CENTER" hgap="5.0" prefWidth="200.0" vgap="10.0">
                                     <children>
-                                        <Button mnemonicParsing="false" onAction="#toNewPage" styleClass="button-cate" text="New">
+                                        <Button mnemonicParsing="false" onAction="#toNewPage" styleClass="button-cate" text="Newest">
                                             <font>
                                                 <Font name="System Bold" size="16.0" />
                                             </font>
