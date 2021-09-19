@@ -95,13 +95,13 @@
                                         <Insets bottom="10.0" />
                                     </padding>
                                 </FlowPane>
-                                <Line endX="537.2717895507812" endY="-3.8285269737243652" startX="400.0" startY="-3.8285555839538574" styleClass="line" />
+                                <Line endX="537.2717895507812" endY="-3.8285269737243652" startX="360.0" startY="-3.8285555839538574" styleClass="line" />
                                 <Label alignment="CENTER" styleClass="tittle" text="NEWEST">
                                     <font>
                                         <Font name="Rockwell Bold" size="35.0" />
                                     </font>
                                 </Label>
-                                <Line endX="537.2717895507812" endY="-3.8285269737243652" startX="400.0" startY="-3.8285555839538574" styleClass="line" VBox.vgrow="ALWAYS" />
+                                <Line endX="537.2717895507812" endY="-3.8285269737243652" startX="360.0" startY="-3.8285555839538574" styleClass="line" VBox.vgrow="ALWAYS" />
                             </children>
                             <padding>
                                 <Insets left="5.0" right="5.0" />
