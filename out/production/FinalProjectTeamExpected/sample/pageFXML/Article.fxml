@@ -23,7 +23,7 @@
                             <children>
                                 <HBox prefWidth="200.0">
                                     <children>
-                                        <Label styleClass="intro" text="T H E ; E X P E C T E D">
+                                        <Label minWidth="-Infinity" styleClass="intro" text="T H E ; E X P E C T E D">
                                             <font>
                                                 <Font name="SansSerif Bold Italic" size="24.0" />
                                             </font>
@@ -115,7 +115,7 @@
                         <VBox fx:id="articleBox" prefWidth="801.0" spacing="10.0" styleClass="secondary-pane" />
                         <Label styleClass="intro" text="T H E ; E X P E C T E D">
                             <font>
-                                <Font name="System Bold Italic" size="24.0" />
+                                <Font name="SansSerif Bold Italic" size="24.0" />
                             </font>
                         </Label>
                </children>

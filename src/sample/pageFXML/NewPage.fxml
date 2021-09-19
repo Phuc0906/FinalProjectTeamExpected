@@ -25,13 +25,13 @@
                             <children>
                                 <HBox prefWidth="200.0">
                                     <children>
-                                        <Label styleClass="intro" text="T H E ; E X P E C T E D">
+                                        <Label minWidth="-Infinity" prefHeight="27.0" prefWidth="264.0" styleClass="intro" text="T H E ; E X P E C T E D">
                                             <font>
                                                 <Font name="SansSerif Bold Italic" size="24.0" />
                                             </font>
                                         </Label>
                                         <Pane prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                        <Button fx:id="btnMode" mnemonicParsing="false" onAction="#changeMode" styleClass="buttonMode" text="Dark">
+                                        <Button fx:id="btnMode" minWidth="-Infinity" mnemonicParsing="false" onAction="#changeMode" styleClass="buttonMode" text="Dark">
                                             <font>
                                                 <Font name="System Bold" size="12.0" />
                                             </font>
@@ -432,7 +432,7 @@
                                 </FlowPane>
                                 <Label styleClass="intro" text="T H E ; E X P E C T E D">
                                     <font>
-                                        <Font name="System Bold Italic" size="24.0" />
+                                        <Font name="SansSerif Bold Italic" size="24.0" />
                                     </font>
                                 </Label>
                             </children>
